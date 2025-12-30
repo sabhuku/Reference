@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Citation</title>
+  </head>
+  <body>
+    <h1>Citation (style: {{ style }})</h1>
+    <h2>In-text</h2>
+    <p id="intext">{{ in_text }}</p>
+
+    <h2>Full reference</h2>
+    <p id="fullref">{{ full_ref }}</p>
+    <p><button id="copyBtn">Copy full reference</button></p>
+
+    <h3>Source data</h3>
+    <pre>{{ pub | tojson(indent=2) }}</pre>
+
+    <p><a href="/">Back</a> | <a href="/bibliography">Bibliography</a></p>
+    <script>
+      document.getElementById('copyBtn').addEventListener('click', function(){
+        const text = document.getElementById('fullref').innerText;
+        if(navigator.clipboard){
+          navigator.clipboard.writeText(text).then(()=>{ alert('Copied to clipboard'); }).catch(()=>{ alert('Copy failed'); });
+        } else {
+          alert('Clipboard API not available');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+[
+  {
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon J.A.",
+      "Duran, Olga",
+      "Nebel, Jean-Christophe"
+    ],
+    "doi": "10.1109/ie51775.2021.9486575",
+    "issue": "",
+    "journal": "2021 17th International Conference on Intelligent Environments (IE)",
+    "location": "",
+    "pages": "1-4",
+    "pub_type": "proceedings-article",
+    "publisher": "IEEE",
+    "source": "crossref",
+    "title": "Use of LSTM Networks to Identify “Queenlessness” in Honeybee Hives from Audio Signals",
+    "volume": "",
+    "year": "2021"
+  },
+  {
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon",
+      "Nebel, Jean-Christophe",
+      "Duran, Olga"
+    ],
+    "doi": "10.3233/aise220032",
+    "issue": "",
+    "journal": "Ambient Intelligence and Smart Environments",
+    "location": "",
+    "pages": "",
+    "pub_type": "book-chapter",
+    "publisher": "IOS Press",
+    "source": "crossref",
+    "title": "Prediction of Honeybee Swarms Using Audio Signals and Convolutional Neural Networks",
+    "volume": "",
+    "year": "2022"
+  },
+  {
+    "authors": [
+      "Chasakara, Rachael",
+      "Vrancken, Patrick"
+    ],
+    "doi": "10.18820/9781991201072/03",
+    "issue": "",
+    "journal": "African perspectives on selected marine, maritime and international trade law topics",
+    "location": "",
+    "pages": "53-70",
+    "pub_type": "book-chapter",
+    "publisher": "African Sun Media",
+    "source": "crossref",
+    "title": "Co-operative government in marine spatial planning",
+    "url": "https://doi.org/10.18820/9781991201072/03",
+    "volume": "",
+    "year": "2020"
+  }
+]

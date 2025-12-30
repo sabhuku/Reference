@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bibliography</title>
+  </head>
+  <body>
+    <h1>Bibliography (style: {{ style }})</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div style="padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; background-color: {% if category == 'success' %}#d4edda{% elif category == 'error' %}#f8d7da{% elif category == 'info' %}#d1ecf1{% else %}#fff3cd{% endif %}; color: {% if category == 'success' %}#155724{% elif category == 'error' %}#721c24{% elif category == 'info' %}#0c5460{% else %}#856404{% endif %};">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    {% if refs %}
+      <ol>
+        {% for r in refs %}
+          <li>
+            {{ r.title }} — {{ r.year }} — {{ r.journal or r.publisher }}<br>
+            <form action="/cite" method="post" style="display:inline">
+              <input type="hidden" name="pub" value='{{ r | tojson | safe }}'>
+              <label style="font-size:90%">Style:
+                <select name="style">
+                  <option value="harvard"{% if style=='harvard' %} selected{% endif %}>Harvard</option>
+                  <option value="apa"{% if style=='apa' %} selected{% endif %}>APA</option>
+                  <option value="ieee"{% if style=='ieee' %} selected{% endif %}>IEEE</option>
+                  <option value="mla"{% if style=='mla' %} selected{% endif %}>MLA</option>
+                  <option value="chicago"{% if style=='chicago' %} selected{% endif %}>Chicago</option>
+                  <option value="vancouver"{% if style=='vancouver' %} selected{% endif %}>Vancouver</option>
+                </select>
+              </label>
+              <button type="submit">Generate citation</button>
+            </form>
+            <form action="/remove/{{ loop.index0 }}" method="post" style="display:inline; margin-left:8px">
+              <button type="submit">Remove</button>
+            </form>
+            <a href="/edit/{{ loop.index0 }}" style="margin-left:8px">Edit</a>
+          </li>
+        {% endfor %}
+      </ol>
+      <p><a href="{{ url_for('export_word') }}">Export to Word (.docx)</a></p>
+    {% else %}
+      <p>(No items)</p>
+    {% endif %}
+    <p><a href="/">Back</a></p>
+  </body>
+</html>
