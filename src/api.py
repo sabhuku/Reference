@@ -67,31 +67,39 @@ class CrossRefAPI(BaseAPI):
             
         items = data.get("message", {}).get("items", [])
         
-        def filter_items(items, t_first, t_last):
-            matches = []
-            for item in items:
-                # Check for match in any author of the work
-                for a in item.get("author", []):
+        filtered_items = []
+        
+        # Check if we should try reversed interpretation (if 2 words)
+        try_reversed = False
+        target_first_rev, target_last_rev = "", ""
+        parts = author.split()
+        if len(parts) == 2:
+             try_reversed = True
+             # Simple swap of the original guess or the raw parts
+             target_first_rev = target_last
+             target_last_rev = target_first
+
+        for item in items:
+            match_found = False
+            # Check for match in any author of the work using primary guess
+            for a in item.get("author", []):
+                given = a.get("given", "")
+                family = a.get("family", "")
+                if names_match(target_first, target_last, given, family):
+                    match_found = True
+                    break
+            
+            # If no match and reversed is plausible, try that
+            if not match_found and try_reversed:
+                 for a in item.get("author", []):
                     given = a.get("given", "")
                     family = a.get("family", "")
-                    if names_match(t_first, t_last, given, family):
-                        matches.append(item)
+                    if names_match(target_first_rev, target_last_rev, given, family):
+                        match_found = True
                         break
-            return matches
-
-        filtered_items = filter_items(items, target_first, target_last)
-        
-        # If no results and query is likely "FirstName LastName" (2 parts), try reversed "LastName FirstName"
-        if not filtered_items and len(author.split()) == 2:
-            # Swap interpretation: what was first is now last, and vice versa
-            # Note: guess_first_last logic might have already split them.
-            # Simplified swap:
-            parts = author.split()
-            # If original was A B, new try is B A
-            # Recalculate targets manually or just swap what we got if simple
-            if target_first and target_last and " " not in target_first and " " not in target_last:
-                 # Try swapping
-                 filtered_items = filter_items(items, target_last, target_first)
+            
+            if match_found:
+                filtered_items.append(item)
 
         return [self._parse_response(item) for item in filtered_items]
 
