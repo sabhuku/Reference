@@ -68,8 +68,17 @@ class ReferenceManager:
     def _save_cache(self) -> None:
         """Save cache to file."""
         try:
+            from dataclasses import asdict, is_dataclass
+            
+            # Helper to convert dataclasses to dicts recursively
+            class EnhancedJSONEncoder(json.JSONEncoder):
+                def default(self, o):
+                    if is_dataclass(o):
+                        return asdict(o)
+                    return super().default(o)
+                    
             with open(self.config.CACHE_FILE, "w", encoding="utf-8") as f:
-                json.dump(self.cache, f, indent=2, ensure_ascii=False)
+                json.dump(self.cache, f, indent=2, ensure_ascii=False, cls=EnhancedJSONEncoder)
         except Exception as e:
             logging.error(f"Error saving cache: {e}")
     
@@ -110,8 +119,8 @@ class ReferenceManager:
             return self.cache[key]
         
         try:
-            works_crossref = self.crossref.search_author(author)
-            works_gb = self.google_books.search_author(author)
+            works_crossref = self.crossref.search_author(author) or []
+            works_gb = self.google_books.search_author(author) or []
             
             # Combine results
             works = works_crossref + works_gb

@@ -196,3 +196,32 @@ class GoogleBooksAPI(BaseAPI):
             
         items = data.get("items", [])
         return [self._parse_response(item) for item in items if item]
+
+    def _parse_response(self, item: Dict) -> Publication:
+        """Parse Google Books API response into Publication object."""
+        v = item.get("volumeInfo", {})
+        
+        # Handle authors
+        raw_authors = v.get("authors", [])
+        authors = []
+        for a in raw_authors:
+            # Simple author name cleaning
+            authors.append(a)
+            
+        pubdate = v.get("publishedDate", "n.d.")
+        year = pubdate.split("-")[0] if pubdate != "n.d." else "n.d."
+        
+        return Publication(
+            source="google_books",
+            pub_type="book",
+            authors=authors,
+            year=year,
+            title=v.get("title", "NO TITLE"),
+            journal="",
+            publisher=v.get("publisher", ""),
+            location="",
+            volume="",
+            issue="",
+            pages=str(v.get("pageCount", "")),
+            doi=""
+        )
