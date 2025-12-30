@@ -1,3 +1,1071 @@
 {
-  "author:Test Author": [
-    
+  "query:Christopher bishop": {
+    "source": "google_books",
+    "pub_type": "book",
+    "authors": [
+      "Ronald Russell",
+      "Alex Medvedev"
+    ],
+    "year": "2017",
+    "title": "Christopher Bishop",
+    "journal": "",
+    "publisher": "",
+    "location": "",
+    "volume": "",
+    "issue": "",
+    "pages": "86",
+    "doi": ""
+  },
+  "query:bishop christopher": {
+    "source": "google_books",
+    "pub_type": "book",
+    "authors": [
+      "John Henry Overton",
+      "Dame Elizabeth Wordsworth"
+    ],
+    "year": "1888",
+    "title": "Christopher Wordsworth, Bishop of Lincoln, 1807-1885",
+    "journal": "",
+    "publisher": "London : Rivingtons",
+    "location": "",
+    "volume": "",
+    "issue": "",
+    "pages": "592",
+    "doi": ""
+  },
+  "author:bishop christopher": [
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1996",
+      "title": "A distance formula for algebras on the disk",
+      "journal": "Pacific Journal of Mathematics",
+      "publisher": "Mathematical Sciences Publishers",
+      "location": "",
+      "volume": "174",
+      "issue": "1",
+      "pages": "1-27",
+      "doi": "10.2140/pjm.1996.174.1"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2020",
+      "title": "The Dark Gaze of Galla Placidia",
+      "journal": "Orientalism and the Reception of Powerful Women from the Ancient World",
+      "publisher": "Bloomsbury Academic",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.5040/9781350077416.ch-010"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2012",
+      "title": "Interpretation and Modelling of the Pedirka Basin (central Australia) using Magnetics, Gravity, Well-log and Seismic data",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Australian Society of Exploration Geophysicists",
+      "location": "",
+      "volume": "2012",
+      "issue": "1",
+      "pages": "1-4",
+      "doi": "10.1071/aseg2012ab155"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2019",
+      "title": "Neuroinflammation: Fanning the fire of <scp>l</scp>‐dopa‐induced dyskinesia",
+      "journal": "Movement Disorders",
+      "publisher": "Wiley",
+      "location": "",
+      "volume": "34",
+      "issue": "12",
+      "pages": "1758-1760",
+      "doi": "10.1002/mds.27900"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "component",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "None",
+      "title": "NO TITLE",
+      "journal": "",
+      "publisher": "Institution of Engineering and Technology (IET)",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.1049/iet-tv.47.1005"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2014",
+      "title": "Neural Networks",
+      "journal": "Computing Handbook, Third Edition",
+      "publisher": "Chapman and Hall/CRC",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "1-24",
+      "doi": "10.1201/b16812-48"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1999",
+      "title": "Political science",
+      "journal": "Physics World",
+      "publisher": "IOP Publishing",
+      "location": "",
+      "volume": "12",
+      "issue": "7",
+      "pages": "17-17",
+      "doi": "10.1088/2058-7058/12/7/17"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2022",
+      "title": "The burden of the present in Gareth Brookes, <i>The Dancing Plague</i>",
+      "journal": "Visual Studies",
+      "publisher": "Informa UK Limited",
+      "location": "",
+      "volume": "37",
+      "issue": "5",
+      "pages": "502-510",
+      "doi": "10.1080/1472586x.2022.2050101"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1987",
+      "title": "Christnacht",
+      "journal": "The Musical Times",
+      "publisher": "JSTOR",
+      "location": "",
+      "volume": "128",
+      "issue": "1732",
+      "pages": "315",
+      "doi": "10.2307/1193728"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2005",
+      "title": "Machines that learn",
+      "journal": "ITNOW",
+      "publisher": "Oxford University Press (OUP)",
+      "location": "",
+      "volume": "47",
+      "issue": "5",
+      "pages": "16-17",
+      "doi": "10.1093/itnow/bwi095"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1960",
+      "title": "Review: Mein Kampf by Erwin Leiser, Tore Sjoberg",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "14",
+      "issue": "2",
+      "pages": "56-56",
+      "doi": "10.2307/1210362"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1995",
+      "title": "God, Gödel and the meaning of life",
+      "journal": "Physics World",
+      "publisher": "IOP Publishing",
+      "location": "",
+      "volume": "8",
+      "issue": "8",
+      "pages": "18-18",
+      "doi": "10.1088/2058-7058/8/8/21"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1996",
+      "title": "A counterexample concerning smooth approximation",
+      "journal": "Proceedings of the American Mathematical Society",
+      "publisher": "American Mathematical Society (AMS)",
+      "location": "",
+      "volume": "124",
+      "issue": "10",
+      "pages": "3131-3134",
+      "doi": "10.1090/s0002-9939-96-03383-7"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1998",
+      "title": "Review of International Studies: December 1998, Aberyswyth",
+      "journal": "Foreign Policy",
+      "publisher": "JSTOR",
+      "location": "",
+      "volume": "",
+      "issue": "113",
+      "pages": "128",
+      "doi": "10.2307/1149247"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2021",
+      "title": "Vectors of erasure: Early Marian Epiclesis and the forgetting of a goddess",
+      "journal": "Journal of the Australian Early Medieval Association",
+      "publisher": "Australian Early Medieval Association",
+      "location": "",
+      "volume": "17",
+      "issue": "2",
+      "pages": "91-115",
+      "doi": "10.35253/jaema.2021.2.1"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1960",
+      "title": ": Mein Kampf . Erwin Leiser, Tore Sjoberg.",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "14",
+      "issue": "2",
+      "pages": "56-56",
+      "doi": "10.1525/fq.1960.14.2.04a00210"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2010",
+      "title": "Embracing Uncertainty: The New Machine Intelligence",
+      "journal": "Lecture Notes in Computer Science",
+      "publisher": "Springer Berlin Heidelberg",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "3-3",
+      "doi": "10.1007/978-3-642-15387-7_3"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1958",
+      "title": "\"The Great Stone Face\"",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "12",
+      "issue": "1",
+      "pages": "10-15",
+      "doi": "10.2307/3186071"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2011",
+      "title": "Embracing Uncertainty: Applied Machine Learning Comes of Age",
+      "journal": "Lecture Notes in Computer Science",
+      "publisher": "Springer Berlin Heidelberg",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "4-4",
+      "doi": "10.1007/978-3-642-23780-5_3"
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Daniel Featley",
+        "George Miller",
+        "Christopher Bagshaw",
+        "Richard Smith (Bishop of Chalcedon)",
+        "Nicholas Bourne"
+      ],
+      "year": "1638",
+      "title": "Transubstantiation Exploded",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "276",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher BETHELL (successively Bishop of Gloucester, of Exeter and of Bangor.)"
+      ],
+      "year": "1827",
+      "title": "The Valedictory Address Delivered ... on Behalf of the Society for Promoting Christian Knowledge, to John Thomas Lord Bishop of Calcutta, Previous to His Lordship's Departure for India; with the Bishop of Calcutta's Reply",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "16",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Bishop"
+      ],
+      "year": "n.d.",
+      "title": "Christopher Bishop",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Thomas Vowler SHORT (successively Bishop of Sodor and Man and of St. Asaph.)"
+      ],
+      "year": "1851",
+      "title": "A Letter to the ... Bishops of St. Asaph and Bangor, on matters relating to the well-being of the Church in their ... dioceses. By a North Wales Incumbent",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "32",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "William JACKSON (Bishop of Oxford.)"
+      ],
+      "year": "1783",
+      "title": "A sermon [on 2 Cor. i. 12] preached ... at the consecration of Edward [Smallwell], Lord Bishop of St. David's, and Christopher [Wilson], Lord Bishop of Bristol ... July 6, 1783, etc. F.P.",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "22",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Bishop Christopher Wiggins"
+      ],
+      "year": "2011",
+      "title": "The Book of Hope",
+      "journal": "",
+      "publisher": "Xlibris Corporation",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "77",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Claire Huchet Bishop"
+      ],
+      "year": "1950",
+      "title": "Christopher the Giant",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "64",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher BETHELL (successively Bishop of Gloucester, of Exeter and of Bangor.)"
+      ],
+      "year": "1856",
+      "title": "Substance of the Speech of the Lord Bishop of Bangor, in the House of Lords, on Monday, April 21, 1856, on the motion that the Clergy Discipline Bill be read a second time",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "28",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Robert Christopher Gibson"
+      ],
+      "year": "1875",
+      "title": "The Apostles Creed. Collated Chiefly from the Works of Bishop Pearson, Dr. Barrow, and Dr. Hammond, Etc. Etc",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "156",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher BETHELL (successively Bishop of Gloucester, of Exeter and of Bangor.)"
+      ],
+      "year": "1857",
+      "title": "Additional Remarks on the Judgment of the Court at Bath, in the cause Ditcher versus Denison",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "28",
+      "doi": ""
+    }
+  ],
+  "author:Christopher bishop": [
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1996",
+      "title": "A distance formula for algebras on the disk",
+      "journal": "Pacific Journal of Mathematics",
+      "publisher": "Mathematical Sciences Publishers",
+      "location": "",
+      "volume": "174",
+      "issue": "1",
+      "pages": "1-27",
+      "doi": "10.2140/pjm.1996.174.1"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2020",
+      "title": "The Dark Gaze of Galla Placidia",
+      "journal": "Orientalism and the Reception of Powerful Women from the Ancient World",
+      "publisher": "Bloomsbury Academic",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.5040/9781350077416.ch-010"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2012",
+      "title": "Interpretation and Modelling of the Pedirka Basin (central Australia) using Magnetics, Gravity, Well-log and Seismic data",
+      "journal": "ASEG Extended Abstracts",
+      "publisher": "Australian Society of Exploration Geophysicists",
+      "location": "",
+      "volume": "2012",
+      "issue": "1",
+      "pages": "1-4",
+      "doi": "10.1071/aseg2012ab155"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2019",
+      "title": "Neuroinflammation: Fanning the fire of <scp>l</scp>‐dopa‐induced dyskinesia",
+      "journal": "Movement Disorders",
+      "publisher": "Wiley",
+      "location": "",
+      "volume": "34",
+      "issue": "12",
+      "pages": "1758-1760",
+      "doi": "10.1002/mds.27900"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1996",
+      "title": "A counterexample concerning smooth approximation",
+      "journal": "Proceedings of the American Mathematical Society",
+      "publisher": "American Mathematical Society (AMS)",
+      "location": "",
+      "volume": "124",
+      "issue": "10",
+      "pages": "3131-3134",
+      "doi": "10.1090/s0002-9939-96-03383-7"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1999",
+      "title": "Political science",
+      "journal": "Physics World",
+      "publisher": "IOP Publishing",
+      "location": "",
+      "volume": "12",
+      "issue": "7",
+      "pages": "17-17",
+      "doi": "10.1088/2058-7058/12/7/17"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "component",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "None",
+      "title": "NO TITLE",
+      "journal": "",
+      "publisher": "Institution of Engineering and Technology (IET)",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.1049/iet-tv.47.1005"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2014",
+      "title": "Neural Networks",
+      "journal": "Computing Handbook, Third Edition",
+      "publisher": "Chapman and Hall/CRC",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "1-24",
+      "doi": "10.1201/b16812-48"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2022",
+      "title": "The burden of the present in Gareth Brookes, <i>The Dancing Plague</i>",
+      "journal": "Visual Studies",
+      "publisher": "Informa UK Limited",
+      "location": "",
+      "volume": "37",
+      "issue": "5",
+      "pages": "502-510",
+      "doi": "10.1080/1472586x.2022.2050101"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1960",
+      "title": "Review: Mein Kampf by Erwin Leiser, Tore Sjoberg",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "14",
+      "issue": "2",
+      "pages": "56-56",
+      "doi": "10.2307/1210362"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2001",
+      "title": "Bi-Lipschitz homogeneous curves in ℝ² are quasicircles",
+      "journal": "Transactions of the American Mathematical Society",
+      "publisher": "American Mathematical Society (AMS)",
+      "location": "",
+      "volume": "353",
+      "issue": "7",
+      "pages": "2655-2663",
+      "doi": "10.1090/s0002-9947-01-02755-6"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1995",
+      "title": "God, Gödel and the meaning of life",
+      "journal": "Physics World",
+      "publisher": "IOP Publishing",
+      "location": "",
+      "volume": "8",
+      "issue": "8",
+      "pages": "18-18",
+      "doi": "10.1088/2058-7058/8/8/21"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2021",
+      "title": "Vectors of erasure: Early Marian Epiclesis and the forgetting of a goddess",
+      "journal": "Journal of the Australian Early Medieval Association",
+      "publisher": "Australian Early Medieval Association",
+      "location": "",
+      "volume": "17",
+      "issue": "2",
+      "pages": "91-115",
+      "doi": "10.35253/jaema.2021.2.1"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1960",
+      "title": ": Mein Kampf . Erwin Leiser, Tore Sjoberg.",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "14",
+      "issue": "2",
+      "pages": "56-56",
+      "doi": "10.1525/fq.1960.14.2.04a00210"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2010",
+      "title": "Embracing Uncertainty: The New Machine Intelligence",
+      "journal": "Lecture Notes in Computer Science",
+      "publisher": "Springer Berlin Heidelberg",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "3-3",
+      "doi": "10.1007/978-3-642-15387-7_3"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1987",
+      "title": "Christnacht",
+      "journal": "The Musical Times",
+      "publisher": "JSTOR",
+      "location": "",
+      "volume": "128",
+      "issue": "1732",
+      "pages": "315",
+      "doi": "10.2307/1193728"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "2005",
+      "title": "Machines that learn",
+      "journal": "ITNOW",
+      "publisher": "Oxford University Press (OUP)",
+      "location": "",
+      "volume": "47",
+      "issue": "5",
+      "pages": "16-17",
+      "doi": "10.1093/itnow/bwi095"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1998",
+      "title": "Review of International Studies: December 1998, Aberyswyth",
+      "journal": "Foreign Policy",
+      "publisher": "JSTOR",
+      "location": "",
+      "volume": "",
+      "issue": "113",
+      "pages": "128",
+      "doi": "10.2307/1149247"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Bishop, Christopher"
+      ],
+      "year": "1958",
+      "title": "\"The Great Stone Face\"",
+      "journal": "Film Quarterly",
+      "publisher": "University of California Press",
+      "location": "",
+      "volume": "12",
+      "issue": "1",
+      "pages": "10-15",
+      "doi": "10.2307/3186071"
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher M. Bishop"
+      ],
+      "year": "2016",
+      "title": "Pattern Recognition and Machine Learning",
+      "journal": "",
+      "publisher": "Springer",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "0",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Bishop"
+      ],
+      "year": "n.d.",
+      "title": "Christopher Bishop",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher M. Bishop",
+        "Hugh Bishop"
+      ],
+      "year": "2023",
+      "title": "Deep Learning",
+      "journal": "",
+      "publisher": "Springer Nature",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "656",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Bishop"
+      ],
+      "year": "n.d.",
+      "title": "Improvising Careers",
+      "journal": "",
+      "publisher": "Morgan James Publishing",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "173",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher M. Bishop"
+      ],
+      "year": "2006",
+      "title": "Pattern Recognition and Machine Learning by Christopher M. Bishop",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "738",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Bishop"
+      ],
+      "year": "2025",
+      "title": "Improvising Careers",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "0",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Herbert"
+      ],
+      "year": "2017",
+      "title": "Christopher, Bishop of St Albans 1995-2009",
+      "journal": "",
+      "publisher": "",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "244",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "John Christopher Bishop",
+        "Kenneth J. Perszyk"
+      ],
+      "year": "2023",
+      "title": "God, Purpose, and Reality",
+      "journal": "",
+      "publisher": "Oxford University Press",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "217",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Norton"
+      ],
+      "year": "2001",
+      "title": "Archbishop Thomas of Bayeux and the Norman Cathedral at York",
+      "journal": "",
+      "publisher": "Borthwick Publications",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "48",
+      "doi": ""
+    },
+    {
+      "source": "google_books",
+      "pub_type": "book",
+      "authors": [
+        "Christopher Craig Brittain",
+        "Andrew McKinnon"
+      ],
+      "year": "2018",
+      "title": "The Anglican Communion at a Crossroads",
+      "journal": "",
+      "publisher": "Penn State Press",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "231",
+      "doi": ""
+    }
+  ],
+  "query:ruvinga s": {
+    "source": "google_books",
+    "pub_type": "book",
+    "authors": [
+      "Nguyen Thai-Nghe",
+      "Thanh-Nghi Do",
+      "Salem Benferhat"
+    ],
+    "year": "2024",
+    "title": "Intelligent Systems and Data Science",
+    "journal": "",
+    "publisher": "Springer Nature",
+    "location": "",
+    "volume": "",
+    "issue": "",
+    "pages": "323",
+    "doi": ""
+  },
+  "author:ruvinga s": [
+    {
+      "source": "crossref",
+      "pub_type": "journal-article",
+      "authors": [
+        "Ruvinga, Stenford",
+        "Hunter, Gordon",
+        "Duran, Olga",
+        "Nebel, Jean-Christophe"
+      ],
+      "year": "2023",
+      "title": "Identifying Queenlessness in Honeybee Hives from Audio Signals Using Machine Learning",
+      "journal": "Electronics",
+      "publisher": "MDPI AG",
+      "location": "",
+      "volume": "12",
+      "issue": "7",
+      "pages": "1627",
+      "doi": "10.3390/electronics12071627"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "book-chapter",
+      "authors": [
+        "Ruvinga, Stenford",
+        "Hunter, Gordon",
+        "Nebel, Jean-Christophe",
+        "Duran, Olga"
+      ],
+      "year": "2022",
+      "title": "Prediction of Honeybee Swarms Using Audio Signals and Convolutional Neural Networks",
+      "journal": "Ambient Intelligence and Smart Environments",
+      "publisher": "IOS Press",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.3233/aise220032"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "proceedings-article",
+      "authors": [
+        "RUVINGA, S",
+        "HUNTER, G",
+        "SANDERS, H",
+        "KODWO ADJALOO, M"
+      ],
+      "year": "2023",
+      "title": "APPROACHES FROM AUTOMATED PROCESSING OF HUMAN SPEECH TO MONITORING &amp; PREDICTING IMPORTANT EVENTS IN HONEYBEE HIVES USING ACOUSTIC SIGNALS",
+      "journal": "ACOUSTICS 2023",
+      "publisher": "Institute of Acoustics",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "10.25144/16619"
+    },
+    {
+      "source": "crossref",
+      "pub_type": "proceedings-article",
+      "authors": [
+        "Ruvinga, Stenford",
+        "Hunter, Gordon J.A.",
+        "Duran, Olga",
+        "Nebel, Jean-Christophe"
+      ],
+      "year": "2021",
+      "title": "Use of LSTM Networks to Identify “Queenlessness” in Honeybee Hives from Audio Signals",
+      "journal": "2021 17th International Conference on Intelligent Environments (IE)",
+      "publisher": "IEEE",
+      "location": "",
+      "volume": "",
+      "issue": "",
+      "pages": "1-4",
+      "doi": "10.1109/ie51775.2021.9486575"
+    }
+  ]
+}
