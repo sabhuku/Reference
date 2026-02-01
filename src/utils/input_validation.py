@@ -59,3 +59,47 @@ class InputValidator:
             if result is not None:
                 return result
             print(f"{error_msg} (Press 'q' to cancel)")
+
+    @staticmethod
+    def validate_publication(data: dict) -> list:
+        """
+        Validate publication dictionary schema at ingestion boundaries.
+        This function must not perform ranking, scoring, or retrieval logic
+        """
+        errors = []
+        
+        # Title
+        if 'title' not in data or not data['title']:
+            errors.append("Title is required")
+        elif not isinstance(data['title'], str):
+            errors.append("Title must be a string")
+            
+        # Year
+        year = data.get('year')
+        if year and year != 'n.d.':
+            try:
+                # Allow strings or ints, but must be numeric
+                y_val = int(str(year))
+                if y_val < 1000 or y_val > 2100:
+                    errors.append(f"Year {y_val} is out of reasonable range (1000-2100)")
+            except (ValueError, TypeError):
+                errors.append(f"Invalid year format: {year}")
+
+        # Authors
+        authors = data.get('authors')
+        if authors is not None:
+            if isinstance(authors, list):
+                if not all(isinstance(a, str) for a in authors):
+                    errors.append("Authors must be a list of strings")
+            elif isinstance(authors, str):
+                # Strings are allowed (raw input)
+                pass 
+            else:
+                errors.append(f"Invalid authors format: {type(authors)}")
+
+        # Pub Type
+        if 'pub_type' in data and data['pub_type']:
+             if not isinstance(data['pub_type'], str):
+                 errors.append("Publication type must be a string")
+                 
+        return errors

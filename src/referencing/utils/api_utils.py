@@ -8,7 +8,7 @@ import requests
 from requests import Response
 from requests.exceptions import RequestException
 
-from referencing.config_loader import Config
+from src.referencing.config_loader import Config
 from .rate_limiter import CROSSREF_RATE_LIMITER, GOOGLE_BOOKS_RATE_LIMITER
 
 logger = logging.getLogger(__name__)

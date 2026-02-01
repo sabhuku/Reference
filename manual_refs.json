@@ -54,5 +54,227 @@
     "url": "https://doi.org/10.18820/9781991201072/03",
     "volume": "",
     "year": "2020"
+  },
+  {
+    "authors": [
+      "",
+      "Ruvinga, Caroline",
+      "Zhou, Munyaradzi"
+    ],
+    "doi": "10.9790/0661-16194550",
+    "issue": "1",
+    "journal": "IOSR Journal of Computer Engineering",
+    "location": "",
+    "pages": "45-50",
+    "pub_type": "journal-article",
+    "publisher": "IOSR Journals",
+    "source": "crossref",
+    "title": "Effective utilisation of ICT is the key to Business success: Case Study of SMEs in Zimbabwe",
+    "volume": "16",
+    "year": "2014"
+  },
+  {
+    "authors": [
+      "Bishop, Christopher"
+    ],
+    "doi": "10.1201/b16812-48",
+    "issue": "",
+    "journal": "Computing Handbook, Third Edition",
+    "location": "",
+    "pages": "1-24",
+    "pub_type": "book-chapter",
+    "publisher": "Chapman and Hall/CRC",
+    "source": "crossref",
+    "title": "Neural Networks",
+    "volume": "",
+    "year": "2014"
+  },
+  {
+    "authors": [
+      "Magongo, M",
+      "Mhlanga, N",
+      "Nobanda, S",
+      "Chasakara, C",
+      "Yola, N",
+      "Hinson, K",
+      "Bryan, M",
+      "Mzizi, P",
+      "Essien, T",
+      "Hastings, N",
+      "Ndimande-Khoza, MN",
+      "Bekker, LG",
+      "Mgodi, N",
+      "Celum, C",
+      "Delany-Moretlwe, S"
+    ],
+    "doi": "10.1186/s12889-025-24890-8",
+    "issue": "1",
+    "journal": "BMC public health",
+    "location": "",
+    "pages": "3982",
+    "pub_type": "journal-article",
+    "publisher": "",
+    "source": "pubmed",
+    "title": "Engagement of adolescent girls and young women into an early oral PrEP open-label study in Southern Africa: lessons learned from HPTN 082.",
+    "volume": "25",
+    "year": "2025"
+  },
+  {
+    "authors": [
+      "Bishop, Christopher"
+    ],
+    "doi": "10.1088/2058-7058/12/7/17",
+    "issue": "7",
+    "journal": "Physics World",
+    "location": "",
+    "pages": "17-17",
+    "pub_type": "journal-article",
+    "publisher": "IOP Publishing",
+    "source": "crossref",
+    "title": "Political science",
+    "volume": "12",
+    "year": "1999"
+  },
+  {
+    "authors": [
+      "Yang, B",
+      "Li, J",
+      "Chen, J",
+      "Huang, Y",
+      "Xu, N",
+      "Liu, Q",
+      "Liu, J",
+      "Zhou, Y"
+    ],
+    "doi": "10.1016/j.compmedimag.2026.102706",
+    "issue": "",
+    "journal": "Computerized medical imaging and graphics : the official journal of the Computerized Medical Imaging Society",
+    "location": "",
+    "pages": "102706",
+    "pub_type": "journal-article",
+    "publisher": "",
+    "source": "pubmed",
+    "title": "ThyFusionNet: A CNN-transformer framework with spatial aware sparse attention for multi modal thyroid disease diagnosis.",
+    "volume": "128",
+    "year": "2026"
+  },
+  {
+    "authors": [
+      "Bloeser, K",
+      "Hyde, JK",
+      "Helmer, DA",
+      "Bolton, RE",
+      "Lesnewich, LM",
+      "Phillips, LA",
+      "Bayley, PJ",
+      "Chandler, HK",
+      "Santos, SL",
+      "McFarlin, ML",
+      "Reinhard, MJ",
+      "Stewart, RS",
+      "McAndrew, LM"
+    ],
+    "doi": "10.1097/MLR.0000000000002241",
+    "issue": "2S Suppl 2",
+    "journal": "Medical care",
+    "location": "",
+    "pages": "S130-S136",
+    "pub_type": "journal-article",
+    "publisher": "",
+    "source": "pubmed",
+    "title": "Health Care Journeys of Veterans With Gulf War Illness.",
+    "volume": "64",
+    "year": "2026"
+  },
+  {
+    "authors": [
+      "Shin, Youseop"
+    ],
+    "doi": "10.1525/california/9780520293168.003.0006",
+    "issue": "",
+    "journal": "Time Series Analysis in the Social Sciences",
+    "location": "",
+    "pages": "",
+    "pub_type": "book-chapter",
+    "publisher": "University of California Press",
+    "source": "crossref",
+    "title": "Time Series Analysis with Two or More Time Series",
+    "volume": "",
+    "year": "2017"
+  },
+  {
+    "authors": [
+      "Bakas, S",
+      "Makris, D",
+      "Hunter, GJA",
+      "Fang, C",
+      "Sidhu, PS",
+      "Chatzimichail, K"
+    ],
+    "doi": "10.1016/j.ultrasmedbio.2017.06.005",
+    "issue": "10",
+    "journal": "Ultrasound in medicine & biology",
+    "location": "",
+    "pages": "2438-2451",
+    "pub_type": "journal-article",
+    "publisher": "",
+    "source": "pubmed",
+    "title": "Automatic Identification of the Optimal Reference Frame for Segmentation and Quantification of Focal Liver Lesions in Contrast-Enhanced Ultrasound.",
+    "volume": "43",
+    "year": "2017"
+  },
+  {
+    "authors": [],
+    "doi": "10.1002/9781119902881.fmatter",
+    "issue": "",
+    "journal": "Optimization and Machine Learning",
+    "location": "",
+    "pages": "",
+    "pub_type": "other",
+    "publisher": "Wiley",
+    "source": "crossref",
+    "title": "Front Matter",
+    "volume": "",
+    "year": "2022"
+  },
+  {
+    "authors": [
+      "George P. Kahari"
+    ],
+    "confidence_score": 0.0743801652892562,
+    "doi": "",
+    "issue": "",
+    "journal": "",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "450",
+    "pub_type": "book",
+    "publisher": "",
+    "retrieval_method": "api",
+    "source": "google_books",
+    "title": "The Rise of the Shona Novel",
+    "volume": "",
+    "year": "1990"
+  },
+  {
+    "authors": [
+      "Barbisan, Luca",
+      "Turvani, Giovanna",
+      "Riente, Fabrizio"
+    ],
+    "confidence_score": 0.17355371900826447,
+    "doi": "10.1109/tafe.2024.3406648",
+    "issue": "2",
+    "journal": "IEEE Transactions on AgriFood Electronics",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "236-243",
+    "pub_type": "journal-article",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "retrieval_method": "api",
+    "source": "crossref",
+    "title": "A Machine Learning Approach for Queen Bee Detection Through Remote Audio Sensing to Safeguard Honeybee Colonies",
+    "volume": "2",
+    "year": "2024"
   }
 ]

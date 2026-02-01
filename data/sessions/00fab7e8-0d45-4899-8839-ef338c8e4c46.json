@@ -1,0 +1,24 @@
+[
+  {
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon J.A.",
+      "Duran, Olga",
+      "Nebel, Jean-Christophe"
+    ],
+    "confidence_score": 0.0,
+    "doi": "10.1109/ie51775.2021.9486575",
+    "issue": "",
+    "journal": "2021 17th International Conference on Intelligent Environments (IE)",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "1-4",
+    "pub_type": "proceedings-article",
+    "publisher": "IEEE",
+    "retrieval_method": "cache",
+    "source": "crossref",
+    "title": "Use of LSTM Networks to Identify “Queenlessness” in Honeybee Hives from Audio Signals",
+    "volume": "",
+    "year": "2021"
+  }
+]

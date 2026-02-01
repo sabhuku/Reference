@@ -20,7 +20,7 @@ from pathlib import Path
 from typing import List, Dict, Set, Optional, Tuple, Any, Union, cast, Callable, TypeVar, Type
 
 from docx import Document
-from dataclasses import asdict
+from dataclasses import asdict, is_dataclass
 
 # Import ReferenceManager for consolidation
 try:
@@ -35,13 +35,18 @@ except ImportError:
         sys.path.append(str(Path(__file__).parent.parent))
         from reference_manager import ReferenceManager
 
+import threading
+
 # Singleton manager instance
 _manager = None
+_manager_lock = threading.Lock()
 
 def _get_manager():
     global _manager
     if _manager is None:
-        _manager = ReferenceManager()
+        with _manager_lock:
+            if _manager is None:
+                _manager = ReferenceManager()
     return _manager
 
 # API Configuration
@@ -258,13 +263,13 @@ def rank_results(results: List[Dict[str, Any]], query: str) -> List[Dict[str, An
 # LOOKUP WRAPPERS
 ########################################
 
-def lookup_single_work(query_text: str, cache: Dict = None) -> Optional[Dict[str, Any]]:
+def lookup_works(query_text: str, cache: Dict = None, limit: int = 5, **kwargs) -> List[Dict[str, Any]]:
     """
-    Look up a single work (wrapper around ReferenceManager).
+    Look up multiple works (wrapper around ReferenceManager).
     """
     if not query_text or not query_text.strip():
         logger.warning("Empty query text provided")
-        return None
+        return []
         
     manager = _get_manager()
     
@@ -273,17 +278,22 @@ def lookup_single_work(query_text: str, cache: Dict = None) -> Optional[Dict[str
         manager.cache.update(cache)
         
     # Perform search
-    result = manager.search_single_work(query_text)
+    results = manager.search_works(query_text, limit, **kwargs)
     
     # Sync cache back
     if cache is not None:
         cache.update(manager.cache)
     
-    if result:
-        return asdict(result)
-    return None
+    return [asdict(r) if is_dataclass(r) else r for r in results]
 
-def lookup_author_works(author_name: str, cache: Dict = None) -> List[Dict[str, Any]]:
+def lookup_single_work(query_text: str, cache: Dict = None) -> Optional[Dict[str, Any]]:
+    """
+    Look up a single work (wrapper around ReferenceManager).
+    """
+    results = lookup_works(query_text, cache, limit=1)
+    return results[0] if results else None
+
+def lookup_author_works(author_name: str, cache: Dict = None, **kwargs) -> List[Dict[str, Any]]:
     """
     Look up works by author (wrapper around ReferenceManager).
     """
@@ -298,14 +308,14 @@ def lookup_author_works(author_name: str, cache: Dict = None) -> List[Dict[str, 
         manager.cache.update(cache)
         
     # Perform search
-    results = manager.search_author_works(author_name)
+    results = manager.search_author_works(author_name, **kwargs)
     
     # Sync cache back
     if cache is not None:
         cache.update(manager.cache)
     
     # Convert to dicts and rank
-    results_dict = [asdict(r) for r in results]
+    results_dict = [asdict(r) if is_dataclass(r) else r for r in results]
     
     return rank_results(results_dict, author_name)
 ########################################
@@ -1050,16 +1060,92 @@ def export_ris(refs: List[Dict[str, Any]]) -> str:
 # DEDUPE/SORT
 ########################################
 
+def get_dedupe_key(m):
+    """
+    Generates a deterministic key for a reference.
+    Uses DOI if present, otherwise a combination of title, first author surname, and year.
+    Supports both dicts and objects.
+    
+    Collision Risk: 
+    - Different DOIs for the same work (rare) will bypass this.
+    - Identical titles/authors/years for different works (e.g. 'Letter to Editor') might clash.
+    """
+    def _get(obj, k):
+        if isinstance(obj, dict):
+            return obj.get(k)
+        return getattr(obj, k, None)
+
+    doi = _get(m, "doi")
+    if doi:
+        return doi.lower().strip()
+    
+    # Normalize title: lowercase, alphanumeric only, trimmed
+    title_val = _get(m, "title")
+    title = "".join(c for c in (title_val or "").lower() if c.isalnum())
+    
+    # First author surname
+    author = ""
+    authors = _get(m, "authors")
+    if authors:
+        if isinstance(authors, list) and len(authors) > 0:
+            author = authors[0].split(",")[0].lower().strip()
+        elif isinstance(authors, str):
+            author = authors.split(",")[0].lower().strip()
+            
+    year = str(_get(m, "year") or "").strip()
+    
+    return f"{title}|{author}|{year}"
+
+def validate_publication(data):
+    """
+    Validate that a dictionary represents a valid publication object.
+    
+    Checks:
+    - Input must be a dictionary.
+    - 'title' is required and must not be empty.
+    - 'authors' must be a list or string if present.
+    - 'year' must be convertible to string/int if present.
+    
+    Returns:
+        (is_valid, error_message)
+    """
+    if not isinstance(data, dict):
+        return False, "Publication data must be a JSON object (dictionary)."
+        
+    # Required fields
+    if not data.get("title") or not str(data["title"]).strip():
+        return False, "Publication must have a 'title'."
+        
+    # Type checks
+    if "authors" in data:
+        if not isinstance(data["authors"], (list, str)):
+            return False, "'authors' must be a list of strings or a single string."
+            
+    if "year" in data and data["year"]:
+        # Just check if it's broadly sensible (string/int)
+        if not isinstance(data["year"], (str, int)):
+            return False, "'year' must be a string or number."
+            
+    return True, None
+
 def dedupe(collected):
-    """Keep first occurrence of each item (by DOI or lowercased title)."""
+    """Keep first occurrence of each item using the deterministic key strategy."""
     seen = set()
     uniq = []
     for m in collected:
-        key = m["doi"] if m["doi"] else m["title"].lower().strip()
+        key = get_dedupe_key(m)
         if key not in seen:
             uniq.append(m)
             seen.add(key)
     return uniq
+
+def is_duplicate(new_ref, existing_refs):
+    """Check if a new reference is already present in a collection of existing references."""
+    new_key = get_dedupe_key(new_ref)
+    for ref in existing_refs:
+        if get_dedupe_key(ref) == new_key:
+            return True
+    return False
 
 def sort_for_bibliography(uniq, style):
     """Harvard/APA/MLA/Chicago: alphabetical. IEEE/Vancouver: in added order."""

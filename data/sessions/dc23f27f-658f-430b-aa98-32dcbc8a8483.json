@@ -1,0 +1,67 @@
+[
+  {
+    "authors": [
+      "Barbisan, Luca",
+      "Turvani, Giovanna",
+      "Riente, Fabrizio"
+    ],
+    "confidence_score": 0.17355371900826447,
+    "doi": "10.1109/tafe.2024.3406648",
+    "issue": "2",
+    "journal": "IEEE Transactions on AgriFood Electronics",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "236-243",
+    "pub_type": "journal-article",
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "retrieval_method": "api",
+    "source": "crossref",
+    "title": "A Machine Learning Approach for Queen Bee Detection Through Remote Audio Sensing to Safeguard Honeybee Colonies",
+    "volume": "2",
+    "year": "2024"
+  },
+  {
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon",
+      "Duran, Olga",
+      "Nebel, Jean-Christophe"
+    ],
+    "confidence_score": 0.0,
+    "doi": "10.3390/electronics12071627",
+    "issue": "7",
+    "journal": "Electronics",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "1627",
+    "pub_type": "journal-article",
+    "publisher": "MDPI AG",
+    "retrieval_method": "cache",
+    "source": "crossref",
+    "title": "Identifying Queenlessness in Honeybee Hives from Audio Signals Using Machine Learning",
+    "volume": "12",
+    "year": "2023"
+  },
+  {
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon",
+      "Nebel, Jean-Christophe",
+      "Duran, Olga"
+    ],
+    "confidence_score": 0.0,
+    "doi": "10.3233/aise220032",
+    "issue": "",
+    "journal": "Ambient Intelligence and Smart Environments",
+    "location": "",
+    "match_type": "fuzzy",
+    "pages": "",
+    "pub_type": "book-chapter",
+    "publisher": "IOS Press",
+    "retrieval_method": "cache",
+    "source": "crossref",
+    "title": "Prediction of Honeybee Swarms Using Audio Signals and Convolutional Neural Networks",
+    "volume": "",
+    "year": "2022"
+  }
+]

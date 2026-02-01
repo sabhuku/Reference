@@ -1,0 +1,263 @@
+Total references extracted: 42
+============================================================
+[1] Type: book
+    Title: Doing your research project
+    Formatted: Bell, J. (2014) 'Doing your research project', Open University Press.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[2] Type: webpage
+    Title: The Hitchhiker's Guide to the galaxy
+    URL: http://www.amazon.co.uk/kindle-ebooks
+    Access Date: 23 June 2021
+    Formatted: Adams, D. (1979) 'The Hitchhiker's Guide to the galaxy', Pan. Available at: http://www.amazon.co.uk/kindle-ebooks (Accessed: 23 June 2021). Available at: http://www.amazon.co.uk/kindle-ebooks (Accessed: 23 June 2021).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[3] Type: webpage
+    Title: The Victorians: a very short introduction
+    URL: https://doi-org.libezproxy.open.ac.uk/10.1093/actrade/9780198736813.00
+    Formatted: Hewitt, M. (2023) 'The Victorians: a very short introduction', Oxford Academic. Available at: https://doi-org.libezproxy.open.ac.uk/10.1093/actrade/9780198736813.00. Available at: https://doi-org.libezproxy.open.ac.uk/10.1093/actrade/9780198736813.00.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.', 'Online reference is missing: access date.']
+------------------------------------------------------------
+[4] Type: article
+    Title: Management of the problem', in S.M
+    Pages: 83–95
+    Formatted: Franklin, A.W. (2012) 'Management of the problem', in S.M', Smith (ed.) The maltreatment of children. MTP, pp. 83–95.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume.']
+------------------------------------------------------------
+[5] Type: webpage
+    Title: Homer in a world of song’, in C.O
+    URL: https://www-cambridge-org.libezproxy.open.ac.uk/core/books/cambridge-gu
+    Access Date: 27 August 2025
+    Formatted: Dué C., Lupack S. and Lamberton R. (2020) 'Homer in a world of song’, in C.O', Pache (ed.) The Cambridge guide to Homer: part I - Homeric song and text. Cambridge University Press. Available at: https://www-cambridge-org.libezproxy.open.ac.uk/core/books/cambridge-gu (Accessed: 27 August 2025). Available at: https://www-cambridge-org.libezproxy.open.ac.uk/core/books/cambridge-gu (Accessed: 27 August 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[6] Type: webpage
+    Title: Crick, Francis Harry Compton (1916–2004)’, in Oxford dictionary of national biography
+    URL: https://doi.org/10.1093/ref:odnb/93883
+    Formatted: Olby, R. (2014) 'Crick, Francis Harry Compton (1916–2004)’, in Oxford dictionary of national biography', Online edn. Oxford University Press. Available at: https://doi.org/10.1093/ref:odnb/93883. Available at: https://doi.org/10.1093/ref:odnb/93883.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.', 'Online reference is missing: access date.']
+------------------------------------------------------------
+[7] Type: article
+    Title: Constructive peer review made practical: a guide to the EMPATHY framework', Journal of Marketing, 89(3), pp
+    Formatted: Sridhar, S. (2025) 'Constructive peer review made practical: a guide to the EMPATHY framework', Journal of Marketing, 89(3), pp', 1-12..
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[8] Type: webpage
+    Title: A review of flipped classroom and cooperative learning method within the context of Vygotsky theory’, Frontiers in Psychology, 11, article 1157
+    URL: https://www.frontiersin.org/article/10.3389/fpsyg.2020.01157
+    Access Date: 6 May 2024
+    Formatted: Erbil, D.G. (2020) 'A review of flipped classroom and cooperative learning method within the context of Vygotsky theory’, Frontiers in Psychology, 11, article 1157', Available at: https://www.frontiersin.org/article/10.3389/fpsyg.2020.01157 (Accessed: 6 May 2024). Available at: https://www.frontiersin.org/article/10.3389/fpsyg.2020.01157 (Accessed: 6 May 2024).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[9] Type: webpage
+    Title: Málaga – a failed resort of the early twentieth century?', Journal of Tourism History, 2(3), pp
+    URL: https://doi.org/10.1080/1755182X.2010.523145
+    Formatted: Barke, M. and Mowl, G. (2016) 'Málaga – a failed resort of the early twentieth century?', Journal of Tourism History, 2(3), pp', 187–212. Available at: https://doi.org/10.1080/1755182X.2010.523145. Available at: https://doi.org/10.1080/1755182X.2010.523145.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.', 'Online reference is missing: access date.']
+------------------------------------------------------------
+[10] Type: article
+    Title: £10,000 carrot to tempt physics experts’, The Guardian, 20 June, p
+    Formatted: Mansell, W. and Bloom, A. (2012) '£10,000 carrot to tempt physics experts’, The Guardian, 20 June, p', 5..
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[11] Type: webpage
+    Title: Scientists claim to have unlocked ‘secret sauce’ needed for fine chocolate', The Guardian, 18 August
+    URL: https://www.theguardian.com/science/2025/aug/18/scientists-claim-to-hav…
+    Access Date: 19 August 2025
+    Formatted: Davis, N (2025) 'Scientists claim to have unlocked ‘secret sauce’ needed for fine chocolate', The Guardian, 18 August', Available at: https://www.theguardian.com/science/2025/aug/18/scientists-claim-to-hav… (Accessed: 19 August 2025). Available at: https://www.theguardian.com/science/2025/aug/18/scientists-claim-to-hav… (Accessed: 19 August 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[12] Type: webpage
+    Title: Social variation across the UK
+    URL: https://www.bl.uk/british-accents-and-dialects/articles/social-variatio…
+    Access Date: 21 November 2021
+    Formatted: Robinson, J. (2007) 'Social variation across the UK', Available at: https://www.bl.uk/british-accents-and-dialects/articles/social-variatio… (Accessed: 21 November 2021). Available at: https://www.bl.uk/british-accents-and-dialects/articles/social-variatio… (Accessed: 21 November 2021).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[13] Type: webpage
+    Title: Code of ethics and conduct
+    URL: https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct
+    Access Date: 22 March 2019
+    Formatted: The British Psychological Society (2018) 'Code of ethics and conduct', Available at: https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct (Accessed: 22 March 2019). Available at: https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct (Accessed: 22 March 2019).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[14] Type: webpage
+    Title: Golden sunset
+    URL: https://www.jameskittophotography.co.uk/photo_8692150.html
+    Access Date: 21 November 2021
+    Formatted: Kitton, J. (2013) 'Golden sunset', Available at: https://www.jameskittophotography.co.uk/photo_8692150.html (Accessed: 21 November 2021). Available at: https://www.jameskittophotography.co.uk/photo_8692150.html (Accessed: 21 November 2021).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[15] Type: photograph
+    Title: The Colosseum in Rome, Italy [Photograph]
+    URL: https://quest-eb-com.libezproxy.open.ac.uk/images/search/colosseum/deta…
+    Access Date: 1 September 2025
+    Formatted: Frazier, D.R. (2016) 'The Colosseum in Rome, Italy [Photograph]', Available at: https://quest-eb-com.libezproxy.open.ac.uk/images/search/colosseum/deta… (Accessed: 1 September 2025). Available at: https://quest-eb-com.libezproxy.open.ac.uk/images/search/colosseum/deta… (Accessed: 1 September 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[16] Type: instagram
+    Title: Cossack dance ensemble [Instagram]
+    URL: https://www.instagram.com/p/COI_slphWJ_/
+    Access Date: 13 June 2023
+    Formatted: stanitsa_dance (2021) 'Cossack dance ensemble [Instagram]', Available at: https://www.instagram.com/p/COI_slphWJ_/ (Accessed: 13 June 2023). Available at: https://www.instagram.com/p/COI_slphWJ_/ (Accessed: 13 June 2023).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[17] Type: forum-post
+    Title: How the course works’, Welcome forum, in A215: Creative writing
+    URL: https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155
+    Access Date: 24 January 2025
+    Formatted: O'Mahony, N. (2024) 'How the course works’, Welcome forum, in A215: Creative writing', Available at: https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155 (Accessed: 24 January 2025). Available at: https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155 (Accessed: 24 January 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[18] Type: module-material
+    Title: Topic 3: rare diseases
+    URL: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940
+    Access Date: 24 January 2025
+    Formatted: Rietdorf, K. and Bootman, M. (2024) 'Topic 3: rare diseases', S290: Investigating human health and disease. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940 (Accessed: 24 January 2025). Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940 (Accessed: 24 January 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[19] Type: module-material
+    Title: 4 What makes a system secure?’
+    URL: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2426934&section=5
+    Access Date: 5 March 2025
+    Formatted: The Open University (2025) '4 What makes a system secure?’', TM256: Cyber security. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2426934&section=5 (Accessed: 5 March 2025). Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2426934&section=5 (Accessed: 5 March 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[20] Type: module-material
+    Title: Video 2.7 an example of a Frith-Happé animation’
+    URL: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9…
+    Access Date: 22 November 2024
+    Formatted: The Open University (2024) 'Video 2.7 an example of a Frith-Happé animation’', SK298: Brain, mind and mental health. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9… (Accessed: 22 November 2024). Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9… (Accessed: 22 November 2024).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[21] Type: module-material
+    Title: Audio 2 interview with Richard Sorabji (Part 2)’
+    URL: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2416714&section=5.6
+    Access Date: 12 February 2025
+    Formatted: The Open University (2025) 'Audio 2 interview with Richard Sorabji (Part 2)’', A113: Revolutions. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2416714&section=5.6 (Accessed: 12 February 2025). Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2416714&section=5.6 (Accessed: 12 February 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[22] Type: webpage
+    Title: Philosophy is crucial in the age of AI', The Conversation, 1 August
+    URL: https://theconversation.com/philosophy-is-crucial-in-the-age-of-ai-2359…
+    Access Date: 1 August 2024
+    Formatted: Grayling, A. and Ball, B. (2024) 'Philosophy is crucial in the age of AI', The Conversation, 1 August', Available at https://theconversation.com/philosophy-is-crucial-in-the-age-of-ai-2359… (Accessed: 1 August 2024). Available at: https://theconversation.com/philosophy-is-crucial-in-the-age-of-ai-2359… (Accessed: 1 August 2024).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[23] Type: book
+    Title: Growing the base for citizen science: recruiting and engaging participants', in J.L
+    Pages: 69-81
+    Formatted: Chu, M., Leonard, P. and Stevenson, F. (2012) 'Growing the base for citizen science: recruiting and engaging participants', in J.L', Dickinson and R. Bonney (eds.) Citizen science: public participation in environmental research. Cornell University Press, pp. 69-81, pp. 69-81.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume.']
+------------------------------------------------------------
+[24] Type: book
+    Title: Sears and Zemansky's university physics
+    Formatted: Young, H.D., Freedman, R.A., Sandin, T.R., and Ford, A.L. (2015) 'Sears and Zemansky's university physics', Addison-Wesley.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[25] Type: book
+    Title: Sears and Zemansky's university physics
+    Formatted: Young, H.D. et al. (2015) 'Sears and Zemansky's university physics', Addison-Wesley.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[26] Type: article
+    Title: Biometrics in the new world: the cloud, mobile technology and pervasive identity
+    Formatted: Ashbourn, J. (2014) 'Biometrics in the new world: the cloud, mobile technology and pervasive identity', 2nd edn. Springer..
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[27] Type: webpage
+    Title: Away with the penguins
+    URL: https://www.amazon.co.uk/Away-Penguins-Hazel-Prior-ebook
+    Access Date: 20 July 2025
+    Formatted: Prior, H. (2020) 'Away with the penguins', Available at: https://www.amazon.co.uk/Away-Penguins-Hazel-Prior-ebook (Accessed: 20 July 2025). Available at: https://www.amazon.co.uk/Away-Penguins-Hazel-Prior-ebook (Accessed: 20 July 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[28] Type: webpage
+    Title: Light in August
+    URL: https://www.vlebooks.com/vleweb/product/openreader?id=UniReading&isbn=9781446485521
+    Access Date: 10 June 2025
+    Formatted: Faulkner, W. (2000) 'Light in August', Available at: https://www.vlebooks.com/vleweb/product/openreader?id=UniReading&isbn=9781446485521 (Accessed: 10 June 2025). Available at: https://www.vlebooks.com/vleweb/product/openreader?id=UniReading&isbn=9781446485521 (Accessed: 10 June 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[29] Type: article
+    Title: That deep underground savage instinct: narratives of sacrifice and retribution in Agatha Christie's Appointment with Death', Textual Practice, 34(11), pp
+    Formatted: Gulddal, J. (2020) 'That deep underground savage instinct: narratives of sacrifice and retribution in Agatha Christie's Appointment with Death', Textual Practice, 34(11), pp', 1803-1821..
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[30] Type: article
+    Title: Mycotoxins: food safety, consumer health and Africa's food security', Polycyclic Aromatic Compounds, 42(8), pp
+    Formatted: Adeyeye, S.A.O., Ashaolu, T.J. and Idowu-Adebayo, F. (2022) 'Mycotoxins: food safety, consumer health and Africa's food security', Polycyclic Aromatic Compounds, 42(8), pp', 5779–5795..
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[31] Type: book
+    Title: Pharmaceutical development', in Vohora, D
+    Pages: 33-46
+    Formatted: Singh, H., Khurana, L.K. and Singh, R. (2018) 'Pharmaceutical development', in Vohora, D', and Singh, G. (eds) Pharmaceutical medicine and translational clinical research. Academic Press, pp.33-46, pp. 33-46.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume.']
+------------------------------------------------------------
+[32] Type: webpage
+    Title: Sodium reduction
+    URL: https://www.who.int/news-room/fact-sheets/detail/sodium-reduction
+    Access Date: 24 June 2025
+    Formatted: World Health Organization (2025) 'Sodium reduction', Available at: https://www.who.int/news-room/fact-sheets/detail/sodium-reduction (Accessed: 24 June 2025). Available at: https://www.who.int/news-room/fact-sheets/detail/sodium-reduction (Accessed: 24 June 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[33] Type: webpage
+    Title: Tesco plc company report
+    URL: http://fame.bvdep.com
+    Access Date: 27 May 2025
+    Formatted: Bureau van Dijk (2025) 'Tesco plc company report', Available at: http://fame.bvdep.com (Accessed: 27 May 2025). Available at: http://fame.bvdep.com (Accessed: 27 May 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[34] Type: article
+    Title: Polymer blends based on compact disc scrap', Proceedings of the Annual Technical Conference - Society of Plastics Engineers
+    Pages: 236-254
+    Formatted: Jones, L. (2018) 'Polymer blends based on compact disc scrap', Proceedings of the Annual Technical Conference - Society of Plastics Engineers', San Francisco, pp. 236-254.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume.']
+------------------------------------------------------------
+[35] Type: book
+    Title: Directed by M
+    Formatted: Fahrenheit 9/11 (2004) 'Directed by M', Moore. [Feature film]. Lions Gate Films.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[36] Type: book
+    Title: The flood and coastal erosion risk management strategy action plan 2021
+    Formatted: Environment Agency (2020) 'The flood and coastal erosion risk management strategy action plan 2021', Environment Agency.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[37] Type: webpage
+    Title: Vitamin D and health
+    URL: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/537616/SACN_Vitamin_D_and_Health_report.pdf
+    Access Date: 25 July 2025
+    Formatted: Scientific Advisory Committee on Nutrition (2016) 'Vitamin D and health', Available at: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/537616/SACN_Vitamin_D_and_Health_report.pdf (Accessed: 25 July 2025). Available at: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/537616/SACN_Vitamin_D_and_Health_report.pdf (Accessed: 25 July 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[38] Type: book
+    Title: A map shewing the parliamentary representation of England & Wales, according as the same are settled by the Reform Act passed 7th June 1832, 1 inch to 35 miles
+    Formatted: Dower, J. (1832) 'A map shewing the parliamentary representation of England & Wales, according as the same are settled by the Reform Act passed 7th June 1832, 1 inch to 35 miles', J. Gardner.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[39] Type: instagram
+    Title: From digging in search of the past…to shaping the future of space.' [Instagram] 13 September
+    URL: https://www.instagram.com/uniofreading/p/DOgai7NAHql/
+    Access Date: 15 September 2025
+    Formatted: University of Reading (2025) 'From digging in search of the past…to shaping the future of space.' [Instagram] 13 September', Available at: https://www.instagram.com/uniofreading/p/DOgai7NAHql/ (Accessed: 15 September 2025). Available at: https://www.instagram.com/uniofreading/p/DOgai7NAHql/ (Accessed: 15 September 2025).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[40] Type: webpage
+    Title: Food fraud' [Presentation slides]
+    URL: https://www.bb.reading.ac.uk
+    Access Date: 17 December 2024
+    Formatted: Tocmo, R. (2024) 'Food fraud' [Presentation slides]', FB1FSC: Food System Challenges. University of Reading. Available at: https://www.bb.reading.ac.uk (Accessed: 17 December 2024). Available at: https://www.bb.reading.ac.uk (Accessed: 17 December 2024).
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[41] Type: book
+    Title: BS ISO 21543:2020: Milk and milk products - guidelines for the application of near infrared spectroscopy
+    Formatted: British Standards Institution (2020) 'BS ISO 21543:2020: Milk and milk products - guidelines for the application of near infrared spectroscopy', British Standards Institution.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------
+[42] Type: book
+    Title: Economics and adoption of conservation agriculture in Cabo Delgado, Mozambique
+    Formatted: Lalani, B. (2017) 'Economics and adoption of conservation agriculture in Cabo Delgado, Mozambique', PhD thesis. Reading University.
+    WARNINGS: ['Reference is missing author(s). Check if this field was parsed correctly.', 'Books should include the place of publication (City).', 'Article reference is missing details: volume, pages.']
+------------------------------------------------------------

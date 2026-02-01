@@ -16,27 +16,34 @@ This document describes the search sources available in the reference manager an
 - **API**: Requires API key (optional, free tier available)
 - **Status**: ✅ Active (Requires API key in config)
 
-### 3. **Semantic Scholar** (NEW - Multi-disciplinary)
+### 3. **Semantic Scholar** (Multi-disciplinary)
 - **Coverage**: 200+ million papers
 - **Best for**: Computer science, neuroscience, biomedical research
 - **API**: Free, no key required
 - **Status**: ✅ Active (Fallback after Crossref)
 
-### 4. **arXiv** (NEW - Preprints)
+### 4. **arXiv** (Preprints)
 - **Coverage**: 2+ million preprints
 - **Best for**: Physics, Math, Computer Science, Biology preprints
 - **API**: Free, no key required
 - **Status**: ✅ Active (Fallback after Semantic Scholar)
+
+### 5. **PubMed** (Medical/Life Sciences) ✨ NEW
+- **Coverage**: 35+ million biomedical citations
+- **Best for**: Medical, health sciences, biology, life sciences
+- **API**: E-utilities (free, no key required)
+- **Rate Limit**: 3 requests/second
+- **Status**: ✅ Active (Integrated after CrossRef)
 
 ## Search Order
 
 When you search for a paper, the system tries sources in this order:
 
 1. **For Books** (detected by keywords like "book", "edition", "volume"):
-   - Google Books → Crossref
+   - Google Books → Crossref → PubMed
 
 2. **For Papers**:
-   - Crossref → Semantic Scholar → arXiv → Google Books (fallback)
+   - Crossref → PubMed → Semantic Scholar → arXiv → Google Books (fallback)
 
 ## Additional Sources You Can Add
 

@@ -4,8 +4,8 @@ from unittest.mock import patch, MagicMock
 from pathlib import Path
 import pytest
 
-from referencing.reference_manager import ReferenceManager
-from referencing.models import Publication
+from src.reference_manager import ReferenceManager
+from src.models import Publication
 
 # Sample data for mocking API responses
 SAMPLE_DOI = "10.1038/nature12373"
@@ -46,7 +46,7 @@ def reference_manager(tmp_path):
         GOOGLE_BOOKS_API_KEY = "test_key"
     
     # Patch the config
-    with patch('referencing.reference_manager.Config', TestConfig):
+    with patch('src.reference_manager.Config', TestConfig):
         yield ReferenceManager()
 
 class TestReferenceManagerIntegration:
@@ -80,7 +80,8 @@ class TestReferenceManagerIntegration:
         cached_result = reference_manager.search_single_work(SAMPLE_DOI)
         
         # Verify we got the same result
-        assert cached_result.dict() == result.dict()
+        from dataclasses import asdict
+        assert asdict(cached_result) == asdict(result)
         
         # Verify no API call was made
         mock_requests.assert_not_called()
@@ -94,7 +95,9 @@ class TestReferenceManagerIntegration:
         mock_requests.return_value = mock_response
         
         # Add a reference
-        reference_manager.search_single_work(SAMPLE_DOI)
+        work = reference_manager.search_single_work(SAMPLE_DOI)
+        if work:
+            reference_manager.refs.append(work)
         
         # Test BibTeX export
         bibtex = reference_manager.export_bibtex()

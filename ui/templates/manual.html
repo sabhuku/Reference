@@ -1,75 +1,140 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Manual Reference Entry</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container py-4">
-      <h1>Enter Reference Manually</h1>
-      <form method="post" class="mt-4">
-        {{ form.csrf_token }}
-        <div class="mb-3">
-          {{ form.title.label(class="form-label") }}
-          {{ form.title(class="form-control") }}
-          {% if form.title.errors %}
-            <div class="text-danger">{{ form.title.errors[0] }}</div>
-          {% endif %}
-        </div>
-        
-        <div class="mb-3">
-          {{ form.authors.label(class="form-label") }}
-          {{ form.authors(class="form-control") }}
-          <div class="form-text">Enter authors as: Last, First; Last, First</div>
-        </div>
-        
-        <div class="row mb-3">
-          <div class="col-md-2">
-            {{ form.year.label(class="form-label") }}
-            {{ form.year(class="form-control") }}
-          </div>
-          <div class="col-md-2">
-            {{ form.volume.label(class="form-label") }}
-            {{ form.volume(class="form-control") }}
-          </div>
-          <div class="col-md-2">
-            {{ form.issue.label(class="form-label") }}
-            {{ form.issue(class="form-control") }}
-          </div>
-          <div class="col-md-3">
-            {{ form.pages.label(class="form-label") }}
-            {{ form.pages(class="form-control") }}
-          </div>
-          <div class="col-md-3">
-            {{ form.pub_type.label(class="form-label") }}
-            {{ form.pub_type(class="form-select") }}
-          </div>
-        </div>
-        
-        <div class="mb-3">
-          {{ form.journal.label(class="form-label") }}
-          {{ form.journal(class="form-control") }}
-          <div class="form-text">Journal name or publisher</div>
-        </div>
-        
-        <div class="mb-3">
-          {{ form.publisher.label(class="form-label") }}
-          {{ form.publisher(class="form-control") }}
-          <div class="form-text">Leave blank if same as journal</div>
-        </div>
-        
-        <div class="mb-3">
-          {{ form.doi.label(class="form-label") }}
-          {{ form.doi(class="form-control") }}
-        </div>
-        
-        <div class="mb-3">
-          {{ form.submit(class="btn btn-primary") }}
-          <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
-        </div>
-      </form>
+
+<head>
+  <meta charset="utf-8">
+  <title>Manual Reference Entry</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Top Taskbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <span class="navbar-brand">Welcome to My Reference</span>
+      <div class="navbar-nav ms-auto flex-row align-items-center">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
+          <i class="bi bi-person-circle"></i> {{ current_user.username }}
+        </a>
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm me-2">Login</a>
+        <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Sign Up</a>
+        {% endif %}
+      </div>
     </div>
-  </body>
+  </nav>
+
+  <!-- Sub-Navigation Bar -->
+  <div class="bg-light border-bottom mb-4">
+    <div class="container py-2">
+      <div class="d-flex gap-2">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('bibliographies') }}" class="btn btn-outline-primary btn-sm">
+          My Bibliographies
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+      role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <h1>Enter Reference Manually</h1>
+    <form method="post" class="mt-4">
+      {{ form.csrf_token }}
+      <div class="mb-3">
+        {{ form.title.label(class="form-label") }}
+        {{ form.title(class="form-control") }}
+        {% if form.title.errors %}
+        <div class="text-danger">{{ form.title.errors[0] }}</div>
+        {% endif %}
+      </div>
+
+      <div class="mb-3">
+        {{ form.authors.label(class="form-label") }}
+        {{ form.authors(class="form-control") }}
+        <div class="form-text">Enter authors as: Last, First; Last, First</div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-2">
+          {{ form.year.label(class="form-label") }}
+          {{ form.year(class="form-control") }}
+        </div>
+        <div class="col-md-2">
+          {{ form.volume.label(class="form-label") }}
+          {{ form.volume(class="form-control") }}
+        </div>
+        <div class="col-md-2">
+          {{ form.issue.label(class="form-label") }}
+          {{ form.issue(class="form-control") }}
+        </div>
+        <div class="col-md-3">
+          {{ form.pages.label(class="form-label") }}
+          {{ form.pages(class="form-control") }}
+        </div>
+        <div class="col-md-3">
+          {{ form.pub_type.label(class="form-label") }}
+          {{ form.pub_type(class="form-select") }}
+        </div>
+      </div>
+
+      <div class="mb-3">
+        {{ form.journal.label(class="form-label") }}
+        {{ form.journal(class="form-control") }}
+        <div class="form-text">Journal name or publisher</div>
+      </div>
+
+      <div class="mb-3">
+        {{ form.publisher.label(class="form-label") }}
+        {{ form.publisher(class="form-control") }}
+        <div class="form-text">Leave blank if same as journal</div>
+      </div>
+
+      <div class="mb-3">
+        {{ form.doi.label(class="form-label") }}
+        {{ form.doi(class="form-control") }}
+      </div>
+
+      <div class="mb-3">
+        {{ form.submit(class="btn btn-primary") }}
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Auto-dismiss alert messages after 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        let alerts = document.querySelectorAll('.alert-dismissible');
+        alerts.forEach(function (alert) {
+          let bootstrapAlert = new bootstrap.Alert(alert);
+          bootstrapAlert.close();
+        });
+      }, 5000);
+    });
+  </script>
+</body>
+
 </html>

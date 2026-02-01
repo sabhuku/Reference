@@ -1,52 +1,122 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Bibliography</title>
-  </head>
-  <body>
-    <h1>Bibliography (style: {{ style }})</h1>
-    
+
+<head>
+  <meta charset="utf-8">
+  <title>Bibliography - Reference Assistant</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+  <!-- Top Taskbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <span class="navbar-brand">Welcome to My Reference</span>
+      <div class="navbar-nav ms-auto flex-row align-items-center">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
+          <i class="bi bi-person-circle"></i> {{ current_user.username }}
+        </a>
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm me-2">Login</a>
+        <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sub-Navigation Bar -->
+  <div class="bg-light border-bottom mb-4">
+    <div class="container py-2">
+      <div class="d-flex gap-2">
+        <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('bibliographies') }}" class="btn btn-outline-primary btn-sm">
+          My Bibliographies
+        </a>
+        {% endif %}
+        <a href="{{ url_for('import_file') }}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip"
+          title="Upload a file to check its Harvard compliance instantly.">
+          <i class="bi bi-upload"></i> Import & Check
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div style="padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; background-color: {% if category == 'success' %}#d4edda{% elif category == 'error' %}#f8d7da{% elif category == 'info' %}#d1ecf1{% else %}#fff3cd{% endif %}; color: {% if category == 'success' %}#155724{% elif category == 'error' %}#721c24{% elif category == 'info' %}#0c5460{% else %}#856404{% endif %};">
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+      role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
     {% endwith %}
-    
+
+    <h1>Bibliography (style: {{ style|title }})</h1>
+
+
+
     {% if refs %}
-      <ol>
-        {% for r in refs %}
-          <li>
-            {{ r.title }} — {{ r.year }} — {{ r.journal or r.publisher }}<br>
-            <form action="/cite" method="post" style="display:inline">
-              <input type="hidden" name="pub" value='{{ r | tojson | safe }}'>
-              <label style="font-size:90%">Style:
-                <select name="style">
-                  <option value="harvard"{% if style=='harvard' %} selected{% endif %}>Harvard</option>
-                  <option value="apa"{% if style=='apa' %} selected{% endif %}>APA</option>
-                  <option value="ieee"{% if style=='ieee' %} selected{% endif %}>IEEE</option>
-                  <option value="mla"{% if style=='mla' %} selected{% endif %}>MLA</option>
-                  <option value="chicago"{% if style=='chicago' %} selected{% endif %}>Chicago</option>
-                  <option value="vancouver"{% if style=='vancouver' %} selected{% endif %}>Vancouver</option>
-                </select>
-              </label>
-              <button type="submit">Generate citation</button>
-            </form>
-            <form action="/remove/{{ loop.index0 }}" method="post" style="display:inline; margin-left:8px">
-              <button type="submit">Remove</button>
-            </form>
-            <a href="/edit/{{ loop.index0 }}" style="margin-left:8px">Edit</a>
-          </li>
-        {% endfor %}
-      </ol>
-      <p><a href="{{ url_for('export_word') }}">Export to Word (.docx)</a></p>
+    <ol>
+      {% for r in refs %}
+      <li>
+        {{ r | reference_entry(style, loop.index) }}<br>
+        <form action="/cite" method="post" style="display:inline">
+          <input type="hidden" name="pub" value='{{ r | tojson | safe }}'>
+          <label style="font-size:90%">Style:
+            <select name="style">
+              <option value="harvard" {% if style=='harvard' %} selected{% endif %}>Harvard</option>
+              <option value="apa" {% if style=='apa' %} selected{% endif %}>APA</option>
+              <option value="ieee" {% if style=='ieee' %} selected{% endif %}>IEEE</option>
+              <option value="mla" {% if style=='mla' %} selected{% endif %}>MLA</option>
+              <option value="chicago" {% if style=='chicago' %} selected{% endif %}>Chicago</option>
+              <option value="vancouver" {% if style=='vancouver' %} selected{% endif %}>Vancouver</option>
+            </select>
+          </label>
+          <button type="submit">Generate citation</button>
+        </form>
+        <form action="/remove/{{ loop.index0 }}" method="post" style="display:inline; margin-left:8px">
+          <button type="submit">Remove</button>
+        </form>
+        <a href="/edit/{{ loop.index0 }}" style="margin-left:8px">Edit</a>
+      </li>
+      {% endfor %}
+    </ol>
+    <div class="d-flex gap-2 mb-3">
+      <a href="{{ url_for('export_word') }}" class="btn btn-primary">
+        <i class="bi bi-file-word"></i> Export to Word (.docx)
+      </a>
+      <a href="{{ url_for('check_compliance', origin='bibliography') }}" class="btn btn-warning">
+        <i class="bi bi-shield-check"></i> Check Style Compliance (Harvard)
+      </a>
+    </div>
     {% else %}
-      <p>(No items)</p>
+    <p>(No items)</p>
     {% endif %}
     <p><a href="/">Back</a></p>
-  </body>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Auto-dismiss alert messages after 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        let alerts = document.querySelectorAll('.alert-dismissible');
+        alerts.forEach(function (alert) {
+          let bootstrapAlert = new bootstrap.Alert(alert);
+          bootstrapAlert.close();
+        });
+      }, 5000);
+    });
+  </script>
+</body>
+
 </html>

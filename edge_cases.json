@@ -1,0 +1,182 @@
+[
+    {
+        "EdgeCaseID": 1,
+        "Reference": "Plato (In Press) Republic",
+        "Issue": "Single-token author; 'In Press' year status",
+        "Category": "Author/Year"
+    },
+    {
+        "EdgeCaseID": 2,
+        "Reference": "OpenAI (2021a) GPT-3 Paper",
+        "Issue": "Corporate author; Year suffix preservation",
+        "Category": "Author/Year"
+    },
+    {
+        "EdgeCaseID": 3,
+        "Reference": "Smith, J. and Doe, A. (2020) Title",
+        "Issue": "'and' in author list (should be normalized to list)",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 4,
+        "Reference": "Van der Waals, J.D. (1910) Gas Laws",
+        "Issue": "Complex surname particles",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 5,
+        "Reference": "Müller, T. (2019) Unicode Test",
+        "Issue": "Unicode characters in author",
+        "Category": "Encoding"
+    },
+    {
+        "EdgeCaseID": 6,
+        "Reference": "Ruvinga, Stenford (2022) Inversion Test",
+        "Issue": "Comma format author",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 7,
+        "Reference": "Stenford Ruvinga (2022) Inversion Test 2",
+        "Issue": "Space format author (Requires inversion heuristic)",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 8,
+        "Reference": "World Health Organization (2020) Report",
+        "Issue": "Multi-word corporate author",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 9,
+        "Reference": "NHS (2020) Guidelines",
+        "Issue": "Acronym corporate author",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 10,
+        "Reference": "Unknown (n.d.) Missing Date",
+        "Issue": "Explicit 'n.d.' year",
+        "Category": "Year"
+    },
+    {
+        "EdgeCaseID": 11,
+        "Reference": "Smith (no date) Undated Work",
+        "Issue": "Alternative 'no date' phrasing",
+        "Category": "Year"
+    },
+    {
+        "EdgeCaseID": 12,
+        "Reference": "Jones (2020-2021) Multi Year",
+        "Issue": "Range year extraction",
+        "Category": "Year"
+    },
+    {
+        "EdgeCaseID": 13,
+        "Reference": "Brown (2020/21) Slash Year",
+        "Issue": "Range year extraction",
+        "Category": "Year"
+    },
+    {
+        "EdgeCaseID": 14,
+        "Reference": "Taylor ((2020)) Double Parens",
+        "Issue": "Malformed year delimiters",
+        "Category": "Year"
+    },
+    {
+        "EdgeCaseID": 15,
+        "Reference": "10.1234/test (2020) DOI Title",
+        "Issue": "Title looks like DOI",
+        "Category": "Title"
+    },
+    {
+        "EdgeCaseID": 16,
+        "Reference": "Smith (2020) Very Long Title " + "A"*200,
+        "Issue": "Extremely long title string",
+        "Category": "Title"
+    },
+    {
+        "EdgeCaseID": 17,
+        "Reference": "Proc. IEEE Int. Conf. on AI (2020)",
+        "Issue": "Conference proceedings abbreviation detection",
+        "Category": "Conference"
+    },
+    {
+        "EdgeCaseID": 18,
+        "Reference": "In Proceedings of the 2020 Conference (2020)",
+        "Issue": "Recursive 'Proceedings' in title",
+        "Category": "Conference"
+    },
+    {
+        "EdgeCaseID": 19,
+        "Reference": "Smith (2020)    Double Space Test",
+        "Issue": "Whitespace normalization",
+        "Category": "Formatting"
+    },
+    {
+        "EdgeCaseID": 20,
+        "Reference": "Department of Health (2020)",
+        "Issue": "Generic corporate name",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 21,
+        "Reference": "  Leading Space (2020)",
+        "Issue": "Leading whitespace",
+        "Category": "Formatting"
+    },
+    {
+        "EdgeCaseID": 22,
+        "Reference": "Trailing Space (2020)   ",
+        "Issue": "Trailing whitespace",
+        "Category": "Formatting"
+    },
+    {
+        "EdgeCaseID": 23,
+        "Reference": "Smith, J., Doe, A., & Brown, B. (2020)",
+        "Issue": "Ampersand in author list",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 24,
+        "Reference": "Jean-Luc Picard (2020)",
+        "Issue": "Hyphenated first name",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 25,
+        "Reference": "O'Connor, S. (2020)",
+        "Issue": "Apostrophe in surname",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 26,
+        "Reference": "Smith (2020) TITLE IN CAPS",
+        "Issue": "Capitalization validation",
+        "Category": "Title"
+    },
+    {
+        "EdgeCaseID": 27,
+        "Reference": "Smith (2020) title in lowercase",
+        "Issue": "Capitalization validation",
+        "Category": "Title"
+    },
+    {
+        "EdgeCaseID": 28,
+        "Reference": "United Nations (2020) UN Report",
+        "Issue": "Specific 'United Nations' fix check",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 29,
+        "Reference": "Apple Inc. (2020) Tech Report",
+        "Issue": "Corporate with legal suffix",
+        "Category": "Author"
+    },
+    {
+        "EdgeCaseID": 30,
+        "Reference": "Rowling, J.K. (2000)",
+        "Issue": "Compact initials",
+        "Category": "Author"
+    }
+]
