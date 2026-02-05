@@ -238,3 +238,32 @@ class CitationFormatter:
             return " ".join(parts)
         else:
             return f"{num_label} {author_str}, {pub.title}, {pub.publisher}, {pub.year}."
+
+    @staticmethod
+    def format_reference(ref_data, style: str) -> str:
+        """Format a reference from dict or Publication object."""
+        if isinstance(ref_data, dict):
+             # Robust conversion
+             authors = ref_data.get('authors', [])
+             if isinstance(authors, str):
+                 authors = [authors]
+                 
+             pub = Publication(
+                 source=ref_data.get('source', 'manual'),
+                 pub_type=ref_data.get('pub_type', 'unknown'),
+                 authors=authors,
+                 year=str(ref_data.get('year', '')),
+                 title=ref_data.get('title', ''),
+                 journal=ref_data.get('journal', ''),
+                 publisher=ref_data.get('publisher', ''),
+                 location=ref_data.get('location', ''),
+                 volume=str(ref_data.get('volume', '')),
+                 issue=str(ref_data.get('issue', '')),
+                 pages=str(ref_data.get('pages', '')),
+                 doi=ref_data.get('doi', ''),
+                 url=ref_data.get('url', ''),
+             )
+        else:
+            pub = ref_data
+            
+        return CitationFormatter.reference_entry(pub, style)

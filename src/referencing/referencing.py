@@ -537,9 +537,9 @@ def reference_entry(meta, style, index_number=None):
             return out
         else:
             # books
-            author_str = _authors_as_string_harvard(meta["authors"])
-            pub_block = meta["publisher"]
-            out = f"{author_str} ({meta['year']}) {meta['title']}."
+            author_str = _authors_as_string_harvard(meta.get("authors", []))
+            pub_block = meta.get("publisher", "")
+            out = f"{author_str} ({meta.get('year', 'n.d.')}) {meta.get('title', 'Untitled')}."
             if pub_block:
                 out += f" {pub_block}."
             return out
@@ -568,9 +568,9 @@ def reference_entry(meta, style, index_number=None):
             return out
         else:
             # books
-            author_str = _authors_as_string_apa(meta["authors"])
-            out = f"{author_str} ({meta['year']}). {meta['title']}."
-            if meta["publisher"]:
+            author_str = _authors_as_string_apa(meta.get("authors", []))
+            out = f"{author_str} ({meta.get('year', 'n.d.')}). {meta.get('title', 'Untitled')}."
+            if meta.get("publisher"):
                 out += f" {meta['publisher']}."
             return out
 
@@ -596,7 +596,8 @@ def reference_entry(meta, style, index_number=None):
         else:
             # Book in IEEE:
             # [n] J. Smith and A. Doe, Title, Publisher, 2022.
-            bits = [f"{num_label} {author_str}, {meta['title']}, {meta['publisher']}, {year}."]
+            pub_name = meta.get("publisher", "")
+            bits = [f"{num_label} {author_str}, {meta.get('title', 'Untitled')}, {pub_name}, {year}."]
             return " ".join(bits)
 
     if style == "mla":
@@ -618,8 +619,8 @@ def reference_entry(meta, style, index_number=None):
             return out
         else:
             # Book
-            out = f"{author_str}. {meta['title']}."
-            if meta["publisher"]:
+            out = f"{author_str}. {meta.get('title', 'Untitled')}."
+            if meta.get("publisher"):
                 out += f" {meta['publisher']}, {year}."
             else:
                 out += f" {year}."
@@ -645,8 +646,8 @@ def reference_entry(meta, style, index_number=None):
             return out
         else:
             # Book
-            out = f"{author_str}. {year}. {meta['title']}."
-            if meta["publisher"]:
+            out = f"{author_str}. {year}. {meta.get('title', 'Untitled')}."
+            if meta.get("publisher"):
                 out += f" {meta['publisher']}."
             return out
 
@@ -669,8 +670,8 @@ def reference_entry(meta, style, index_number=None):
             return out
         else:
             # Book
-            out = f"{num_label} {author_str}. {meta['title']}."
-            if meta["publisher"]:
+            out = f"{num_label} {author_str}. {meta.get('title', 'Untitled')}."
+            if meta.get("publisher"):
                 out += f" {meta['publisher']}; {year}."
             else:
                 out += f" {year}."

@@ -1,0 +1,226 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Manage Projects - Reference Assistant</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- UI Enhancements CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/enhancements.css') }}">
+
+    <style>
+        .project-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">Reference Assistant</a>
+            <div class="navbar-nav ms-auto">
+                <!-- Dark Mode Toggle -->
+                <button id="darkModeToggle" class="btn btn-sm me-2 dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i id="darkModeIcon" class="bi bi-moon-stars"></i>
+                </button>
+                <a href="{{ url_for('index') }}" class="btn btn-outline-light btn-sm">
+                    <i class="bi bi-house"></i> Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-10">
+                {% for category, message in messages %}
+                <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+                    role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endwith %}
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="mb-4">
+                    <i class="bi bi-folder2-open"></i> Manage Projects
+                </h2>
+
+                <!-- Create New Project Card -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="bi bi-plus-circle"></i> Create New Project</h5>
+                        <form action="{{ url_for('create_project') }}" method="post">
+                            <div class="row g-2">
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="project_name"
+                                        placeholder="Enter project name" required maxlength="100">
+                                    <small class="text-muted">Projects help you organize references by topic, course, or
+                                        research
+                                        area</small>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary w-100">
+                                        <i class="bi bi-plus-circle"></i> Create
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Existing Projects List -->
+                <div class="card shadow-sm">
+                    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">Your Projects ({{ projects|length }})</h6>
+                        {% if current_project %}
+                        <span class="badge bg-success">Active: {{ current_project.name }}</span>
+                        {% endif %}
+                    </div>
+
+                    {% if projects %}
+                    <div class="list-group list-group-flush">
+                        {% for project in projects %}
+                        <div class="list-group-item project-card">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">
+                                        <i class="bi bi-folder2"></i>
+                                        <span id="project-name-{{ project.id }}">{{ project.name }}</span>
+                                        {% if current_project and project.id == current_project.id %}
+                                        <span class="badge bg-success ms-2">Active</span>
+                                        {% endif %}
+                                    </h6>
+                                    <small class="text-muted">
+                                        {{ project.ref_count }} references ·
+                                        Created {{ project.created_at[:10] if project.created_at else 'Unknown' }}
+                                    </small>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    {% if not current_project or project.id != current_project.id %}
+                                    <a href="{{ url_for('switch_project', project_id=project.id) }}"
+                                        class="btn btn-sm btn-primary">
+                                        <i class="bi bi-box-arrow-in-right"></i> Switch
+                                    </a>
+                                    {% endif %}
+                                    <button class="btn btn-sm btn-outline-secondary"
+                                        onclick="renameProject('{{ project.id }}')" title="Rename">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-danger"
+                                        onclick="deleteProject('{{ project.id }}', '{{ project.name }}')"
+                                        title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="card-body text-center py-5">
+                        <i class="bi bi-folder2 text-muted display-4 mb-3"></i>
+                        <p class="text-muted mb-0">No projects yet. Create your first project above!</p>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Help Text -->
+                <div class="alert alert-info mt-4">
+                    <i class="bi bi-info-circle"></i>
+                    <strong>Tip:</strong> Projects allow you to organize references into separate collections. Each
+                    project has
+                    its own set of references and can be managed independently.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for rename/delete -->
+    <script>
+        function renameProject(projectId) {
+            const currentName = document.getElementById('project-name-' + projectId).textContent.trim();
+            const newName = prompt("Enter new project name:", currentName);
+
+            if (newName && newName !== currentName) {
+                fetch(`/projects/${projectId}/rename`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: newName })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert('Error: ' + (data.error || 'Failed to rename project'));
+                        }
+                    })
+                    .catch(error => {
+                        alert('Error renaming project: ' + error);
+                    });
+            }
+        }
+
+        function deleteProject(projectId, projectName) {
+            if (confirm(`Delete project "${projectName}"?\n\nAll references in this project will be permanently removed. This action cannot be undone.`)) {
+                fetch(`/projects/${projectId}/delete`, {
+                    method: 'POST'
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert('Error: ' + (data.error || 'Failed to delete project'));
+                        }
+                    })
+                    .catch(error => {
+                        alert('Error deleting project: ' + error);
+                    });
+            }
+        }
+
+        // Auto-dismiss alert messages after 5 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                let alerts = document.querySelectorAll('.alert-dismissible');
+                alerts.forEach(function (alert) {
+                    let bootstrapAlert = new bootstrap.Alert(alert);
+                    bootstrapAlert.close();
+                });
+            }, 5000);
+        });
+    </script>
+    <!-- UI Enhancement Scripts -->
+    <script src="{{ url_for('static', filename='js/dark-mode.js') }}"></script>
+</body>
+
+</html>

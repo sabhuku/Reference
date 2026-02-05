@@ -1,0 +1,54 @@
+{
+  "total": 5,
+  "successful": 5,
+  "failed": 0,
+  "validation_passed": 0,
+  "validation_failed": 5,
+  "suggestions": [
+    {
+      "suggestion_id": 18,
+      "reference_id": 1,
+      "validation_passed": false,
+      "confidence": 0.95,
+      "num_patches": 1
+    },
+    {
+      "suggestion_id": 19,
+      "reference_id": 2,
+      "validation_passed": false,
+      "confidence": 0.85,
+      "num_patches": 1
+    },
+    {
+      "suggestion_id": 20,
+      "reference_id": 3,
+      "validation_passed": false,
+      "confidence": 0.95,
+      "num_patches": 1
+    },
+    {
+      "suggestion_id": 21,
+      "reference_id": 4,
+      "validation_passed": false,
+      "confidence": 0.95,
+      "num_patches": 1
+    },
+    {
+      "suggestion_id": 22,
+      "reference_id": 5,
+      "validation_passed": false,
+      "confidence": 0.85,
+      "num_patches": 1
+    }
+  ],
+  "errors": [],
+  "start_time": "2026-02-02T20:57:47.777906",
+  "tier": "tier_1",
+  "user_id": 1,
+  "end_time": "2026-02-02T20:58:05.022062",
+  "duration_seconds": 17.244156,
+  "avg_time_per_reference": 3.4488312,
+  "validation_pass_rate": 0.0,
+  "avg_confidence": 0.9099999999999999,
+  "avg_patches_per_suggestion": 1.0
+}

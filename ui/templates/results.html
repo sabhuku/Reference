@@ -27,11 +27,11 @@
   <!-- Top Taskbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-      <span class="navbar-brand">Welcome to My Reference</span>
+      <span class="navbar-brand">My References</span>
       <div class="navbar-nav ms-auto flex-row align-items-center">
         {% if current_user.is_authenticated %}
         <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
-          <i class="bi bi-person-circle"></i> {{ current_user.username }}
+          <i class="bi bi-person-circle"></i> Welcome {{ current_user.username }}
         </a>
         <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
         {% else %}
@@ -54,6 +54,10 @@
           My Bibliographies
         </a>
         {% endif %}
+        <a href="{{ url_for('import_file') }}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip"
+          title="Upload a file to check its Harvard compliance instantly.">
+          <i class="bi bi-upload"></i> Import & Check
+        </a>
       </div>
     </div>
   </div>

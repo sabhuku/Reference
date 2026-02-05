@@ -17,6 +17,7 @@ class Publication:
     issue: str
     pages: str
     doi: str
+    isbn: str = ""
     match_type: str = "fuzzy"
     confidence_score: float = 0.0
     retrieval_method: str = "api"
@@ -45,6 +46,29 @@ class Publication:
             self.normalization_log = []
 
 
+    @staticmethod
+    def escape_bibtex(text: str) -> str:
+        """Escape special LaTeX characters for BibTeX."""
+        if not text:
+            return ""
+        
+        # Mapping of special characters to their escaped versions
+        CHARS_TO_ESCAPE = {
+            '&': r'\&',
+            '%': r'\%',
+            '$': r'\$',
+            '#': r'\#',
+            '_': r'\_',
+            '{': r'\{',
+            '}': r'\}',
+            '~': r'\textasciitilde{}',
+            '^': r'\textasciicircum{}',
+            '\\': r'\textbackslash{}',
+        }
+        
+        # Process character by character to avoid re-escaping
+        return ''.join(CHARS_TO_ESCAPE.get(char, char) for char in str(text))
+
     def to_bibtex(self) -> str:
         """Convert to BibTeX format."""
         # Generate a citation key
@@ -52,7 +76,10 @@ class Publication:
             first_author = str(self.authors[0]).split(',')[0].lower()
             first_author = first_author.split()[-1] if ' ' in first_author else first_author
             first_word = self.title.split()[0].lower()
-            key = f"{first_author}{self.year}{first_word}"
+            # Sanitize key: ascii only, no spaces
+            import re
+            key_base = f"{first_author}{self.year}{first_word}"
+            key = re.sub(r'[^a-z0-9]', '', key_base)
         else:
             key = f"ref{hash(str(self)) & 0xFFFFFFFF}"
         
@@ -71,41 +98,47 @@ class Publication:
         else:
             entry_type = 'article'
         
+        # Helper to escape
+        esc = self.escape_bibtex
+
         # Build fields
         fields = []
         if self.title:
-            fields.append(f"    title = {{{self.title}}}")
+            fields.append(f"    title = {{{esc(self.title)}}}")
         if self.authors:
             # Authors in src/models.py are List[str] like "Doe, John"
             # BibTeX wants "Doe, John and Smith, Jane"
-            authors = ' and '.join(self.authors)
+            # We strictly escape each author string individually
+            authors = ' and '.join([esc(a) for a in self.authors])
             fields.append(f"    author = {{{authors}}}")
         if self.year:
-            fields.append(f"    year = {{{self.year}}}")
+            fields.append(f"    year = {{{esc(self.year)}}}")
         if self.journal:
-            fields.append(f"    journal = {{{self.journal}}}")
+            fields.append(f"    journal = {{{esc(self.journal)}}}")
         if self.volume:
-            fields.append(f"    volume = {{{self.volume}}}")
+            fields.append(f"    volume = {{{esc(self.volume)}}}")
         if self.issue:
-            fields.append(f"    number = {{{self.issue}}}")
+            fields.append(f"    number = {{{esc(self.issue)}}}")
         if self.pages:
-            fields.append(f"    pages = {{{self.pages}}}")
+            fields.append(f"    pages = {{{esc(self.pages)}}}")
         if self.publisher:
-            fields.append(f"    publisher = {{{self.publisher}}}")
+            fields.append(f"    publisher = {{{esc(self.publisher)}}}")
         if self.doi:
-            fields.append(f"    doi = {{{self.doi}}}")
+            fields.append(f"    doi = {{{esc(self.doi)}}}")
+        if self.isbn:
+            fields.append(f"    isbn = {{{esc(self.isbn)}}}")
         if self.url:
-            fields.append(f"    url = {{{self.url}}}")
+            fields.append(f"    url = {{{esc(self.url)}}}")
         if self.editor:
-            fields.append(f"    editor = {{{self.editor}}}")
+            fields.append(f"    editor = {{{esc(self.editor)}}}")
         if self.edition:
-            fields.append(f"    edition = {{{self.edition}}}")
+            fields.append(f"    edition = {{{esc(self.edition)}}}")
         if self.collection:
-            fields.append(f"    note = {{Available from {self.collection}}}")
+            fields.append(f"    note = {{Available from {esc(self.collection)}}}")
         if self.conference_name:
-            fields.append(f"    booktitle = {{{self.conference_name}}}")
+            fields.append(f"    booktitle = {{{esc(self.conference_name)}}}")
         if self.conference_location:
-            fields.append(f"    address = {{{self.conference_location}}}")
+            fields.append(f"    address = {{{esc(self.conference_location)}}}")
         
         # Combine into BibTeX entry
         bibtex = [f"@{entry_type}{{{key},"]
@@ -154,6 +187,8 @@ class Publication:
             ris.append(f"PY  - {self.year}")
         if self.doi:
             ris.append(f"DO  - {self.doi}")
+        if self.isbn:
+            ris.append(f"SN  - {self.isbn}")
         if self.publisher:
             ris.append(f"PB  - {self.publisher}")
         if self.url:

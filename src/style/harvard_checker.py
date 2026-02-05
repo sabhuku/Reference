@@ -64,7 +64,7 @@ class HarvardStyleChecker:
         if not auths:
             return Violation(
                 rule_id="HARVARD.AUTHOR.MISSING",
-                severity="warning",
+                severity="error",
                 message="Reference is missing author(s). Check if this field was parsed correctly.",
                 field_name="authors"
             )
@@ -93,7 +93,7 @@ class HarvardStyleChecker:
              if pub.year_status == 'missing':
                  return Violation(
                     rule_id="HARVARD.YEAR.MISSING",
-                    severity="warning",
+                    severity="error",
                     message="Publication year is missing or unparsable.",
                     field_name="year"
                 )
@@ -105,7 +105,7 @@ class HarvardStyleChecker:
         if not pub.year:
             return Violation(
                 rule_id="HARVARD.YEAR.MISSING",
-                severity="warning",
+                severity="error",
                 message="Publication year is missing.",
                 field_name="year"
             )
@@ -116,7 +116,7 @@ class HarvardStyleChecker:
         if not pub.title:
             return Violation(
                 rule_id="HARVARD.TITLE.MISSING",
-                severity="warning",
+                severity="error",
                 message="Work title is missing.",
                 field_name="title"
             )

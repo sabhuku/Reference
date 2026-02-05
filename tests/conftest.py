@@ -1,52 +1,52 @@
-"""Pytest configuration and fixtures."""
-import os
-import json
-from pathlib import Path
-from typing import Dict, Any, Generator
-
+"""
+Shared pytest fixtures for AI remediation tests.
+"""
 import pytest
-from unittest.mock import MagicMock, patch
+import sys
+import os
 
-# Add the project root to the Python path
-PROJECT_ROOT = Path(__file__).parent.parent
-os.environ["PYTHONPATH"] = str(PROJECT_ROOT)
+# Add project root to path
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
 
-# Sample test data
-@pytest.fixture
-def sample_publication() -> Dict[str, Any]:
-    """Return a sample publication for testing."""
-    return {
-        "source": "crossref",
-        "pub_type": "journal-article",
-        "authors": ["Smith, John", "Doe, Jane"],
-        "year": "2023",
-        "title": "A Sample Publication Title",
-        "journal": "Journal of Testing",
-        "publisher": "Test Publisher",
-        "volume": "12",
-        "issue": "3",
-        "pages": "123-145",
-        "doi": "10.1234/test.2023.456"
-    }
+from ui.database import db, Reference
+
 
 @pytest.fixture
-def mock_requests_get() -> Generator[MagicMock, None, None]:
-    """Mock for requests.get."""
-    with patch('requests.get') as mock_get:
-        yield mock_get
+def app():
+    """Create Flask app for testing."""
+    # Import app after path setup
+    from ui import app as flask_app
+    
+    # Configure for testing
+    flask_app.app.config['TESTING'] = True
+    flask_app.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+    flask_app.app.config['WTF_CSRF_ENABLED'] = False
+    
+    with flask_app.app.app_context():
+        db.create_all()
+        yield flask_app.app
+        db.session.remove()
+        db.drop_all()
+
 
 @pytest.fixture
-def mock_cache_file(tmp_path) -> str:
-    """Create a temporary cache file for testing."""
-    cache_file = tmp_path / "test_cache.json"
-    cache_file.write_text("{}")
-    return str(cache_file)
-
-@pytest.fixture(autouse=True)
-def mock_environment_vars() -> None:
-    """Set up test environment variables."""
-    os.environ.update({
-        "CROSSREF_MAILTO": "test@example.com",
-        "GOOGLE_BOOKS_API_KEY": "test-api-key",
-        "LOG_LEVEL": "WARNING"
-    })
+def test_reference(app):
+    """Create a test reference for canonical guard tests."""
+    with app.app_context():
+        ref = Reference(
+            bibliography_id=1,
+            source='test',
+            pub_type='journal-article',
+            title='Test Article',
+            authors='["Smith, John"]',
+            year='2023',
+            journal='Test Journal',
+            publisher='Test Publisher'
+        )
+        db.session.add(ref)
+        db.session.commit()
+        yield ref
+        db.session.delete(ref)
+        db.session.commit()

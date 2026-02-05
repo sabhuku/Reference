@@ -1,0 +1,11 @@
+{
+    "model_version": "gpt-4-default",
+    "method": "platt",
+    "parameters": {
+        "A": 1.0,
+        "B": 0.9
+    },
+    "created_at": "2026-02-03T13:20:00Z",
+    "sample_size": 0,
+    "description": "Conservative default profile (reduces confidence by ~20%). Use until real training data is available."
+}

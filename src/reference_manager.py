@@ -1,5 +1,14 @@
 """
 Reference Assistant - Core functionality
+
+This module provides the ReferenceManager class which orchestrates
+reference search, storage, and compliance operations.
+
+ARCHITECTURE NOTES (v2.0 - Project-Scoped):
+- References are stored in Project objects, NOT in this class
+- All operations require explicit project_id (no hidden state)
+- Only "default" project is auto-created
+- Precedence: explicit publications parameter overrides project storage
 """
 import json
 import logging
@@ -16,19 +25,55 @@ from docx import Document
 from .api import CrossRefAPI, GoogleBooksAPI, PubMedAPI
 from .config import Config
 from .models import Publication
+from .project_manager import ProjectManager, ProjectNotFoundError
 from .utils.input_validation import InputValidator
 from .utils.logging_setup import setup_logging, log_operation
 from .style.reporter import HarvardComplianceReporter
 from .style.remediation import RemediationGenerator
 
 class ReferenceManager:
-    def __init__(self):
+    """
+    Orchestrates reference search, storage, and compliance operations.
+    
+    ARCHITECTURE (v2.0 - Project-Scoped):
+    - NO global reference list (removed self.refs)
+    - References stored in Project objects via ProjectManager
+    - All operations require explicit project_id parameter
+    - Only "default" project is auto-created
+    - No hidden state (_current_project_id removed)
+    
+    PRECEDENCE RULE for check_style_compliance:
+    - IF publications parameter provided → use it (ignore project storage)
+    - IF publications is None → use project.get_references()
+    """
+    
+    DEFAULT_PROJECT_ID = "default"
+    
+    def __init__(self, project_manager: Optional[ProjectManager] = None):
+        """
+        Initialize ReferenceManager.
+        
+        Args:
+            project_manager: Optional ProjectManager instance.
+                            If None, creates new one with default storage path.
+        """
         self.config = Config()
-        self.refs: List[Publication] = []
+        
+        # PROJECT-SCOPED STORAGE (replaces self.refs)
+        self._project_manager = project_manager or ProjectManager(
+            storage_path=os.path.join(
+                os.path.dirname(self.config.CACHE_FILE) or '.',
+                'projects.json'
+            )
+        )
+        
+        # DEPRECATED: self.refs is removed
+        # For backward compatibility, provide a property that accesses default project
+        
         self.sources: Set[str] = set()
         self.style = self.config.DEFAULT_STYLE
         
-        # Lazy cache initialization
+        # Lazy cache initialization (for search results, not reference storage)
         self._cache = None
         import threading
         self._cache_lock = threading.RLock()
@@ -44,6 +89,152 @@ class ReferenceManager:
         # Initialize actions
         from .actions import ReferenceManagerActions
         self.actions = ReferenceManagerActions(self)
+    
+    # =========================================================================
+    # NOTE: self.refs REMOVED (v2.1)
+    # =========================================================================
+    # The deprecated self.refs property has been intentionally removed.
+    #
+    # REASON: Shallow copy exposed internal Publication objects, allowing
+    # external mutation that could contaminate project state.
+    #
+    # MIGRATION: Replace all uses of self.refs with explicit project API:
+    #   OLD: manager.refs                     → NEW: manager.get_project_references("default")
+    #   OLD: manager.refs.append(pub)         → NEW: manager.add_reference_to_project(pub)
+    #   OLD: manager.refs = [pub1, pub2]      → NEW: See set_project_references() below
+    #   OLD: len(manager.refs)                → NEW: manager.get_project_reference_count()
+    # =========================================================================
+    
+    def set_project_references(
+        self,
+        publications: List[Publication],
+        project_id: str = "default"
+    ) -> None:
+        """
+        Replace all references in a project with new list.
+        
+        This replaces the deprecated self.refs = [...] pattern.
+        
+        Args:
+            publications: New list of publications
+            project_id: Target project ID
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist (except "default")
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        project.clear_references()
+        for pub in publications:
+            project.add_reference(pub)
+    
+    # =========================================================================
+    # PROJECT-SCOPED REFERENCE OPERATIONS
+    # =========================================================================
+    
+    def add_reference_to_project(
+        self,
+        pub: Publication,
+        project_id: str = "default"
+    ) -> None:
+        """
+        Add a reference to a specific project.
+        
+        Args:
+            pub: Publication to add
+            project_id: Target project ID (default: "default")
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist (except "default")
+            TypeError: If pub is not a Publication
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        project.add_reference(pub)
+    
+    def remove_reference_from_project(
+        self,
+        pub: Publication,
+        project_id: str = "default"
+    ) -> bool:
+        """
+        Remove a reference from a specific project.
+        
+        Args:
+            pub: Publication to remove
+            project_id: Target project ID (default: "default")
+        
+        Returns:
+            True if removed, False if not found
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        return project.remove_reference(pub)
+    
+    def get_project_references(self, project_id: str = "default") -> List[Publication]:
+        """
+        Get all references from a project.
+        
+        Returns a deep copy by default for full isolation.
+        External mutations will NOT affect project state.
+        
+        Args:
+            project_id: Project ID (default: "default")
+        
+        Returns:
+            List of Publication objects (deep copy)
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        return project.get_references()  # deep=True by default
+    
+    def clear_project_references(self, project_id: str = "default") -> None:
+        """
+        Remove all references from a project.
+        
+        Args:
+            project_id: Project ID (default: "default")
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        project.clear_references()
+    
+    def get_project_reference_count(self, project_id: str = "default") -> int:
+        """
+        Get number of references in a project.
+        
+        Args:
+            project_id: Project ID (default: "default")
+        
+        Returns:
+            Number of references
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        project = self._project_manager.get_or_create_project(project_id)
+        return project.reference_count()
+    
+    # =========================================================================
+    # PROJECT MANAGER ACCESS
+    # =========================================================================
+    
+    @property
+    def project_manager(self) -> ProjectManager:
+        """Access the underlying ProjectManager."""
+        return self._project_manager
+    
+    def save_projects(self) -> None:
+        """Save all projects to persistent storage."""
+        self._project_manager.save()
+    
+    def load_projects(self) -> None:
+        """Load all projects from persistent storage."""
+        self._project_manager.load()
     
     @property
     def cache(self) -> Dict:
@@ -78,23 +269,70 @@ class ReferenceManager:
     def action_export_and_exit(self) -> bool:
         return self.actions.action_export_and_exit()
         
-    def check_style_compliance(self, publications: List[Publication]) -> Dict:
+    def check_style_compliance(
+        self,
+        publications: Optional[List[Publication]] = None,
+        project_id: str = "default"
+    ) -> Dict:
         """
         Run compliance checks and generate student feedback.
-        Returns a dict with 'report' and 'feedback'.
+        
+        PRECEDENCE RULE:
+        - IF publications is provided → use it (ignore project storage)
+        - IF publications is None → use project.get_references()
+        
+        Args:
+            publications: Optional explicit list of publications to check.
+                         If provided, project storage is ignored.
+            project_id: Project to use if publications is None.
+                       Only "default" is auto-created.
+        
+        Returns:
+            Dict with 'report', 'feedback', and 'results' keys
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist and publications is None
         """
+        # PRECEDENCE RULE: explicit publications override project storage
+        if publications is not None:
+            refs_to_check = publications
+        else:
+            project = self._project_manager.get_or_create_project(project_id)
+            refs_to_check = project.get_references()
+        
+        # Processing logic UNCHANGED from original
         from .style.reporter import HarvardComplianceReporter
         from .style.remediation import RemediationGenerator
         
         reporter = HarvardComplianceReporter()
-        report = reporter.generate_report(publications)
+        report = reporter.generate_report(refs_to_check)
         
         remediator = RemediationGenerator()
         feedback = remediator.generate(report)
         
+        # Create a lookup for feedback
+        feedback_map = {item.reference_key: item for item in feedback.references}
+        
+        # Merge for UI
+        merged_results = []
+        for ref in report.references:
+            fb = feedback_map.get(ref.reference_key)
+            merged_results.append({
+                'reference_key': ref.reference_key,
+                'display_title': ref.display_title,
+                'compliance_score': ref.compliance_score,
+                'violations': ref.violations,
+                'actions': fb.actions if fb else [],
+                'provenance': ref.provenance
+            })
+        
+        # Sort by score (ascending) then by reference_key for determinism
+        merged_results.sort(key=lambda x: (x['compliance_score'], x['reference_key']))
+        
         return {
             "report": report,
-            "feedback": feedback
+            "feedback": feedback,
+            "results": merged_results
         }
         
     def _load_cache(self) -> Dict:
@@ -248,10 +486,10 @@ class ReferenceManager:
             logging.error(f"Error searching for work: {e}")
             return None
 
-    def search_works(self, query: str, limit: int = 5, **kwargs) -> List[Publication]:
+    def search_works(self, query: str, limit: int = 5, search_mode: str = 'general', **kwargs) -> List[Publication]:
         """Search for works and return a ranked list."""
         # For now, just use parallel search
-        return self.parallel_search(query, limit, **kwargs)
+        return self.parallel_search(query, limit, search_mode=search_mode, **kwargs)
     
     def search_author_works(self, author: str, **kwargs) -> List[Publication]:
         """Search for works by an author."""
@@ -281,12 +519,50 @@ class ReferenceManager:
             if valid and data:
                 import copy
                 cached_results = copy.deepcopy(data)
+                
+                # Check if we need to re-hydrate dicts to Publications 
+                hydrated_results = []
                 for res in cached_results:
-                    if hasattr(res, 'retrieval_method'):
-                        res.retrieval_method = 'cache'
-                    elif isinstance(res, dict):
-                        res['retrieval_method'] = 'cache'
-                return cached_results
+                     if isinstance(res, dict):
+                         # Re-hydrate
+                         try:
+                             # Extract internal fields not in init
+                             mt = res.pop('match_type', 'fuzzy')
+                             conf = res.pop('confidence_score', 0.0)
+                             rm = res.pop('retrieval_method', 'cache')
+                             n_auth = res.pop('normalized_authors', [])
+                             auth_inf = res.pop('authors_inferred', False)
+                             y_stat = res.pop('year_status', 'present')
+                             s_inf = res.pop('source_type_inferred', False)
+                             n_log = res.pop('normalization_log', [])
+                             
+                             # Some fields might be missing from older caches or slightly different
+                             # Filter keys to only those in Publication.__init__
+                             import inspect
+                             init_params = inspect.signature(Publication.__init__).parameters
+                             clean_kwargs = {k: v for k, v in res.items() if k in init_params and k != 'self'}
+                             
+                             pub = Publication(**clean_kwargs)
+                             
+                             # Restore internal extras
+                             pub.match_type = mt
+                             pub.confidence_score = conf
+                             pub.retrieval_method = rm
+                             pub.normalized_authors = n_auth
+                             pub.authors_inferred = auth_inf
+                             pub.year_status = y_stat
+                             pub.source_type_inferred = s_inf
+                             pub.normalization_log = n_log
+                             
+                             hydrated_results.append(pub)
+                         except Exception as e:
+                             logging.warning(f"Failed to rehydrate cached publication: {e}")
+                     else:
+                         if hasattr(res, 'retrieval_method'):
+                            res.retrieval_method = 'cache'
+                         hydrated_results.append(res)
+                         
+                return hydrated_results
         
         try:
             works_crossref = self.crossref.search_author(author) or []
@@ -403,13 +679,41 @@ class ReferenceManager:
             logging.error(f"Error searching for author works: {e}")
             return []
 
-    def export_bibtex(self) -> str:
-        """Export all references to BibTeX."""
-        return "\n\n".join([ref.to_bibtex() for ref in self.refs])
+    def export_bibtex(self, project_id: str = "default") -> str:
+        """
+        Export project references to BibTeX format.
+        
+        Args:
+            project_id: Project to export from (default: "default")
+        
+        Returns:
+            BibTeX string with all references
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        # Performance optimization: use shallow copy (read-only operation)
+        project = self._project_manager.get_or_create_project(project_id)
+        refs = project.get_references(deep=False)
+        return "\n\n".join([ref.to_bibtex() for ref in refs])
 
-    def export_ris(self) -> str:
-        """Export all references to RIS."""
-        return "\n\n".join([ref.to_ris() for ref in self.refs])
+    def export_ris(self, project_id: str = "default") -> str:
+        """
+        Export project references to RIS format.
+        
+        Args:
+            project_id: Project to export from (default: "default")
+        
+        Returns:
+            RIS string with all references
+        
+        Raises:
+            ProjectNotFoundError: If project doesn't exist
+        """
+        # Performance optimization: use shallow copy (read-only operation)
+        project = self._project_manager.get_or_create_project(project_id)
+        refs = project.get_references(deep=False)
+        return "\n\n".join([ref.to_ris() for ref in refs])
     
     @staticmethod
     def _looks_booky(query: str) -> bool:
@@ -424,38 +728,61 @@ class ReferenceManager:
         return False
     
     def _deduplicate_results(self, results: List[Publication]) -> List[Publication]:
-        """Remove duplicate publications based on DOI and title similarity."""
-        seen_dois = set()
-        seen_titles = set()
+        """Remove duplicate publications based on DOI and title similarity, merging metadata."""
+        seen_dois = {} # Map DOI -> existing_pub
+        seen_titles = {} # Map normalized_title -> existing_pub
         unique_results = []
         
         for pub in results:
             # 1. Check DOI (most reliable)
+            existing_match = None
+            
             if pub.doi:
                 doi_normalized = pub.doi.lower().strip()
                 if doi_normalized in seen_dois:
-                    logging.debug(f"Skipping duplicate DOI: {doi_normalized}")
-                    continue
-                seen_dois.add(doi_normalized)
+                    logging.debug(f"Merge candidate (DOI): {doi_normalized}")
+                    existing_match = seen_dois[doi_normalized]
             
-            # 2. Check title similarity (fuzzy match)
-            title_normalized = pub.title.lower().strip()
-            is_duplicate = False
+            # 2. Check title similarity if no DOI match found
+            if not existing_match:
+                title_normalized = pub.title.lower().strip()
+                for seen_title, seen_pub in seen_titles.items():
+                    similarity = fuzz.ratio(title_normalized, seen_title)
+                    if similarity > 90:  # 90% similar = duplicate
+                        logging.debug(f"Merge candidate (Title): {pub.title[:30]}... matches {seen_pub.title[:30]}...")
+                        existing_match = seen_pub
+                        break
             
-            for seen_title in seen_titles:
-                similarity = fuzz.ratio(title_normalized, seen_title)
-                if similarity > 90:  # 90% similar = duplicate
-                    logging.debug(f"Skipping similar title: {pub.title[:50]}...")
-                    is_duplicate = True
-                    break
-            
-            if not is_duplicate:
-                seen_titles.add(title_normalized)
+            if existing_match:
+                # Merge metadata from 'pub' into 'existing_match' if missing
+                self._merge_metadata(existing_match, pub)
+            else:
+                # Add new unique result
                 unique_results.append(pub)
+                
+                # Update lookups
+                if pub.doi:
+                    seen_dois[pub.doi.lower().strip()] = pub
+                seen_titles[pub.title.lower().strip()] = pub
         
         return unique_results
+
+    def _merge_metadata(self, target: Publication, source: Publication):
+        """Merge metadata from source into target if missing in target."""
+        # Merge key fields if target is empty/generic but source has data
+        if not target.url and source.url:
+            target.url = source.url
+        if not target.isbn and source.isbn:
+            target.isbn = source.isbn
+        if not target.publisher and source.publisher:
+            target.publisher = source.publisher
+        if not target.doi and source.doi:
+            target.doi = source.doi
+        # Also prefer year if target is "n.d."
+        if (not target.year or target.year == "n.d.") and source.year and source.year != "n.d.":
+            target.year = source.year
     
-    def _rank_results(self, results: List[Tuple[Publication, str]], query: str) -> List[Publication]:
+    def _rank_results(self, results: List[Tuple[Publication, str]], query: str, search_mode: str = 'general') -> List[Publication]:
         """Rank results and return sorted list."""
         if not results:
             return []
@@ -476,8 +803,22 @@ class ReferenceManager:
         # Source(10) + TitleExact(100) + Recent(5) + DOI(3) + Authors(2) + Journal(1) = 121
         MAX_SCORE = 121.0
         
-        # Pre-calculate query keywords for noise filtering
-        query_words = {w for w in re.findall(r'\w+', query_lower) if len(w) > 2}
+        # Stopwords to filter out (common words that don't indicate relevance)
+        STOPWORDS = {
+            'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
+            'of', 'with', 'by', 'from', 'as', 'is', 'was', 'are', 'were', 'be',
+            'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will',
+            'would', 'should', 'could', 'may', 'might', 'must', 'can', 'let',
+            'get', 'got', 'make', 'made', 'take', 'took', 'give', 'gave', 'how',
+            'what', 'when', 'where', 'who', 'why', 'which', 'this', 'that', 'these',
+            'those', 'me', 'you', 'he', 'she', 'it', 'we', 'they', 'them', 'their'
+        }
+        
+        # Pre-calculate query keywords for noise filtering (exclude stopwords)
+        query_words = {
+            w for w in re.findall(r'\w+', query_lower)
+            if len(w) > 2 and w not in STOPWORDS
+        }
 
         for pub, source in results:
             score = 0
@@ -492,6 +833,23 @@ class ReferenceManager:
             # 2. Query match in title
             title_lower = pub.title.lower() if pub.title else ""
             
+            # Phrase-aware matching: Detect educational qualification terms
+            # These should be treated as compound phrases, not generic "level" usage
+            EDUCATIONAL_PHRASES = [
+                r'\ba[-\' ]?level\b',      # A-level, A level, A'level
+                r'\bo[-\' ]?level\b',      # O-level, O level, O'level
+                r'\bas[-\' ]?level\b',     # AS-level, AS level
+                r'\bcollege[-\' ]?level\b', # college-level
+                r'\bhigher level\b',       # higher level (IB)
+                r'\bstandard level\b',     # standard level (IB)
+                r'\bgraduate[-\' ]?level\b', # graduate-level
+                r'\bundergraduate[-\' ]?level\b' # undergraduate-level
+            ]
+            
+            # Check if query contains educational phrases
+            query_has_edu_phrase = any(re.search(pattern, query_lower) for pattern in EDUCATIONAL_PHRASES)
+            title_has_edu_phrase = any(re.search(pattern, title_lower) for pattern in EDUCATIONAL_PHRASES)
+            
             if title_lower == query_lower:
                 score += 100
                 match_type = "exact_title"
@@ -500,6 +858,11 @@ class ReferenceManager:
                 score += 50
                 match_type = "partial_title"
                 criteria['title_partial'] = 50
+            # Boost if both query and title contain educational phrases
+            elif query_has_edu_phrase and title_has_edu_phrase:
+                score += 40
+                match_type = "educational_phrase_match"
+                criteria['educational_phrase'] = 40
             else:
                 # Fuzzy/Keyword matching
                 ratio = fuzz.partial_ratio(query_lower, title_lower)
@@ -512,15 +875,52 @@ class ReferenceManager:
                     match_type = "fuzzy_title_mid"
                     criteria['title_fuzzy_mid'] = 25
                 
-                # Title keyword overlap
+                # Title keyword overlap (require meaningful overlap)
                 title_words = set(re.findall(r'\w+', title_lower))
                 overlap = query_words.intersection(title_words)
-                if overlap:
+                
+                # Only award points for sufficient keyword overlap
+                if len(overlap) >= 2:
+                    # Multiple keywords match
                     overlap_score = len(overlap) * 10
+                    
+                    # Proximity bonus: Keywords appearing close together (within 3 words)
+                    # This helps distinguish "A-level mathematics" from "multi-level deep learning models"
+                    title_words_list = re.findall(r'\w+', title_lower)
+                    keyword_positions = {}
+                    for keyword in overlap:
+                        positions = [i for i, w in enumerate(title_words_list) if w == keyword]
+                        if positions:
+                            keyword_positions[keyword] = positions[0]  # Use first occurrence
+                    
+                    # Check if keywords are within proximity window (3 words)
+                    if len(keyword_positions) >= 2:
+                        positions = sorted(keyword_positions.values())
+                        min_distance = min(positions[i+1] - positions[i] for i in range(len(positions)-1))
+                        
+                        if min_distance <= 3:
+                            # Keywords are close together - strong relevance signal
+                            proximity_bonus = 15
+                            score += proximity_bonus
+                            criteria['keyword_proximity'] = proximity_bonus
+                    
                     score += overlap_score
                     criteria['title_keywords'] = overlap_score
                     if match_type == "fuzzy":
                         match_type = "keyword_match"
+                elif len(overlap) == 1 and len(query_words) == 1:
+                    # Single keyword match, but only if query is single keyword
+                    overlap_score = 10
+                    score += overlap_score
+                    criteria['title_keywords'] = overlap_score
+                    if match_type == "fuzzy":
+                        match_type = "keyword_match"
+            
+            # Phrase Mismatch Penalty
+            # If query has educational phrase (e.g., "A-level") but title doesn't, apply penalty
+            if query_has_edu_phrase and not title_has_edu_phrase:
+                score -= 30
+                criteria['edu_phrase_mismatch'] = -30
             
             # 3. Recency (2020+ gets bonus)
             try:
@@ -596,32 +996,69 @@ class ReferenceManager:
             else:
                 pub.is_selected = False
             
-            # Filter out "stray" results (low score and no title keyword match)
-            is_noise = False
+            # Filter out "stray" results (low score and insufficient keyword match)
             
-            # Determine if title has ANY meaningful query words
+            # Calculate keyword overlap for noise filtering
             pub_title_lower = pub.title.lower() if pub.title else ""
             title_tokens = set(re.findall(r'\w+', pub_title_lower))
-            has_keyword = any(w in title_tokens for w in query_words)
+            overlap = query_words.intersection(title_tokens)
+            overlap_count = len(overlap)
             
-            # Noise criteria:
-            # Revised Strategy: Prefer demotion over hard dropping to avoid false negatives.
-            # Only drop if truly irrelevant (very low score + no keyword match).
+            # Check for educational phrase mismatch
+            # If query has educational phrase (e.g., "A-level") but title doesn't, likely irrelevant
+            EDUCATIONAL_PHRASES = [
+                r'\ba[-\' ]?level\b', r'\bo[-\' ]?level\b', r'\bas[-\' ]?level\b',
+                r'\bcollege[-\' ]?level\b', r'\bhigher level\b', r'\bstandard level\b',
+                r'\bgraduate[-\' ]?level\b', r'\bundergraduate[-\' ]?level\b'
+            ]
+            query_has_edu_phrase = any(re.search(pattern, query_lower) for pattern in EDUCATIONAL_PHRASES)
+            title_has_edu_phrase = any(re.search(pattern, pub_title_lower) for pattern in EDUCATIONAL_PHRASES)
             
+            # Noise filtering strategy:
+            # Drop results with low scores AND insufficient keyword overlap
             should_drop = False
             
-            # 1. Hard Drop: Extremely low score AND no keyword match
-            if score < 10 and not has_keyword:
+            # 1. Educational phrase mismatch: Query has edu phrase but title doesn't
+            if query_has_edu_phrase and not title_has_edu_phrase:
+                # Allow high-scoring exact matches to pass through
+                if score < 60:
+                    should_drop = True
+            
+            # 2. Hard Drop: Low score AND insufficient keyword overlap
+            elif score < 20 and overlap_count < 2:
                 should_drop = True
             
-            # 2. Contextual Drop: If we have a very strong match (>90), we can be stricter with noise
-            elif scored_results[0][0] > 90 and score < 15 and not has_keyword:
+            # 3. Contextual Drop: If best result is strong (>90), be stricter
+            elif scored_results[0][0] > 90 and score < 30:
                 should_drop = True
+            
+            # 4. Zero overlap: Always drop if no meaningful keywords match
+            elif overlap_count == 0 and len(query_words) > 0:
+                should_drop = True
+
+            # 5. Strict Title Mode: Drop if title match < 80 and not exact
+            if search_mode == 'title' and not should_drop:
+                # Require reasonably high match for "title search" mode
+                if "title_partial" in criteria or "title_exact" in criteria:
+                    pass # Keep it
+                elif "educational_phrase_match" in criteria:
+                    pass # Keep it
+                elif "fuzzy_title_high" in criteria:
+                    pass # Keep it (>90)
+                elif "fuzzy_title_mid" in criteria: 
+                    # Drop mid-range matches in strict title mode if there are no other strong signals
+                    if score < 60:
+                        should_drop = True
+                        logging.debug(f"Dropped strict title result (score={score}): {pub.title}")
+                else:
+                     # Drop low fuzzy matches or keyword-only matches in strict title mode
+                    should_drop = True
+                    logging.debug(f"Dropped strict title result (no strong title match): {pub.title}")
 
             if not should_drop:
                 best_pubs.append(pub)
             else:
-                logging.debug(f"Dropped noise result (score={score}): {pub.title[:30]}...")
+                logging.debug(f"Dropped noise result (score={score}, overlap={overlap_count}, edu_mismatch={query_has_edu_phrase and not title_has_edu_phrase}): {pub.title[:30]}...")
         
         # Re-sort final list to ensure demotions (if any logic added for that) or just stable score sort
         # Currently the list is built in score order.
@@ -690,7 +1127,7 @@ class ReferenceManager:
                 
         return filtered_results
     
-    def parallel_search(self, query: str, limit: int = 5, **kwargs) -> List[Publication]:
+    def parallel_search(self, query: str, limit: int = 5, search_mode: str = 'general', **kwargs) -> List[Publication]:
         """Search all sources in parallel and return ranked list."""
         
         all_results = []
@@ -714,9 +1151,9 @@ class ReferenceManager:
             if doc_type: cr_kwargs['doc_type'] = doc_type
             
             future_to_source[executor.submit(
-                self.crossref.search, query, limit, **cr_kwargs
+                self.crossref.search, query, limit, search_mode=search_mode, **cr_kwargs
             )] = 'crossref'
-            
+        
             # PubMed: supports date range, language, open_access
             pm_kwargs = {}
             if year_from: pm_kwargs['year_from'] = year_from
@@ -725,7 +1162,7 @@ class ReferenceManager:
             if open_access: pm_kwargs['open_access'] = open_access
             
             future_to_source[executor.submit(
-                self.pubmed.search, query, limit, **pm_kwargs
+                self.pubmed.search, query, limit, search_mode=search_mode, **pm_kwargs
             )] = 'pubmed'
             
             # Google Books: supports language
@@ -733,7 +1170,7 @@ class ReferenceManager:
             if language: gb_kwargs['language'] = language
             
             future_to_source[executor.submit(
-                self.google_books.search, query, limit, **gb_kwargs
+                self.google_books.search, query, limit, search_mode=search_mode, **gb_kwargs
             )] = 'google_books'
             
             # Collect results as they complete
@@ -775,7 +1212,7 @@ class ReferenceManager:
             unique_pubs_with_source.append((pub, src))
             
         # Rank
-        ranked = self._rank_results(unique_pubs_with_source, query)
+        ranked = self._rank_results(unique_pubs_with_source, query, search_mode=search_mode)
         
         # Apply fallback filters (year, type)
         # This ensures that if a source ignores the filter (e.g. Google Books matching '1990' when asking for '2020'), we still respect user intent.

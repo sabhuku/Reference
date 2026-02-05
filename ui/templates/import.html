@@ -29,12 +29,10 @@
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h1>Import References</h1>
-                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
-                        <i class="bi bi-house"></i> Home
-                    </a>
-                </div>
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary mb-3">
+                    <i class="bi bi-arrow-left"></i> Back to Home
+                </a>
+                <h1 class="mb-4">Import References</h1>
 
                 {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
@@ -83,6 +81,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Auto-dismiss alert messages after 5 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                let alerts = document.querySelectorAll('.alert-dismissible');
+                alerts.forEach(function (alert) {
+                    let bootstrapAlert = new bootstrap.Alert(alert);
+                    bootstrapAlert.close();
+                });
+            }, 5000);
+        });
+    </script>
 </body>
 
 </html>

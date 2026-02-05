@@ -1,0 +1,95 @@
+[
+  {
+    "id": 6,
+    "source": "crossref",
+    "pub_type": "journal-article",
+    "title": "Identifying Queenlessness in Honeybee Hives from Audio Signals Using Machine Learning",
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon",
+      "Duran, Olga",
+      "Nebel, Jean-Christophe"
+    ],
+    "year": "2023",
+    "journal": "Electronics",
+    "publisher": "MDPI AG",
+    "volume": "12",
+    "issue": "7",
+    "pages": "1627",
+    "doi": "10.3390/electronics12071627"
+  },
+  {
+    "id": 7,
+    "source": "crossref",
+    "pub_type": "book-chapter",
+    "title": "Prediction of Honeybee Swarms Using Audio Signals and Convolutional Neural Networks",
+    "authors": [
+      "Ruvinga, Stenford",
+      "Hunter, Gordon",
+      "Nebel, Jean-Christophe",
+      "Duran, Olga"
+    ],
+    "year": "2022",
+    "journal": "Ambient Intelligence and Smart Environments",
+    "publisher": "IOS Press",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "10.3233/aise220032"
+  },
+  {
+    "id": 8,
+    "source": "crossref",
+    "pub_type": "proceedings-article",
+    "title": "APPROACHES FROM AUTOMATED PROCESSING OF HUMAN SPEECH TO MONITORING &amp; PREDICTING IMPORTANT EVENTS IN HONEYBEE HIVES USING ACOUSTIC SIGNALS",
+    "authors": [
+      "RUVINGA, S",
+      "HUNTER, G",
+      "SANDERS, H",
+      "KODWO ADJALOO, M"
+    ],
+    "year": "2023",
+    "journal": "ACOUSTICS 2023",
+    "publisher": "Institute of Acoustics",
+    "volume": "",
+    "issue": "",
+    "pages": "",
+    "doi": "10.25144/16619"
+  },
+  {
+    "source": "manual",
+    "pub_type": "conference",
+    "authors": [
+      "['Ruvinga, Stenford'",
+      "'Hunter, Gordon J.A.'",
+      "'Duran, Olga'",
+      "'Nebel, Jean-Christophe']"
+    ],
+    "year": "2021",
+    "title": "Use of LSTM Networks to Identify “Queenlessness” in Honeybee Hives from Audio Signals",
+    "journal": "2021 17th International Conference on Intelligent Environments (IE)",
+    "publisher": "IEEE",
+    "location": "",
+    "volume": "",
+    "issue": "",
+    "pages": "1-4",
+    "doi": "10.1109/ie51775.2021.9486575"
+  },
+  {
+    "id": 10,
+    "source": "crossref",
+    "pub_type": "book-chapter",
+    "title": "Co-operative government in marine spatial planning",
+    "authors": [
+      "Chasakara, Rachael",
+      "Vrancken, Patrick"
+    ],
+    "year": "2020",
+    "journal": "African perspectives on selected marine, maritime and international trade law topics",
+    "publisher": "African Sun Media",
+    "volume": "",
+    "issue": "",
+    "pages": "53-70",
+    "doi": "10.18820/9781991201072/03"
+  }
+]

@@ -3,109 +3,469 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Bibliography - Reference Assistant</title>
+  <title>Bibliography - ZiReference Assistant</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- UI Enhancements CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/enhancements.css') }}">
+  <style>
+    .sticky-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #dee2e6;
+      padding: 1rem 0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .ref-card {
+      transition: border-color 0.2s;
+      border-left: 4px solid transparent;
+    }
+
+    .ref-card:hover {
+      border-color: #dee2e6;
+    }
+
+    .ref-card.selected {
+      border-left-color: #0d6efd;
+    }
+
+    .preview-mode .action-bar,
+    .preview-mode .badge,
+    .preview-mode .form-check,
+    .preview-mode .sticky-toolbar,
+    .preview-mode .pagination-container {
+      display: none !important;
+    }
+
+    .preview-mode .ref-card {
+      border: none;
+      padding: 0 !important;
+      margin-bottom: 1rem !important;
+    }
+
+    .preview-mode .citation-text {
+      font-family: "Times New Roman", serif;
+      font-size: 1.1rem;
+      margin-left: 0.5in;
+      text-indent: -0.5in;
+    }
+
+    .preview-mode body {
+      background: white !important;
+    }
+
+    .preview-back-btn {
+      display: none;
+    }
+
+    .preview-mode .preview-back-btn {
+      display: block !important;
+    }
+  </style>
 </head>
 
-<body>
-  <!-- Top Taskbar -->
+<body class="bg-light">
+
+  <!-- Floating Back Button for Preview Mode -->
+  <button class="btn btn-secondary shadow position-fixed top-0 end-0 m-4 preview-back-btn" onclick="togglePreviewMode()"
+    style="z-index: 1050;">
+    <i class="bi bi-arrow-left"></i> Back to Bibliography
+  </button>
+
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-      <span class="navbar-brand">Welcome to My Reference</span>
-      <div class="navbar-nav ms-auto flex-row align-items-center">
+      <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">ZiReference Assistant</a>
+      <div class="navbar-nav ms-auto">
         {% if current_user.is_authenticated %}
-        <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
-          <i class="bi bi-person-circle"></i> {{ current_user.username }}
-        </a>
-        <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+        <a href="{{ url_for('bibliography') }}" class="nav-link"><i class="bi bi-list"></i> Bibliography</a>
+        <a href="{{ url_for('analytics_dashboard') }}" class="nav-link"><i class="bi bi-graph-up"></i> Analytics</a>
+        <a href="{{ url_for('profile') }}" class="nav-link"><i class="bi bi-person-circle"></i> {{ current_user.username
+          }}</a>
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="btn btn-sm ms-2 dark-mode-toggle" aria-label="Toggle dark mode">
+          <i id="darkModeIcon" class="bi bi-moon-stars"></i>
+        </button>
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm ms-3">Logout</a>
         {% else %}
-        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm me-2">Login</a>
-        <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Sign Up</a>
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm">Login</a>
         {% endif %}
       </div>
     </div>
   </nav>
 
-  <!-- Sub-Navigation Bar -->
-  <div class="bg-light border-bottom mb-4">
-    <div class="container py-2">
+  <div class="container py-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Bibliography</li>
+      </ol>
+    </nav>
+
+    <!-- Global Toolbar -->
+    <div class="sticky-toolbar mb-4 rounded-3 d-flex align-items-center justify-content-between px-3">
+      <div class="d-flex align-items-center gap-3">
+        <h4 class="mb-0 me-3">My Bibliography</h4>
+
+        <form id="styleForm" action="{{ url_for('bibliography') }}" method="get"
+          class="d-flex align-items-center gap-2">
+
+          <div class="d-flex align-items-center gap-1">
+            <label class="text-muted small fw-bold">Style:</label>
+            <select name="style" class="form-select form-select-sm" style="width: 120px;" onchange="this.form.submit()">
+              <option value="harvard" {% if style=='harvard' %}selected{% endif %}>Harvard</option>
+              <option value="apa" {% if style=='apa' %}selected{% endif %}>APA</option>
+              <option value="mla" {% if style=='mla' %}selected{% endif %}>MLA</option>
+              <option value="ieee" {% if style=='ieee' %}selected{% endif %}>IEEE</option>
+              <option value="chicago" {% if style=='chicago' %}selected{% endif %}>Chicago</option>
+              <option value="vancouver" {% if style=='vancouver' %}selected{% endif %}>Vancouver</option>
+            </select>
+          </div>
+
+          <div class="d-flex align-items-center gap-1 ms-2">
+            <label class="text-muted small fw-bold">Sort:</label>
+            <select name="sort" class="form-select form-select-sm" style="width: 100px;" onchange="this.form.submit()">
+              <option value="author" {% if sort_by=='author' %}selected{% endif %}>Author</option>
+              <option value="year" {% if sort_by=='year' %}selected{% endif %}>Year</option>
+              <option value="title" {% if sort_by=='title' %}selected{% endif %}>Title</option>
+              <option value="recent" {% if sort_by=='recent' %}selected{% endif %}>Recent</option>
+            </select>
+          </div>
+
+          <div class="d-flex align-items-center gap-1 ms-2">
+            <label class="text-muted small fw-bold">Order:</label>
+            <select name="dir" class="form-select form-select-sm" style="width: 110px;" onchange="this.form.submit()">
+              <option value="asc" {% if sort_dir=='asc' %}selected{% endif %}>Ascending</option>
+              <option value="desc" {% if sort_dir=='desc' %}selected{% endif %}>Descending</option>
+            </select>
+          </div>
+        </form>
+
+        <div class="vr mx-2"></div>
+
+        <div class="btn-group btn-group-sm">
+          <button class="btn btn-outline-secondary" onclick="togglePreviewMode()" id="previewBtn">
+            <i class="bi bi-eye"></i> Preview
+          </button>
+        </div>
+      </div>
+
       <div class="d-flex gap-2">
-        <a href="{{ url_for('index') }}" class="btn btn-outline-primary btn-sm">
-          <i class="bi bi-house-door"></i> Home
+        <a href="{{ url_for('check_compliance') }}" class="btn btn-warning btn-sm">
+          <i class="bi bi-shield-check"></i> Check Compliance
         </a>
-        {% if current_user.is_authenticated %}
-        <a href="{{ url_for('bibliographies') }}" class="btn btn-outline-primary btn-sm">
-          My Bibliographies
-        </a>
-        {% endif %}
-        <a href="{{ url_for('import_file') }}" class="btn btn-outline-success btn-sm" data-bs-toggle="tooltip"
-          title="Upload a file to check its Harvard compliance instantly.">
-          <i class="bi bi-upload"></i> Import & Check
-        </a>
+        <div class="dropdown">
+          <button class="btn btn-success btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <i class="bi bi-download"></i> Export All
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="{{ url_for('export_word') }}">Word (.docx)</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{{ url_for('export', format='bibtex') }}">BibTeX</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('export', format='ris') }}">RIS</a></li>
+            <li><a class="dropdown-item" href="{{ url_for('export', format='json') }}">JSON</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container py-4">
-    <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     {% for category, message in messages %}
     <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
       role="alert">
       {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     </div>
     {% endfor %}
     {% endif %}
     {% endwith %}
 
-    <h1>Bibliography (style: {{ style|title }})</h1>
-
-
-
     {% if refs %}
-    <ol>
-      {% for r in refs %}
-      <li>
-        {{ r | reference_entry(style, loop.index) }}<br>
-        <form action="/cite" method="post" style="display:inline">
-          <input type="hidden" name="pub" value='{{ r | tojson | safe }}'>
-          <label style="font-size:90%">Style:
-            <select name="style">
-              <option value="harvard" {% if style=='harvard' %} selected{% endif %}>Harvard</option>
-              <option value="apa" {% if style=='apa' %} selected{% endif %}>APA</option>
-              <option value="ieee" {% if style=='ieee' %} selected{% endif %}>IEEE</option>
-              <option value="mla" {% if style=='mla' %} selected{% endif %}>MLA</option>
-              <option value="chicago" {% if style=='chicago' %} selected{% endif %}>Chicago</option>
-              <option value="vancouver" {% if style=='vancouver' %} selected{% endif %}>Vancouver</option>
-            </select>
-          </label>
-          <button type="submit">Generate citation</button>
-        </form>
-        <form action="/remove/{{ loop.index0 }}" method="post" style="display:inline; margin-left:8px">
-          <button type="submit">Remove</button>
-        </form>
-        <a href="/edit/{{ loop.index0 }}" style="margin-left:8px">Edit</a>
-      </li>
-      {% endfor %}
-    </ol>
-    <div class="d-flex gap-2 mb-3">
-      <a href="{{ url_for('export_word') }}" class="btn btn-primary">
-        <i class="bi bi-file-word"></i> Export to Word (.docx)
-      </a>
-      <a href="{{ url_for('check_compliance', origin='bibliography') }}" class="btn btn-warning">
-        <i class="bi bi-shield-check"></i> Check Style Compliance (Harvard)
-      </a>
+    <!-- Search Bar (Client-Side Filtering) -->
+    <div class="search-container">
+      <div class="row g-2">
+        <div class="col-md-6">
+          <input type="text" id="searchTitle" class="form-control" placeholder="🔍 Search by title..."
+            onkeyup="filterReferences()">
+        </div>
+        <div class="col-md-3">
+          <select id="filterType" class="form-select" onchange="filterReferences()">
+            <option value="">All Types</option>
+            <option value="journal-article">Journal Article</option>
+            <option value="book">Book</option>
+            <option value="conference-paper">Conference Paper</option>
+            <option value="web-page">Web Page</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-outline-secondary w-100" onclick="clearFilters()">
+            <i class="bi bi-x-circle"></i> Clear
+          </button>
+        </div>
+      </div>
+      <div id="searchResultCount" class="search-result-count"></div>
     </div>
-    {% else %}
-    <p>(No items)</p>
+
+    <div id="referenceList">
+      {% for item in refs %}
+      {% set r = item.data %}
+      {% set original_idx = item.original_index %}
+
+      <div class="card mb-3 shadow-sm ref-card" id="ref-{{ original_idx }}" data-title="{{ r.title|lower }}"
+        data-type="{{ r.pub_type|lower }}">
+        <div class="card-body">
+          <div class="d-flex align-items-start gap-3">
+            <!-- Checkbox -->
+            <div class="form-check pt-1">
+              <input class="form-check-input ref-checkbox" type="checkbox" value="{{ original_idx }}"
+                onchange="updateSelection(this)">
+            </div>
+
+            <!-- Content -->
+            <div class="flex-grow-1">
+              <!-- Citation Preview -->
+              <div class="citation-text mb-2">
+                {{ r | reference_entry(style, loop.index) }}
+              </div>
+
+              <!-- Metadata Badges -->
+              <div class="action-bar mb-3">
+                <span class="badge bg-secondary fw-normal">{{ r.pub_type|replace('-', ' ')|title }}</span>
+                {% if r.doi %}<span class="badge bg-light text-dark border">DOI: {{ r.doi }}</span>{% endif %}
+                {% if r.year %}<span class="badge bg-light text-dark border">{{ r.year }}</span>{% endif %}
+              </div>
+
+              <!-- Actions -->
+              <div class="action-bar d-flex gap-2">
+                <!-- View Button -->
+                {% if r.doi or r.url %}
+                <a href="{{ 'https://doi.org/' ~ r.doi if r.doi else r.url }}" target="_blank"
+                  class="btn btn-sm btn-outline-success">
+                  <i class="bi bi-box-arrow-up-right"></i> View
+                </a>
+                {% endif %}
+
+                <!-- The Cite Button -->
+                <button class="btn btn-sm btn-outline-primary" onclick="openCiteModal('{{ original_idx }}', this)">
+                  <i class="bi bi-quote"></i> Cite
+                </button>
+
+                <a href="/edit/{{ original_idx }}" class="btn btn-sm btn-outline-warning">
+                  <i class="bi bi-pencil"></i> Edit
+                </a>
+
+                <form action="/remove/{{ original_idx }}" method="post" class="d-inline"
+                  onsubmit="return confirm('Delete this reference?');">
+                  <button type="submit" class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i> Delete
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if total_pages > 1 %}
+    <div class="d-flex justify-content-center mt-5 pagination-container">
+      <nav aria-label="Bibliography pagination">
+        <ul class="pagination">
+          <li class="page-item {% if page == 1 %}disabled{% endif %}">
+            <a class="page-link"
+              href="{{ url_for('bibliography', page=page-1, style=style, sort=sort_by, dir=sort_dir) }}">Previous</a>
+          </li>
+
+          {% for p in range(1, total_pages + 1) %}
+          <li class="page-item {% if p == page %}active{% endif %}">
+            <a class="page-link"
+              href="{{ url_for('bibliography', page=p, style=style, sort=sort_by, dir=sort_dir) }}">{{ p }}</a>
+          </li>
+          {% endfor %}
+
+          <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+            <a class="page-link"
+              href="{{ url_for('bibliography', page=page+1, style=style, sort=sort_by, dir=sort_dir) }}">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
     {% endif %}
-    <p><a href="/">Back</a></p>
+
+    {% else %}
+    <div class="text-center py-5 text-muted">
+      <i class="bi bi-journal-album display-1"></i>
+      <h3 class="mt-3">Your bibliography is empty</h3>
+      <p>Go back to <a href="{{ url_for('index') }}">Home</a> to add references.</p>
+    </div>
+    {% endif %}
+
+    <!-- Bulk Actions Footer (Sticky Bottom) -->
+    <div id="bulkActions" class="fixed-bottom bg-white border-top shadow-lg p-3 d-none theme-aware-footer">
+      <!-- ... existing bulk actions ... -->
+      <div class="container d-flex justify-content-between align-items-center">
+        <span class="fw-bold"><span id="selectedCount">0</span> references selected</span>
+        <div class="btn-group">
+          <button class="btn btn-outline-danger btn-sm" onclick="bulkDelete()">Delete Selected</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Citation Modal -->
+    <div class="modal fade" id="citationModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Generate Citation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="citationLoading" class="text-center py-4">
+              <div class="spinner-border text-primary" role="status"></div>
+              <p class="mt-2 text-muted">Generating citations...</p>
+            </div>
+
+            <div id="citationContent" style="display: none;">
+              <ul class="nav nav-tabs mb-3" id="citationTabs" role="tablist">
+                <!-- Tabs generated by JS -->
+              </ul>
+              <div class="tab-content border rounded p-3 bg-light" id="citationTabContent">
+                <!-- Content generated by JS -->
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="copyCurrentCitation()">
+              <i class="bi bi-clipboard"></i> Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- UI Enhancement Scripts -->
+  <script src="{{ url_for('static', filename='js/dark-mode.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/reference-search.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/citation-preview.js') }}"></script>
   <script>
+    function togglePreviewMode() {
+      document.body.classList.toggle('preview-mode');
+      const btn = document.getElementById('previewBtn');
+      if (document.body.classList.contains('preview-mode')) {
+        btn.innerHTML = '<i class="bi bi-pencil-square"></i> Edit';
+        btn.classList.replace('btn-outline-secondary', 'btn-primary');
+      } else {
+        btn.innerHTML = '<i class="bi bi-eye"></i> Preview';
+        btn.classList.replace('btn-primary', 'btn-outline-secondary');
+      }
+    }
+
+    function updateSelection(checkbox) {
+      const card = checkbox.closest('.ref-card');
+      if (checkbox.checked) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
+
+      const count = document.querySelectorAll('.ref-checkbox:checked').length;
+      document.getElementById('selectedCount').textContent = count;
+      const bulkBar = document.getElementById('bulkActions');
+      if (count > 0) bulkBar.classList.remove('d-none');
+      else bulkBar.classList.add('d-none');
+    }
+
+    // CITATION MODAL LOGIC
+    const citationStyles = ['Harvard', 'APA', 'MLA', 'Chicago', 'IEEE', 'Vancouver'];
+    const modal = new bootstrap.Modal(document.getElementById('citationModal'));
+
+    async function openCiteModal(refIndex, btn) {
+      // We need the REAL index (original_index). 
+      // Since we haven't fixed the backend yet, let's use a temporary attribute or dataset if we inject it.
+      // Actually, we will fix the backend to inject 'original_index' into the 'r' object or wrapper.
+      // Assuming we will do that:
+      const realIndex = btn.dataset.originalIndex || refIndex; // Fallback
+
+      modal.show();
+      document.getElementById('citationLoading').style.display = 'block';
+      document.getElementById('citationContent').style.display = 'none';
+
+      try {
+        const response = await fetch(`/api/cite?idx=${realIndex}`);
+        const data = await response.json();
+
+        if (data.success) {
+          renderTabs(data.citations);
+          document.getElementById('citationLoading').style.display = 'none';
+          document.getElementById('citationContent').style.display = 'block';
+        } else {
+          alert("Error: " + data.error);
+          modal.hide();
+        }
+      } catch (e) {
+        console.error(e);
+        alert("Failed to load citations.");
+        modal.hide();
+      }
+    }
+
+    function renderTabs(citations) {
+      const tabList = document.getElementById('citationTabs');
+      const contentList = document.getElementById('citationTabContent');
+      tabList.innerHTML = '';
+      contentList.innerHTML = '';
+
+      let first = true;
+      for (const [style, text] of Object.entries(citations)) {
+        const isActive = first ? 'active' : '';
+        const isShow = first ? 'show active' : '';
+        const capsStyle = style.toUpperCase();
+
+        // Tab Item
+        const li = document.createElement('li');
+        li.className = 'nav-item';
+        li.innerHTML = `<button class="nav-link ${isActive}" data-bs-toggle="tab" data-bs-target="#tab-${style}" type="button">${capsStyle}</button>`;
+        tabList.appendChild(li);
+
+        // Tab Content
+        const div = document.createElement('div');
+        div.className = `tab-pane fade ${isShow}`;
+        div.id = `tab-${style}`;
+        div.innerHTML = `<p class="citation-text mb-0" style="font-family:serif; font-size:1.1rem">${text}</p>`;
+        contentList.appendChild(div);
+
+        first = false;
+      }
+    }
+
+    function copyCurrentCitation() {
+      const activePane = document.querySelector('.tab-pane.active .citation-text');
+      if (activePane) {
+        navigator.clipboard.writeText(activePane.innerText);
+        // Visual feedback
+        const btn = document.querySelector('.modal-footer .btn-primary');
+        const original = btn.innerHTML;
+        btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+        setTimeout(() => btn.innerHTML = original, 2000);
+      }
+    }
+
+    function bulkDelete() {
+      alert("Select items to delete.");
+    }
+
     // Auto-dismiss alert messages after 5 seconds
     document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {

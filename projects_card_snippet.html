@@ -1,0 +1,14 @@
+</div>
+{% if current_user.is_authenticated %}
+<div class="col-md-3">
+    <a href="{{ url_for('manage_projects') }}" class="text-decoration-none">
+        <div class="card quick-action-card shadow-sm p-4 text-center h-100">
+            <div class="card-body">
+                <i class="bi bi-folder2-open feature-icon text-primary"></i>
+                <h5 class="card-title text-dark">Projects</h5>
+                <p class="card-text text-muted small">Organize references into projects.</p>
+            </div>
+        </div>
+    </a>
+</div>
+{% endif %}

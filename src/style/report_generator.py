@@ -43,9 +43,9 @@ class HarvardComplianceReportGenerator:
         for ref in references:
             ref_violations = violation_map.get(ref.id, [])
             # Calculate per-reference score
-            # Stricter penalties: Error=20, Warning=15
-            ref_deduction = sum(20.0 for v in ref_violations if v.severity == 'error') + \
-                            sum(15.0 for v in ref_violations if v.severity == 'warning')
+            # Stricter penalties: Error=40 (Major defect), Warning=10 (Minor defect)
+            ref_deduction = sum(40.0 for v in ref_violations if v.severity == 'error') + \
+                            sum(10.0 for v in ref_violations if v.severity == 'warning')
             ref_score = max(0.0, 100.0 - ref_deduction)
             
             details.append(ReferenceCompliance(

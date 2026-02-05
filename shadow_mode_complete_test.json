@@ -1,0 +1,39 @@
+{
+  "total": 5,
+  "successful": 0,
+  "failed": 5,
+  "validation_passed": 0,
+  "validation_failed": 0,
+  "suggestions": [],
+  "errors": [
+    {
+      "reference_id": 1,
+      "error": "(sqlite3.OperationalError) no such table: feature_flags\n[SQL: SELECT feature_flags.flag_name AS feature_flags_flag_name, feature_flags.enabled AS feature_flags_enabled, feature_flags.rollout_percentage AS feature_flags_rollout_percentage, feature_flags.rollout_strategy AS feature_flags_rollout_strategy, feature_flags.description AS feature_flags_description, feature_flags.created_at AS feature_flags_created_at, feature_flags.updated_at AS feature_flags_updated_at, feature_flags.updated_by AS feature_flags_updated_by \nFROM feature_flags]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    },
+    {
+      "reference_id": 2,
+      "error": "(sqlite3.OperationalError) no such table: feature_flags\n[SQL: SELECT feature_flags.flag_name AS feature_flags_flag_name, feature_flags.enabled AS feature_flags_enabled, feature_flags.rollout_percentage AS feature_flags_rollout_percentage, feature_flags.rollout_strategy AS feature_flags_rollout_strategy, feature_flags.description AS feature_flags_description, feature_flags.created_at AS feature_flags_created_at, feature_flags.updated_at AS feature_flags_updated_at, feature_flags.updated_by AS feature_flags_updated_by \nFROM feature_flags]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    },
+    {
+      "reference_id": 3,
+      "error": "(sqlite3.OperationalError) no such table: feature_flags\n[SQL: SELECT feature_flags.flag_name AS feature_flags_flag_name, feature_flags.enabled AS feature_flags_enabled, feature_flags.rollout_percentage AS feature_flags_rollout_percentage, feature_flags.rollout_strategy AS feature_flags_rollout_strategy, feature_flags.description AS feature_flags_description, feature_flags.created_at AS feature_flags_created_at, feature_flags.updated_at AS feature_flags_updated_at, feature_flags.updated_by AS feature_flags_updated_by \nFROM feature_flags]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    },
+    {
+      "reference_id": 4,
+      "error": "(sqlite3.OperationalError) no such table: feature_flags\n[SQL: SELECT feature_flags.flag_name AS feature_flags_flag_name, feature_flags.enabled AS feature_flags_enabled, feature_flags.rollout_percentage AS feature_flags_rollout_percentage, feature_flags.rollout_strategy AS feature_flags_rollout_strategy, feature_flags.description AS feature_flags_description, feature_flags.created_at AS feature_flags_created_at, feature_flags.updated_at AS feature_flags_updated_at, feature_flags.updated_by AS feature_flags_updated_by \nFROM feature_flags]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    },
+    {
+      "reference_id": 5,
+      "error": "(sqlite3.OperationalError) no such table: feature_flags\n[SQL: SELECT feature_flags.flag_name AS feature_flags_flag_name, feature_flags.enabled AS feature_flags_enabled, feature_flags.rollout_percentage AS feature_flags_rollout_percentage, feature_flags.rollout_strategy AS feature_flags_rollout_strategy, feature_flags.description AS feature_flags_description, feature_flags.created_at AS feature_flags_created_at, feature_flags.updated_at AS feature_flags_updated_at, feature_flags.updated_by AS feature_flags_updated_by \nFROM feature_flags]\n(Background on this error at: https://sqlalche.me/e/20/e3q8)"
+    }
+  ],
+  "start_time": "2026-02-02T20:32:35.945107",
+  "tier": "tier_1",
+  "user_id": 1,
+  "end_time": "2026-02-02T20:32:35.969854",
+  "duration_seconds": 0.024747,
+  "avg_time_per_reference": 0.0049494000000000005,
+  "validation_pass_rate": 0.0,
+  "avg_confidence": 0.0,
+  "avg_patches_per_suggestion": 0.0
+}

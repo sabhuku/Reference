@@ -5,13 +5,16 @@ import io
 import sys
 import csv
 from functools import wraps
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from io import StringIO
 from werkzeug.utils import secure_filename
 import portalocker
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+
+# Import Analytics Logger
+from src.analytics import AnalyticsLogger
+
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from flask_migrate import Migrate
 import uuid
@@ -25,11 +28,13 @@ if ROOT not in sys.path:
 
 # Import the reference model (after path setup)
 from src.referencing.models import Reference, Author
+from src.models import Publication # Required for migration logic
 
 # Import database models
 from ui.database import db, User, Bibliography, Reference as DBReference
 
 from src.referencing import referencing
+from ui.forms import ReferenceForm
 
 # Persistence for manual refs
 # Persistence for manual refs
@@ -113,6 +118,36 @@ def normalize_authors(raw: str, return_metadata: bool = False):
         return {"authors": [], "confidence": 1.0, "ambiguous": False, "parsing_method": "empty"} if return_metadata else []
     
     s = raw.strip()
+    
+    # Heuristic: Detect and clean accidental Python list stringification
+    # e.g., "['Author One', 'Author Two']" -> "Author One; Author Two"
+    if s.startswith('[') and s.endswith(']'):
+        try:
+            # Safe literal eval is risky with untrusted input, so let's use regex-based cleaning
+            # This handles ignoring the brackets and splitting by the quote-comma pattern
+            inner = s[1:-1]
+            if "'" in inner or '"' in inner:
+                # remove quotes
+                # Split by comma-space that is outside quotes... complex.
+                # simpler: just strip brackets and quotes if it matches a pattern
+                import ast
+                try:
+                    candidates = ast.literal_eval(s)
+                    if isinstance(candidates, list):
+                        parts = [str(c).strip() for c in candidates]
+                        method = "list_repr_cleaned"
+                        confidence = 0.95
+                        return parts if not return_metadata else {
+                            "authors": [fmt(p) for p in parts],
+                            "confidence": confidence,
+                            "ambiguous": False,
+                            "parsing_method": method
+                        }
+                except:
+                    pass
+        except:
+            pass
+            
     parts = []
     method = "unknown"
     confidence = 0.0
@@ -299,8 +334,9 @@ def reference_entry_filter(pub, style, index=None):
     """Jinja filter for bibliography entries."""
     try:
         return referencing.reference_entry(pub, style, index_number=index)
-    except Exception:
-        return "Error formatting reference"
+    except Exception as e:
+        app.logger.error(f"Error formatting reference: {e} | Pub: {pub}")
+        return f"Error formatting reference: {e}"
 
 @app.errorhandler(400)
 def bad_request_error(e):
@@ -310,15 +346,30 @@ def bad_request_error(e):
 
 # Helpers
 def get_session_refs():
-    # If user is authenticated, return their database references
+    # If user is authenticated, return their project references
     if current_user.is_authenticated:
-        # Get default bibliography
-        default_bib = Bibliography.query.filter_by(
-            user_id=current_user.id,
-            name='My Bibliography'
-        ).first()
-        if default_bib:
-            return [r.to_dict() for r in default_bib.references]
+        from ui.database import Project, ProjectReference
+        
+        # Get current project ID
+        project_id = session.get('current_project_id')
+        
+        # If no project selected, try to find default or any project
+        if not project_id:
+            project = Project.query.filter_by(
+                user_id=current_user.id,
+                id=f"{current_user.id}_default"
+            ).first()
+            if not project:
+                project = Project.query.filter_by(user_id=current_user.id).first()
+            if project:
+                project_id = project.id
+                session['current_project_id'] = project_id
+        
+        # Query references for the project
+        if project_id:
+            refs = ProjectReference.query.filter_by(project_id=project_id).all()
+            return [r.to_publication_dict() for r in refs]
+            
         return []
 
     refs = session.get("refs")
@@ -330,18 +381,19 @@ def get_session_refs():
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField, IntegerField, BooleanField
-from wtforms.validators import DataRequired, Optional, NumberRange, Length, Regexp, ValidationError
+from wtforms.validators import DataRequired, Optional, NumberRange, Length, Regexp, ValidationError, URL
 from datetime import datetime
 
 class SearchForm(FlaskForm):
     # Basic search fields
     query = StringField('Query', validators=[DataRequired()], 
-                       render_kw={"placeholder": "Search by title, author, or keywords"})
+                       render_kw={"placeholder": "Enter search terms..."})
     stype = SelectField('Type', choices=[
-        ('title', 'Title / keywords'), 
+        ('keywords', 'Keywords'),     # New default (general search)
+        ('title', 'Title'),           # Strict title search
         ('author', 'Author'),
         ('doi', 'DOI')
-    ])
+    ], default='keywords')
     style = SelectField('Style', choices=[
         ('harvard', 'Harvard'), 
         ('apa', 'APA'), 
@@ -391,11 +443,139 @@ from src.reference_manager import ReferenceManager
 ref_manager = ReferenceManager()
 
 @app.route("/", methods=["GET", "POST"])
+@login_required
 @limiter.limit("10 per minute")  # Allow 10 requests per minute
 @limiter.limit("200 per day")   # And 200 requests per day
 def index():
     form = SearchForm()
-    refs = get_session_refs()
+    
+    # Project-Scoped Retrieval for Home Page
+    current_project_id = session.get('current_project_id')
+    
+    # DEBUG LOGGING
+    app.logger.info(f"DEBUG: Index route accessed. Session Project ID: {current_project_id}")
+    
+    if current_user.is_authenticated:
+        from ui.database import Project
+        if not current_project_id:
+            # For authenticated users, use SQL to find projects
+            project = Project.query.filter_by(user_id=current_user.id).first()
+            if project:
+                current_project_id = project.id
+                session['current_project_id'] = current_project_id
+                app.logger.info(f"DEBUG: Defaulted to SQL project: {project.name} ({current_project_id})")
+            else:
+                # If no projects, the context processor or manage_projects will handle creation
+                current_project_id = None
+                app.logger.info("DEBUG: No SQL projects found for authenticated user")
+    else:
+        # Anonymous users use the JSON-based project manager
+        if not current_project_id:
+            projects = ref_manager.project_manager.list_projects()
+            if projects:
+                current_project_id = projects[0].id
+                session['current_project_id'] = current_project_id
+                app.logger.info(f"DEBUG: Defaulted to JSON project: {projects[0].name} ({current_project_id})")
+            else:
+                 current_project_id = "default"
+                 app.logger.info("DEBUG: No JSON projects found, defaulting to 'default' ID")
+
+    try:
+        if current_user.is_authenticated:
+            # SQL Source of Truth for Authenticated Users
+            from ui.database import ProjectReference
+            sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
+            refs = [r.to_publication_dict() for r in sql_refs]
+            app.logger.info(f"DEBUG: Loaded {len(refs)} refs from SQL for project {current_project_id}")
+        else:
+            # JSON Source of Truth for Anonymous Users
+            refs = ref_manager.get_project_references(current_project_id)
+            app.logger.info(f"DEBUG: Loaded {len(refs)} refs from JSON for project {current_project_id}")
+        
+        # MIGRATION: Consolidate legacy Bibliography/Reference data into the Project system
+        if current_user.is_authenticated:
+            try:
+                from ui.database import Bibliography, Reference, ProjectReference
+                legacy_bibs = Bibliography.query.filter_by(user_id=current_user.id).all()
+                migrated_count = 0
+                
+                # Get existing titles/DOIs in the current project to avoid duplicates during migration
+                existing_titles = {r.title.lower().strip() for r in refs}
+                existing_dois = {r.doi.lower().strip() for r in refs if r.doi}
+                
+                for bib in legacy_bibs:
+                    for old_ref in bib.references:
+                        title = old_ref.title.lower().strip()
+                        doi = old_ref.doi.lower().strip() if old_ref.doi else None
+                        
+                        if title not in existing_titles and (not doi or doi not in existing_dois):
+                            # Migrate to current project
+                            new_ref = ProjectReference(
+                                project_id=current_project_id,
+                                source=old_ref.source,
+                                pub_type=old_ref.pub_type,
+                                title=old_ref.title,
+                                authors=old_ref.authors,
+                                year=old_ref.year,
+                                journal=old_ref.journal,
+                                publisher=old_ref.publisher,
+                                location=old_ref.location,
+                                volume=old_ref.volume,
+                                issue=old_ref.issue,
+                                pages=old_ref.pages,
+                                doi=old_ref.doi
+                            )
+                            db.session.add(new_ref)
+                            migrated_count += 1
+                            existing_titles.add(title)
+                            if doi: existing_dois.add(doi)
+                
+                if migrated_count > 0:
+                    db.session.commit()
+                    app.logger.info(f"MIGRATION: Moved {migrated_count} references from legacy bibliographies to project {current_project_id}")
+                    # Refresh refs list after migration from SQL
+                    sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
+                    refs = [r.to_publication_dict() for r in sql_refs]
+            except Exception as e:
+                db.session.rollback()
+                app.logger.error(f"Migration error: {e}")
+
+        # AUTO-MIGRATION: Check for legacy session refs if project is empty
+        if not refs:
+            legacy_refs = load_persisted_refs()
+            if legacy_refs:
+                 app.logger.info(f"MIGRATION: Found {len(legacy_refs)} legacy refs in session. Migrating to project '{current_project_id}'...")
+                 try:
+                     migrated_count = 0
+                     for r_dict in legacy_refs:
+                         # Convert dict to Publication object
+                         # We use unpacking, assuming dict keys match Publication fields.
+                         # Legacy dicts match the schema of Publication (from src.models)
+                         try:
+                             pub = Publication(**r_dict)
+                             ref_manager.add_reference_to_project(pub, project_id=current_project_id)
+                             migrated_count += 1
+                         except Exception as e:
+                             app.logger.error(f"Failed to migrate ref: {r_dict.get('title', 'Unknown')} - {e}")
+                     
+                     if migrated_count > 0:
+                         ref_manager.save_projects()
+                         clear_persisted_refs()
+                         app.logger.info(f"MIGRATION: Successfully migrated {migrated_count} refs.")
+                         # Reload refs from SQL
+                         sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
+                         refs = [r.to_publication_dict() for r in sql_refs]
+                         flash(f"Restored {migrated_count} references from previous session.", "success")
+                 except Exception as e:
+                     app.logger.error(f"Migration failed: {e}")
+
+        if refs:
+            app.logger.info(f"DEBUG: First ref type: {type(refs[0])}")
+            app.logger.info(f"DEBUG: First ref data: {refs[0]}")
+    except Exception as e:
+        app.logger.error(f"Error loading project references: {e}")
+        refs = []
+
     style = session.get("style", "harvard")
     
     # Handle form submission
@@ -440,12 +620,20 @@ def index():
                 results = [res] if res else []
                 app.logger.info(f"Found {len(results)} results for DOI search")
             else:
-                # For title search
-                # Pass filters directly to the retrieval layer
+                # For title or keyword search
+                # Map UI search type to backend search mode
+                # 'title' -> 'title' (strict), 'keywords' -> 'general' (broad)
+                mode = 'title' if search_type == 'title' else 'general'
+                
                 results = ref_manager.search_works(
                     query, 
+                    search_mode=mode,
                     **filters
                 ) or []
+                
+                # Debug logging for troubleshooting UI 'View' button
+                for r in results:
+                    app.logger.info(f"UI DEBUG: '{r.title}' - URL: '{r.url}', DOI: '{r.doi}'")
                 
                 if results:
                     app.logger.info(f"Found {len(results)} results for {search_type} search")
@@ -481,155 +669,47 @@ def index():
     form.style.default = style
     form.process()  # Ensure the form is properly initialized
     
-    # Filter out duplicates for display (defensive redundancy)
-    refs = referencing.dedupe(refs)
+    # Recent Activity Logic (updated for project isolation & object/dict compatibility)
+    # The index.html template expects FLAT objects (ref.title),
+    # Calculate total counts from the SQL database (Source of Truth)
+    if current_user.is_authenticated:
+        from ui.database import ProjectReference
+        if current_project_id:
+            # Count references only for the CURRENT project
+            count = ProjectReference.query.filter_by(project_id=current_project_id).count()
+        else:
+            count = 0
+    else:
+        # Session references for anonymous users
+        count = len(get_session_refs())
     
-    # Pagination for home page references
-    page = request.args.get('page', 1, type=int)
-    per_page = 10
-    total_refs = len(refs)
-    total_pages = (total_refs + per_page - 1) // per_page if total_refs > 0 else 1
+    # Recent activity logic
+    recent_refs = refs[-5:][::-1] if refs else []
     
-    # Slice references for the current page
-    start_idx = (page - 1) * per_page
-    end_idx = start_idx + per_page
-    
-    # Store references with their original indices
-    paginated_refs = []
-    for i, ref in enumerate(refs):
-        if start_idx <= i < end_idx:
-            paginated_refs.append({'data': ref, 'original_index': i})
-    
-    # Add current year for the year range fields
-    current_year = datetime.now().year
-    
-    return render_template("index.html", 
-                         refs=paginated_refs, 
-                         style=style, 
-                         form=form,
-                         current_year=current_year,
-                         page=page,
-                         total_pages=total_pages,
-                         total_refs=total_refs)
-
-
-class ManualForm(FlaskForm):
-    title = StringField('Title', validators=[
-        DataRequired(message="Title is required"),
-        Length(min=1, max=500, message="Title must be between 1 and 500 characters")
-    ])
-    
-    authors = StringField(
-        'Authors (comma-separated, e.g. "Smith, J., Doe, A.")',
-        validators=[
-            Optional(),
-            Length(max=1000, message="Authors field is too long (max 1000 characters)")
-        ]
+    return render_template(
+        "index.html", 
+        form=form, 
+        recent_refs=recent_refs, 
+        total_refs=count,
+        style=style
     )
-    
-    year = StringField('Year', validators=[
-        Optional(),
-        Regexp(r'^\d{4}$', message="Year must be 4 digits (e.g., 2023)")
-    ])
-    
-    journal = StringField('Journal / Publisher', validators=[
-        Optional(),
-        Length(max=300, message="Journal name is too long (max 300 characters)")
-    ])
-    
-    publisher = StringField('Publisher (for books)', validators=[
-        Optional(),
-        Length(max=200, message="Publisher name is too long (max 200 characters)")
-    ])
-    
-    volume = StringField('Volume', validators=[
-        Optional(),
-        Length(max=20, message="Volume is too long (max 20 characters)")
-    ])
-    
-    issue = StringField('Issue', validators=[
-        Optional(),
-        Length(max=20, message="Issue is too long (max 20 characters)")
-    ])
-    
-    pages = StringField('Pages', validators=[
-        Optional(),
-        Regexp(r'^[\d\-–]+$', message="Pages must be numbers or ranges (e.g., 25-30)")
-    ])
-    
-    doi = StringField('DOI', validators=[
-        Optional(),
-        Regexp(
-            r'^10\.\d{4,9}/[\S]+$',
-            message="Invalid DOI format (should start with 10., e.g., 10.1234/example)"
-        )
-    ])
-    
-    pub_type = SelectField('Type', choices=[
-        ('book', 'Book'), 
-        ('journal-article', 'Journal Article'),
-        ('proceedings-article', 'Proceedings Article')
-    ])
-    
-    submit = SubmitField('Add Reference')
 
 
-# Authentication Forms
-from wtforms import PasswordField
-from wtforms.validators import Email, EqualTo
-
-class RegistrationForm(FlaskForm):
-    """User registration form."""
-    username = StringField('Username', validators=[
-        DataRequired(message="Username is required"),
-        Length(min=3, max=80, message="Username must be between 3 and 80 characters")
-    ])
-    
-    email = StringField('Email', validators=[
-        DataRequired(message="Email is required"),
-        Email(message="Invalid email address"),
-        Length(max=120, message="Email is too long")
-    ])
-    
-    password = PasswordField('Password', validators=[
-        DataRequired(message="Password is required"),
-        Length(min=8, message="Password must be at least 8 characters")
-    ])
-    
-    confirm_password = PasswordField('Confirm Password', validators=[
-        DataRequired(message="Please confirm your password"),
-        EqualTo('password', message="Passwords must match")
-    ])
-    
-    submit = SubmitField('Sign Up')
-
-
-class LoginForm(FlaskForm):
-    """User login form."""
-    email = StringField('Email', validators=[
-        DataRequired(message="Email is required"),
-        Email(message="Invalid email address")
-    ])
-    
-    password = PasswordField('Password', validators=[
-        DataRequired(message="Password is required")
-    ])
-    
-    remember = BooleanField('Remember Me')
-    
     submit = SubmitField('Log In')
 
 @app.route('/manual', methods=['GET'])
+@login_required
 def manual():
     """Render the manual entry form."""
-    form = ManualForm()
+    form = ReferenceForm()
     return render_template('manual.html', form=form)
 
 
 @app.route('/manual_add', methods=['POST'])
+@login_required
 def manual_add():
     """Handle manual reference submission with validation."""
-    form = ManualForm()
+    form = ReferenceForm()
     
     # Validate form
     if not form.validate_on_submit():
@@ -649,6 +729,7 @@ def manual_add():
     issue = form.issue.data.strip() if form.issue.data else ''
     pages = form.pages.data.strip() if form.pages.data else ''
     doi = form.doi.data.strip() if form.doi.data else ''
+    url = form.url.data.strip() if form.url.data else ''
     pub_type = form.pub_type.data
 
     # Additional year range validation
@@ -679,6 +760,7 @@ def manual_add():
         'issue': issue,
         'pages': pages,
         'doi': doi,
+        'url': url,
     }
 
     # Validate against schema (hardening)
@@ -699,18 +781,25 @@ def manual_add():
             return redirect(url_for('bibliography'))
         
         if current_user.is_authenticated:
-            # Add to database
-            default_bib = Bibliography.query.filter_by(
-                user_id=current_user.id,
-                name='My Bibliography'
-            ).first()
-            if not default_bib:
-                default_bib = Bibliography(user_id=current_user.id, name='My Bibliography')
-                db.session.add(default_bib)
-                db.session.commit()
+            # Add to active project database
+            from ui.database import Project, ProjectReference
             
-            ref = DBReference.from_dict(pub)
-            ref.bibliography_id = default_bib.id
+            project_id = session.get('current_project_id')
+            if not project_id:
+                # Fallback: get or create default project
+                project = Project.query.filter_by(user_id=current_user.id).first()
+                if not project:
+                    project = Project(
+                        id=f"{current_user.id}_default",
+                        user_id=current_user.id,
+                        name="Default Project"
+                    )
+                    db.session.add(project)
+                    db.session.commit()
+                project_id = project.id
+                session['current_project_id'] = project_id
+            
+            ref = ProjectReference.from_publication(pub, project_id)
             db.session.add(ref)
             db.session.commit()
         else:
@@ -816,30 +905,34 @@ def login():
             user.last_login = datetime.utcnow()
             db.session.commit()
             
-            # Migrate session refs if any
+            # Migrate session refs if any to the default project
             session_refs = session.get('refs', [])
             if session_refs:
                 try:
-                    default_bib = Bibliography.query.filter_by(
+                    from ui.database import Project, ProjectReference
+                    # Find or create default project
+                    project = Project.query.filter_by(
                         user_id=user.id,
-                        name='My Bibliography'
+                        name='Default Project'
                     ).first()
                     
-                    if not default_bib:
-                        default_bib = Bibliography(
+                    if not project:
+                        project = Project(
+                            id=f"{user.id}_default",
                             user_id=user.id,
-                            name='My Bibliography'
+                            name='Default Project'
                         )
-                        db.session.add(default_bib)
+                        db.session.add(project)
                         db.session.commit()
                     
-                    existing_refs = [r.to_dict() for r in default_bib.references]
+                    # Load existing references for deduplication
+                    sql_refs = ProjectReference.query.filter_by(project_id=project.id).all()
+                    existing_refs = [r.to_publication_dict() for r in sql_refs]
                     
                     added_count = 0
                     for ref_dict in session_refs:
                         if not referencing.is_duplicate(ref_dict, existing_refs):
-                            ref = DBReference.from_dict(ref_dict)
-                            ref.bibliography_id = default_bib.id
+                            ref = ProjectReference.from_publication(ref_dict, project.id)
                             db.session.add(ref)
                             existing_refs.append(ref_dict)
                             added_count += 1
@@ -1004,47 +1097,80 @@ def delete_bibliography(bib_id):
 
 
 @app.route('/remove/<int:idx>', methods=['GET', 'POST'])
+@login_required
 def remove(idx):
     refs = get_session_refs()
     if 0 <= idx < len(refs):
-        refs.pop(idx)
-        session['refs'] = refs
-        save_persisted_refs(refs)
-        flash('Removed item')
+        if current_user.is_authenticated:
+            # Authenticated: Delete from DB
+            from ui.database import ProjectReference
+            ref_data = refs[idx]
+            ref_id = ref_data.get('id')
+            if ref_id:
+                ref = ProjectReference.query.get(ref_id)
+                if ref and ref.project.user_id == current_user.id:
+                    db.session.delete(ref)
+                    db.session.commit()
+                    flash('Reference deleted permanently.')
+                else:
+                    flash('Reference not found or permission denied.', 'error')
+            else:
+                 flash('Invalid reference ID.', 'error')
+        else:
+            # Anonymous: Delete from session
+            refs.pop(idx)
+            session['refs'] = refs
+            save_persisted_refs(refs)
+            flash('Removed item')
     else:
-        flash('Invalid index')
+        flash('Invalid index', 'error')
     return redirect(url_for('bibliography'))
 
 
 @app.route('/edit/<int:idx>', methods=['GET', 'POST'])
+@login_required
 def edit(idx):
     refs = get_session_refs()
     if request.method == 'GET':
         if 0 <= idx < len(refs):
             pub = refs[idx]
-            return render_template('manual.html', edit=True, idx=idx, pub=pub)
+            # Pre-fill form with existing data
+            # Ensure authors are formatted as a string, not a Python list repr
+            form_data = pub.copy()
+            if isinstance(form_data.get('authors'), list):
+                form_data['authors'] = '; '.join(form_data['authors'])
+                
+            form = ReferenceForm(data=form_data)
+            return render_template('manual.html', edit=True, idx=idx, pub=pub, form=form)
         flash('Invalid index')
         return redirect(url_for('bibliography'))
 
     # POST: update
     if 0 <= idx < len(refs):
-        title = request.form.get('title', '').strip()
-        authors_raw = request.form.get('authors', '').strip()
-        year = request.form.get('year', '').strip()
-        journal = request.form.get('journal', '').strip()
-        publisher = request.form.get('publisher', '').strip()
-        volume = request.form.get('volume', '').strip()
-        issue = request.form.get('issue', '').strip()
-        pages = request.form.get('pages', '').strip()
-        doi = request.form.get('doi', '').strip()
-        pub_type = request.form.get('pub_type', 'book')
-
-        if not title:
-            flash('Title is required')
+        form = ReferenceForm()
+        if not form.validate_on_submit():
+            # Flash all validation errors
+            for field, errors in form.errors.items():
+                for error in errors:
+                    flash(f"{field.replace('_', ' ').title()}: {error}", "error")
             return redirect(url_for('edit', idx=idx))
 
+        title = form.title.data.strip()
+        authors_raw = form.authors.data.strip() if form.authors.data else ''
+        year = form.year.data.strip() if form.year.data else ''
+        journal = form.journal.data.strip() if form.journal.data else ''
+        publisher = form.publisher.data.strip() if form.publisher.data else ''
+        volume = form.volume.data.strip() if form.volume.data else ''
+        issue = form.issue.data.strip() if form.issue.data else ''
+        pages = form.pages.data.strip() if form.pages.data else ''
+        doi = form.doi.data.strip() if form.doi.data else ''
+        url = form.url.data.strip() if form.url.data else ''
+        pub_type = form.pub_type.data
+
         authors = normalize_authors(authors_raw)
-        pub = {
+        
+        # New data dict
+        pub_data = {
             'source': 'manual',
             'pub_type': pub_type,
             'authors': authors or [],
@@ -1052,21 +1178,69 @@ def edit(idx):
             'title': title,
             'journal': journal,
             'publisher': publisher,
-            'location': '',
             'volume': volume,
             'issue': issue,
             'pages': pages,
             'doi': doi,
+            'url': url,
         }
-        refs[idx] = pub
-        session['refs'] = refs
-        save_persisted_refs(refs)
-        flash('Reference updated')
+        
+        if current_user.is_authenticated:
+            # Authenticated: Update DB
+            from ui.database import ProjectReference
+            ref_dict = refs[idx]
+            ref_id = ref_dict.get('id')
+            if ref_id:
+                ref = ProjectReference.query.get(ref_id)
+                if ref and ref.project.user_id == current_user.id:
+                    # Update fields
+                    ref.title = title
+                    ref.authors = json.dumps(authors)
+                    ref.year = year or 'n.d.'
+                    ref.journal = journal
+                    ref.publisher = publisher
+                    ref.volume = volume
+                    ref.issue = issue
+                    ref.pages = pages
+                    ref.doi = doi
+                    ref.url = url
+                    ref.pub_type = pub_type
+                    
+                    db.session.commit()
+                    
+                    # Log edit
+                    try:
+                         AnalyticsLogger.log_edit_event(str(ref_id), {"old": ref_dict, "new": pub_data}, project_id=session.get('current_project_id'))
+                    except Exception as e:
+                        app.logger.warning(f"Analytics logging failed: {e}")
+                        
+                    flash('Reference updated in database.')
+                else:
+                    flash('Reference not found or permission denied.', 'error')
+            else:
+                 flash('Invalid reference ID.', 'error')
+        else:
+            # Anonymous: Update session
+            # Capture old state for analytics
+            old_ref = refs[idx].copy()
+            refs[idx] = pub_data
+            session['refs'] = refs
+            save_persisted_refs(refs)
+            
+            # Log edit
+            try:
+                AnalyticsLogger.log_edit_event(str(idx), {"old": old_ref, "new": pub_data}, project_id=session.get('current_project_id'))
+            except Exception as e:
+                app.logger.warning(f"Analytics logging failed: {e}")
+                
+            flash('Reference updated')
+            
     else:
         flash('Invalid index')
     return redirect(url_for('bibliography'))
 
 @app.route("/search", methods=["POST"])
+@login_required
 @limiter.limit("5 per minute")  # Stricter limit on search
 @limiter.limit("50 per day")   # And 50 per day
 def search():
@@ -1096,6 +1270,7 @@ def search():
         search_type=search_type
     )
 @app.route('/export/<format>')
+@login_required
 @limiter.limit("10 per minute")
 def export(format):
     """Export references in the specified format."""
@@ -1164,6 +1339,7 @@ def export(format):
         return f"Error exporting references: {str(e)}", 500
 
 @app.route("/add", methods=["POST"])
+@login_required
 @limiter.limit("5 per minute")  # Stricter limit on reference addition
 @limiter.limit("50 per day")   # And 50 per day
 def add():
@@ -1243,20 +1419,45 @@ def add():
             return redirect(request.referrer or url_for("index"))
             
         if current_user.is_authenticated:
-            # Add to database
-            default_bib = Bibliography.query.filter_by(
-                user_id=current_user.id,
-                name='My Bibliography'
-            ).first()
-            if not default_bib:
-                default_bib = Bibliography(user_id=current_user.id, name='My Bibliography')
-                db.session.add(default_bib)
-                db.session.commit()
+            # Add to active project
+            from ui.database import Project, ProjectReference
             
-            ref = DBReference.from_dict(pub)
-            ref.bibliography_id = default_bib.id
-            db.session.add(ref)
-            db.session.commit()
+            project_id = session.get('current_project_id')
+            if not project_id:
+                # Fallback: find default project or create it
+                project = Project.query.filter_by(
+                    user_id=current_user.id, 
+                    id=f"{current_user.id}_default"
+                ).first()
+                
+                if not project:
+                     # Create default if absolutely missing (safety net)
+                    try:
+                        project = Project(
+                            id=f"{current_user.id}_default",
+                            user_id=current_user.id,
+                            name="Default Project"
+                        )
+                        db.session.add(project)
+                        db.session.commit()
+                    except:
+                        db.session.rollback()
+                        # Verify if it was racing
+                        project = Project.query.filter_by(user_id=current_user.id).first()
+                
+                if project:
+                    project_id = project.id
+                    session['current_project_id'] = project_id
+            
+            if project_id:
+                ref = ProjectReference.from_publication(pub, project_id)
+                db.session.add(ref)
+                db.session.commit()
+                app.logger.info(f"SUCCESS: Added reference to project {project_id}")
+            else:
+                 app.logger.error("Could not determine project for authenticated user")
+                 flash("Error: No active project found", "error")
+                 return redirect(request.referrer or url_for("index"))
         else:
             # Add to session
             refs.append(pub)
@@ -1273,6 +1474,7 @@ def add():
 
 
 @app.route('/cite', methods=['POST'])
+@login_required
 @limiter.limit("10 per minute")
 @limiter.limit("100 per day")
 def cite():
@@ -1323,6 +1525,7 @@ def cite():
         return redirect(request.referrer or url_for("index"))
 
 @app.route("/compliance")
+@login_required
 def check_compliance():
     """Run Harvard compliance check on current bibliography."""
     refs_data = get_session_refs()
@@ -1370,6 +1573,10 @@ def check_compliance():
     try:
         origin = request.args.get('origin', 'bibliography')
         result = ref_manager.check_style_compliance(publications)
+        
+        # Log analytics
+        AnalyticsLogger.log_compliance_report(result, project_id=session.get('current_project_id'))
+        
         return render_template("compliance_report.html", result=result, origin=origin)
     except Exception as e:
         app.logger.error(f"Compliance check failed: {e}")
@@ -1377,17 +1584,77 @@ def check_compliance():
         return redirect(url_for('bibliography'))
 
 @app.route("/bibliography", methods=["GET"])
+@app.route("/bibliography")
+@login_required
 @limiter.limit("10 per minute")  # Allow 10 requests per minute
 @limiter.limit("200 per day")   # And 200 requests per day
 def bibliography():
     refs = get_session_refs()
     style = request.args.get("style", session.get("style", "harvard"))
     session["style"] = style
-    uniq = referencing.dedupe(refs)
-    refs_sorted = referencing.sort_for_bibliography(uniq, style)
-    return render_template("bibliography.html", refs=refs_sorted, style=style)
+    sort_by = request.args.get("sort", "author")
+    sort_dir = request.args.get("dir", "asc")
+    
+    # Wrap refs to preserve original indices
+    wrapped_refs = [{'data': r, 'original_index': i} for i, r in enumerate(refs)]
+    
+    def sort_key(w):
+        d = w['data']
+        if sort_by == 'recent':
+            # Sort by added_at (descending) or index (descending) if no date
+            ts = d.get('added_at')
+            if ts:
+                return ts
+            return w['original_index']
+            
+        elif sort_by == 'year':
+            return (d.get('year', ''), d.get('title', ''))
+            
+        elif sort_by == 'title':
+            return (d.get('title', ''), d.get('year', ''))
+            
+        else: # author (default)
+            authors = d.get('authors', [])
+            author_str = authors[0] if authors and isinstance(authors, list) else str(authors)
+            return (author_str, d.get('year', ''), d.get('title', ''))
+
+    # Apply sort
+    # 'recent' defaults to descending conventionally, but we respect sort_dir if provided
+    # However, if it's the first visit to 'recent', we might want desc.
+    # For simplicity, we just use sort_dir logic for all.
+    reverse_sort = (sort_dir == 'desc')
+    
+    # Special case: 'recent' ascending is oldest first, descending is newest first.
+    # Since sort_key returns timestamp/index, asc (default) is oldest first.
+    # So reverse_sort = True (desc) is newest first.
+    # This aligns perfectly.
+    
+    wrapped_refs.sort(key=sort_key, reverse=reverse_sort)
+    
+    refs_sorted = wrapped_refs
+
+    # Pagination
+    page = request.args.get('page', 1, type=int)
+    per_page = 10
+    total_refs = len(refs_sorted)
+    total_pages = (total_refs + per_page - 1) // per_page if total_refs > 0 else 1
+    
+    # Slice references
+    start_idx = (page - 1) * per_page
+    end_idx = start_idx + per_page
+    paginated_refs = refs_sorted[start_idx:end_idx]
+    
+    return render_template("bibliography.html", 
+                         refs=paginated_refs, 
+                         style=style,
+                         sort_by=sort_by,
+                         sort_dir=sort_dir,
+                         page=page,
+                         total_pages=total_pages,
+                         total_refs=total_refs)
 
 @app.route("/export_word", methods=["GET"])
+@login_required
 @limiter.limit("10 per hour")  # Limit exports to prevent abuse
 def export_word():
     idx = request.args.get('idx', None)
@@ -1427,11 +1694,44 @@ def export_word():
         
         return send_file(abs_path, as_attachment=True)
     except Exception as e:
-        app.logger.error(f"Export error: {str(e)}")
-        flash(f"Error exporting file: {str(e)}", "error")
         return redirect(url_for("bibliography"))
 
+@app.route("/api/cite")
+@login_required
+@limiter.limit("60 per minute")
+def api_cite():
+    """Return formatted citations for a reference in multiple styles."""
+    try:
+        idx = request.args.get('idx', type=int)
+        if idx is None:
+            return jsonify({'error': 'Missing index'}), 400
+            
+        refs = get_session_refs()
+        if idx < 0 or idx >= len(refs):
+            return jsonify({'error': 'Reference not found'}), 404
+            
+        ref = refs[idx]
+        
+        # We need to use the formatter logic. 
+        from src.formatting import CitationFormatter
+        
+        styles = ['harvard', 'apa', 'mla', 'chicago', 'ieee', 'vancouver']
+        citations = {}
+        
+        for s in styles:
+            citations[s] = CitationFormatter.format_reference(ref, s)
+            
+        return jsonify({
+            'success': True,
+            'title': ref.get('title', 'Unknown Title'),
+            'citations': citations
+        })
+    except Exception as e:
+        app.logger.error(f"Error generating citations: {e}")
+        return jsonify({'error': str(e)}), 500
+
 @app.route("/import", methods=["GET", "POST"])
+@login_required
 def import_file():
     """Handle file upload and run compliance check."""
     if request.method == "POST":
@@ -1490,10 +1790,199 @@ def import_file():
 
     return render_template("import.html")
 
+@app.route("/analytics", methods=["GET"])
+@login_required
+@limiter.limit("20 per minute")
+def analytics_dashboard():
+    """Display the visual analytics dashboard."""
+    try:
+        project_id = session.get('current_project_id')
+        stats = AnalyticsLogger.get_summary_stats(project_id=project_id)
+        suggestions = AnalyticsLogger.get_proactive_suggestions(project_id=project_id)
+        return render_template("analytics.html", stats=stats, suggestions=suggestions)
+    except Exception as e:
+        app.logger.error(f"Analytics dashboard error: {e}")
+        flash("Error loading analytics data.", "error")
+        return redirect(url_for('index'))
+
 # Simple health route
 @app.route("/health", methods=["GET"])
 def health():
     return "ok", 200
+
+
+# ============================================================================
+# PROJECT MANAGEMENT ROUTES (Multi-Project UI Feature)
+# ============================================================================
+
+@app.route('/projects')
+@login_required
+def manage_projects():
+    """Project management page for authenticated users."""
+    from ui.database import Project, ProjectReference
+    
+    # Get all projects for current user
+    projects = Project.query.filter_by(user_id=current_user.id).all()
+    
+    # Convert to dictionaries with stats
+    project_list = [p.to_dict() for p in projects]
+    
+    return render_template('projects.html', projects=project_list)
+
+
+@app.route('/projects/create', methods=['POST'])
+@login_required
+def create_project():
+    """Create a new project for the authenticated user."""
+    from ui.database import Project
+    
+    project_name = request.form.get('project_name', '').strip()
+    if not project_name:
+        flash('Project name is required', 'error')
+        return redirect(url_for('manage_projects'))
+    
+    # Generate unique ID from name
+    import re
+    project_id = re.sub(r'[^a-z0-9_]', '_', project_name.lower())
+    project_id = f"{current_user.id}_{project_id}"
+    
+    # Check if project already exists
+    existing = Project.query.filter_by(id=project_id).first()
+    if existing:
+        flash(f'Project with similar name already exists', 'error')
+        return redirect(url_for('manage_projects'))
+    
+    try:
+        project = Project(
+            id=project_id,
+            user_id=current_user.id,
+            name=project_name
+        )
+        db.session.add(project)
+        db.session.commit()
+        
+        flash(f'Project "{project_name}" created successfully', 'success')
+        # Auto-switch to new project
+        session['current_project_id'] = project_id
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Error creating project: {e}")
+        flash('Error creating project', 'error')
+    
+    return redirect(request.referrer or url_for('manage_projects'))
+
+
+@app.route('/projects/<project_id>/switch')
+@login_required
+def switch_project(project_id):
+    """Switch to a different project."""
+    from ui.database import Project
+    
+    # Verify project belongs to user
+    project = Project.query.filter_by(id=project_id, user_id=current_user.id).first()
+    if not project:
+        flash('Project not found', 'error')
+        return redirect(url_for('manage_projects'))
+    
+    session['current_project_id'] = project_id
+    flash(f'Switched to project "{project.name}"', 'success')
+    return redirect(url_for('index'))
+
+
+@app.route('/projects/<project_id>/rename', methods=['POST'])
+@login_required
+def rename_project(project_id):
+    """Rename a project."""
+    from ui.database import Project
+    
+    data = request.get_json() if request.is_json else {}
+    new_name = data.get('name', '').strip()
+    
+    if not new_name:
+        return jsonify({'success': False, 'error': 'Name is required'}), 400
+    
+    # Verify project belongs to user
+    project = Project.query.filter_by(id=project_id, user_id=current_user.id).first()
+    if not project:
+        return jsonify({'success': False, 'error': 'Project not found'}), 404
+    
+    try:
+        project.name = new_name
+        db.session.commit()
+        return jsonify({'success': True})
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Error renaming project: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route('/projects/<project_id>/delete', methods=['POST'])
+@login_required
+def delete_project(project_id):
+    """Delete a project and all its references."""
+    from ui.database import Project
+    
+    # Verify project belongs to user
+    project = Project.query.filter_by(id=project_id, user_id=current_user.id).first()
+    if not project:
+        return jsonify({'success': False, 'error': 'Project not found'}), 404
+    
+    try:
+        project_name = project.name
+        db.session.delete(project)
+        db.session.commit()
+        
+        # If this was the current project, switch to another
+        if session.get('current_project_id') == project_id:
+            remaining = Project.query.filter_by(user_id=current_user.id).first()
+            session['current_project_id'] = remaining.id if remaining else None
+        
+        return jsonify({'success': True, 'message': f'Deleted project "{project_name}"'})
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Error deleting project: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
+# ============================================================================
+# PROJECT CONTEXT PROCESSOR
+# ============================================================================
+
+@app.context_processor
+def inject_project_context():
+    """Inject current project data into all templates."""
+    if not current_user.is_authenticated:
+        return {
+            'current_project': None,
+            'available_projects': []
+        }
+    
+    from ui.database import Project
+    
+    # Get current project ID from session
+    current_project_id = session.get('current_project_id')
+    
+    # Get all projects for user
+    all_projects = Project.query.filter_by(user_id=current_user.id).all()
+    
+    # If no current project or doesn't exist, use first available
+    current_project = None
+    if current_project_id:
+        current_project = Project.query.filter_by(
+            id=current_project_id, 
+            user_id=current_user.id
+        ).first()
+    
+    if not current_project and all_projects:
+        current_project = all_projects[0]
+        session['current_project_id'] = current_project.id
+    
+    # Convert to dicts for template
+    return {
+        'current_project': current_project.to_dict() if current_project else None,
+        'available_projects': [p.to_dict() for p in all_projects]
+    }
+
 
 # Error handlers
 @app.errorhandler(404)

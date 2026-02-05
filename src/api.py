@@ -3,27 +3,48 @@ import logging
 import time
 from typing import List, Optional, Dict
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from .models import Publication
 from .utils.error_handling import api_error_handler
 
 class BaseAPI:
-    """Base class for API clients."""
+    """Base class for API clients with robust retry logic."""
     def __init__(self, base_url: str):
         self.base_url = base_url
+        self.session = self._create_retry_session()
     
+    def _create_retry_session(self, retries=3, backoff_factor=1, status_forcelist=(429, 500, 502, 503, 504)):
+        """Create a requests Session with retry logic."""
+        session = requests.Session()
+        retry = Retry(
+            total=retries,
+            read=retries,
+            connect=retries,
+            backoff_factor=backoff_factor,
+            status_forcelist=status_forcelist,
+            allowed_methods=frozenset(['GET', 'POST'])
+        )
+        adapter = HTTPAdapter(max_retries=retry)
+        session.mount('http://', adapter)
+        session.mount('https://', adapter)
+        return session
+
     def _make_request(self, endpoint: str, params: Dict) -> Optional[Dict]:
-        """Make an HTTP request with error handling."""
+        """Make an HTTP request with error handling and retries."""
         try:
-            response = requests.get(
-                f"{self.base_url}/{endpoint}",
+            url = f"{self.base_url}/{endpoint}" if endpoint else self.base_url
+            response = self.session.get(
+                url,
                 params=params,
-                timeout=10
+                timeout=15  # Increased timeout slightly for safety
             )
             response.raise_for_status()
             return response.json()
         except Exception as e:
-            logging.error(f"API request failed: {e}")
+            # Check if it was a max retry error 
+            logging.error(f"API request failed after retries: {e}")
             return None
 
 class CrossRefAPI(BaseAPI):
@@ -31,6 +52,10 @@ class CrossRefAPI(BaseAPI):
     def __init__(self, mailto: str):
         super().__init__("https://api.crossref.org/works")
         self.mailto = mailto
+        # Add User-Agent to be polite
+        self.session.headers.update({
+            'User-Agent': f'ReferenceManager/1.0 (mailto:{mailto})'
+        })
     
     @api_error_handler
     def search_single(self, query: str, rows: int = 1) -> Optional[Publication]:
@@ -40,13 +65,19 @@ class CrossRefAPI(BaseAPI):
     
     @api_error_handler
     def search(self, query: str, rows: int = 5, year_from: Optional[int] = None, 
-               year_to: Optional[int] = None, doc_type: Optional[str] = None) -> List[Publication]:
+               year_to: Optional[int] = None, doc_type: Optional[str] = None,
+               search_mode: str = 'general') -> List[Publication]:
         """Search for publications with optional filters."""
         params = {
-            "query.bibliographic": query,
             "rows": rows,
             "mailto": self.mailto
         }
+        
+        # Handle search mode
+        if search_mode == 'title':
+            params["query.title"] = query
+        else:
+            params["query.bibliographic"] = query
         
         # Build filter string
         filters = []
@@ -168,7 +199,8 @@ class CrossRefAPI(BaseAPI):
             volume=item.get("volume", ""),
             issue=item.get("issue", ""),
             pages=item.get("page", ""),
-            doi=item.get("DOI", "")
+            doi=item.get("DOI", ""),
+            isbn=item.get("ISBN", [""])[0] if item.get("ISBN") else ""
         )
     
     @staticmethod
@@ -204,10 +236,14 @@ class GoogleBooksAPI(BaseAPI):
         return results[0] if results else None
 
     @api_error_handler
-    def search(self, query: str, max_results: int = 5, language: Optional[str] = None) -> List[Publication]:
+    def search(self, query: str, max_results: int = 5, language: Optional[str] = None,
+               search_mode: str = 'general') -> List[Publication]:
         """Search for books with optional filters."""
+        # Handle search mode
+        q_param = f"intitle:{query}" if search_mode == 'title' else query
+        
         params = {
-            "q": query,
+            "q": q_param,
             "maxResults": max_results
         }
         
@@ -255,6 +291,16 @@ class GoogleBooksAPI(BaseAPI):
         pubdate = v.get("publishedDate", "n.d.")
         year = pubdate.split("-")[0] if pubdate != "n.d." else "n.d."
         
+        # Extract ISBN
+        isbn = ""
+        identifiers = v.get("industryIdentifiers", [])
+        for ident in identifiers:
+            if ident.get("type") == "ISBN_13":
+                isbn = ident.get("identifier")
+                break
+            elif ident.get("type") == "ISBN_10" and not isbn:
+                isbn = ident.get("identifier")
+                
         return Publication(
             source="google_books",
             pub_type="book",
@@ -267,24 +313,48 @@ class GoogleBooksAPI(BaseAPI):
             volume="",
             issue="",
             pages=str(v.get("pageCount", "")),
-            doi=""
+            doi="",
+            isbn=isbn,
+            url=v.get("infoLink", "")  # Add direct link to Google Books
         )
 
 
-class PubMedAPI:
+class PubMedAPI(BaseAPI):
     """PubMed E-utilities API client for biomedical literature."""
     
     def __init__(self):
+        # We don't set a single base_url because PubMed uses different endpoints
         self.esearch_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         self.esummary_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
+        
+        # Init session via specialized BaseAPI method
+        self.session = self._create_retry_session()
+        
         self.last_request_time = 0
+        import threading
+        self._lock = threading.Lock()
     
     def _rate_limit(self):
         """Enforce NCBI rate limit of 3 requests/second."""
-        elapsed = time.time() - self.last_request_time
-        if elapsed < 0.34:  # 0.34s = ~3 requests/second
-            time.sleep(0.34 - elapsed)
-        self.last_request_time = time.time()
+        with self._lock:
+            elapsed = time.time() - self.last_request_time
+            if elapsed < 0.34:  # 0.34s = ~3 requests/second
+                time.sleep(0.34 - elapsed)
+            self.last_request_time = time.time()
+
+    def _make_request(self, url: str, params: Dict) -> Optional[Dict]:
+        """Override to use specific URL and self.session."""
+        try:
+            response = self.session.get(
+                url,
+                params=params,
+                timeout=15
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            logging.error(f"PubMed API request failed: {e}")
+            return None
     
     @api_error_handler
     def search_single(self, query: str) -> Optional[Publication]:
@@ -295,18 +365,15 @@ class PubMedAPI:
     @api_error_handler
     def search(self, query: str, max_results: int = 5, year_from: Optional[int] = None, 
                year_to: Optional[int] = None, language: Optional[str] = None, 
-               open_access: bool = False) -> List[Publication]:
+               open_access: bool = False, search_mode: str = 'general') -> List[Publication]:
         """Search PubMed for articles with optional filters."""
         # Step 1: Search for articles
         self._rate_limit()
         
         # Build search term with filters
-        search_term = query
+        search_term = f"{query}[Title]" if search_mode == 'title' else query
         
         if language:
-            # PubMed uses full language names typically, but code supports standard iso codes? 
-            # Actually PubMed supports 'english[lang]', 'french[lang]'. 
-            # We'll map common codes or just pass through if unsure.
             lang_map = {
                 'en': 'english',
                 'fr': 'french',
@@ -332,49 +399,36 @@ class PubMedAPI:
         if year_to:
             search_params['maxdate'] = str(year_to)
         
-        try:
-            search_response = requests.get(
-                self.esearch_url,
-                params=search_params,
-                timeout=10
-            )
-            search_response.raise_for_status()
-            search_data = search_response.json()
-            
-            # Extract PMID from results
-            id_list = search_data.get('esearchresult', {}).get('idlist', [])
-            if not id_list:
-                logging.info(f"No PubMed results for: {query}")
-                return []
-            
-            # Step 2: Get article metadata
-            self._rate_limit()
-            summary_params = {
-                'db': 'pubmed',
-                'id': ",".join(id_list),
-                'retmode': 'json'
-            }
-            
-            summary_response = requests.get(
-                self.esummary_url,
-                params=summary_params,
-                timeout=10
-            )
-            summary_response.raise_for_status()
-            summary_data = summary_response.json()
-            
-            results = []
-            for pmid in id_list:
-                # Extract article metadata
-                article = summary_data.get('result', {}).get(str(pmid), {})
-                if article:
-                     pub = self._parse_response(article, pmid)
-                     if pub:
-                         results.append(pub)
-            return results
-        except Exception as e:
-            logging.error(f"Error searching PubMed: {e}")
+        search_data = self._make_request(self.esearch_url, search_params)
+        
+        # Extract PMID from results
+        id_list = search_data.get('esearchresult', {}).get('idlist', []) if search_data else []
+        if not id_list:
+            if search_data: # Only log if we actually got a response but no IDs
+                 logging.info(f"No PubMed results for: {query}")
             return []
+        
+        # Step 2: Get article metadata
+        self._rate_limit()
+        summary_params = {
+            'db': 'pubmed',
+            'id': ",".join(id_list),
+            'retmode': 'json'
+        }
+        
+        summary_data = self._make_request(self.esummary_url, summary_params)
+        if not summary_data:
+            return []
+        
+        results = []
+        for pmid in id_list:
+            # Extract article metadata
+            article = summary_data.get('result', {}).get(str(pmid), {})
+            if article:
+                    pub = self._parse_response(article, pmid)
+                    if pub:
+                        results.append(pub)
+        return results
     
     @api_error_handler
     def search_author(self, author: str, max_results: int = 10) -> List[Publication]:
@@ -388,49 +442,34 @@ class PubMedAPI:
             'retmode': 'json'
         }
         
-        try:
-            search_response = requests.get(
-                self.esearch_url,
-                params=search_params,
-                timeout=10
-            )
-            search_response.raise_for_status()
-            search_data = search_response.json()
-            
-            # Extract PMIDs
-            id_list = search_data.get('esearchresult', {}).get('idlist', [])
-            if not id_list:
-                return []
-            
-            # Step 2: Get metadata for all articles
-            self._rate_limit()
-            summary_params = {
-                'db': 'pubmed',
-                'id': ','.join(id_list),
-                'retmode': 'json'
-            }
-            
-            summary_response = requests.get(
-                self.esummary_url,
-                params=summary_params,
-                timeout=10
-            )
-            summary_response.raise_for_status()
-            summary_data = summary_response.json()
-            
-            results = []
-            for pmid in id_list:
-                article = summary_data.get('result', {}).get(str(pmid), {})
-                if article:
-                    pub = self._parse_response(article, pmid)
-                    if pub:
-                        results.append(pub)
-            
-            return results
-            
-        except Exception as e:
-            logging.error(f"Error searching PubMed for author: {e}")
+        search_data = self._make_request(self.esearch_url, search_params)
+        
+        # Extract PMIDs
+        id_list = search_data.get('esearchresult', {}).get('idlist', []) if search_data else []
+        if not id_list:
             return []
+        
+        # Step 2: Get metadata for all articles
+        self._rate_limit()
+        summary_params = {
+            'db': 'pubmed',
+            'id': ','.join(id_list),
+            'retmode': 'json'
+        }
+        
+        summary_data = self._make_request(self.esummary_url, summary_params)
+        if not summary_data:
+            return []
+        
+        results = []
+        for pmid in id_list:
+            article = summary_data.get('result', {}).get(str(pmid), {})
+            if article:
+                pub = self._parse_response(article, pmid)
+                if pub:
+                    results.append(pub)
+        
+        return results
     
     def _parse_response(self, article: Dict, pmid: str) -> Publication:
         """Parse PubMed API response into Publication object."""
