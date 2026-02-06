@@ -4,6 +4,7 @@ import os
 import io
 import sys
 import csv
+import hashlib
 from functools import wraps
 from datetime import datetime, timedelta
 from flask_limiter import Limiter
@@ -31,10 +32,11 @@ from src.referencing.models import Reference, Author
 from src.models import Publication # Required for migration logic
 
 # Import database models
-from ui.database import db, User, Bibliography, Reference as DBReference
+from ui.database import db, User, Bibliography, Reference as DBReference, SavedComplianceReport
+from src.utils.ref_normalizer import normalize_references  # Dict → Object adapter for SQL refs
 
 from src.referencing import referencing
-from ui.forms import ReferenceForm
+from ui.forms import ReferenceForm, LoginForm, RegistrationForm
 
 # Persistence for manual refs
 # Persistence for manual refs
@@ -97,7 +99,8 @@ def clear_persisted_refs():
 import re
 
 def normalize_authors(raw: str, return_metadata: bool = False):
-    """Normalize a free-form authors string into a list of 'Surname, Given' entries.
+    """
+    Normalize a free-form authors string into a list of 'Surname, Given' entries.
 
     Heuristics supported:
     - Semicolon-separated or newline separated lists
@@ -114,6 +117,77 @@ def normalize_authors(raw: str, return_metadata: bool = False):
         "parsing_method": str
     }
     """
+    if not raw:
+        return []
+    
+    # Simple split by semicolon or comma (if not part of Surname, Given)
+    # This is a very basic fallback; a real implementation would use a proper parser
+    if ';' in raw:
+        authors = [a.strip() for a in raw.split(';')]
+    else:
+        # Try to detect if it's 'Surname, Given, Surname2, Given2' or 'Surname, Given; Surname2, Given2'
+        parts = [a.strip() for a in raw.split(',')]
+        if len(parts) > 1 and len(parts) % 2 == 0:
+            # Pairs 
+            authors = [f"{parts[i]}, {parts[i+1]}" for i in range(0, len(parts), 2)]
+        else:
+            authors = [raw.strip()]
+            
+    return authors
+
+def save_compliance_report(result, project_id, filename=None):
+    """Helper to persist a compliance report to the database."""
+    if not project_id or not result:
+        return None
+        
+    try:
+        # Calculate source hash for deduplication
+        # We hash the string representation of all references as a proxy for their content
+        ref_keys = []
+        for r in result.get('results', []):
+            ref_keys.append(f"{r.get('display_title', '')}|{r.get('compliance_score', 0)}|{len(r.get('violations', []))}")
+        
+        combined_string = "|".join(ref_keys)
+        source_hash = hashlib.sha256(combined_string.encode('utf-8')).hexdigest()
+        
+        # Check if an identical report exists for this project in the last hour
+        # (to avoid spamming on refreshes)
+        recent = SavedComplianceReport.query.filter_by(
+            project_id=project_id,
+            source_hash=source_hash
+        ).order_by(SavedComplianceReport.created_at.desc()).first()
+        
+        if recent and (datetime.utcnow() - recent.created_at) < timedelta(hours=1):
+            # Just update the timestamp
+            recent.created_at = datetime.utcnow()
+            db.session.commit()
+            return recent.id
+            
+        # Create new record
+        # Note: result['report'] is a ComplianceReport object
+        report_obj = result.get('report')
+        
+        report = SavedComplianceReport(
+            project_id=project_id,
+            style=getattr(report_obj, 'style', 'Harvard'),
+            filename=filename,
+            overall_score=getattr(report_obj, 'overall_score', 0),
+            error_count=report_obj.stats.error_count if hasattr(report_obj, 'stats') else 0,
+            warning_count=report_obj.stats.warning_count if hasattr(report_obj, 'stats') else 0,
+            info_count=report_obj.stats.info_count if hasattr(report_obj, 'stats') else 0,
+            source_hash=source_hash,
+            report_data=json.dumps(result, default=lambda x: x.__dict__ if hasattr(x, '__dict__') else str(x))
+        )
+        
+        db.session.add(report)
+        db.session.commit()
+        return report.id
+        
+    except Exception as e:
+        app.logger.error(f"Failed to save compliance report: {e}")
+        db.session.rollback()
+        return None
+
     if not raw:
         return {"authors": [], "confidence": 1.0, "ambiguous": False, "parsing_method": "empty"} if return_metadata else []
     
@@ -300,6 +374,18 @@ app.config.update(
 db.init_app(app)
 migrate = Migrate(app, db)
 
+# JSON Encoder for Dataclasses
+from dataclasses import is_dataclass, asdict
+from flask.json.provider import DefaultJSONProvider
+
+class DataclassJSONProvider(DefaultJSONProvider):
+    def default(self, o):
+        if is_dataclass(o):
+            return asdict(o)
+        return super().default(o)
+
+app.json = DataclassJSONProvider(app)
+
 # Initialize login manager
 login_manager = LoginManager(app)
 login_manager.login_view =  'login'
@@ -368,7 +454,8 @@ def get_session_refs():
         # Query references for the project
         if project_id:
             refs = ProjectReference.query.filter_by(project_id=project_id).all()
-            return [r.to_publication_dict() for r in refs]
+            # Normalize dicts → objects for attribute access (ref.title)
+            return normalize_references([r.to_publication_dict() for r in refs])
             
         return []
 
@@ -485,7 +572,8 @@ def index():
             # SQL Source of Truth for Authenticated Users
             from ui.database import ProjectReference
             sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
-            refs = [r.to_publication_dict() for r in sql_refs]
+            # Normalize dicts → objects immediately after SQL load
+            refs = normalize_references([r.to_publication_dict() for r in sql_refs])
             app.logger.info(f"DEBUG: Loaded {len(refs)} refs from SQL for project {current_project_id}")
         else:
             # JSON Source of Truth for Anonymous Users
@@ -494,51 +582,93 @@ def index():
         
         # MIGRATION: Consolidate legacy Bibliography/Reference data into the Project system
         if current_user.is_authenticated:
-            try:
-                from ui.database import Bibliography, Reference, ProjectReference
-                legacy_bibs = Bibliography.query.filter_by(user_id=current_user.id).all()
-                migrated_count = 0
-                
-                # Get existing titles/DOIs in the current project to avoid duplicates during migration
-                existing_titles = {r.title.lower().strip() for r in refs}
-                existing_dois = {r.doi.lower().strip() for r in refs if r.doi}
-                
-                for bib in legacy_bibs:
-                    for old_ref in bib.references:
-                        title = old_ref.title.lower().strip()
-                        doi = old_ref.doi.lower().strip() if old_ref.doi else None
-                        
-                        if title not in existing_titles and (not doi or doi not in existing_dois):
-                            # Migrate to current project
-                            new_ref = ProjectReference(
-                                project_id=current_project_id,
-                                source=old_ref.source,
-                                pub_type=old_ref.pub_type,
-                                title=old_ref.title,
-                                authors=old_ref.authors,
-                                year=old_ref.year,
-                                journal=old_ref.journal,
-                                publisher=old_ref.publisher,
-                                location=old_ref.location,
-                                volume=old_ref.volume,
-                                issue=old_ref.issue,
-                                pages=old_ref.pages,
-                                doi=old_ref.doi
-                            )
-                            db.session.add(new_ref)
-                            migrated_count += 1
-                            existing_titles.add(title)
-                            if doi: existing_dois.add(doi)
-                
-                if migrated_count > 0:
-                    db.session.commit()
-                    app.logger.info(f"MIGRATION: Moved {migrated_count} references from legacy bibliographies to project {current_project_id}")
-                    # Refresh refs list after migration from SQL
-                    sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
-                    refs = [r.to_publication_dict() for r in sql_refs]
-            except Exception as e:
-                db.session.rollback()
-                app.logger.error(f"Migration error: {e}")
+            migration_key = f'migration_complete_{current_user.id}'
+            if not session.get(migration_key):
+                try:
+                    from ui.database import Bibliography, Reference, ProjectReference
+                    legacy_bibs = Bibliography.query.filter_by(user_id=current_user.id).all()
+                    migrated_count = 0
+                    
+                    # Get existing titles/DOIs in the current project to avoid duplicates during migration
+                    existing_titles = {r.title.lower().strip() for r in refs if r.title}
+                    existing_dois = {r.doi.lower().strip() for r in refs if r.doi}
+                    
+                    for bib in legacy_bibs:
+                        for old_ref in bib.references:
+                                # Safe attribute access for hybrid Ref types (Object/Dict)
+                                if isinstance(old_ref, dict):
+                                    title = old_ref.get('title', '').lower().strip()
+                                    doi = old_ref.get('doi', '').lower().strip() if old_ref.get('doi') else None
+                                    ref_source = old_ref.get('source')
+                                    ref_pub_type = old_ref.get('pub_type')
+                                    ref_authors = old_ref.get('authors')
+                                    ref_year = old_ref.get('year')
+                                    ref_journal = old_ref.get('journal')
+                                    ref_publisher = old_ref.get('publisher')
+                                    ref_location = old_ref.get('location')
+                                    ref_volume = old_ref.get('volume')
+                                    ref_issue = old_ref.get('issue')
+                                    ref_pages = old_ref.get('pages')
+                                else:
+                                    title = (old_ref.title or '').lower().strip()
+                                    doi = (old_ref.doi or '').lower().strip() if old_ref.doi else None
+                                    ref_source = old_ref.source or ''
+                                    ref_pub_type = old_ref.pub_type or ''
+                                    ref_authors = old_ref.authors
+                                    ref_year = old_ref.year or ''
+                                    ref_journal = old_ref.journal or ''
+                                    ref_publisher = old_ref.publisher or ''
+                                    ref_location = old_ref.location or ''
+                                    ref_volume = old_ref.volume or ''
+                                    ref_issue = old_ref.issue or ''
+                                    ref_pages = old_ref.pages or ''
+
+                                if title not in existing_titles and (not doi or doi not in existing_dois):
+                                    # Migrate to current project
+                                    new_ref = ProjectReference(
+                                        project_id=current_project_id,
+                                        source=ref_source,
+                                        pub_type=ref_pub_type,
+                                        title=title, # Normalized title used for deduplication, original should be preserved?
+                                        # Wait, we want the ORIGINAL title case for storage.
+                                        # Let's fix that.
+                                        authors=ref_authors,
+                                        year=ref_year,
+                                        journal=ref_journal,
+                                        publisher=ref_publisher,
+                                        location=ref_location,
+                                        volume=ref_volume,
+                                        issue=ref_issue,
+                                        pages=ref_pages,
+                                        doi=doi # Use normalized DOI if available
+                                    )
+                                    # Re-assign pure values if we normalized them too much above
+                                    if isinstance(old_ref, dict):
+                                        new_ref.title = old_ref.get('title', '')
+                                        new_ref.doi = old_ref.get('doi', '')
+                                    else:
+                                        new_ref.title = old_ref.title
+                                        new_ref.doi = old_ref.doi
+                                    
+                                    db.session.add(new_ref)
+                                    migrated_count += 1
+                                    existing_titles.add(title)
+                                    if doi: existing_dois.add(doi)
+                    
+                    if migrated_count > 0:
+                        db.session.commit()
+                        app.logger.info(f"MIGRATION: Moved {migrated_count} references from legacy bibliographies to project {current_project_id}")
+                        # Refresh refs list after migration from SQL
+                        sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
+                        refs = normalize_references([r.to_publication_dict() for r in sql_refs])
+                    
+                    # Mark migration complete (even if no refs to migrate)
+                    session[migration_key] = True
+                    
+                except Exception as e:
+                    db.session.rollback()
+                    app.logger.error(f"Migration error: {e}")
+                    # Do NOT mark migration complete on error
 
         # AUTO-MIGRATION: Check for legacy session refs if project is empty
         if not refs:
@@ -564,7 +694,7 @@ def index():
                          app.logger.info(f"MIGRATION: Successfully migrated {migrated_count} refs.")
                          # Reload refs from SQL
                          sql_refs = ProjectReference.query.filter_by(project_id=current_project_id).all()
-                         refs = [r.to_publication_dict() for r in sql_refs]
+                         refs = normalize_references([r.to_publication_dict() for r in sql_refs])
                          flash(f"Restored {migrated_count} references from previous session.", "success")
                  except Exception as e:
                      app.logger.error(f"Migration failed: {e}")
@@ -656,6 +786,10 @@ def index():
                                 form=form)  # Pass form back to template
                                 
         except Exception as e:
+            import sys
+            import traceback
+            sys.stderr.write(f"CRITICAL SEARCH ERROR: {e}\n")
+            traceback.print_exc(file=sys.stderr)
             app.logger.error(f"Error during search: {str(e)}", exc_info=True)
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
                 return jsonify({
@@ -730,6 +864,7 @@ def manual_add():
     pages = form.pages.data.strip() if form.pages.data else ''
     doi = form.doi.data.strip() if form.doi.data else ''
     url = form.url.data.strip() if form.url.data else ''
+    access_date = form.access_date.data.strip() if form.access_date.data else ''
     pub_type = form.pub_type.data
 
     # Additional year range validation
@@ -761,6 +896,7 @@ def manual_add():
         'pages': pages,
         'doi': doi,
         'url': url,
+        'access_date': access_date,
     }
 
     # Validate against schema (hardening)
@@ -927,7 +1063,7 @@ def login():
                     
                     # Load existing references for deduplication
                     sql_refs = ProjectReference.query.filter_by(project_id=project.id).all()
-                    existing_refs = [r.to_publication_dict() for r in sql_refs]
+                    existing_refs = normalize_references([r.to_publication_dict() for r in sql_refs])
                     
                     added_count = 0
                     for ref_dict in session_refs:
@@ -1087,6 +1223,78 @@ def delete_bibliography(bib_id):
         bib_name = bib.name
         db.session.delete(bib)  # Cascade will delete all references
         db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Error deleting bibliography: {e}")
+        flash('Error deleting bibliography', 'error')
+    
+    return redirect(url_for('bibliographies'))
+
+
+@app.route('/api/references/<int:ref_id>/remediate', methods=['POST'])
+@login_required
+def remediate_reference(ref_id):
+    """Handle remediation actions (accept/reject) for a reference."""
+    ref = ProjectReference.query.get_or_404(ref_id)
+    
+    # Security: Ensure user owns the project this reference belongs to
+    # (Assuming project ownership check via project query or relationship)
+    # Simple check:
+    project = Project.query.get(ref.project_id)
+    if not project or project.user_id != current_user.id:
+         return jsonify({'success': False, 'error': 'Unauthorized'}), 403
+
+    data = request.get_json()
+    action = data.get('action')
+    
+    if not ref.remediation:
+        return jsonify({'success': False, 'error': 'No remediation data found'}), 400
+
+    try:
+        if action == 'accept':
+            suggestions = ref.remediation.get('suggested_fields', {})
+            # Update fields
+            for field, candidates in suggestions.items():
+                if candidates:
+                    val = candidates[0].get('value')
+                    if hasattr(ref, field):
+                        if field == 'authors':
+                             # Special handling for authors list -> JSON storage
+                             # Only update if val is a list; otherwise wrap it?
+                             # Stage 3 usually returns a list of strings for authors.
+                             ref.authors = json.dumps(val) if isinstance(val, list) else json.dumps([str(val)])
+                             # Note: ref.authors is stored as JSON string in DB
+                        else:
+                             setattr(ref, field, val)
+            
+            # Update remediation status
+            rem_data = dict(ref.remediation) # Copy to mutate
+            rem_data['requires_review'] = False
+            rem_data['status'] = 'accepted'
+            rem_data['resolved_at'] = datetime.utcnow().isoformat()
+            ref.remediation = rem_data
+            
+            db.session.commit()
+            return jsonify({'success': True, 'message': 'Suggestions accepted'})
+            
+        elif action == 'reject':
+            # Update remediation status
+            rem_data = dict(ref.remediation)
+            rem_data['requires_review'] = False
+            rem_data['status'] = 'rejected'
+            rem_data['resolved_at'] = datetime.utcnow().isoformat()
+            ref.remediation = rem_data
+            
+            db.session.commit()
+            return jsonify({'success': True, 'message': 'Suggestions dismissed'})
+            
+        else:
+            return jsonify({'success': False, 'error': 'Invalid action'}), 400
+            
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Remediation error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
         flash(f'Bibliography "{bib_name}" deleted successfully', 'success')
     except Exception as e:
         db.session.rollback()
@@ -1575,7 +1783,12 @@ def check_compliance():
         result = ref_manager.check_style_compliance(publications)
         
         # Log analytics
-        AnalyticsLogger.log_compliance_report(result, project_id=session.get('current_project_id'))
+        project_id = session.get('current_project_id')
+        AnalyticsLogger.log_compliance_report(result, project_id=project_id)
+        
+        # PERSISTENCE: Save report if in a project
+        if project_id:
+            save_compliance_report(result, project_id)
         
         return render_template("compliance_report.html", result=result, origin=origin)
     except Exception as e:
@@ -1779,7 +1992,10 @@ def import_file():
                 result = ref_manager.check_style_compliance(imported_pubs)
                 
                 # Tag result as import for UI context?
-                # We can just render the compliance report
+                # PERSISTENCE: Save report
+                project_id = session.get('current_project_id')
+                save_compliance_report(result, project_id, filename=filename)
+                
                 flash(f"Successfully imported and checked {len(imported_pubs)} references.", "success")
                 return render_template("compliance_report.html", result=result, origin='index')
                 
@@ -1942,6 +2158,67 @@ def delete_project(project_id):
         db.session.rollback()
         app.logger.error(f"Error deleting project: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
+
+
+@app.route("/compliance/history")
+@login_required
+def compliance_history():
+    """View saved compliance reports for the current project."""
+    project_id = session.get('current_project_id')
+    if not project_id:
+        flash("Please select a project first.", "info")
+        return redirect(url_for('manage_projects'))
+    
+    reports = SavedComplianceReport.query.filter_by(project_id=project_id).order_by(SavedComplianceReport.created_at.desc()).all()
+    
+    return render_template("compliance_history.html", reports=reports)
+
+@app.route("/compliance/view/<int:report_id>")
+@login_required
+def view_saved_report(report_id):
+    """View a specific saved compliance report."""
+    report = SavedComplianceReport.query.get_or_404(report_id)
+    
+    # Security: check project belongs to user
+    from ui.database import Project
+    project = Project.query.get(report.project_id)
+    if not project or project.user_id != current_user.id:
+        flash("Permission denied.", "error")
+        return redirect(url_for('compliance_history'))
+    
+    # Restore the result dict from JSON
+    try:
+        result = json.loads(report.report_data)
+        # origin 'history' to adjust navigation in template (legacy key but useful)
+        return render_template("compliance_report.html", result=result, origin='history', saved_report=report)
+    except Exception as e:
+        app.logger.error(f"Error loading saved report data: {e}")
+        flash("Error loading report data.", "error")
+        return redirect(url_for('compliance_history'))
+
+@app.route("/compliance/delete/<int:report_id>", methods=["POST"])
+@login_required
+def delete_saved_report(report_id):
+    """Delete a saved compliance report."""
+    report = SavedComplianceReport.query.get_or_404(report_id)
+    
+    # Security check
+    from ui.database import Project
+    project = Project.query.get(report.project_id)
+    if not project or project.user_id != current_user.id:
+        flash("Permission denied.", "error")
+        return redirect(url_for('compliance_history'))
+    
+    try:
+        db.session.delete(report)
+        db.session.commit()
+        flash("Report deleted.")
+    except Exception as e:
+        db.session.rollback()
+        app.logger.error(f"Error deleting report: {e}")
+        flash("Error deleting report.", "error")
+        
+    return redirect(url_for('compliance_history'))
 
 
 # ============================================================================

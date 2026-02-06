@@ -334,6 +334,68 @@ class ReferenceManager:
             "feedback": feedback,
             "results": merged_results
         }
+
+    def parse_reference(self, raw_text: str) -> Publication:
+        """
+        Parse a raw reference string using the Phase 4 Pipeline (Stage 1-3).
+        
+        Args:
+            raw_text: The raw reference string.
+            
+        Returns:
+            Publication object with populated fields and remediation data if applicable.
+        """
+        # Import here to avoid circular dependencies
+        try:
+            from modelling.pipeline import run_pipeline
+        except ImportError:
+            # Fallback for when running from src directory
+            import sys
+            import os
+            sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+            from modelling.pipeline import run_pipeline
+
+        # Run pipeline
+        result = run_pipeline(raw_text)
+        
+        # Convert pipeline result to Publication
+        # We need to map extracted fields to Publication fields
+        
+        s2 = result.get("stage2") or {}
+        s2_fields = s2.get("fields", {})
+        
+        # Helper to extract value from field dict
+        def get_val(f): return s2_fields.get(f, {}).get("value")
+        
+        # Infer type mapping
+        pipeline_type = result.get("reference_type", "unknown")
+        
+        # Map common fields
+        pub = Publication(
+            source="pipeline_extraction",
+            pub_type=pipeline_type,
+            authors=get_val("authors") or [],
+            year=str(get_val("year") or ""),
+            title=str(get_val("title") or ""),
+            journal=str(get_val("journal") or ""),
+            publisher=str(get_val("publisher") or ""),
+            location=str(get_val("location") or ""),
+            volume=str(get_val("volume") or ""),
+            issue=str(get_val("issue") or ""),
+            pages=str(get_val("pages") or ""),
+            doi=str(get_val("doi") or ""),
+            url=str(get_val("url") or ""),
+            match_type="extraction",
+            confidence_score=result.get("type_confidence", 0.0)
+        )
+        
+        # Attach remediation data if present
+        s3 = result.get("stage3")
+        if s3:
+            pub.remediation = s3
+            pub.review_required = s3.get("requires_review", False)
+            
+        return pub
         
     def _load_cache(self) -> Dict:
         """Load cache from file."""
@@ -467,9 +529,6 @@ class ReferenceManager:
                     meta.source = 'unknown_single'
                 
                 # Author ambiguity default
-                if not hasattr(meta, 'author_ambiguity'):
-                     meta.author_ambiguity = 0.0
-
                 if not hasattr(meta, 'author_ambiguity'):
                      meta.author_ambiguity = 0.0
 
@@ -1047,13 +1106,18 @@ class ReferenceManager:
                     pass # Keep it (>90)
                 elif "fuzzy_title_mid" in criteria: 
                     # Drop mid-range matches in strict title mode if there are no other strong signals
-                    if score < 60:
+                    # Relaxed threshold from 60 to 45 to allow legitimate matches with slight variations
+                    if score < 45:
                         should_drop = True
                         logging.debug(f"Dropped strict title result (score={score}): {pub.title}")
                 else:
                      # Drop low fuzzy matches or keyword-only matches in strict title mode
-                    should_drop = True
-                    logging.debug(f"Dropped strict title result (no strong title match): {pub.title}")
+                     # BUT keep if we have strong keyword proximity signal
+                     if "keyword_proximity" in criteria and score > 40:
+                         pass
+                     else:
+                        should_drop = True
+                        logging.debug(f"Dropped strict title result (no strong title match): {pub.title}")
 
             if not should_drop:
                 best_pubs.append(pub)
@@ -1130,6 +1194,9 @@ class ReferenceManager:
     def parallel_search(self, query: str, limit: int = 5, search_mode: str = 'general', **kwargs) -> List[Publication]:
         """Search all sources in parallel and return ranked list."""
         
+        import time
+        search_start = time.time()
+        
         all_results = []
         
         # Extract filters
@@ -1174,16 +1241,24 @@ class ReferenceManager:
             )] = 'google_books'
             
             # Collect results as they complete
-            for future in as_completed(future_to_source, timeout=15):
+            for future in as_completed(future_to_source):
                 source = future_to_source[future]
+                source_start = time.time()
                 try:
                     results_list = future.result(timeout=10)
+                    elapsed = time.time() - source_start
                     if results_list:
-                        logging.info(f"Got {len(results_list)} results from {source}")
+                        logging.info(f"Got {len(results_list)} results from {source} in {elapsed:.2f}s")
                         for res in results_list:
                             all_results.append((res, source))
+                    else:
+                        logging.info(f"{source} returned no results in {elapsed:.2f}s")
+                except TimeoutError:
+                    elapsed = time.time() - source_start
+                    logging.warning(f"Timeout from {source} after {elapsed:.2f}s")
                 except Exception as e:
-                    logging.warning(f"Error from {source}: {e}")
+                    elapsed = time.time() - source_start
+                    logging.warning(f"Error from {source} after {elapsed:.2f}s: {e}")
         
         if not all_results:
             return []
@@ -1220,6 +1295,10 @@ class ReferenceManager:
         
         # Invariant check
         self._ensure_invariants(final_results)
+        
+        total_elapsed = time.time() - search_start
+        logging.info(f"Parallel search completed in {total_elapsed:.2f}s, returned {len(final_results)} results")
+        
         return final_results
 
     def _ensure_invariants(self, results: List[Publication]) -> None:
