@@ -38,6 +38,9 @@ class Publication:
     conference_name: str = ""  # e.g., "International Conference on AI"
     conference_location: str = ""  # e.g., "London, UK"
     conference_date: str = ""  # e.g., "15-17 June"
+    # Stage 3: Remediation & Review
+    remediation: dict = None  # Stores Stage 3 suggestions
+    review_required: bool = False  # Flag for UI to show review interface
 
     def __post_init__(self):
         if self.normalized_authors is None:

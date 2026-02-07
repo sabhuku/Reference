@@ -45,8 +45,8 @@ class DocxImporter(ReferenceImporter):
 
         # Helper regex
         auth_year_pattern = re.compile(r"^(.+?)\s+\((.+?)\)\s+(.+)$")
-        url_pattern = re.compile(r"Available at:?\s*(https?://[^\s\)]+)", re.IGNORECASE)
-        access_date_pattern = re.compile(r"\(Accessed:?\s*(.+?)\)", re.IGNORECASE)
+        url_pattern = re.compile(r"Available at\s*:?\s*(https?://[^\s\)]+)", re.IGNORECASE)
+        access_date_pattern = re.compile(r"\(Accessed\s*:?\s*(.+?)\)", re.IGNORECASE)
         editor_pattern = re.compile(r"in\s+(.+?)\s+\(eds?\.?\)", re.IGNORECASE)
         type_tag_pattern = re.compile(r"\[(Photograph|Instagram|Online image|Video|Audio)\]", re.IGNORECASE)
         pages_pattern = re.compile(r"pp\.\s*(\d+[-–]\d+)")
@@ -176,7 +176,9 @@ class DocxImporter(ReferenceImporter):
                     pub_type = "conference"
                 else:
                     # Original logic fallback
-                    is_book_structure = ':' in raw_source and not any(x in raw_source.lower() for x in ['vol', 'no.', 'pp.', 'page'])
+                    # Refined: ignore colons if they look like they are part of a URL/URI
+                    remainder_no_url = re.sub(r'https?://[^\s]+', '', raw_source)
+                    is_book_structure = ':' in remainder_no_url and not any(x in raw_source.lower() for x in ['vol', 'no.', 'pp.', 'page'])
                     has_publisher_keyword = any(kw in raw_source.lower() for kw in ["press", "publisher", "university"])
                     has_journal_indicators = any(kw in raw_source.lower() for kw in ["journal", "vol", "no.", "pp.", "review"])
                     

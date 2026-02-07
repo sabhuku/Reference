@@ -177,6 +177,14 @@ class CitationFormatter:
                 result += f" {pub.publisher}."
             
             if pub.url:
+                if pub.pub_type in ["web", "web-page"]:
+                    # Surname, Initial. (Year) Title. Available at: URL (Accessed: date).
+                    result = f"{author_str} ({year_str}) {pub.title}. Available at: {pub.url}"
+                    if pub.access_date:
+                        result += f" (Accessed: {pub.access_date})"
+                    result += "."
+                    return result
+                    
                 result += f" Available at: {pub.url}"
                 if pub.access_date:
                     result += f" (Accessed: {pub.access_date})"

@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField
-from wtforms.validators import DataRequired, Optional, Length, Regexp, URL
+from wtforms import StringField, SelectField, SubmitField, PasswordField, BooleanField
+from wtforms.validators import DataRequired, Optional, Length, Regexp, URL, Email, EqualTo
 
 class ReferenceForm(FlaskForm):
     title = StringField('Title', validators=[
@@ -34,7 +34,7 @@ class ReferenceForm(FlaskForm):
         ('book', 'Book'), 
         ('journal-article', 'Journal Article'),
         ('proceedings-article', 'Proceedings Article'),
-        ('web', 'Website'),
+        ('web', 'Web Page'),
         ('other', 'Other')
     ], validators=[DataRequired()])
     journal = StringField('Journal / Publisher', validators=[
@@ -56,4 +56,18 @@ class ReferenceForm(FlaskForm):
         Optional(),
         URL(message="Invalid URL format (e.g., https://example.com)")
     ])
+    access_date = StringField('Access Date (e.g., 5 February 2026)', validators=[Optional()])
     submit = SubmitField('Save Reference')
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Log In')
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')

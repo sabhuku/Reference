@@ -540,6 +540,17 @@ def reference_entry(meta, style, index_number=None):
             author_str = _authors_as_string_harvard(meta.get("authors", []))
             pub_block = meta.get("publisher", "")
             out = f"{author_str} ({meta.get('year', 'n.d.')}) {meta.get('title', 'Untitled')}."
+            
+            if pub_type in ["web", "web-page"]:
+                # Surname, Initial. (Year) Title. Available at: URL (Accessed: date).
+                out = f"{author_str} ({meta.get('year', 'n.d.')}) {meta.get('title', 'Untitled')}."
+                if meta.get("url"):
+                    out += f" Available at: {meta['url']}"
+                    if meta.get("access_date"):
+                        out += f" (Accessed: {meta['access_date']})"
+                    out += "."
+                return out
+
             if pub_block:
                 out += f" {pub_block}."
             return out

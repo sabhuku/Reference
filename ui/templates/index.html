@@ -46,6 +46,25 @@
       background: white;
     }
 
+    .quick-action-card .card-body {
+      padding: 0.5rem 0.25rem;
+    }
+
+    .quick-action-card .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .quick-action-card .card-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .quick-action-card .card-text {
+      font-size: 0.8rem;
+      margin-bottom: 0.75rem;
+    }
+
     .quick-action-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -88,12 +107,14 @@
       border-left: 3px solid #0d6efd;
     }
 
-    .delete-project-btn {
+    .delete-project-btn,
+    .rename-project-btn {
       opacity: 0;
       transition: opacity 0.2s;
     }
 
-    .project-link:hover .delete-project-btn {
+    .project-link:hover .delete-project-btn,
+    .project-link:hover .rename-project-btn {
       opacity: 1;
     }
   </style>
@@ -157,6 +178,10 @@
             </a>
             <span class="badge bg-secondary rounded-pill me-2" style="font-size: 0.7em;">{{ project.ref_count }}</span>
             {% if available_projects|length > 1 %}
+            <button class="btn btn-link text-primary p-0 me-2 rename-project-btn"
+              onclick="openRenameModal('{{ project.id }}', '{{ project.name }}')" title="Rename">
+              <i class="bi bi-pencil" style="font-size: 0.9em;"></i>
+            </button>
             <button class="btn btn-link text-danger p-0 delete-project-btn"
               onclick="deleteProject('{{ project.id }}', '{{ project.name }}')" title="Delete">
               <i class="bi bi-trash" style="font-size: 0.9em;"></i>
@@ -267,87 +292,261 @@
 
         <!-- Quick Actions -->
         <div class="container">
-          <div class="row g-4 mb-5 position-relative" style="z-index: 5;">
-            <div class="col-md-3">
-              <a href="/manual" class="text-decoration-none">
-                <div class="card quick-action-card shadow-sm p-4 text-center h-100">
-                  <div class="card-body">
-                    <i class="bi bi-pencil-square feature-icon"></i>
-                    <h5 class="card-title text-dark">Manual Entry</h5>
-                    <p class="card-text text-muted small">Enter reference details manually.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ url_for('import_file') }}" class="text-decoration-none">
-                <div class="card quick-action-card shadow-sm p-4 text-center h-100">
-                  <div class="card-body">
-                    <i class="bi bi-file-earmark-arrow-up feature-icon text-warning"></i>
-                    <h5 class="card-title text-dark">Import Reference</h5>
-                    <p class="card-text text-muted small">Extract from DOCX, PDF, or RIS.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ url_for('bibliography') }}" class="text-decoration-none">
-                <div class="card quick-action-card shadow-sm p-4 text-center h-100">
-                  <div class="card-body">
-                    <i class="bi bi-collection feature-icon"></i>
-                    <h5 class="card-title text-dark">My Bibliography</h5>
-                    <p class="card-text text-muted small">Manage your {{ total_refs }} saved references.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-3">
-              <a href="{{ url_for('analytics_dashboard') }}" class="text-decoration-none">
-                <div class="card quick-action-card shadow-sm p-4 text-center h-100">
-                  <div class="card-body">
-                    <i class="bi bi-graph-up feature-icon text-success"></i>
-                    <h5 class="card-title text-dark">Analytics</h5>
-                    <p class="card-text text-muted small">View quality trends and pattern insights.</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-4 mb-5 position-relative" style="z-index: 5;">
+            <!-- Manual Entry Card -->
+            <div class="col">
+              <div
+                class="card quick-action-card shadow-sm p-3 text-center h-100 position-relative border-start border-primary"
+                style="border-left-width: 4px !important;">
+                <div class="card-body px-1">
+                  <i class="bi bi-pencil-square feature-icon"></i>
+                  <h6 class="card-title text-dark fw-bold">Manual Entry</h6>
+                  <p class="card-text text-muted small mb-3">Enter details manually.</p>
 
-          <!-- Recent Activity -->
-          <div class="card shadow-sm mb-5">
-            <div class="card-header bg-white py-3">
-              <h5 class="mb-0"><i class="bi bi-clock-history text-primary me-2"></i> Recent Activity</h5>
-            </div>
-            <div class="list-group list-group-flush">
-              {% if recent_refs %}
-              {% for ref in recent_refs %}
-              <div class="list-group-item recent-list-item px-4 py-3">
-                <div class="d-flex justify-content-between align-items-center">
-                  <div>
-                    <h6 class="mb-1 fw-bold">{{ ref.title or 'Untitled Work' }}</h6>
-                    <p class="mb-0 text-muted small">
-                      {% if ref.authors %}
-                      {{ ref.authors[0] }}{% if ref.authors|length > 1 %} et al.{% endif %}
-                      {% else %}Unknown Author{% endif %}
-                      ({{ ref.year or 'n.d.' }})
-                    </p>
+                  <!-- Quick Templates Dropdown -->
+                  <div class="btn-group w-100" role="group">
+                    <a href="/manual" class="btn btn-primary btn-sm">
+                      <i class="bi bi-plus-circle"></i> New Entry
+                    </a>
+                    <button type="button" class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <h6 class="dropdown-header"><i class="bi bi-lightning-fill text-warning"></i> Quick Templates
+                        </h6>
+                      </li>
+                      <li><a class="dropdown-item" href="/manual?type=article">
+                          <i class="bi bi-file-text"></i> Journal Article
+                        </a></li>
+                      <li><a class="dropdown-item" href="/manual?type=book">
+                          <i class="bi bi-book"></i> Book
+                        </a></li>
+                      <li><a class="dropdown-item" href="/manual?type=conference">
+                          <i class="bi bi-people"></i> Conference Paper
+                        </a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="/manual">
+                          <i class="bi bi-pencil"></i> Blank Entry
+                        </a></li>
+                    </ul>
                   </div>
-                  <span class="badge bg-light text-dark border">{{ ref.pub_type|capitalize }}</span>
                 </div>
               </div>
-              {% endfor %}
-              {% else %}
-              <div class="p-4 text-center text-muted">
-                <i class="bi bi-inbox display-6 mb-3 d-block opacity-50"></i>
-                No recent activity found.
+            </div>
+
+            <!-- Import Reference Card -->
+            <div class="col">
+              <div class="card quick-action-card shadow-sm p-3 text-center h-100 border-start border-warning"
+                style="border-left-width: 4px !important;">
+                <div class="card-body px-1">
+                  <i class="bi bi-file-earmark-arrow-up feature-icon text-warning"></i>
+                  <h6 class="card-title text-dark fw-bold">Import Reference</h6>
+                  <p class="card-text text-muted small mb-3">Extract from DOCX, PDF, or RIS.</p>
+
+                  <!-- Import Options -->
+                  <div class="btn-group w-100" role="group">
+                    <a href="{{ url_for('import_file') }}" class="btn btn-warning btn-sm text-white">
+                      <i class="bi bi-upload"></i> Import File
+                    </a>
+                    <button type="button"
+                      class="btn btn-warning btn-sm dropdown-toggle dropdown-toggle-split text-white"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <h6 class="dropdown-header"><i class="bi bi-info-circle"></i> Supported Formats</h6>
+                      </li>
+                      <li><a class="dropdown-item disabled"><i class="bi bi-file-word text-primary"></i> DOCX
+                          Documents</a></li>
+                      <li><a class="dropdown-item disabled"><i class="bi bi-file-pdf text-danger"></i> PDF Files</a>
+                      </li>
+                      <li><a class="dropdown-item disabled"><i class="bi bi-file-code text-success"></i> RIS Format</a>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('import_file') }}">
+                          <i class="bi bi-cloud-upload"></i> Start Import
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              {% endif %}
+            </div>
+
+            <!-- My Bibliography Card -->
+            <div class="col">
+              <div class="card quick-action-card shadow-sm p-3 text-center h-100 border-start"
+                style="border-left-width: 4px !important; border-left-color: #6f42c1 !important;">
+                <div class="card-body px-1">
+                  <i class="bi bi-collection feature-icon" style="color: #6f42c1;"></i>
+                  <h6 class="card-title text-dark fw-bold">My Bibliography</h6>
+                  <p class="card-text text-muted small mb-3">Manage your {{ total_refs }} references.</p>
+
+                  <!-- Bibliography Actions -->
+                  <div class="btn-group w-100" role="group">
+                    <a href="{{ url_for('bibliography') }}" class="btn btn-sm"
+                      style="background-color: #6f42c1; border-color: #6f42c1; color: white;">
+                      <i class="bi bi-list-ul"></i> View All
+                    </a>
+                    <button type="button" class="btn btn-sm dropdown-toggle dropdown-toggle-split"
+                      data-bs-toggle="dropdown" aria-expanded="false"
+                      style="background-color: #6f42c1; border-color: #6f42c1; color: white;">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <h6 class="dropdown-header"><i class="bi bi-tools"></i> Quick Actions</h6>
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('bibliography') }}?sort=recent">
+                          <i class="bi bi-clock"></i> Recently Added
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('bibliography') }}?sort=alpha">
+                          <i class="bi bi-sort-alpha-down"></i> Sort A-Z
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('bibliography') }}?sort=year">
+                          <i class="bi bi-calendar"></i> Sort by Year
+                        </a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('check_compliance') }}">
+                          <i class="bi bi-shield-check text-success"></i> Check Compliance
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- My Reports Card -->
+            <div class="col">
+              <div class="card quick-action-card shadow-sm p-3 text-center h-100 border-start border-info"
+                style="border-left-width: 4px !important;">
+                <div class="card-body px-1">
+                  <i class="bi bi-clock-history feature-icon text-info"></i>
+                  <h6 class="card-title text-dark fw-bold">My Reports</h6>
+                  <p class="card-text text-muted small mb-3">View compliant reports.</p>
+
+                  <!-- Reports Actions -->
+                  <div class="btn-group w-100" role="group">
+                    <a href="{{ url_for('compliance_history') }}" class="btn btn-info btn-sm text-white">
+                      <i class="bi bi-file-earmark-text"></i> All Reports
+                    </a>
+                    <button type="button" class="btn btn-info btn-sm dropdown-toggle dropdown-toggle-split text-white"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <h6 class="dropdown-header"><i class="bi bi-filter"></i> Filter Reports</h6>
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('compliance_history') }}?filter=recent">
+                          <i class="bi bi-clock-history"></i> Recent Reports
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('compliance_history') }}?filter=high">
+                          <i class="bi bi-star text-success"></i> High Scores (80%+)
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('compliance_history') }}?filter=low">
+                          <i class="bi bi-exclamation-triangle text-warning"></i> Needs Attention
+                        </a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('check_compliance') }}">
+                          <i class="bi bi-plus-circle text-primary"></i> Run New Check
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analytics Card -->
+            <div class="col">
+              <div class="card quick-action-card shadow-sm p-3 text-center h-100 border-start border-success"
+                style="border-left-width: 4px !important;">
+                <div class="card-body px-1">
+                  <i class="bi bi-graph-up feature-icon text-success"></i>
+                  <h6 class="card-title text-dark fw-bold">Analytics</h6>
+                  <p class="card-text text-muted small mb-3">View quality and insights.</p>
+
+                  <!-- Analytics Actions -->
+                  <div class="btn-group w-100" role="group">
+                    <a href="{{ url_for('analytics_dashboard') }}" class="btn btn-success btn-sm text-white">
+                      <i class="bi bi-bar-chart"></i> Dashboard
+                    </a>
+                    <button type="button"
+                      class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split text-white"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li>
+                        <h6 class="dropdown-header"><i class="bi bi-speedometer2"></i> Quick Insights</h6>
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('analytics_dashboard') }}#trends">
+                          <i class="bi bi-graph-up-arrow"></i> Compliance Trends
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('analytics_dashboard') }}#errors">
+                          <i class="bi bi-bug"></i> Common Errors
+                        </a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('analytics_dashboard') }}#suggestions">
+                          <i class="bi bi-lightbulb"></i> Suggestions
+                        </a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="{{ url_for('analytics_dashboard') }}">
+                          <i class="bi bi-eye"></i> View Full Analytics
+                        </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </main>
+
+        <!-- Recent Activity -->
+        <div class="card shadow-sm mb-5">
+          <div class="card-header bg-white py-3">
+            <h5 class="mb-0"><i class="bi bi-clock-history text-primary me-2"></i> Recent Activity</h5>
+          </div>
+          <div class="list-group list-group-flush">
+            {% if recent_refs %}
+            {% for ref in recent_refs %}
+            <div class="list-group-item recent-list-item px-4 py-3">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h6 class="mb-1 fw-bold">{{ ref.title or 'Untitled Work' }}</h6>
+                  <p class="mb-0 text-muted small">
+                    {% if ref.authors %}
+                    {{ ref.authors[0] }}{% if ref.authors|length > 1 %} et al.{% endif %}
+                    {% else %}Unknown Author{% endif %}
+                    ({{ ref.year or 'n.d.' }})
+                  </p>
+                </div>
+                <span class="badge bg-light text-dark border">{{ ref.pub_type|capitalize }}</span>
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div class="p-4 text-center text-muted">
+              <i class="bi bi-inbox display-6 mb-3 d-block opacity-50"></i>
+              No recent activity found.
+            </div>
+            {% endif %}
+          </div>
+        </div>
     </div>
+    </main>
+  </div>
   </div>
 
   <!-- Create Project Modal -->
@@ -376,6 +575,33 @@
     </div>
   </div>
 
+  <!-- Rename Project Modal -->
+  <div class="modal fade" id="renameProjectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="renameProjectForm">
+          <div class="modal-header">
+            <h5 class="modal-title">Rename Project</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="renameProjectId">
+            <div class="mb-3">
+              <label for="renameProjectName" class="form-label">Project Name</label>
+              <input type="text" class="form-control" id="renameProjectName" required maxlength="100"
+                placeholder="Enter new project name">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Rename Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
   <!-- JavaScript for delete -->
   <script>
     function deleteProject(projectId, projectName) {
@@ -399,6 +625,51 @@
           });
       }
     }
+
+    // Open rename modal
+    function openRenameModal(projectId, projectName) {
+      document.getElementById('renameProjectId').value = projectId;
+      document.getElementById('renameProjectName').value = projectName;
+      const modal = new bootstrap.Modal(document.getElementById('renameProjectModal'));
+      modal.show();
+    }
+
+    // Handle rename form submission
+    document.addEventListener('DOMContentLoaded', function () {
+      const renameForm = document.getElementById('renameProjectForm');
+      if (renameForm) {
+        renameForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const projectId = document.getElementById('renameProjectId').value;
+          const newName = document.getElementById('renameProjectName').value.trim();
+
+          if (!newName) {
+            alert('Project name cannot be empty');
+            return;
+          }
+
+          fetch(`/projects/${projectId}/rename`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ form.csrf_token.current_token }}'
+            },
+            body: JSON.stringify({ name: newName })
+          })
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                location.reload();
+              } else {
+                alert('Error: ' + (data.error || 'Failed to rename project'));
+              }
+            })
+            .catch(error => {
+              alert('Error renaming project: ' + error);
+            });
+        });
+      }
+    });
 
     // Auto-dismiss alert messages after 5 seconds
     document.addEventListener('DOMContentLoaded', function () {

@@ -219,7 +219,7 @@ class HarvardStyleChecker:
 
     def _check_web_details(self, pub: Publication) -> Optional[Violation]:
         """HARVARD.WEB.DETAILS_MISSING: Web references need URL and Access Date."""
-        web_types = ["webpage", "photograph", "instagram", "online image", "forum-post", "module-material"]
+        web_types = ["web", "webpage", "photograph", "instagram", "online image", "forum-post", "module-material"]
         if pub.pub_type in web_types or pub.url:
             missing = []
             if not pub.url: missing.append("URL")

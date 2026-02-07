@@ -88,6 +88,8 @@ class ProjectReference(db.Model):
     access_date = db.Column(db.String(50))
     edition = db.Column(db.String(50))
     added_at = db.Column(db.DateTime, default=datetime.utcnow)
+    # Stage 3 Remediation Data
+    remediation = db.Column(db.JSON)
     
     def to_publication_dict(self):
         """Convert to Publication-compatible dictionary."""
@@ -108,7 +110,9 @@ class ProjectReference(db.Model):
             'isbn': self.isbn or '',
             'url': self.url or '',
             'access_date': self.access_date or '',
-            'edition': self.edition or ''
+            'edition': self.edition or '',
+            'remediation': self.remediation or None,
+            'review_required': bool(self.remediation and self.remediation.get('requires_review', False))
         }
     
     @staticmethod
@@ -131,7 +135,8 @@ class ProjectReference(db.Model):
             isbn=pub_dict.get('isbn', ''),
             url=pub_dict.get('url', ''),
             access_date=pub_dict.get('access_date', ''),
-            edition=pub_dict.get('edition', '')
+            edition=pub_dict.get('edition', ''),
+            remediation=pub_dict.get('remediation')
         )
     
     def __repr__(self):
@@ -176,7 +181,9 @@ class Reference(db.Model):
     issue = db.Column(db.String(50))
     pages = db.Column(db.String(50))
     doi = db.Column(db.String(200), index=True)
+    doi = db.Column(db.String(200), index=True)
     added_at = db.Column(db.DateTime, default=datetime.utcnow)
+    remediation = db.Column(db.JSON)
     
     def to_dict(self):
         """Convert reference to dictionary (for API/session compatibility)."""
@@ -193,7 +200,8 @@ class Reference(db.Model):
             'issue': self.issue,
             'pages': self.pages,
             'doi': self.doi,
-            'added_at': self.added_at.isoformat() if self.added_at else None
+            'added_at': self.added_at.isoformat() if self.added_at else None,
+            'remediation': self.remediation
         }
     
     @staticmethod
@@ -210,8 +218,51 @@ class Reference(db.Model):
             volume=data.get('volume'),
             issue=data.get('issue'),
             pages=data.get('pages'),
-            doi=data.get('doi')
+            doi=data.get('doi'),
+            remediation=data.get('remediation')
         )
     
     def __repr__(self):
         return f'<Reference {self.title[:30]}...>'
+
+
+class SavedComplianceReport(db.Model):
+    """Snapshot of a Harvard compliance report for a project."""
+    __tablename__ = 'saved_compliance_reports'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    project_id = db.Column(db.String(255), db.ForeignKey('projects.id'), nullable=False, index=True)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    style = db.Column(db.String(50), default='Harvard')
+    filename = db.Column(db.String(255))
+    
+    overall_score = db.Column(db.Float)
+    error_count = db.Column(db.Integer, default=0)
+    warning_count = db.Column(db.Integer, default=0)
+    info_count = db.Column(db.Integer, default=0)
+    
+    source_hash = db.Column(db.String(64), index=True) # SHA-256
+    report_data = db.Column(db.Text) # JSON string of the full report
+    
+    # Relationship back to project
+    project_rel = db.relationship('Project', backref=db.backref('compliance_reports', lazy=True, cascade='all, delete-orphan'))
+    
+    def to_dict(self):
+        """Convert to dictionary for UI."""
+        return {
+            'id': self.id,
+            'project_id': self.project_id,
+            'created_at': self.created_at.isoformat(),
+            'style': self.style,
+            'filename': self.filename,
+            'overall_score': self.overall_score,
+            'error_count': self.error_count,
+            'warning_count': self.warning_count,
+            'info_count': self.info_count,
+            'source_hash': self.source_hash,
+            'report_data': json.loads(self.report_data) if self.report_data else {}
+        }
+    
+    def __repr__(self):
+        return f'<SavedComplianceReport {self.project_id} - {self.created_at}>'
