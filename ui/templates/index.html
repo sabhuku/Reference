@@ -609,7 +609,7 @@
         fetch(`/projects/${projectId}/delete`, {
           method: 'POST',
           headers: {
-            'X-CSRFToken': '{{ form.csrf_token.current_token }}'
+            'X-CSRFToken': '<runtime-generated csrf token>'
           }
         })
           .then(response => response.json())

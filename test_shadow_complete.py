@@ -12,9 +12,14 @@ ROOT = os.path.abspath(os.path.dirname(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-# API KEY
-API_KEY = "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"
+# API KEY - Set this in your environment or paste here temporarily
+API_KEY = os.environ.get("OPENAI_API_KEY", "")
+if not API_KEY:
+    print("ERROR: OPENAI_API_KEY environment variable not set")
+    print("Please set it with: export OPENAI_API_KEY='your-key-here'")
+    sys.exit(1)
 os.environ["OPENAI_API_KEY"] = API_KEY
+
 
 from ui.app import app, db
 from ui.database import Reference, Bibliography

@@ -11,8 +11,13 @@ ROOT = os.path.abspath(os.path.dirname(__file__))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-# PASTE YOUR API KEY HERE (or it will try to read from environment)
-API_KEY = "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"
+# PASTE YOUR API KEY HERE (or set OPENAI_API_KEY environment variable)
+API_KEY = os.environ.get("OPENAI_API_KEY", "")
+if not API_KEY:
+    print("ERROR: OPENAI_API_KEY environment variable not set")
+    print("Please set it with: export OPENAI_API_KEY='your-key-here'")
+    print("Or paste your key directly in this file (line 15)")
+    sys.exit(1)
 
 # Set in environment for subprocess
 os.environ["OPENAI_API_KEY"] = API_KEY
