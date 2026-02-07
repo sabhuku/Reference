@@ -1,0 +1,5360 @@
+[
+  {
+    "raw_reference": "RSPCA (2024) Caring for cats and kittens. Available at: https://www.rspca.org.uk/adviceandwelfare/pets/cats (Accessed: 1 August 2024) – website",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "RSPCA"
+      ],
+      "year": "2024",
+      "title": "Caring for cats and kittens",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.rspca.org.uk/adviceandwelfare/pets/cats",
+      "accessed_date": "1 August 2024",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Adams, D. (1979) The Hitchhiker's Guide to the galaxy. Pan. Available at: http://www.amazon.co.uk/kindle-ebooks (Accessed: 23 June 2021).",
+    "stage_1_label": "ebook",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Adams",
+        "D."
+      ],
+      "year": "1979",
+      "title": "The Hitchhiker's Guide to the galaxy",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.amazon.co.uk/kindle-ebooks",
+      "accessed_date": "23 June 2021",
+      "reference_type": "ebook"
+    }
+  },
+  {
+    "raw_reference": "Almeroth-Williams, T. (2019) City of beasts: how animals shaped Georgian London. Manchester University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Almeroth-Williams",
+        "T."
+      ],
+      "year": "2019",
+      "title": "City of beasts: how animals shaped Georgian London",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bell, J. (2014) Doing your research project. Open University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bell",
+        "J."
+      ],
+      "year": "2014",
+      "title": "Doing your research project",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Martin, K. (2019) The queen of hearts. New York: Berkley.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Martin",
+        "K."
+      ],
+      "year": "2019",
+      "title": "The queen of hearts",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Hewitt, M. (2023) The Victorians: a very short introduction. Oxford Academic. Available at: https://doi-org.libezproxy.open.ac.uk/10.1093/actrade/9780198736813.00",
+    "stage_1_label": "ebook",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hewitt",
+        "M."
+      ],
+      "year": "2023",
+      "title": "The Victorians: a very short introduction",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi-org.libezproxy.open.ac.uk/10.1093/actrade/9780198736813.00",
+      "accessed_date": "",
+      "reference_type": "ebook"
+    }
+  },
+  {
+    "raw_reference": "Sridhar, S. (2025) 'Constructive peer review made practical: a guide to the EMPATHY framework', Journal of Marketing, 89(3), pp. 1-12.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Sridhar",
+        "S."
+      ],
+      "year": "2025",
+      "title": "'Constructive peer review made practical: a guide to the EMPATHY framework', Journal of Marketing, 89(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Erbil, D.G. (2020) ‘A review of flipped classroom and cooperative learning method within the context of Vygotsky theory’, Frontiers in Psychology, 11, article 1157. Available at: https://www.frontiersin.org/article/10.3389/fpsyg.2020.01157 (Accessed: 6 May 2024). journal",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Erbil",
+        "D.G."
+      ],
+      "year": "2020",
+      "title": "‘A review of flipped classroom and cooperative learning method within the context of Vygotsky theory’, Frontiers in Psychology, 11, article 1157",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.frontiersin.org/article/10.3389/fpsyg.2020.01157",
+      "accessed_date": "6 May 2024",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Barke, M. and Mowl, G. (2016) 'Málaga – a failed resort of the early twentieth century?', Journal of Tourism History, 2(3), pp. 187–212. Available at: https://doi.org/10.1080/1755182X.2010.523145.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Barke",
+        "M.",
+        "Mowl",
+        "G."
+      ],
+      "year": "2016",
+      "title": "'Málaga – a failed resort of the early twentieth century?', Journal of Tourism History, 2(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1080/1755182X.2010.523145.",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Mansell, W. and Bloom, A. (2012) ‘£10,000 carrot to tempt physics experts’, The Guardian, 20 June, p. 5.",
+    "stage_1_label": "newspaper",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mansell",
+        "W.",
+        "Bloom",
+        "A."
+      ],
+      "year": "2012",
+      "title": "‘£10,000 carrot to tempt physics experts’, The Guardian, 20 June, p",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "newspaper"
+    }
+  },
+  {
+    "raw_reference": "Davis, N (2025) 'Scientists claim to have unlocked ‘secret sauce’ needed for fine chocolate', The Guardian, 18 August. Available at: https://www.theguardian.com/science/2025/aug/18/scientists-claim-to-hav… (Accessed: 19 August 2025).",
+    "stage_1_label": "newspaper",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Davis",
+        "N"
+      ],
+      "year": "2025",
+      "title": "'Scientists claim to have unlocked ‘secret sauce’ needed for fine chocolate', The Guardian, 18 August",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.theguardian.com/science/2025/aug/18/scientists-claim-to-hav…",
+      "accessed_date": "19 August 2025",
+      "reference_type": "newspaper"
+    }
+  },
+  {
+    "raw_reference": "Robinson, J. (2007) Social variation across the UK. Available at: https://www.bl.uk/british-accents-and-dialects/articles/social-variatio… (Accessed: 21 November 2021).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Robinson",
+        "J."
+      ],
+      "year": "2007",
+      "title": "Social variation across the UK",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.bl.uk/british-accents-and-dialects/articles/social-variatio…",
+      "accessed_date": "21 November 2021",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "The British Psychological Society (2018) Code of ethics and conduct. Available at: https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct (Accessed: 22 March 2019).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "The British Psychological Society"
+      ],
+      "year": "2018",
+      "title": "Code of ethics and conduct",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct",
+      "accessed_date": "22 March 2019",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Kitton, J. (2013) Golden sunset. Available at: https://www.jameskittophotography.co.uk/photo_8692150.html (Accessed: 21 November 2021).",
+    "stage_1_label": "image",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kitton",
+        "J."
+      ],
+      "year": "2013",
+      "title": "Golden sunset",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.jameskittophotography.co.uk/photo_8692150.html",
+      "accessed_date": "21 November 2021",
+      "reference_type": "image"
+    }
+  },
+  {
+    "raw_reference": "Frazier, D.R. (2016) The Colosseum in Rome, Italy [Photograph]. Available at: https://quest-eb-com.libezproxy.open.ac.uk/images/search/colosseum/deta… (Accessed: 1 September 2025).",
+    "stage_1_label": "image",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Frazier",
+        "D.R."
+      ],
+      "year": "2016",
+      "title": "The Colosseum in Rome, Italy [Photograph]",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://quest-eb-com.libezproxy.open.ac.uk/images/search/colosseum/deta…",
+      "accessed_date": "1 September 2025",
+      "reference_type": "image"
+    }
+  },
+  {
+    "raw_reference": "stanitsa_dance (2021) Cossack dance ensemble [Instagram]. Available at: https://www.instagram.com/p/COI_slphWJ_/ (Accessed: 13 June 2023). – social media",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "stanitsa_dance"
+      ],
+      "year": "2021",
+      "title": "Cossack dance ensemble [Instagram]",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.instagram.com/p/COI_slphWJ_/",
+      "accessed_date": "13 June 2023",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "O'Mahony, N. (2024) ‘How the course works’, Welcome forum, in A215: Creative writing. Available at: https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155 (Accessed: 24 January 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "O'Mahony",
+        "N."
+      ],
+      "year": "2024",
+      "title": "‘How the course works’, Welcome forum, in A215: Creative writing",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155",
+      "accessed_date": "24 January 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Rietdorf, K. and Bootman, M. (2024) 'Topic 3: rare diseases'. S290: Investigating human health and disease. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940 (Accessed: 24 January 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Rietdorf",
+        "K.",
+        "Bootman",
+        "M."
+      ],
+      "year": "2024",
+      "title": "Topic 3: rare diseases",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940",
+      "accessed_date": "24 January 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "The Open University (2025) ‘4 What makes a system secure?’. TM256: Cyber security. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2426934&section=5 (Accessed: 5 March 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "The Open University"
+      ],
+      "year": "2025",
+      "title": "‘4 What makes a system secure?’",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2426934&section=5",
+      "accessed_date": "5 March 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "The Open University (2024) ‘Video 2.7 an example of a Frith-Happé animation’. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9… (Accessed: 22 November 2024).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "The Open University"
+      ],
+      "year": "2024",
+      "title": "‘Video 2",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9…",
+      "accessed_date": "22 November 2024",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "The Open University (2025) ‘Audio 2 interview with Richard Sorabji (Part 2)’. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2416714&section=5.6 (Accessed: 12 February 2025)",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "The Open University"
+      ],
+      "year": "2025",
+      "title": "‘Audio 2 interview with Richard Sorabji (Part 2)’",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2416714&section=5.6",
+      "accessed_date": "12 February 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Grayling, A. and Ball, B. (2024) 'Philosophy is crucial in the age of AI', The Conversation, 1 August. Available at https://theconversation.com/philosophy-is-crucial-in-the-age-of-ai-2359… (Accessed: 1 August 2024).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Grayling",
+        "A.",
+        "Ball",
+        "B."
+      ],
+      "year": "2024",
+      "title": "'Philosophy is crucial in the age of AI', The Conversation, 1 August",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://theconversation.com/philosophy-is-crucial-in-the-age-of-ai-2359…",
+      "accessed_date": "1 August 2024",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Chu, M., Leonard, P. and Stevenson, F. (2012) 'Growing the base for citizen science: recruiting and engaging participants', in J.L. Dickinson and R. Bonney (eds.) Citizen science: public participation in environmental research. Cornell University Press, pp. 69-81.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Chu",
+        "M.",
+        "Leonard",
+        "P.",
+        "Stevenson",
+        "F."
+      ],
+      "year": "2012",
+      "title": "'Growing the base for citizen science: recruiting and engaging participants', in J",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Young, H.D., Freedman, R.A., Sandin, T.R., and Ford, A.L. (2015) Sears and Zemansky's university physics. Addison-Wesley.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Young",
+        "H.D.",
+        "Freedman",
+        "R.A.",
+        "Sandin",
+        "T.R.",
+        "",
+        "Ford",
+        "A.L."
+      ],
+      "year": "2015",
+      "title": "Sears and Zemansky's university physics",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Youngs, P. et al. (2019) Sears and Zemansky's university physics. Addison-Wesley.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Youngs",
+        "P. et al."
+      ],
+      "year": "2019",
+      "title": "Sears and Zemansky's university physics",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bush, T. (2006). Theories of Childcare. London: Harper Row.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bush",
+        "T."
+      ],
+      "year": "2006",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bolman, L.G., Deal, T.E. (2003). Modern approaches to Understanding and Managing Organisations. San Francisco: Jossey-Bass.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bolman",
+        "L.G.",
+        "Deal",
+        "T.E."
+      ],
+      "year": "2003",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Baldridge, J.V., Curtis, D.V. Euchre, G and Riley, G.L. (2005) Effective Communication Dublin: Gill and Macmillan.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Baldridge",
+        "J.V.",
+        "Curtis",
+        "D.V. Euchre",
+        "G",
+        "Riley",
+        "G.L."
+      ],
+      "year": "2005",
+      "title": "Effective Communication Dublin: Gill and Macmillan",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "McEwan, I. (2002). Atonement [audiobook]. New York: HarperCollins.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "McEwan",
+        "I."
+      ],
+      "year": "2002",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Hoyle, E. (2002) ‘Customer Service and Reception Skills’ Management and Administration, 10(2), pp87-88.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hoyle",
+        "E."
+      ],
+      "year": "2002",
+      "title": "‘Customer Service and Reception Skills’ Management and Administration, 10(2), pp87-88",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Spruit, M. (2014). ‘Pulmonary rehabilitation. European respiratory review[online]’, 23(131). Available from: http://err.ersjournals.com/content/23/131/55.full.pdf+html [accessed 14 May 2015].",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Spruit",
+        "M."
+      ],
+      "year": "2014",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://err.ersjournals.com/content/23/131/55.full.pdf+html",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Dundalk Institute of Technology. (2012). Whitaker Theatre [image online]. Available from: https://www.dkit.ie/about [accessed 5 July 2014].",
+    "stage_1_label": "image",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Dundalk Institute of Technology."
+      ],
+      "year": "2012",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.dkit.ie/about",
+      "accessed_date": "",
+      "reference_type": "image"
+    }
+  },
+  {
+    "raw_reference": "Monaghan Institute. (2015). Graduate research [online]. Available from: http://www.dkit.ie/research/graduate -research [accessed 24 February 2015].",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Monaghan Institute."
+      ],
+      "year": "2015",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.dkit.ie/research/graduate",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Ashbourn, J. (2014) Biometrics in the new world: the cloud, mobile technology and pervasive identity. 2nd edn. Springer.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ashbourn",
+        "J."
+      ],
+      "year": "2014",
+      "title": "Biometrics in the new world: the cloud, mobile technology and pervasive identity",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Nasta, S. and Stein, M.U. (eds) (2020) The Cambridge history of Black and Asian British writing. Cambridge University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nasta",
+        "S.",
+        "Stein",
+        "M.U. (eds)"
+      ],
+      "year": "2020",
+      "title": "(2020) The Cambridge history of Black and Asian British writing",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Prior, H. (2020) Away with the penguins. Available at: https://www.amazon.co.uk/Away-Penguins-Hazel-Prior-ebook (Accessed: 20 July 2025).",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Prior",
+        "H."
+      ],
+      "year": "2020",
+      "title": "Away with the penguins",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.amazon.co.uk/Away-Penguins-Hazel-Prior-ebook",
+      "accessed_date": "20 July 2025",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Faulkner, W. (2000) Light in August. Available at: https://www.vlebooks.com/vleweb/product/openreader?id=UniReading&isbn=9781446485521 (Accessed: 10 June 2025).",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Faulkner",
+        "W."
+      ],
+      "year": "2000",
+      "title": "Light in August",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.vlebooks.com/vleweb/product/openreader?id=UniReading&isbn=9781446485521",
+      "accessed_date": "10 June 2025",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gulddal, J. (2020) 'That deep underground savage instinct: narratives of sacrifice and retribution in Agatha Christie's Appointment with Death', Textual Practice, 34(11), pp. 1803-1821.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gulddal",
+        "J."
+      ],
+      "year": "2020",
+      "title": "'That deep underground savage instinct: narratives of sacrifice and retribution in Agatha Christie's Appointment with Death', Textual Practice, 34(11), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Thomas, D. and Tian, L. (2021) 'Hits from the Bong: the impact of recreational marijuana dispensaries on property values', Regional Science and Urban Economics, 87, article number 103655.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Thomas",
+        "D.",
+        "Tian",
+        "L."
+      ],
+      "year": "2021",
+      "title": "'Hits from the Bong: the impact of recreational marijuana dispensaries on property values', Regional Science and Urban Economics, 87, article number 103655",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Adeyeye, S.A.O., Ashaolu, T.J. and Idowu-Adebayo, F. (2022) 'Mycotoxins: food safety, consumer health and Africa's food security', Polycyclic Aromatic Compounds, 42(8), pp. 5779–5795.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Adeyeye",
+        "S.A.O.",
+        "Ashaolu",
+        "T.J.",
+        "Idowu-Adebayo",
+        "F."
+      ],
+      "year": "2022",
+      "title": "'Mycotoxins: food safety, consumer health and Africa's food security', Polycyclic Aromatic Compounds, 42(8), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Moise, L., Gutiérrez, A.H., Khan, S., Tan, S., Ardito, M., Martin, W.D. & De Groot, A.S. (2020) 'New immunoinformatics tools for swine: designing epitope-driven vaccines, predicting vaccine efficacy, and making vaccines on demand', Frontiers in Immunology, 11, article number 563362.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Moise",
+        "L.",
+        "Gutiérrez",
+        "A.H.",
+        "Khan",
+        "S.",
+        "Tan",
+        "S.",
+        "Ardito",
+        "M.",
+        "Martin",
+        "W.D. & De Groot",
+        "A.S."
+      ],
+      "year": "2020",
+      "title": "'New immunoinformatics tools for swine: designing epitope-driven vaccines, predicting vaccine efficacy, and making vaccines on demand', Frontiers in Immunology, 11, article number 563362",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Singh, H., Khurana, L.K. and Singh, R. (2018) 'Pharmaceutical development', in Vohora, D. and Singh, G. (eds) Pharmaceutical medicine and translational clinical research. Academic Press, pp.33-46.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Singh",
+        "H.",
+        "Khurana",
+        "L.K.",
+        "Singh",
+        "R."
+      ],
+      "year": "2018",
+      "title": "'Pharmaceutical development', in Vohora, D",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bologna, C. (2018) What happens to your mind and body when you feel homesick? Available at: https://www.huffingtonpost.com/entry/what-happens-mindbody-homesick_us_5b201ebde4b09d7a3d77eee1 (Accessed: 24 June 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bologna",
+        "C."
+      ],
+      "year": "2018",
+      "title": "What happens to your mind and body when you feel homesick? Available at: https://www",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.huffingtonpost.com/entry/what-happens-mindbody-homesick_us_5b201ebde4b09d7a3d77eee1",
+      "accessed_date": "24 June 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "World Health Organization (2025) Sodium reduction. Available at: https://www.who.int/news-room/fact-sheets/detail/sodium-reduction (Accessed: 24 June 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "World Health Organization"
+      ],
+      "year": "2025",
+      "title": "Sodium reduction",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.who.int/news-room/fact-sheets/detail/sodium-reduction",
+      "accessed_date": "24 June 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Bureau van Dijk (2025) Tesco plc company report. Available at: http://fame.bvdep.com (Accessed: 27 May 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bureau van Dijk"
+      ],
+      "year": "2025",
+      "title": "Tesco plc company report",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://fame.bvdep.com",
+      "accessed_date": "27 May 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Jones, L. (2018) 'Polymer blends based on compact disc scrap', Proceedings of the Annual Technical Conference - Society of Plastics Engineers. San Francisco, May 6-9. Society of Plastics Engineers. pp.236-254. – conference proceeding",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Jones",
+        "L."
+      ],
+      "year": "2018",
+      "title": "'Polymer blends based on compact disc scrap', Proceedings of the Annual Technical Conference - Society of Plastics Engineers",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Fahrenheit 9/11 (2004) Directed by M. Moore. [Feature film]. Lions Gate Films.",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Fahrenheit 9/11"
+      ],
+      "year": "2004",
+      "title": "Directed by M",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Environment Agency (2020) The flood and coastal erosion risk management strategy action plan 2021. Environment Agency.",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Environment Agency"
+      ],
+      "year": "2020",
+      "title": "The flood and coastal erosion risk management strategy action plan 2021",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Scientific Advisory Committee on Nutrition (2016) Vitamin D and health. Available at: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/537616/SACN_Vitamin_D_and_Health_report.pdf (Accessed: 25 July 2025).",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Scientific Advisory Committee on Nutrition"
+      ],
+      "year": "2016",
+      "title": "Vitamin D and health",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/537616/SACN_Vitamin_D_and_Health_report.pdf",
+      "accessed_date": "25 July 2025",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Dower, J. (1832) A map shewing the parliamentary representation of England & Wales, according as the same are settled by the Reform Act passed 7th June 1832, 1 inch to 35 miles. J. Gardner.",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Dower",
+        "J."
+      ],
+      "year": "1832",
+      "title": "A map shewing the parliamentary representation of England & Wales, according as the same are settled by the Reform Act passed 7th June 1832, 1 inch to 35 miles",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Graham, K. (2020) 'The biggest tree and the smallest axe', The Guardian, 31 August, pp.21-22.",
+    "stage_1_label": "newspaper",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Graham",
+        "K."
+      ],
+      "year": "2020",
+      "title": "'The biggest tree and the smallest axe', The Guardian, 31 August, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "newspaper"
+    }
+  },
+  {
+    "raw_reference": "University of Reading (2025) 'From digging in search of the past…to shaping the future of space.' [Instagram] 13 September. Available at: https://www.instagram.com/uniofreading/p/DOgai7NAHql/ (Accessed: 15 September 2025).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "University of Reading"
+      ],
+      "year": "2025",
+      "title": "'From digging in search of the past…to shaping the future of space",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.instagram.com/uniofreading/p/DOgai7NAHql/",
+      "accessed_date": "15 September 2025",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Tocmo, R. (2024) 'Food fraud' [Presentation slides]. FB1FSC: Food System Challenges. University of Reading. Available at: https://www.bb.reading.ac.uk (Accessed: 17 December 2024).",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Tocmo",
+        "R."
+      ],
+      "year": "2024",
+      "title": "'Food fraud' [Presentation slides]",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.bb.reading.ac.uk",
+      "accessed_date": "17 December 2024",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "British Standards Institution (2020) BS ISO 21543:2020: Milk and milk products - guidelines for the application of near infrared spectroscopy. British Standards Institution.",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "British Standards Institution"
+      ],
+      "year": "2020",
+      "title": "BS ISO 21543:2020: Milk and milk products - guidelines for the application of near infrared spectroscopy",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Lalani, B. (2017) Economics and adoption of conservation agriculture in Cabo Delgado, Mozambique. PhD thesis. Reading University.",
+    "stage_1_label": "thesis",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Lalani",
+        "B."
+      ],
+      "year": "2017",
+      "title": "Economics and adoption of conservation agriculture in Cabo Delgado, Mozambique",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "thesis"
+    }
+  },
+  {
+    "raw_reference": "Dué C., Lupack S. and Lamberton R. (2020) ‘Homer in a world of song’, in C.O. Pache (ed.) The Cambridge guide to Homer: part I - Homeric song and text. Cambridge University Press. Available at: https://www-cambridge-org.libezproxy.open.ac.uk/core/books/cambridge-gu (Accessed: 27 August 2025).",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Dué C.",
+        "Lupack S.",
+        "Lamberton R."
+      ],
+      "year": "2020",
+      "title": "‘Homer in a world of song’, in C",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www-cambridge-org.libezproxy.open.ac.uk/core/books/cambridge-gu",
+      "accessed_date": "27 August 2025",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Olby, R. (2014) ‘Crick, Francis Harry Compton (1916–2004)’, in Oxford dictionary of national biography. Online edn. Oxford University Press. Available at: https://doi.org/10.1093/ref:odnb/93883.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Olby",
+        "R."
+      ],
+      "year": "2014",
+      "title": "‘Crick, Francis Harry Compton (1916–2004)’, in Oxford dictionary of national biography",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1093/ref:odnb/93883.",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Abdollahi, M., Giovenazzo, P. and Falk, T.H. (2022) 'Automated beehive acoustics monitoring: A comprehensive review of the literature and recommendations for future work', Applied Sciences, 12(8), pp.3920.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Abdollahi",
+        "M.",
+        "Giovenazzo",
+        "P.",
+        "Falk",
+        "T.H."
+      ],
+      "year": "2022",
+      "title": "'Automated beehive acoustics monitoring: A comprehensive review of the literature and recommendations for future work', Applied Sciences, 12(8), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Abou-Shaara, H. et al. (2017) 'A review of impacts of temperature and relative humidity on various activities of honeybees', Insectes Sociaux, 64(4), pp.455-463.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Abou-Shaara",
+        "H. et al."
+      ],
+      "year": "2017",
+      "title": "'A review of impacts of temperature and relative humidity on various activities of honeybees', Insectes Sociaux, 64(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ahmed, N., Rao, K.R., Debnath, L. (1979) 'Orthogonal transforms for digital signal processing' Transactions on Systems, Man, and Cybernetics, 9(1),pp66-67.- journal",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ahmed",
+        "N.",
+        "Rao",
+        "K.R.",
+        "Debnath",
+        "L."
+      ],
+      "year": "1979",
+      "title": "'Orthogonal transforms for digital signal processing' Transactions on Systems, Man, and Cybernetics, 9(1),pp66-67",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Aizen, M.A. and Harder, L.D. (2009) 'The global stock of domesticated honeybees is growing slower than agricultural demand for pollination', Current Biology, 19(11), pp.915-918.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Aizen",
+        "M.A.",
+        "Harder",
+        "L.D."
+      ],
+      "year": "2009",
+      "title": "'The global stock of domesticated honeybees is growing slower than agricultural demand for pollination', Current Biology, 19(11), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Autrum, H. and Schneider, W. (1948) 'Comparative studies on the insect's sense of vibration', Zeitschrift Für Vergleichende Physiologie, 31(1), pp.77-88.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Autrum",
+        "H.",
+        "Schneider",
+        "W."
+      ],
+      "year": "1948",
+      "title": "'Comparative studies on the insect's sense of vibration', Zeitschrift Für Vergleichende Physiologie, 31(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Baraniuk, R. (2009) Signals and systems. Florida: University Press of Florida.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Baraniuk",
+        "R."
+      ],
+      "year": "2009",
+      "title": "Signals and systems",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Baruah, R. (2022) The Sentinel Available at: https://www.sentinelassam.com/more-news/editorial/we-all-depend-on-the-survival-of-bees-592962 ( Accessed 6 November 2023).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Baruah",
+        "R."
+      ],
+      "year": "2022",
+      "title": "The Sentinel Available at: https://www",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.sentinelassam.com/more-news/editorial/we-all-depend-on-the-survival-of-bees-592962",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Bencsik, M. et al. (2011a) 'Identification of the honeybee swarming process by analysing the time course of hive vibrations', Computers and Electronics in Agriculture, 76(1), pp.44-50.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bencsik",
+        "M. et al."
+      ],
+      "year": "2011a",
+      "title": "'Identification of the honeybee swarming process by analysing the time course of hive vibrations', Computers and Electronics in Agriculture, 76(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Bernard, É (2021) Introduction to machine learning. Champaign: Wolfram Media, Inc.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bernard",
+        "É"
+      ],
+      "year": "2021",
+      "title": "Introduction to machine learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bishop, C.M. (1995) Neural networks for pattern recognition.  Oxford: Clarendon Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bishop",
+        "C.M."
+      ],
+      "year": "1995",
+      "title": "Neural networks for pattern recognition",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Blackiston, H. (2020) Beekeeping for Dummies. 5th edn. Newark: Wiley.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Blackiston",
+        "H."
+      ],
+      "year": "2020",
+      "title": "Beekeeping for Dummies",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bloomfield, P. (1976) Fourier analysis of time series: An introduction, New York,: John Wiley & Sons.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bloomfield",
+        "P."
+      ],
+      "year": "1976",
+      "title": "Fourier analysis of time series: An introduction, New York,: John Wiley & Sons",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bowerman, B.L. (1993) Forecasting and time series: An applied approach. 3rd edn. Belmont, Calif: Duxbury Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bowerman",
+        "B.L."
+      ],
+      "year": "1993",
+      "title": "Forecasting and time series: An applied approach",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bowerman, B.L. and O'Connell, R.T. (1990) Linear statistical models: An applied approach. Boston: PWS-Kent.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bowerman",
+        "B.L.",
+        "O'Connell",
+        "R.T."
+      ],
+      "year": "1990",
+      "title": "Linear statistical models: An applied approach",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Box, G.E.P., Gwilym, M.J. and Reinsel, G.C. and Llung, G.M. (2008) Time series analysis: forecasting and control. 4th edn. New York: John Wiley.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Box",
+        "G.E.P.",
+        "Gwilym",
+        "M.J.",
+        "Reinsel",
+        "G.C.",
+        "Llung",
+        "G.M."
+      ],
+      "year": "2008",
+      "title": "Time series analysis: forecasting and control",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bromenshenk, J.J., Henderson, C.B., Seccomb, R.A., Rice, S.D. and Etter, R.T. (2009) Honeybee acoustic recording and analysis system for monitoring hive health. Authoring organisation. Available at: http://patft.uspto.gov/netacgi/nph-Parser?patentnumber=7549907 (Accessed: 8 November 2023)",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bromenshenk",
+        "J.J.",
+        "Henderson",
+        "C.B.",
+        "Seccomb",
+        "R.A.",
+        "Rice",
+        "S.D.",
+        "Etter",
+        "R.T."
+      ],
+      "year": "2009",
+      "title": "Honeybee acoustic recording and analysis system for monitoring hive health",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://patft.uspto.gov/netacgi/nph-Parser?patentnumber=7549907",
+      "accessed_date": "8 November 2023",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Bromenshenk, J. et al. (2015) 'Bees as biosensors: Chemosensory ability, honeybee monitoring systems, and emergent sensor technologies derived from the pollinator syndrome', Biosensors (Basel), 5(4), pp.678-711.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Bromenshenk",
+        "J. et al."
+      ],
+      "year": "2015",
+      "title": "'Bees as biosensors: Chemosensory ability, honeybee monitoring systems, and emergent sensor technologies derived from the pollinator syndrome', Biosensors (Basel), 5(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Budge, G.E. et al. (2020) 'Chronic bee paralysis as a serious emerging threat to honeybees', Nature Communications, 11(1), pp.2164.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Budge",
+        "G.E. et al."
+      ],
+      "year": "2020",
+      "title": "'Chronic bee paralysis as a serious emerging threat to honeybees', Nature Communications, 11(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Boys, R. (1999) “Beekeeping in a nutshellListen to the Bees”, Available at https://beedata.com.mirror.hiveeyes.org/data2/listen/listenbees.htm [Last accessed 18 October 2020]",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Boys",
+        "R."
+      ],
+      "year": "1999",
+      "title": "“Beekeeping in a nutshellListen to the Bees”, Available at https://beedata",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://beedata.com.mirror.hiveeyes.org/data2/listen/listenbees.htm",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Burkill, J. (2018) Artificial Neural Networks – Part 2: MLP Implementation for XOr. Available at: http://www.mlopt.com/?p=207 (Accessed: 02 February 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Burkill",
+        "J."
+      ],
+      "year": "2018",
+      "title": "Artificial Neural Networks – Part 2: MLP Implementation for XOr",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.mlopt.com/?p=207",
+      "accessed_date": "02 February 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Butler, C.G. (2009) 'The method and importance of the recognition by a colony of honeybees (A. mellifera) of the presence of its queen', Transactions of the Royal Entomological Society of London, 2(105), pp.11-29.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Butler",
+        "C.G."
+      ],
+      "year": "2009",
+      "title": "'The method and importance of the recognition by a colony of honeybees (A",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Callan, R. (1999) The essence of neural networks.1st edn. United Kingdom: Pearson Hall Europe.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Callan",
+        "R."
+      ],
+      "year": "1999",
+      "title": "The essence of neural networks",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Carling, A. (1992) Introduction to neural networks.1st edn. Wilmslow: Coronet Books.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Carling",
+        "A."
+      ],
+      "year": "1992",
+      "title": "Introduction to neural networks",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Castellanos, J., Carrillo, H. and Brodersen, K. (2014) Probabilistic performance evaluation for multiclass classification using the posterior balanced accuracy. Cham: Springer International Publishing.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Castellanos",
+        "J.",
+        "Carrillo",
+        "H.",
+        "Brodersen",
+        "K."
+      ],
+      "year": "2014",
+      "title": "Probabilistic performance evaluation for multiclass classification using the posterior balanced accuracy",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Chaplin-Kramer, R. et al. (2014) 'Global malnutrition overlaps with pollinator-dependent micronutrient production', Proceedings of the Royal Society. B, Biological Sciences, 281(1794), pp.20141799. – conference proceedings",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Chaplin-Kramer",
+        "R. et al."
+      ],
+      "year": "2014",
+      "title": "'Global malnutrition overlaps with pollinator-dependent micronutrient production', Proceedings of the Royal Society",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Colah, C. (2015) ‘Understanding LSTM Networks’, Colah’s blog, 27 August. Available at: http://colah.github.io/posts/2015-08-Understanding-LSTMs/ (Accessed: 23 July 2020).",
+    "stage_1_label": "wesite",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Colah",
+        "C."
+      ],
+      "year": "2015",
+      "title": "‘Understanding LSTM Networks’, Colah’s blog, 27 August",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+      "accessed_date": "23 July 2020",
+      "reference_type": "wesite"
+    }
+  },
+  {
+    "raw_reference": "Davis, I. and Cullum-Kenyon, R. (2018) The BBKA guide to beekeeping. 2nd edn. London: Bloomsbury Wildlife.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Davis",
+        "I.",
+        "Cullum-Kenyon",
+        "R."
+      ],
+      "year": "2018",
+      "title": "The BBKA guide to beekeeping",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Delaplane, K.S. and Mayer, D.F. (2000) Crop pollination by bees. 1st edn. Wallingford, UK: CABI Publishing.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Delaplane",
+        "K.S.",
+        "Mayer",
+        "D.F."
+      ],
+      "year": "2000",
+      "title": "Crop pollination by bees",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Deng, M. et al. (2020a) 'Heart sound classification based on improved MFCC features and convolutional recurrent neural networks', Neural Networks,130 pp.22-32.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Deng",
+        "M. et al."
+      ],
+      "year": "2020a",
+      "title": "'Heart sound classification based on improved MFCC features and convolutional recurrent neural networks', Neural Networks,130 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Dietlein, D.G. (1985) 'Method for remote monitoring of activity of honeybee colonies by sound analysis', Journal of Apicultural Research, 24(3), pp.176-183.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Dietlein",
+        "D.G."
+      ],
+      "year": "1985",
+      "title": "'Method for remote monitoring of activity of honeybee colonies by sound analysis', Journal of Apicultural Research, 24(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Dougherty, G. (2013) Pattern recognition and classification: An introduction. 1st edn. New York: Springer.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Dougherty",
+        "G."
+      ],
+      "year": "2013",
+      "title": "Pattern recognition and classification: An introduction",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Eltiraifi, O., Elbasheer, E. and Nawari, M. (2018) ‘A Comparative Study of MFCC and LPCC Features For Speech Activity Detection Using Deep Belief Network,’ 2018 International Conference on Computer, Control, Electrical, and Electronics Engineering (ICCCEEE), Khartoum, Sudan, 2018, pp. 1-5, doi: 10.1109/ICCCEEE.2018.8515821.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Eltiraifi",
+        "O.",
+        "Elbasheer",
+        "E.",
+        "Nawari",
+        "M."
+      ],
+      "year": "2018",
+      "title": "‘A Comparative Study of MFCC and LPCC Features For Speech Activity Detection Using Deep Belief Network,’ 2018 International Conference on Computer, Control, Electrical, and Electronics Engineering (ICCCEEE), Khartoum, Sudan, 2018, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Eroglu, Ö. and Serdar, Y. (2020) 'Historical development and current status of beekeeeping in Turkey and the World', Atlas Journal, 6(27), pp.345-354.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Eroglu",
+        "Ö.",
+        "Serdar",
+        "Y."
+      ],
+      "year": "2020",
+      "title": "'Historical development and current status of beekeeeping in Turkey and the World', Atlas Journal, 6(27), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Favre, D. (2011) 'Mobile phone-induced honeybee worker piping', Apidologie, 42(3), pp.270-279.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Favre",
+        "D."
+      ],
+      "year": "2011",
+      "title": "'Mobile phone-induced honeybee worker piping', Apidologie, 42(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ferrari, S. et al. (2008a) 'Monitoring of swarming sounds in bee hives for early detection of the swarming period', Computers and Electronics in Agriculture, 64(1), pp.72-77.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ferrari",
+        "S. et al."
+      ],
+      "year": "2008a",
+      "title": "'Monitoring of swarming sounds in bee hives for early detection of the swarming period', Computers and Electronics in Agriculture, 64(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Forest, C. (2019) Beehives. La Vergne: Weigl Publishers Inc.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Forest",
+        "C."
+      ],
+      "year": "2019",
+      "title": "Beehives",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Free, J.B. (1977) The social organization of honeybees. London: Arnold.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Free",
+        "J.B."
+      ],
+      "year": "1977",
+      "title": "The social organization of honeybees",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Fürst, M.A. et al. (2014) 'Disease associations between honeybees and bumblebees as a threat to wild pollinators', Nature, 506(7488), pp.364-366.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Fürst",
+        "M.A. et al."
+      ],
+      "year": "2014",
+      "title": "'Disease associations between honeybees and bumblebees as a threat to wild pollinators', Nature, 506(7488), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Gagliano, R. (2007) 'Review of 'Digital signal processing: Using MATLAB and wavelets' by Michael Weeks, Infinity Science Press, 2006', Ubiquity – 2007, pp.1.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gagliano",
+        "R."
+      ],
+      "year": "2007",
+      "title": "'Review of 'Digital signal processing: Using MATLAB and wavelets' by Michael Weeks, Infinity Science Press, 2006', Ubiquity – 2007, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gallai, N. et al. (2009) 'Economic valuation of the vulnerability of world agriculture confronted with pollinator decline', Ecological Economics, 68(3), pp.810-821.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gallai",
+        "N. et al."
+      ],
+      "year": "2009",
+      "title": "'Economic valuation of the vulnerability of world agriculture confronted with pollinator decline', Ecological Economics, 68(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ganchev, T., Fakotakis, N. and Kokkinakis, G. (2005a) Comparative evaluation of various MFCC implementations on the speaker verification task, Available at:https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=f4b98dbd75c87a86a8bf0d7e09e3ebbb63d14954 (Accessed: 5 March 2023)",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ganchev",
+        "T.",
+        "Fakotakis",
+        "N.",
+        "Kokkinakis",
+        "G."
+      ],
+      "year": "2005a",
+      "title": "Comparative evaluation of various MFCC implementations on the speaker verification task, Available at:https://citeseerx",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=f4b98dbd75c87a86a8bf0d7e09e3ebbb63d14954",
+      "accessed_date": "5 March 2023",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Gates, B.N. (1914) The temperature of the bee colony. Washington: U.S. Dept. of Agriculture.",
+    "stage_1_label": "other",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gates",
+        "B.N."
+      ],
+      "year": "1914",
+      "title": "The temperature of the bee colony",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "other"
+    }
+  },
+  {
+    "raw_reference": "Giannakopoulos, T. (2015) 'pyAudioAnalysis: An open-source python library for audio signal analysis', PloS One, 10(12), pp0144610.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Giannakopoulos",
+        "T."
+      ],
+      "year": "2015",
+      "title": "'pyAudioAnalysis: An open-source python library for audio signal analysis', PloS One, 10(12), pp0144610",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Giannakopoulos, T. and Pikrakis, A. (2014) Introduction to Audio Analysis.1st edn. San Diego, USA: Elsevier Science.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Giannakopoulos",
+        "T.",
+        "Pikrakis",
+        "A."
+      ],
+      "year": "2014",
+      "title": "Introduction to Audio Analysis",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gibaru, O. (2019) Neural network. Available at: https://www.oliviergibaru.org/courses/ML_NeuralNetwork.html (Accessed: 4 May 2022)",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gibaru",
+        "O."
+      ],
+      "year": "2019",
+      "title": "Neural network",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.oliviergibaru.org/courses/ML_NeuralNetwork.html",
+      "accessed_date": "4 May 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Godoy, D. (2018) Understanding binary cross-entropy / log loss: a visual explanation. Available at: https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a (Accessed: 19 February 2021).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Godoy",
+        "D."
+      ],
+      "year": "2018",
+      "title": "Understanding binary cross-entropy / log loss: a visual explanation",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://towardsdatascience.com/understanding-binary-cross-entropy-log-loss-a-visual-explanation-a3ac6025181a",
+      "accessed_date": "19 February 2021",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Goodfellow, I., Bengio, Y. and Courville, A. (2016a) Deep Learning. Available at: http://www.deeplearningbook.org (Accessed: 3 October 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Goodfellow",
+        "I.",
+        "Bengio",
+        "Y.",
+        "Courville",
+        "A."
+      ],
+      "year": "2016a",
+      "title": "Deep Learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.deeplearningbook.org",
+      "accessed_date": "3 October 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Goodfellow, I., Bengio, Y. and Courville, A. (2016b) Deep Learning. MIT Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Goodfellow",
+        "I.",
+        "Bengio",
+        "Y.",
+        "Courville",
+        "A."
+      ],
+      "year": "2016b",
+      "title": "Deep Learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gould, J.L. (1988) 'The biology of the honeybee. Mark L. Winston', The Quarterly Review of Biology, 63(1), pp.95-96.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gould",
+        "J.L."
+      ],
+      "year": "1988",
+      "title": "'The biology of the honeybee",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Gradišek, A. and Grad, J. (2018) 'Bumblebee brood temperature and colony development: a field study', Acta Entomologica Slovenica, 26(2), pp.219-232.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gradišek",
+        "A.",
+        "Grad",
+        "J."
+      ],
+      "year": "2018",
+      "title": "'Bumblebee brood temperature and colony development: a field study', Acta Entomologica Slovenica, 26(2), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Gradišek, A. et al. (2017a) 'Predicting species identity of bumblebees through analysis of flight buzzing sounds', Bioacoustics (Berkhamsted), 26(1), pp.63-76.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gradišek",
+        "A. et al."
+      ],
+      "year": "2017a",
+      "title": "'Predicting species identity of bumblebees through analysis of flight buzzing sounds', Bioacoustics (Berkhamsted), 26(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Graves, A. (2012) Supervised Sequence Labelling with RecurrentNeural Networks. 1st edn. Heidelberg, Berlin: Springer.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Graves",
+        "A."
+      ],
+      "year": "2012",
+      "title": "Supervised Sequence Labelling with RecurrentNeural Networks",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Graystock, P., Goulson, D. and Hughes, W.O.H. (2014) 'The relationship between managed bees and the prevalence of parasites in bumblebees', PeerJ 2, pp 522.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Graystock",
+        "P.",
+        "Goulson",
+        "D.",
+        "Hughes",
+        "W.O.H."
+      ],
+      "year": "2014",
+      "title": "'The relationship between managed bees and the prevalence of parasites in bumblebees', PeerJ 2, pp 522",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Gu, J. et al. (2018) 'Recent advances in convolutional neural networks', Pattern Recognition, 77 pp.354-377.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gu",
+        "J. et al."
+      ],
+      "year": "2018",
+      "title": "'Recent advances in convolutional neural networks', Pattern Recognition, 77 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Guillén-Navarro, M.A., Martínez-España, R., Bueno-Crespo, A., Ayuso, B., Moreno, J.L. and Cecilia, J.M., 2019. An LSTM deep learning scheme for prediction of low temperatures in agriculture. In: Intelligent Environments 2019. Ambient Intelligence and Smart Environments, vol. 26, pp.130–138. https://doi.org/10.3233/AISE190032",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [],
+      "year": "",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.3233/AISE190032",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gursimran, K. and Neha, M. (2015) 'Music genre classification using MFCC, SVM and BPNN', International Journal of Computer Applications, 112(6), pp.12-14.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gursimran",
+        "K.",
+        "Neha",
+        "M."
+      ],
+      "year": "2015",
+      "title": "'Music genre classification using MFCC, SVM and BPNN', International Journal of Computer Applications, 112(6), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Hambleton, .J. I. (1925) 'The effect of weather upon the change in weight of a colony of bees during the honey flow,’ U.S.Dept.ofAgriculture,1925,.Available at: https://hdl.handle.net/2027/uiug.30112019240354.",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hambleton",
+        ".J. I."
+      ],
+      "year": "1925",
+      "title": "'The effect of weather upon the change in weight of a colony of bees during the honey flow,’ U",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://hdl.handle.net/2027/uiug.30112019240354.",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Harano, K. et al. (2013) 'Honeybee foragers adjust crop contents before leaving the hive: Effects of distance to food source, food type, and informational state', Behavioral Ecology and Sociobiology, 67(7), pp.1169-1178.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Harano",
+        "K. et al."
+      ],
+      "year": "2013",
+      "title": "'Honeybee foragers adjust crop contents before leaving the hive: Effects of distance to food source, food type, and informational state', Behavioral Ecology and Sociobiology, 67(7), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Hardell, L. (2017) 'World Health Organization, radiofrequency radiation and health - a hard nut to crack (Review)', International Journal of Oncology, 51(2), pp.405-413.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hardell",
+        "L."
+      ],
+      "year": "2017",
+      "title": "'World Health Organization, radiofrequency radiation and health - a hard nut to crack (Review)', International Journal of Oncology, 51(2), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Harst, W., Kuhn, J. and Stever, H. (2006) 'Can electromagnetic exposure cause a change in behaviour? Studying possible non-thermal influences on honey bees -An approach within the framework of educational informatics', ACTA SYSTEMICA - IIAS International Journal, VI(1), pp.1-6.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Harst",
+        "W.",
+        "Kuhn",
+        "J.",
+        "Stever",
+        "H."
+      ],
+      "year": "2006",
+      "title": "'Can electromagnetic exposure cause a change in behaviour? Studying possible non-thermal influences on honey bees -An approach within the framework of educational informatics', ACTA SYSTEMICA - IIAS International Journal, VI(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Heise, D. et al. (2019) ‘Acoustically tracking the comings and goings of bumblebees’, in 2019 IEEE Sensors Applications Symposium (SAS). Sophia Antipolis, France, 11–13 March 2019, pp. 1–6. Available at: https://doi.org/10.1109/SAS.2019.8705973\n.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Heise",
+        "D. et al."
+      ],
+      "year": "2019",
+      "title": "‘Acoustically tracking the comings and goings of bumblebees’, in 2019 IEEE Sensors Applications Symposium (SAS)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1109/SAS.2019.8705973",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Hochreiter, S. and Schmidhuber, J. (1997) 'Long short-term memory', Neural Computation, 9(8), pp.1735-1780.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hochreiter",
+        "S.",
+        "Schmidhuber",
+        "J."
+      ],
+      "year": "1997",
+      "title": "'Long short-term memory', Neural Computation, 9(8), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Hochreiter, S. and Schmidhuber, J. (1996) LSTM can solve hard long time lag problems, Colorado: MIT Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hochreiter",
+        "S.",
+        "Schmidhuber",
+        "J."
+      ],
+      "year": "1996",
+      "title": "LSTM can solve hard long time lag problems, Colorado: MIT Press",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Hossan, M.A., Memon, S. and Gregory, M.A. (2010) ‘A novel approach for MFCC feature extraction’, in 2010 4th International Conference on Signal Processing and Communication Systems. 13–15 December 2010, pp. 1–5. Available at: https://api.semanticscholar.org/CorpusID:17606296.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hossan",
+        "M.A.",
+        "Memon",
+        "S.",
+        "Gregory",
+        "M.A."
+      ],
+      "year": "2010",
+      "title": "‘A novel approach for MFCC feature extraction’, in 2010 4th International Conference on Signal Processing and Communication Systems",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://api.semanticscholar.org/CorpusID:17606296.",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Howard, D. et al (2018) 'A low-cost multi-modal sensor network for the monitoring of honeybee colonies/hives' |Intelligent Environments 2018. Amsterdam, Netherlands 2018. Available at: https://eprints.kingston.ac.uk/id/eprint/41328.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Howard",
+        "D. et al"
+      ],
+      "year": "2018",
+      "title": "'A low-cost multi-modal sensor network for the monitoring of honeybee colonies/hives' |Intelligent Environments 2018",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://eprints.kingston.ac.uk/id/eprint/41328.",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Howard, D. et al. (2013) 'Signal processing the acoustics of honeybees (Apis Mellifera) to identify the “Queenless” state in hives', Institute of Acoustics, 35 pp.290-297.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Howard",
+        "D. et al."
+      ],
+      "year": "2013",
+      "title": "'Signal processing the acoustics of honeybees (Apis Mellifera) to identify the “Queenless” state in hives', Institute of Acoustics, 35 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Hunt, J.H. and Richard, F. (2013) 'Intracolony vibroacoustic communication in social insects', Insectes Sociaux, 60(4), pp.403-417.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hunt",
+        "J.H.",
+        "Richard",
+        "F."
+      ],
+      "year": "2013",
+      "title": "'Intracolony vibroacoustic communication in social insects', Insectes Sociaux, 60(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Hunter, G.A., Howard, D. and Duran, O. (2016) ‘A user-centred design approach towards developing an intelligent living environment for honeybees’, in Proceedings of the 30th International BCS Human Computer Interaction Conference: Fusion!. July 2016. Swindon: BCS Learning & Development Ltd, pp. 1–8.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Hunter",
+        "G.A.",
+        "Howard",
+        "D.",
+        "Duran",
+        "O."
+      ],
+      "year": "2016",
+      "title": "‘A user-centred design approach towards developing an intelligent living environment for honeybees’, in Proceedings of the 30th International BCS Human Computer Interaction Conference: Fusion!",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Ifeachor, E.C. and Smithson, P.M., (1995). ‘A practical approach to digital signal processing’. In Proceedings of the IEE Colloquium on Teaching of Digital Signal Processing, London, UK, pp. 6/1–6/8. https://doi.org/10.1049/ic:19950210",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ifeachor",
+        "E.C.",
+        "Smithson",
+        "P.M.",
+        ""
+      ],
+      "year": "1995",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1049/ic:19950210",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Nolasco, I., Terenzi, A., Cecchi, S., Orcioni, S., Bear, H.L. and Benetos, E. (2019) ‘Audio-based identification of beehive states’, in ICASSP 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). Brighton, UK, 12–17 May 2019, pp. 8256–8260. Available at: https://doi.org/10.1109/icassp.2019.8682981 - conference\n.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nolasco",
+        "I.",
+        "Terenzi",
+        "A.",
+        "Cecchi",
+        "S.",
+        "Orcioni",
+        "S.",
+        "Bear",
+        "H.L.",
+        "Benetos",
+        "E."
+      ],
+      "year": "2019",
+      "title": "‘Audio-based identification of beehive states’, in ICASSP 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1109/icassp.2019.8682981",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Ingle, K.V. and Proakis, G.J. (2007) Digital Signal Processing Using MATLAB. Stamford: Cengage Learning. 'Assessment Report on Pollinators, Pollination and Food Production' (2016) Dec 7. Zenodo.Available at: https://explore.openaire.eu/search/publication?articleId=dedup_wf_001::23642fd54072123c898eda33cfe58ad3.",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ingle",
+        "K.V.",
+        "Proakis",
+        "G.J."
+      ],
+      "year": "2007",
+      "title": "Digital Signal Processing Using MATLAB",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://explore.openaire.eu/search/publication?articleId=dedup_wf_001::23642fd54072123c898eda33cfe58ad3.",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Jackson, L. (2019) East of England Bee Report: A report on the status of threatened bees in the region with recommendations for conservation action. Peterborough.: Available at: https://www.wwf.org.uk/sites/default/files/2019-05/EofE%20bee%20report%202019%20FINAL_17My2019.pdf (Accessed: June 12, 2020). website",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Jackson",
+        "L."
+      ],
+      "year": "2019",
+      "title": "East of England Bee Report: A report on the status of threatened bees in the region with recommendations for conservation action",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.wwf.org.uk/sites/default/files/2019-05/EofE%20bee%20report%202019%20FINAL_17My2019.pdf",
+      "accessed_date": "June 12, 2020",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Janacek, G. (2001) Practical time series. 1st edn. London: Arnold.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Janacek",
+        "G."
+      ],
+      "year": "2001",
+      "title": "Practical time series",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Johnson, B.R. (2010) 'Division of labor in honeybees: form, function, and proximate mechanisms', Behavioral Ecology and Sociobiology, 64(3), pp.305-316.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Johnson",
+        "B.R."
+      ],
+      "year": "2010",
+      "title": "'Division of labor in honeybees: form, function, and proximate mechanisms', Behavioral Ecology and Sociobiology, 64(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Johnson, B.R. (2009) 'Division of labor in honeybees: form, function, and proximate mechanisms', Behavioral Ecology and Sociobiology, 64(3), pp.305-316. -",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Johnson",
+        "B.R."
+      ],
+      "year": "2009",
+      "title": "'Division of labor in honeybees: form, function, and proximate mechanisms', Behavioral Ecology and Sociobiology, 64(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Jordan, M.I. (1999) Learning in Graphical Models. MIT Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Jordan",
+        "M.I."
+      ],
+      "year": "1999",
+      "title": "Learning in Graphical Models",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Gorgolewski, C. (2018) To be or not to bee: An annotated dataset for beehive sound recognition. Available at:  https://www.kaggle.com/datasets/chrisfilo/to-bee-or-no-to-bee (Accessed: 28 October 2021).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Gorgolewski",
+        "C."
+      ],
+      "year": "2018",
+      "title": "To be or not to bee: An annotated dataset for beehive sound recognition",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.kaggle.com/datasets/chrisfilo/to-bee-or-no-to-bee",
+      "accessed_date": "28 October 2021",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Keel, C. C. (2022) The buzz about pollinators. Available at: https://search.proquest.com/docview/2679216091 (Accessed: 05 June 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Keel",
+        "C. C."
+      ],
+      "year": "2022",
+      "title": "The buzz about pollinators",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://search.proquest.com/docview/2679216091",
+      "accessed_date": "05 June 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Khoury, D.S., Myerscough, M.R. and Barron, A.B. (2011) 'A Quantitative Model of Honey Bee Colony Population Dynamics', PloS One, 6(4), pp.e18491.",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Khoury",
+        "D.S.",
+        "Myerscough",
+        "M.R.",
+        "Barron",
+        "A.B."
+      ],
+      "year": "2011",
+      "title": "'A Quantitative Model of Honey Bee Colony Population Dynamics', PloS One, 6(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Kim, J.K. and Shao, J. (2021) Statistical methods for handling incomplete data.2nd edn. New York: Chapman and Hall/CRC.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kim",
+        "J.K.",
+        "Shao",
+        "J."
+      ],
+      "year": "2021",
+      "title": "Statistical methods for handling incomplete data",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Kingma, D. and Ba, J. (2017) Adam: A method for stochastic optimization. Available at: https://search.proquest.com/docview/2075396516 (Accessed: November 6, 2023).",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kingma",
+        "D.",
+        "Ba",
+        "J."
+      ],
+      "year": "2017",
+      "title": "Adam: A method for stochastic optimization",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://search.proquest.com/docview/2075396516",
+      "accessed_date": "November 6, 2023",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Kircher, W.H. (1993) 'Acoustical communication in honeybees', Apidologie, 24(3), pp.297-307.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kircher",
+        "W.H."
+      ],
+      "year": "1993",
+      "title": "'Acoustical communication in honeybees', Apidologie, 24(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Krizhevsky, A., Sutskever, I. and Hinton, G. (2017) 'ImageNet classification with deep convolutional neural networks', Association for Computing Machinery, 6(60), pp. 84-90.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Krizhevsky",
+        "A.",
+        "Sutskever",
+        "I.",
+        "Hinton",
+        "G."
+      ],
+      "year": "2017",
+      "title": "'ImageNet classification with deep convolutional neural networks', Association for Computing Machinery, 6(60), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Kulyukin, V., Mukherjee, S. and Amlathe, P. (2018) 'Toward audio beehive monitoring: deep learning vs. standard machine learning in classifying beehive audio samples', Applied Sciences, 8(9), pp.1573.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kulyukin",
+        "V.",
+        "Mukherjee",
+        "S.",
+        "Amlathe",
+        "P."
+      ],
+      "year": "2018",
+      "title": "'Toward audio beehive monitoring: deep learning vs",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Kumar, S.S. (2018) 'Colony collapse disorder (CCD) in honeybees caused by EMF Radiation', Bioinformation, 14(9), pp.521-524.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Kumar",
+        "S.S."
+      ],
+      "year": "2018",
+      "title": "'Colony collapse disorder (CCD) in honeybees caused by EMF Radiation', Bioinformation, 14(9), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Lau, C. and Nieh, J. (2010) 'Honeybee stop-signal production: temporal distribution and effect of feeder crowding', Apidologie, 41(1), pp.87-95.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Lau",
+        "C.",
+        "Nieh",
+        "J."
+      ],
+      "year": "2010",
+      "title": "'Honeybee stop-signal production: temporal distribution and effect of feeder crowding', Apidologie, 41(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Lee, A. et al. (2017) ‘Machine learning has arrived!’, Journal of Ophthalmology, 124(12), pp1726-1728.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Lee",
+        "A. et al."
+      ],
+      "year": "2017",
+      "title": "‘Machine learning has arrived!’, Journal of Ophthalmology, 124(12), pp1726-1728",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Lee, K.Y. et al. (2017) 'Pollination efficiency of honeybees (Apis mellifera L.) and bumblebees (Bombus terrestris L.) in different cultivars of Asian Pear (Pyrus pyrifolia Nakai)', Journal of Apiculture, 32(4), pp.303-314.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Lee",
+        "K.Y. et al."
+      ],
+      "year": "2017",
+      "title": "'Pollination efficiency of honeybees (Apis mellifera L",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Li, X. and Wu, X. (2015) Constructing long short-term memory based deep recurrent neural networks for large vocabulary speech recognition, IEEE, pp. 4520.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Li",
+        "X.",
+        "Wu",
+        "X."
+      ],
+      "year": "2015",
+      "title": "Constructing long short-term memory based deep recurrent neural networks for large vocabulary speech recognition, IEEE, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Mahajan, Y. et al. (2023) NeuralBee - A Beehive Health Monitoring System, pp. 84.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mahajan",
+        "Y. et al."
+      ],
+      "year": "2023",
+      "title": "NeuralBee - A Beehive Health Monitoring System, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Malhotra, P. et al. (2015). 'Long Short-Term Memory Networks for Anomaly Detection in Time Series', In Proceedings of ESANN 2015, 89 pp.89-94.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Malhotra",
+        "P. et al."
+      ],
+      "year": "2015",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Manna, S. (2020) K-Fold Cross Validation for Deep Learning Models using Keras. Available at: https://medium.com/the-owl/k-fold-cross-validation-in-keras-3ec4a3a00538 (Accessed: 06 August 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Manna",
+        "S."
+      ],
+      "year": "2020",
+      "title": "K-Fold Cross Validation for Deep Learning Models using Keras",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://medium.com/the-owl/k-fold-cross-validation-in-keras-3ec4a3a00538",
+      "accessed_date": "06 August 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "MathWorks (2016) Introduction to Machine Learning. Available at: https://www.mathworks.com/content/dam/mathworks/tag-team/Objects/i/88174_92991v00_machine_learning_section1_ebook.pdf (Accessed: 20 June 2020).",
+    "stage_1_label": "ebook",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "MathWorks"
+      ],
+      "year": "2016",
+      "title": "Introduction to Machine Learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.mathworks.com/content/dam/mathworks/tag-team/Objects/i/88174_92991v00_machine_learning_section1_ebook.pdf",
+      "accessed_date": "20 June 2020",
+      "reference_type": "ebook"
+    }
+  },
+  {
+    "raw_reference": "MathWorks (2024) MATLAB Primer. Available at: https://www.mathworks.com/help/releases/R2014b/pdf_doc/matlab/getstart.pdf (Accessed: 02 November 2019).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "MathWorks"
+      ],
+      "year": "2024",
+      "title": "MATLAB Primer",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.mathworks.com/help/releases/R2014b/pdf_doc/matlab/getstart.pdf",
+      "accessed_date": "02 November 2019",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "MathWorks (2020) Mfcc  Available at: https://uk.mathworks.com/help/audio/ref/mfcc.html (Accessed: 6 November 2023).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "MathWorks"
+      ],
+      "year": "2020",
+      "title": "Mfcc  Available at: https://uk",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://uk.mathworks.com/help/audio/ref/mfcc.html",
+      "accessed_date": "6 November 2023",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "National Geographic (2024) Honeybee. Available at: https://www.nationalgeographic.com/animals/invertebrates/facts/honeybee (Accessed: 20 August 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "National Geographic"
+      ],
+      "year": "2024",
+      "title": "Honeybee",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.nationalgeographic.com/animals/invertebrates/facts/honeybee",
+      "accessed_date": "20 August 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Meikle,W.et al.(2015) 'Application of continuous monitoring of honeybee colonies', Apidologie, 46(1), pp.10-22.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Meikle",
+        "W.et al."
+      ],
+      "year": "2015",
+      "title": "'Application of continuous monitoring of honeybee colonies', Apidologie, 46(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Michelsen, A. et al. (1986) 'The tooting and quacking vibration signals of honeybee queens: a quantitative analysis', Journal of Comparative Physiology, 158(5), pp.605-611.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Michelsen",
+        "A. et al."
+      ],
+      "year": "1986",
+      "title": "'The tooting and quacking vibration signals of honeybee queens: a quantitative analysis', Journal of Comparative Physiology, 158(5), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Mitchell, T.A. (1997) Machine learning. Australia: McGraw-Hil.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mitchell",
+        "T.A."
+      ],
+      "year": "1997",
+      "title": "Machine learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Mohamed,A.(2014) Deep neural network acoustic models for ASR.Available at: http://hdl.handle.net/1807/44123 (Accessed:29 October 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mohamed",
+        "A."
+      ],
+      "year": "2014",
+      "title": "Deep neural network acoustic models for ASR",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://hdl.handle.net/1807/44123",
+      "accessed_date": "29 October 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Morales, M. M. et al. (2020a) 'Distribution of chemical residues in the beehive compartments and their transfer to the honeybee brood', Science of the Total Environment, 710 pp.136288. -",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Morales",
+        "M. M. et al."
+      ],
+      "year": "2020a",
+      "title": "'Distribution of chemical residues in the beehive compartments and their transfer to the honeybee brood', Science of the Total Environment, 710 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Mullin, C.A. et al. (2010) 'High levels of miticides and agrochemicals in North American Apiaries: Implications for honey bee health', PLoS ONE, 5(3), pp.e9754.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mullin",
+        "C.A. et al."
+      ],
+      "year": "2010",
+      "title": "'High levels of miticides and agrochemicals in North American Apiaries: Implications for honey bee health', PLoS ONE, 5(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Murphy, K.P. (2012) Machine learning: A probabilistic perspective. London: The MIT Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Murphy",
+        "K.P."
+      ],
+      "year": "2012",
+      "title": "Machine learning: A probabilistic perspective",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Mutsonziwa,K.,Chimedza, C. and Dhliwayo, L. (2004) Time series analysis. Harare: Zimbabwe Open University.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Mutsonziwa",
+        "K.",
+        "Chimedza",
+        "C.",
+        "Dhliwayo",
+        "L."
+      ],
+      "year": "2004",
+      "title": "Time series analysis",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Myerscough, M.R. (1993) 'A Simple model for temperature regulation in honeybee swarms', Journal of Theoretical Biology, 162(3), pp.381-393.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Myerscough",
+        "M.R."
+      ],
+      "year": "1993",
+      "title": "'A Simple model for temperature regulation in honeybee swarms', Journal of Theoretical Biology, 162(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Nieh, J. C. (1993). ‘The stop signal of honeybees: Reconsidering its message’ Behavioral Ecology and Sociobiology, 33(1), 51–56. http://www.jstor.org/stable/4600847.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nieh",
+        "J. C."
+      ],
+      "year": "1993",
+      "title": ", 51–56",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.jstor.org/stable/4600847.",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Neumann, P. and Blacquière, T. (2017) 'The darwin cure for apiculture? Natural selection and managed honeybee health', Evolutionary Applications, 10(3), pp.226-230.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Neumann",
+        "P.",
+        "Blacquière",
+        "T."
+      ],
+      "year": "2017",
+      "title": "'The darwin cure for apiculture? Natural selection and managed honeybee health', Evolutionary Applications, 10(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Neumann, P. and Carreck, N.L. (2010) 'Honeybee colony losses', Journal of Apicultural Research, 49(1), pp.1-6.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Neumann",
+        "P.",
+        "Carreck",
+        "N.L."
+      ],
+      "year": "2010",
+      "title": "'Honeybee colony losses', Journal of Apicultural Research, 49(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "NIST(no date) Introduction to Time Series Analysis. Available at: https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4.htm (Accessed: 29 October 2019).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [],
+      "year": "",
+      "title": "Introduction to Time Series Analysis",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4.htm",
+      "accessed_date": "29 October 2019",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Nguyen, Thi Hoa Cuc, Nebel, Jean-Christophe, Hunter, Gordon, & Florez-Revuelta, Francisco (2018). Automated Detection of Hands and Objects in Egocentric Videos, for Ambient Assisted Living Applications. In Proceedings of the 14th International Conference on Intelligent Environments (IE) 2018, 91-94. https://doi.org/10.1109/ie.2018.00022",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nguyen",
+        "Thi Hoa Cuc",
+        "Nebel",
+        "Jean-Christophe",
+        "Hunter",
+        "Gordon",
+        "& Florez-Revuelta",
+        "Francisco"
+      ],
+      "year": "2018",
+      "title": "2018, 91-94",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi.org/10.1109/ie.2018.00022",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Nolasco, I., Terenzi, A., Cecchi, S., Orcioni, S., Bear, H.L. and Benetos, E. (2019) 'Audio-based identification of beehive states', ICASSP 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP). Brighton, UK, 12–17 May. IEEE, pp. 8256–8260. Available at: doi.org.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nolasco",
+        "I.",
+        "Terenzi",
+        "A.",
+        "Cecchi",
+        "S.",
+        "Orcioni",
+        "S.",
+        "Bear",
+        "H.L.",
+        "Benetos",
+        "E."
+      ],
+      "year": "2019",
+      "title": "'Audio-based identification of beehive states', ICASSP 2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Nolasco, I. And Benetos, E.(2018) “To bee or not to bee: Investigating machine learning approaches to beehive sound recognition”. In Workshop on Detection and Classification of Acoustic Scenes and Events (DCASE),  19-20 November 2018, Surrey, UK.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Nolasco",
+        "I. And Benetos",
+        "E."
+      ],
+      "year": "2018",
+      "title": "“To bee or not to bee: Investigating machine learning approaches to beehive sound recognition”",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Eltiraifi, O., Elbasheer, E. and Nawari, M. (2018) 'A comparative study of MFCC and LPCC features for speech activity detection using deep belief network', Science of the Total Environment, 661 pp.553-562.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Eltiraifi",
+        "O.",
+        "Elbasheer",
+        "E.",
+        "Nawari",
+        "M."
+      ],
+      "year": "2018",
+      "title": "'A comparative study of MFCC and LPCC features for speech activity detection using deep belief network', Science of the Total Environment, 661 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Odemer, R. and Odemer, F. (2019) 'Effects of radiofrequency electromagnetic radiation (RF-EMF) on honeybee queen development and mating success'  Science of the Total Environment, 661 pp.553-562.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Odemer",
+        "R.",
+        "Odemer",
+        "F."
+      ],
+      "year": "2019",
+      "title": "'Effects of radiofrequency electromagnetic radiation (RF-EMF) on honeybee queen development and mating success'  Science of the Total Environment, 661 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Olah, C.(2015) ‘Understanding LSTM Networks’ Colah’s blog 27August. Available at: http://colah.github.io/posts/2015-08-Understanding-LSTMs/ (Accessed: 18 January 2023).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Olah",
+        "C."
+      ],
+      "year": "2015",
+      "title": "‘Understanding LSTM Networks’ Colah’s blog 27August",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+      "accessed_date": "18 January 2023",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Oppenheim, A.V. and Schafer, R.W. (2010) Discrete-time signal processing. 3rd edn. Upper Saddle River: N.J. Pearson.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Oppenheim",
+        "A.V.",
+        "Schafer",
+        "R.W."
+      ],
+      "year": "2010",
+      "title": "Discrete-time signal processing",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "O'Shaughnessy, D. Speech communications: Human and machine (IEEE). Universities Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [],
+      "year": "",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Paliwal, K., Lyons, J. and Wójcicki, K. (2010) 'Preference for 20-40 ms window duration in speech analysis', In Proceedings of the 2010 4th International Conference on Signal Processing and Communication Systems. Gold Coast, QLD, Australia, 13–15 December. IEEE, pp. 1–10. Available at: doi.org.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Paliwal",
+        "K.",
+        "Lyons",
+        "J.",
+        "Wójcicki",
+        "K."
+      ],
+      "year": "2010",
+      "title": "'Preference for 20-40 ms window duration in speech analysis', In Proceedings of the 2010 4th International Conference on Signal Processing and Communication Systems",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Pedregosa, F. et al. (2011) 'Scikit-learn: machine learning in Python', Journal of Machine Learning Research. 12, pp.2825-2830.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Pedregosa",
+        "F. et al."
+      ],
+      "year": "2011",
+      "title": "'Scikit-learn: machine learning in Python', Journal of Machine Learning Research",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Peng, C.J., Lee, K.L. and Ingersoll, G.M. (2002) 'An introduction to logistic regression analysis and reporting', Null, 96(1), pp.3-14.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Peng",
+        "C.J.",
+        "Lee",
+        "K.L.",
+        "Ingersoll",
+        "G.M."
+      ],
+      "year": "2002",
+      "title": "'An introduction to logistic regression analysis and reporting', Null, 96(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Peng, R., Ardekani, I. and Sharifzadeh, H. (2020) 'An acoustic signal processing system for identification of queen-less beehives', In Proceedings of the 2020 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC). Auckland, New Zealand, 7–10 December. IEEE, pp. 57–63. Available at: doi.org",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Peng",
+        "R.",
+        "Ardekani",
+        "I.",
+        "Sharifzadeh",
+        "H."
+      ],
+      "year": "2020",
+      "title": "'An acoustic signal processing system for identification of queen-less beehives', In Proceedings of the 2020 Asia-Pacific Signal and Information Processing Association Annual Summit and Conference (APSIPA ASC)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Phillips, E.F. (1903) 'A Review of Parthenogenesis', In Proceedings of the American Philosophical Society, 42(174), pp.275-345.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Phillips",
+        "E.F."
+      ],
+      "year": "1903",
+      "title": "'A Review of Parthenogenesis', In Proceedings of the American Philosophical Society, 42(174), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Phiri, B.J., Fèvre, D. and Hidano, A. (2022) 'Uptrend in global managed honeybee colonies and production based on a six-decade viewpoint, 1961-2017', Scientific Reports, 12(1), pp.21298.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Phiri",
+        "B.J.",
+        "Fèvre",
+        "D.",
+        "Hidano",
+        "A."
+      ],
+      "year": "2022",
+      "title": "'Uptrend in global managed honeybee colonies and production based on a six-decade viewpoint, 1961-2017', Scientific Reports, 12(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Pirk, C.W.W. et al. (2016) 'Honeybee health in Africa—a review', Apidologie, 47(3), pp.276-300.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Pirk",
+        "C.W.W. et al."
+      ],
+      "year": "2016",
+      "title": "'Honeybee health in Africa—a review', Apidologie, 47(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Potts, S.G. et al. (2010) 'Global pollinator declines: trends, impacts and drivers', Trends in Ecology & Evolution (Amsterdam), 25(6), pp.345-353.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Potts",
+        "S.G. et al."
+      ],
+      "year": "2010",
+      "title": "'Global pollinator declines: trends, impacts and drivers', Trends in Ecology & Evolution (Amsterdam), 25(6), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Potts, S.G. et al. (2018) 'Robotic bees for crop pollination: Why drones cannot replace biodiversity', The Science of the Total Environment, 642, pp.665-667.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Potts",
+        "S.G. et al."
+      ],
+      "year": "2018",
+      "title": "'Robotic bees for crop pollination: Why drones cannot replace biodiversity', The Science of the Total Environment, 642, pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Proakis, G., John and Manolakis, G., Dimitris (1996) Digital signal processing principles, algorithms, and applications. London: Prentice-Hall International.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Proakis",
+        "G.",
+        "John",
+        "Manolakis",
+        "G.",
+        "Dimitris"
+      ],
+      "year": "1996",
+      "title": "Digital signal processing principles, algorithms, and applications",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Python Docs (2019) The    Python Tutorial. Available at: https://docs.python.org/3.5/tutorial/index.html (Accessed: 07 November 2019).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Python Docs"
+      ],
+      "year": "2019",
+      "title": "The    Python Tutorial",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://docs.python.org/3.5/tutorial/index.html",
+      "accessed_date": "07 November 2019",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Qandour, A. et al. (2014) 'Remote beehive monitoring using acoustic signals', Australian Acoustical Society, 42(3), pp.204-209.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Qandour",
+        "A. et al."
+      ],
+      "year": "2014",
+      "title": "'Remote beehive monitoring using acoustic signals', Australian Acoustical Society, 42(3), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ramsey, M.,Bencsik, M. and Newton, M.I. (2017) 'Long-term trends in the honeybee 'whooping signal' revealed by automated detection', PloS One, 12(2), pp.e0171162.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ramsey",
+        "M.",
+        "Bencsik",
+        "M.",
+        "Newton",
+        "M.I."
+      ],
+      "year": "2017",
+      "title": "'Long-term trends in the honeybee 'whooping signal' revealed by automated detection', PloS One, 12(2), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ramsey, M. et al. (2020) 'The prediction of swarming in honeybee colonies using vibrational spectra', Scientific Reports, 10(1), pp.9798.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ramsey",
+        "M. et al."
+      ],
+      "year": "2020",
+      "title": "'The prediction of swarming in honeybee colonies using vibrational spectra', Scientific Reports, 10(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Rangel, J. and Seeley, T.D. (2008a) 'The signals initiating the mass exodus of a honeybee swarm from its nest', Animal Behaviour, 76(6), pp.1943-1952.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Rangel",
+        "J.",
+        "Seeley",
+        "T.D."
+      ],
+      "year": "2008a",
+      "title": "'The signals initiating the mass exodus of a honeybee swarm from its nest', Animal Behaviour, 76(6), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Rao, K.S. and Manjunath, K.E. (2017) Speech recognition using articulatory and excitation source features. 1st edn. Cham: Springer International Publishing AG.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Rao",
+        "K.S.",
+        "Manjunath",
+        "K.E."
+      ],
+      "year": "2017",
+      "title": "Speech recognition using articulatory and excitation source features",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Rao, K. and Ahmed, N. (1976) 'Orthogonal transforms for digital signal processing', IEEE Transactions on Systems Man and Cybernetics, 6(11), pp.796-797.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Rao",
+        "K.",
+        "Ahmed",
+        "N."
+      ],
+      "year": "1976",
+      "title": "'Orthogonal transforms for digital signal processing', IEEE Transactions on Systems Man and Cybernetics, 6(11), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ratnieks, F.L.W. and Carreck, N.L. (2010) 'Ecology. Clarity on honeybee collapse?', Science 327(5962), pp.152-153.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ratnieks",
+        "F.L.W.",
+        "Carreck",
+        "N.L."
+      ],
+      "year": "2010",
+      "title": "'Ecology",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Ritchie, H. (2021) How much of the world’s food production is dependent on pollinators? Available at: https://ourworldindata.org/pollinator-dependence (Accessed: May 16, 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ritchie",
+        "H."
+      ],
+      "year": "2021",
+      "title": "How much of the world’s food production is dependent on pollinators? Available at: https://ourworldindata",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://ourworldindata.org/pollinator-dependence",
+      "accessed_date": "May 16, 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Robles-Guerrero, A. et al. (2017) 'Frequency analysis of honeybee buzz for automatic recognition of health status: A preliminary study', Research in Computing Science, 142(1), pp.89-98.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Robles-Guerrero",
+        "A. et al."
+      ],
+      "year": "2017",
+      "title": "'Frequency analysis of honeybee buzz for automatic recognition of health status: A preliminary study', Research in Computing Science, 142(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Robles-Guerrero, A. et al. (2019a) 'Analysis of a multiclass classification problem by Lasso Logistic Regression and Singular Value Decomposition to identify sound patterns in queen less bee colonies', Computers and Electronics in Agriculture, 159 pp.69-74.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Robles-Guerrero",
+        "A. et al."
+      ],
+      "year": "2019a",
+      "title": "'Analysis of a multiclass classification problem by Lasso Logistic Regression and Singular Value Decomposition to identify sound patterns in queen less bee colonies', Computers and Electronics in Agriculture, 159 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Moreno, C. (2016) 'Importance and health of honeybee (Apis mellifera): A Review. Available at: https://www.researchgate.net/publication/326848210_Importance_and_Health_of_Honey_Bee_Apis_Mellifera_A_Review. (Accessed: May 16, 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Moreno",
+        "C."
+      ],
+      "year": "2016",
+      "title": "'Importance and health of honeybee (Apis mellifera): A Review",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.researchgate.net/publication/326848210_Importance_and_Health_of_Honey_Bee_Apis_Mellifera_A_Review.",
+      "accessed_date": "May 16, 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Ruvinga, S. et al. (2023) 'Identifying queen lessness in honeybee hives from audio signals using machine learning', Electronics (Basel), 12(7), pp.1627.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Ruvinga",
+        "S. et al."
+      ],
+      "year": "2023",
+      "title": "'Identifying queen lessness in honeybee hives from audio signals using machine learning', Electronics (Basel), 12(7), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "S. Ruvinga et al. (2021a) ‘Use of LSTM networks to identify “Queen lessness” in Honeybee Hives from Audio Signals’, Proceedings of the 17th international conference on intelligent environments. Dubai (United Arab Emirates), 21-24 June2021. https://doi: 10.1109/IE51775.2021.9486575.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "S. Ruvinga et al."
+      ],
+      "year": "2021a",
+      "title": "‘Use of LSTM networks to identify “Queen lessness” in Honeybee Hives from Audio Signals’, Proceedings of the 17th international conference on intelligent environments",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://doi:",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Sak, H., Senior, A.W. and Beaufays, F. (2014)’ Long short-term memory recurrent neural network architectures for large scale acoustic modelling’, Proceedings of the annual conference of international speech communication Association INTERSPEECH,  01 January 2014.https://https://ui.adsabs.harvard.edu/abs/2014arXiv1402.1128S.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Sak",
+        "H.",
+        "Senior",
+        "A.W.",
+        "Beaufays",
+        "F."
+      ],
+      "year": "2014",
+      "title": "’ Long short-term memory recurrent neural network architectures for large scale acoustic modelling’, Proceedings of the annual conference of international speech communication Association INTERSPEECH,  01 January 2014",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://https://ui.adsabs.harvard.edu/abs/2014arXiv1402.1128S.",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Scheiner, R. et al. (2013) 'Standard methods for behavioural studies of Apis mellifera', Journal of Apicultural Research, 52(4), pp.1-58.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Scheiner",
+        "R. et al."
+      ],
+      "year": "2013",
+      "title": "'Standard methods for behavioural studies of Apis mellifera', Journal of Apicultural Research, 52(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Schmidhuber, J. (2022) Annotated history of modern AI and deep learning.Available at: https://search.proquest.com/docview/2757227049 (Accessed:",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Schmidhuber",
+        "J."
+      ],
+      "year": "2022",
+      "title": "Annotated history of modern AI and deep learning",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://search.proquest.com/docview/2757227049",
+      "accessed_date": "",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Seeley, T.D. (1995) The wisdom of the hive. Cambridge, Mass: Harvard University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Seeley",
+        "T.D."
+      ],
+      "year": "1995",
+      "title": "The wisdom of the hive",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Seeley, T.D. (1982) 'Adaptive significance of the age polytheism schedule in honeybee colonies', Behavioural Ecology and Sociobiology, 11(4), pp.287-293.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Seeley",
+        "T.D."
+      ],
+      "year": "1982",
+      "title": "'Adaptive significance of the age polytheism schedule in honeybee colonies', Behavioural Ecology and Sociobiology, 11(4), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Seeley, T.D. and Tautz, J. (2001) ‘Worker piping in honeybee swarms and its role in preparing for liftoff’. Journal of Comp. Physiol. 187, pp667–676.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Seeley",
+        "T.D.",
+        "Tautz",
+        "J."
+      ],
+      "year": "2001",
+      "title": "‘Worker piping in honeybee swarms and its role in preparing for liftoff’",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Seeley, T.D. and Buhrman, S.C. (2001) 'Nest-site selection in honeybees: How well do swarms implement the \"Best-of-N\" Decision Rule?', Behavioral Ecology and Sociobiology, 49(5), pp.416-427.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Seeley",
+        "T.D.",
+        "Buhrman",
+        "S.C."
+      ],
+      "year": "2001",
+      "title": "'Nest-site selection in honeybees: How well do swarms implement the \"Best-of-N\" Decision Rule?', Behavioral Ecology and Sociobiology, 49(5), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Sharma, V.P., and Kumar, N.R. (2010) 'Changes in honeybee behaviour and biology under the influence of cell phone radiations', Current Science (Bangalore), 98(10), pp.1376-1378.",
+    "stage_1_label": "unknown",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Sharma",
+        "V.P.",
+        "",
+        "Kumar",
+        "N.R."
+      ],
+      "year": "2010",
+      "title": "'Changes in honeybee behaviour and biology under the influence of cell phone radiations', Current Science (Bangalore), 98(10), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "unknown"
+    }
+  },
+  {
+    "raw_reference": "Sheskin, D.J. (2011). Handbook of parametric and non-parametric statistical procedures. 5th edn. New York: Chapman and Hall.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Sheskin",
+        "D.J."
+      ],
+      "year": "2011",
+      "title": "",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Shimodaira, H. and Renals, S. (2019) Speech Signal Analysis. Available at: https://www.inf.ed.ac.uk/teaching/courses/asr/2018-19/asr02-signal-handout.pdf (Accessed: 4 January 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Shimodaira",
+        "H.",
+        "Renals",
+        "S."
+      ],
+      "year": "2019",
+      "title": "Speech Signal Analysis",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.inf.ed.ac.uk/teaching/courses/asr/2018-19/asr02-signal-handout.pdf",
+      "accessed_date": "4 January 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Shivanna, K.R. (2022) 'Climate change and its impact on biodiversity and human welfare', Proceedings of the Indian National Science Academy, 88(2), pp.160-171.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Shivanna",
+        "K.R."
+      ],
+      "year": "2022",
+      "title": "'Climate change and its impact on biodiversity and human welfare', Proceedings of the Indian National Science Academy, 88(2), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Siladittya, M (2020) K-Fold Cross Validation for Deep Learning Models using Keras. Available at :https://medium.com/the-owl/k-fold-cross-validation-in-keras-3ec4a3a00538. (Accessed: 3 May 2021).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Siladittya",
+        "M"
+      ],
+      "year": "2020",
+      "title": "K-Fold Cross Validation for Deep Learning Models using Keras",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://medium.com/the-owl/k-fold-cross-validation-in-keras-3ec4a3a00538.",
+      "accessed_date": "3 May 2021",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Smith, B.P. and Brier, M.E. (1996) 'Statistical approach to neural network model building for gentamicin peak predictions', Journal of Pharmaceutical Sciences, 85(1), pp.65-69.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Smith",
+        "B.P.",
+        "Brier",
+        "M.E."
+      ],
+      "year": "1996",
+      "title": "'Statistical approach to neural network model building for gentamicin peak predictions', Journal of Pharmaceutical Sciences, 85(1), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Staples, L. (2018a) A comparison of the predictive ability of logistic regression and time series analysis on business credit data.Available at: https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1011&context=dataphdgreylit (Accessed: November 6, 2023).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Staples",
+        "L."
+      ],
+      "year": "2018a",
+      "title": "A comparison of the predictive ability of logistic regression and time series analysis on business credit data",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://digitalcommons.kennesaw.edu/cgi/viewcontent.cgi?article=1011&context=dataphdgreylit",
+      "accessed_date": "November 6, 2023",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Stąpor, K. (2018) 'Evaluating and Comparing Classifiers: Review, Some Recommendations and Limitations', in Kurzynski M., W.M., Burduk R. (ed.) Proceedings of the 10th International Conference on Computer Recognition Systems CORES 2017. Switzerland: Springer International Publishing AG, pp. 12-21.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Stąpor",
+        "K."
+      ],
+      "year": "2018",
+      "title": "'Evaluating and Comparing Classifiers: Review, Some Recommendations and Limitations', in Kurzynski M",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Statistics.com (2018) Convolution and Tensor. Available at: https://www.statistics.com/05-08-2018-convolution-and-tensor/(Accessed: 17 March 2022).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Statistics.com"
+      ],
+      "year": "2018",
+      "title": "Convolution and Tensor",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.statistics.com/05-08-2018-convolution-and-tensor/(Accessed:",
+      "accessed_date": "17 March 2022",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Statistica (2024) How to identify patterns in time series data: Time series analysis. Available at: http://www.statsoft.com/textbook/time-series-analysis#systematic.(Accessed:07 November 2019).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Statistica"
+      ],
+      "year": "2024",
+      "title": "How to identify patterns in time series data: Time series analysis",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://www.statsoft.com/textbook/time-series-analysis#systematic.(Accessed:07",
+      "accessed_date": "07 November 2019",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Stephenson, B. (2014) The python workbook: A brief introduction with exercises and solutions. 1st edn. London: Springer.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Stephenson",
+        "B."
+      ],
+      "year": "2014",
+      "title": "The python workbook: A brief introduction with exercises and solutions",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Switanek, M. et al. (2017) 'Modelling seasonal effects of temperature and precipitation on honeybee winter mortality in a temperate climate', Science of the Total Environment, 579 pp.1581-1587.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Switanek",
+        "M. et al."
+      ],
+      "year": "2017",
+      "title": "'Modelling seasonal effects of temperature and precipitation on honeybee winter mortality in a temperate climate', Science of the Total Environment, 579 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Tieleman, T. and Hinton, G. (2012) 'Lecture 6.5-rmsprop: Divide the gradient by a running average of its recent magnitude', Neural Networks for Machine Learning, 4(2), pp.26-31.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Tieleman",
+        "T.",
+        "Hinton",
+        "G."
+      ],
+      "year": "2012",
+      "title": "'Lecture 6",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "United Nations (2020) We all depend on the survival of bees. Available at: https://www.un.org/en/observances/bee-day (Accessed: 18 July 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "United Nations"
+      ],
+      "year": "2020",
+      "title": "We all depend on the survival of bees",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://www.un.org/en/observances/bee-day",
+      "accessed_date": "18 July 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Uthoff, C., Homsi, M.N. and von Bergen, M. (2023) 'Acoustic and vibration monitoring of honeybee colonies for beekeeping-relevant aspects of the presence of queen bee and swarming', Computers and Electronics in Agriculture, 205 pp.107589.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Uthoff",
+        "C.",
+        "Homsi",
+        "M.N.",
+        "von Bergen",
+        "M."
+      ],
+      "year": "2023",
+      "title": "'Acoustic and vibration monitoring of honeybee colonies for beekeeping-relevant aspects of the presence of queen bee and swarming', Computers and Electronics in Agriculture, 205 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "van Roy, J. et al. (2014) 'Optical identification of bumblebee species: Effect of morphology on wingbeat frequency', Computers and Electronics in Agriculture, 109 pp.94-100.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "van Roy",
+        "J. et al."
+      ],
+      "year": "2014",
+      "title": "'Optical identification of bumblebee species: Effect of morphology on wingbeat frequency', Computers and Electronics in Agriculture, 109 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Van Engelsdorp, D. and Meixner, M.D. (2010) 'A historical review of managed honey bee populations in Europe and the United States and the factors that may affect them', Journal of Invertebrate Pathology, 103 pp. S80-S95.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Van Engelsdorp",
+        "D.",
+        "Meixner",
+        "M.D."
+      ],
+      "year": "2010",
+      "title": "'A historical review of managed honey bee populations in Europe and the United States and the factors that may affect them', Journal of Invertebrate Pathology, 103 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Várkonyi, D.T., Seixas, J.L. and Horváth, T. (2023) 'Dynamic noise filtering for multi-class classification of beehive audio data', Expert Systems with Applications, 213 pp.118850.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Várkonyi",
+        "D.T.",
+        "Seixas",
+        "J.L.",
+        "Horváth",
+        "T."
+      ],
+      "year": "2023",
+      "title": "'Dynamic noise filtering for multi-class classification of beehive audio data', Expert Systems with Applications, 213 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Vetterli, M., Kovaˇcevi´c, J., and Goyal, K.V. (2014) Foundations of signal processing. 1st edn. Cambridge: Cambridge University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Vetterli",
+        "M.",
+        "Kovaˇcevi´c",
+        "J.",
+        "",
+        "Goyal",
+        "K.V."
+      ],
+      "year": "2014",
+      "title": "Foundations of signal processing",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Winston, M.L. (1991) The Biology of the Honeybee. rev edn. London, United Kingdom: Harvard University Press.",
+    "stage_1_label": "book",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Winston",
+        "M.L."
+      ],
+      "year": "1991",
+      "title": "The Biology of the Honeybee",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "book"
+    }
+  },
+  {
+    "raw_reference": "Wyse, L. (2017) Audio Spectrogram Representations for Processing with Convolutional Neural Networks. Ithaca: Cornell University Library, arXiv.org. Available at: https://search.proquest.com/docview/2075726385 (Accessed: 4 May 2020).",
+    "stage_1_label": "website",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Wyse",
+        "L."
+      ],
+      "year": "2017",
+      "title": "Audio Spectrogram Representations for Processing with Convolutional Neural Networks",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "https://search.proquest.com/docview/2075726385",
+      "accessed_date": "4 May 2020",
+      "reference_type": "website"
+    }
+  },
+  {
+    "raw_reference": "Yu, B. et al. (2023) 'A matter of the beehive sound: Can honeybees alert the pollution out of their hives?', Environmental Science and Pollution Research International, 30(6), pp.16266-16276.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Yu",
+        "B. et al."
+      ],
+      "year": "2023",
+      "title": "'A matter of the beehive sound: Can honeybees alert the pollution out of their hives?', Environmental Science and Pollution Research International, 30(6), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Yusnita, M.A. et al. (2015) 'Statistical descriptors of Mel-Bands spectral energy features with feature reduction for robust accent recognition in Malaysian English', Indian Journal of Science and Technology, 8(20).",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Yusnita",
+        "M.A. et al."
+      ],
+      "year": "2015",
+      "title": "'Statistical descriptors of Mel-Bands spectral energy features with feature reduction for robust accent recognition in Malaysian English', Indian Journal of Science and Technology, 8(20)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Zacepins, A. et al. (2016) 'Remote detection of the swarming of honeybee colonies by single-point temperature monitoring', Biosystems Engineering, 148 pp.76-80.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Zacepins",
+        "A. et al."
+      ],
+      "year": "2016",
+      "title": "'Remote detection of the swarming of honeybee colonies by single-point temperature monitoring', Biosystems Engineering, 148 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Zgank, A. (2018) 'Acoustic monitoring and classification of bee swarm activity using MFCC feature extraction and HMM acoustic modelling', In Proceedings of the 2018 41st International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO). Opatija, Croatia, 21–25 May. IEEE, pp. 0471–0474. Available at:  doi: 10.1109/ELEKTRO.2018.8398253.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Zgank",
+        "A."
+      ],
+      "year": "2018",
+      "title": "'Acoustic monitoring and classification of bee swarm activity using MFCC feature extraction and HMM acoustic modelling', In Proceedings of the 2018 41st International Convention on Information and Communication Technology, Electronics and Microelectronics (MIPRO)",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  },
+  {
+    "raw_reference": "Žgank, A. (2018) 'Acoustic monitoring and classification of bee swarm activity using MFCC feature extraction and HMM acoustic modelling', Elektro 2018 pp.1-4.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Žgank",
+        "A."
+      ],
+      "year": "2018",
+      "title": "'Acoustic monitoring and classification of bee swarm activity using MFCC feature extraction and HMM acoustic modelling', Elektro 2018 pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Zheng, F., Zhang, G. and Song, Z. (2001a) 'Comparison of different implementations of MFCC', Journal of Computer Science and Technology, 16(6), pp.582-589.",
+    "stage_1_label": "journal",
+    "stage_2_extracted_fields": {
+      "authors": [
+        "Zheng",
+        "F.",
+        "Zhang",
+        "G.",
+        "Song",
+        "Z."
+      ],
+      "year": "2001a",
+      "title": "'Comparison of different implementations of MFCC', Journal of Computer Science and Technology, 16(6), pp",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "",
+      "accessed_date": "",
+      "reference_type": "journal"
+    }
+  },
+  {
+    "raw_reference": "Zlatkova, A., Kokolanski, Z. and Tashkovski, D. (Sep 16, 2020) ‘Honeybees swarming detection approach by sound signal processing’,  Proceedings of XXIX International Scientific Conference Electronics 16-18 September 2020.  pp. 1. http://hdl.handle.net/20.500.12188/26198.",
+    "stage_1_label": "conference",
+    "stage_2_extracted_fields": {
+      "authors": [],
+      "year": "",
+      "title": "‘Honeybees swarming detection approach by sound signal processing’,  Proceedings of XXIX International Scientific Conference Electronics 16-18 September 2020",
+      "container_title": "",
+      "publisher": "",
+      "place": "",
+      "volume": "",
+      "issue": "",
+      "pages": "",
+      "doi": "",
+      "url": "http://hdl.handle.net/20.500.12188/26198.",
+      "accessed_date": "",
+      "reference_type": "conference"
+    }
+  }
+]

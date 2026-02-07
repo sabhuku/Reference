@@ -1,0 +1,31 @@
+[33mcommit 145cfa709ae61e30776fb8317ac859e60522c046[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mbugfix/post-migration-fixes[m[33m)[m
+Author: sabhuku <stenford41@hotmail.com>
+Date:   Sat Feb 7 21:33:55 2026 +0000
+
+    Post-migration hardening fixes and verification scaffolding
+
+ .../plans/handle-empty-normalized-refs-plan.md     |  31 [32m++[m
+ DICT_OBJECT_NORMALISATION.md                       |  50 [32m+++[m
+ JOURNAL_HARDENING_SUMMARY.md                       | 238 [32m+++++++++++++[m
+ VERIFICATION_CHECKLIST.md                          |  51 [32m+++[m
+ VERIFICATION_GUIDE.md                              | 206 [32m+++++++++++[m
+ VERIFICATION_RESULTS.md                            | 144 [32m++++++++[m
+ modelling/PHASE_1_SUMMARY.md                       | 129 [32m+++++++[m
+ modelling/STAGE2_LOCK_REPORT.md                    |  36 [32m++[m
+ modelling/STAGE3_UI_CONTRACT.md                    |  81 [32m+++++[m
+ src/formatting.py                                  |   8 [32m+[m
+ src/importers/docx_importer.py                     |   8 [32m+[m[31m-[m
+ src/models.py                                      |   3 [32m+[m
+ src/referencing/referencing.py                     |  11 [32m+[m
+ src/style/harvard_checker.py                       |   2 [32m+[m[31m-[m
+ src/utils/ref_normalizer.py                        | 121 [32m+++++++[m
+ tests/test_journal_hardening.py                    | 226 [32m++++++++++++[m
+ tests/test_stage3_integration.py                   |  56 [32m+++[m
+ ui/database.py                                     |  59 [32m++[m[31m-[m
+ ui/forms.py                                        |  20 [32m+[m[31m-[m
+ ui/templates/bibliography.html                     |  83 [32m+++++[m
+ ui/templates/compliance_history.html               | 189 [32m++++++++++[m
+ ui/templates/compliance_report.html                |   9 [32m+[m[31m-[m
+ ui/templates/index.html                            | 395 [32m+++++++++++++++++[m[31m----[m
+ ui/templates/manual.html                           |   8 [32m+[m
+ 24 files changed, 2090 insertions(+), 74 deletions(-)

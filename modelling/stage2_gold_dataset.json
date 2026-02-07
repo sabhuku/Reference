@@ -1,0 +1,396 @@
+[
+    {
+        "raw_reference": "Deng, M. et al. (2020a) 'Heart sound classification based on improved MFCC features and convolutional recurrent neural networks', Neural Networks,130 pp.22-32.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Deng, M. et al."
+            ],
+            "year": 2020,
+            "title": "Heart sound classification based on improved MFCC features and convolutional recurrent neural networks",
+            "journal": "Neural Networks",
+            "volume": "130",
+            "pages": "22-32"
+        }
+    },
+    {
+        "raw_reference": "Ferrari, S. et al. (2008a) 'Monitoring of swarming sounds in bee hives for early detection of the swarming period', Computers and Electronics in Agriculture, 64(1), pp.72-77.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Ferrari, S. et al."
+            ],
+            "year": 2008,
+            "title": "Monitoring of swarming sounds in bee hives for early detection of the swarming period",
+            "journal": "Computers and Electronics in Agriculture",
+            "volume": "64",
+            "issue": "1",
+            "pages": "72-77"
+        }
+    },
+    {
+        "raw_reference": "Hunt, J.H. and Richard, F. (2013) 'Intracolony vibroacoustic communication in social insects', Insectes Sociaux, 60(4), pp.403-417.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Hunt, J.H.",
+                "Richard, F."
+            ],
+            "year": 2013,
+            "title": "Intracolony vibroacoustic communication in social insects",
+            "journal": "Insectes Sociaux",
+            "volume": "60",
+            "issue": "4",
+            "pages": "403-417"
+        }
+    },
+    {
+        "raw_reference": "Sridhar, S. (2025) 'Constructive peer review made practical: a guide to the EMPATHY framework', Journal of Marketing, 89(3), pp. 1-12.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Sridhar, S."
+            ],
+            "year": 2025,
+            "title": "Constructive peer review made practical: a guide to the EMPATHY framework",
+            "journal": "Journal of Marketing",
+            "volume": "89",
+            "issue": "3",
+            "pages": "1-12"
+        }
+    },
+    {
+        "raw_reference": "Bromenshenk, J. et al. (2015) 'Bees as biosensors: Chemosensory ability, honeybee monitoring systems, and emergent sensor technologies derived from the pollinator syndrome', Biosensors (Basel), 5(4), pp.678-711.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Bromenshenk, J. et al."
+            ],
+            "year": 2015,
+            "title": "Bees as biosensors: Chemosensory ability, honeybee monitoring systems, and emergent sensor technologies derived from the pollinator syndrome",
+            "journal": "Biosensors (Basel)",
+            "volume": "5",
+            "issue": "4",
+            "pages": "678-711"
+        }
+    },
+    {
+        "raw_reference": "Robles-Guerrero, A. et al. (2017) 'Frequency analysis of honeybee buzz for automatic recognition of health status: A preliminary study', Research in Computing Science, 142(1), pp.89-98.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Robles-Guerrero, A. et al."
+            ],
+            "year": 2017,
+            "title": "Frequency analysis of honeybee buzz for automatic recognition of health status: A preliminary study",
+            "journal": "Research in Computing Science",
+            "volume": "142",
+            "issue": "1",
+            "pages": "89-98"
+        }
+    },
+    {
+        "raw_reference": "Lee, K.Y. et al. (2017) 'Pollination efficiency of honeybees (Apis mellifera L.) and bumblebees (Bombus terrestris L.) in different cultivars of Asian Pear (Pyrus pyrifolia Nakai)', Journal of Apiculture, 32(4), pp.303-314.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Lee, K.Y. et al."
+            ],
+            "year": 2017,
+            "title": "Pollination efficiency of honeybees (Apis mellifera L.) and bumblebees (Bombus terrestris L.) in different cultivars of Asian Pear (Pyrus pyrifolia Nakai)",
+            "journal": "Journal of Apiculture",
+            "volume": "32",
+            "issue": "4",
+            "pages": "303-314"
+        }
+    },
+    {
+        "raw_reference": "Rao, K. and Ahmed, N. (1976) 'Orthogonal transforms for digital signal processing', IEEE Transactions on Systems Man and Cybernetics, 6(11), pp.796-797.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Rao, K.",
+                "Ahmed, N."
+            ],
+            "year": 1976,
+            "title": "Orthogonal transforms for digital signal processing",
+            "journal": "IEEE Transactions on Systems Man and Cybernetics",
+            "volume": "6",
+            "issue": "11",
+            "pages": "796-797"
+        }
+    },
+    {
+        "raw_reference": "Switanek, M. et al. (2017) 'Modelling seasonal effects of temperature and precipitation on honeybee winter mortality in a temperate climate', Science of the Total Environment, 579 pp.1581-1587.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Switanek, M. et al."
+            ],
+            "year": 2017,
+            "title": "Modelling seasonal effects of temperature and precipitation on honeybee winter mortality in a temperate climate",
+            "journal": "Science of the Total Environment",
+            "volume": "579",
+            "pages": "1581-1587"
+        }
+    },
+    {
+        "raw_reference": "Yu, B. et al. (2023) 'A matter of the beehive sound: Can honeybees alert the pollution out of their hives?', Environmental Science and Pollution Research International, 30(6), pp.16266-16276.",
+        "reference_type": "journal",
+        "gold_fields": {
+            "authors": [
+                "Yu, B. et al."
+            ],
+            "year": 2023,
+            "title": "A matter of the beehive sound: Can honeybees alert the pollution out of their hives?",
+            "journal": "Environmental Science and Pollution Research International",
+            "volume": "30",
+            "issue": "6",
+            "pages": "16266-16276"
+        }
+    },
+    {
+        "raw_reference": "Hochreiter, S. and Schmidhuber, J. (1996) LSTM can solve hard long time lag problems, Colorado: MIT Press.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Hochreiter, S.",
+                "Schmidhuber, J."
+            ],
+            "year": 1996,
+            "title": "LSTM can solve hard long time lag problems",
+            "publisher": "MIT Press",
+            "place": "Colorado"
+        }
+    },
+    {
+        "raw_reference": "Bernard, É (2021) Introduction to machine learning. Champaign: Wolfram Media, Inc.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Bernard, É"
+            ],
+            "year": 2021,
+            "title": "Introduction to machine learning",
+            "publisher": "Wolfram Media, Inc.",
+            "place": "Champaign"
+        }
+    },
+    {
+        "raw_reference": "Bowerman, B.L. (1993) Forecasting and time series: An applied approach. 3rd edn. Belmont, Calif: Duxbury Press.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Bowerman, B.L."
+            ],
+            "year": 1993,
+            "title": "Forecasting and time series: An applied approach",
+            "edition": "3rd edn",
+            "publisher": "Duxbury Press",
+            "place": "Belmont, Calif"
+        }
+    },
+    {
+        "raw_reference": "Blackiston, H. (2020) Beekeeping for Dummies. 5th edn. Newark: Wiley.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Blackiston, H."
+            ],
+            "year": 2020,
+            "title": "Beekeeping for Dummies",
+            "edition": "5th edn",
+            "publisher": "Wiley",
+            "place": "Newark"
+        }
+    },
+    {
+        "raw_reference": "Bell, J. (2014) Doing your research project. Open University Press.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Bell, J."
+            ],
+            "year": 2014,
+            "title": "Doing your research project",
+            "publisher": "Open University Press"
+        }
+    },
+    {
+        "raw_reference": "Proakis, G., John and Manolakis, G., Dimitris (1996) Digital signal processing principles, algorithms, and applications. London: Prentice-Hall International.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Proakis, G., John",
+                "Manolakis, G., Dimitris"
+            ],
+            "year": 1996,
+            "title": "Digital signal processing principles, algorithms, and applications",
+            "publisher": "Prentice-Hall International",
+            "place": "London"
+        }
+    },
+    {
+        "raw_reference": "Baraniuk, R. (2009) Signals and systems. Florida: University Press of Florida.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Baraniuk, R."
+            ],
+            "year": 2009,
+            "title": "Signals and systems",
+            "publisher": "University Press of Florida",
+            "place": "Florida"
+        }
+    },
+    {
+        "raw_reference": "Bloomfield, P. (1976) Fourier analysis of time series: An introduction, New York,: John Wiley & Sons.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Bloomfield, P."
+            ],
+            "year": 1976,
+            "title": "Fourier analysis of time series: An introduction2",
+            "publisher": "John Wiley & Sons",
+            "place": "New York"
+        }
+    },
+    {
+        "raw_reference": "Forest, C. (2019) Beehives. La Vergne: Weigl Publishers Inc.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Forest, C."
+            ],
+            "year": 2019,
+            "title": "Beehives",
+            "publisher": "Weigl Publishers Inc.",
+            "place": "La Vergne"
+        }
+    },
+    {
+        "raw_reference": "Delaplane, K.S. and Mayer, D.F. (2000) Crop pollination by bees. 1st edn. Wallingford, UK: CABI Publishing.",
+        "reference_type": "book",
+        "gold_fields": {
+            "authors": [
+                "Delaplane, K.S.",
+                "Mayer, D.F."
+            ],
+            "year": 2000,
+            "title": "Crop pollination by bees",
+            "edition": "1st edn",
+            "publisher": "CABI Publishing",
+            "place": "Wallingford, UK"
+        }
+    },
+    {
+        "raw_reference": "O'Mahony, N. (2024) ‘How the course works’, Welcome forum, in A215: Creative writing. Available at: https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155 (Accessed: 24 January 2025).",
+        "reference_type": "website",
+        "gold_fields": {
+            "author": "O'Mahony, N.",
+            "year": 2024,
+            "title": "‘How the course works’, Welcome forum, in A215: Creative writing",
+            "url": "https://learn2.open.ac.uk/mod/forumng/discuss.php?d=4749155",
+            "access_date": "2025-01-24"
+        }
+    },
+    {
+        "raw_reference": "National Geographic (2024) Honeybee. Available at: https://www.nationalgeographic.com/animals/invertebrates/facts/honeybee (Accessed: 20 August 2020).",
+        "reference_type": "website",
+        "gold_fields": {
+            "organisation": "National Geographic",
+            "year": 2024,
+            "title": "Honeybee",
+            "url": "https://www.nationalgeographic.com/animals/invertebrates/facts/honeybee",
+            "access_date": "2020-08-20"
+        }
+    },
+    {
+        "raw_reference": "The Open University (2024) ‘Video 2.7 an example of a Frith-Happé animation’. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9… (Accessed: 22 November 2024).",
+        "reference_type": "website",
+        "gold_fields": {
+            "organisation": "The Open University",
+            "year": 2024,
+            "title": "‘Video 2.7 an example of a Frith-Happé animation’",
+            "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2369655&section=4.9…",
+            "access_date": "2024-11-22"
+        }
+    },
+    {
+        "raw_reference": "Colah, C. (2015) ‘Understanding LSTM Networks’, Colah’s blog, 27 August. Available at: http://colah.github.io/posts/2015-08-Understanding-LSTMs/ (Accessed: 23 July 2020).",
+        "reference_type": "website",
+        "gold_fields": {
+            "author": "Colah, C.",
+            "year": 2015,
+            "title": "‘Understanding LSTM Networks’, Colah’s blog, 27 August",
+            "url": "http://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+            "access_date": "2020-07-23"
+        }
+    },
+    {
+        "raw_reference": "The British Psychological Society (2018) Code of ethics and conduct. Available at: https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct (Accessed: 22 March 2019).",
+        "reference_type": "website",
+        "gold_fields": {
+            "organisation": "The British Psychological Society",
+            "year": 2018,
+            "title": "Code of ethics and conduct",
+            "url": "https://www.bps.org.uk/news-and-policy/bps-code-ethics-and-conduct",
+            "access_date": "2019-03-22"
+        }
+    },
+    {
+        "raw_reference": "Rietdorf, K. and Bootman, M. (2024) 'Topic 3: rare diseases'. S290: Investigating human health and disease. Available at: https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940 (Accessed: 24 January 2025).",
+        "reference_type": "website",
+        "gold_fields": {
+            "author": "Rietdorf, K. and Bootman, M.",
+            "year": 2024,
+            "title": "Topic 3: rare diseases'. S290: Investigating human health and disease",
+            "url": "https://learn2.open.ac.uk/mod/oucontent/view.php?id=2332940",
+            "access_date": "2025-01-24"
+        }
+    },
+    {
+        "raw_reference": "Goodfellow, I., Bengio, Y. and Courville, A. (2016a) Deep Learning. Available at: http://www.deeplearningbook.org (Accessed: 3 October 2020).",
+        "reference_type": "website",
+        "gold_fields": {
+            "author": "Goodfellow, I., Bengio, Y. and Courville, A.",
+            "year": 2016,
+            "title": "Deep Learning",
+            "url": "http://www.deeplearningbook.org",
+            "access_date": "2020-10-03"
+        }
+    },
+    {
+        "raw_reference": "Burkill, J. (2018) Artificial Neural Networks – Part 2: MLP Implementation for XOr. Available at: http://www.mlopt.com/?p=207 (Accessed: 02 February 2020).",
+        "reference_type": "website",
+        "gold_fields": {
+            "author": "Burkill, J.",
+            "year": 2018,
+            "title": "Artificial Neural Networks – Part 2: MLP Implementation for XOr",
+            "url": "http://www.mlopt.com/?p=207",
+            "access_date": "2020-02-02"
+        }
+    },
+    {
+        "raw_reference": "MathWorks (2024) MATLAB Primer. Available at: https://www.mathworks.com/help/releases/R2014b/pdf_doc/matlab/getstart.pdf (Accessed: 02 November 2019).",
+        "reference_type": "website",
+        "gold_fields": {
+            "organisation": "MathWorks",
+            "year": 2024,
+            "title": "MATLAB Primer",
+            "url": "https://www.mathworks.com/help/releases/R2014b/pdf_doc/matlab/getstart.pdf",
+            "access_date": "2019-11-02"
+        }
+    },
+    {
+        "raw_reference": "NIST(no date) Introduction to Time Series Analysis. Available at: https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4.htm (Accessed: 29 October 2019).",
+        "reference_type": "website",
+        "gold_fields": {
+            "organisation": "NIST",
+            "title": "Introduction to Time Series Analysis",
+            "url": "https://www.itl.nist.gov/div898/handbook/pmc/section4/pmc4.htm",
+            "access_date": "2019-10-29"
+        }
+    }
+]
