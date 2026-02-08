@@ -1,3 +1,11 @@
+"""
+DEVELOPMENT ENTRY POINT
+
+This is the canonical entry point for local development.
+For production deployments, use: wsgi.py
+
+Runs Flask development server with debug mode enabled.
+"""
 import os
 import sys
 

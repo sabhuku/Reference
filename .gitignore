@@ -34,8 +34,21 @@ ENV/
 *.swp
 *.swo
 
-# Logs
+# Logs (CRITICAL - may contain secrets, API keys, user data)
 *.log
+app.log
+
+# Development artifacts (transient test outputs)
+*_results.json
+*_output.json
+*_outputs.json
+analysis_data.json
+cache_audit_report.json
+
+# Transient test data
+*_debug.txt
+*_results.txt
+*_output.txt
 
 # Local development
 .DS_Store

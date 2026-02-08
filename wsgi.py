@@ -1,3 +1,12 @@
+"""
+PRODUCTION ENTRY POINT
+
+This is the canonical WSGI entry point for production deployments.
+For local development, use: run_flask.py
+
+Security reviewers: This is the primary application entry point.
+All production traffic flows through this module.
+"""
 import os
 import sys
 
