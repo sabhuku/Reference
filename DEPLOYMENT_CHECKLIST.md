@@ -10,7 +10,7 @@
 - [ ] Check for any unintended changes
 
 ### Testing
-- [ ] Run automated test suite: `python test_bug_fixes.py`
+- [ ] Run automated test suite: `python tests/test_bug_fixes.py`
 - [ ] Review `TEST_RESULTS.md` for manual testing guidance
 - [ ] Verify 5/7 automated tests pass
 - [ ] Code inspection confirms BUG-001 and BUG-002 fixes

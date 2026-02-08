@@ -83,7 +83,7 @@ When you search for a paper, the system tries sources in this order:
 
 ### Step 1: Create a Search Function
 
-Add a new function in `src/referencing/referencing.py`:
+Add a new function in `src/reference_manager.py`:
 
 ```python
 def search_newsource_single(query_text: str) -> Optional[Dict[str, Any]]:
