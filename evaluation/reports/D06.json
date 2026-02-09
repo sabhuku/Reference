@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Lake, B.M., Ullman, T.D., Tenenbaum, J.B. and Gershman, S.J. (2017) 'Building machines that learn and think like people'. SocArXiv. doi:10.31235/osf.io/ckm8n",
+  "reference_type": "journal",
+  "type_confidence": 0.432054510319918,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D06",
+    "true_type": "preprint",
+    "notes": "SocArXiv preprint",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.916277Z"
+  }
+}

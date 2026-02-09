@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra, G., Roberts, A., Barham, P., Chung, H.W., Sutton, C., Gehrmann, S. and Schuh, P. (2022) 'PaLM: Scaling language modeling with pathways', arXiv preprint, pp.1-108.",
+  "reference_type": "journal",
+  "type_confidence": 0.553479064608142,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B08",
+    "true_type": "journal",
+    "notes": "missing volume numeric ambiguity",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.689290Z"
+  }
+}

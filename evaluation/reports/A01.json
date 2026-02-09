@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Hochreiter, S. and Schmidhuber, J. (1997) 'Long short-term memory', Neural Computation, 9(8), pp.1735-1780. doi:10.1162/neco.1997.9.8.1735",
+  "reference_type": "journal",
+  "type_confidence": 0.5441769971191522,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A01",
+    "true_type": "journal",
+    "notes": "complete metadata with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.439575Z"
+  }
+}

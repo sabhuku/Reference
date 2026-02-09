@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Kingma, D.P. and Ba, J. (2015) 'Adam: A method for stochastic optimization', International Conference on Learning Representations, 3, pp.1-15.",
+  "reference_type": "journal",
+  "type_confidence": 0.4233913726026026,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A09",
+    "true_type": "journal",
+    "notes": "complete metadata ICLR",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.558571Z"
+  }
+}

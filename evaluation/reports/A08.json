@@ -1,0 +1,15 @@
+{
+  "raw_reference": "He, K., Zhang, X., Ren, S. and Sun, J. (2016) 'Deep residual learning for image recognition', Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp.770-778.",
+  "reference_type": "journal",
+  "type_confidence": 0.3703757369224726,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A08",
+    "true_type": "journal",
+    "notes": "complete metadata conference",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.544694Z"
+  }
+}

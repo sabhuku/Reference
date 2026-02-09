@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Jones, A. (2021) 'Preprint title on neural architectures'. SSRN. doi:10.2139/ssrn.3847291",
+  "reference_type": "journal",
+  "type_confidence": 0.30409448741425776,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D01",
+    "true_type": "preprint",
+    "notes": "SSRN with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.850904Z"
+  }
+}

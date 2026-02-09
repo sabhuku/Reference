@@ -1,0 +1,15 @@
+{
+  "raw_reference": "LeCun, Y., Bengio, Y. and Hinton, G. (2015) 'Deep learning', Nature, 521(7553), pp.436-444.",
+  "reference_type": "journal",
+  "type_confidence": 0.5320511354338675,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A02",
+    "true_type": "journal",
+    "notes": "complete metadata no DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.452516Z"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Van Den Driessche, G., Schrittwieser, J., Antonoglou, I., Panneershelvam, V., Lanctot, M. and Dieleman, S. (2016) 'Mastering the game of Go with deep neural networks and tree search', Nature, 529(7587), pp.484-489. doi:10.1038/nature16961",
+  "reference_type": "journal",
+  "type_confidence": 0.586788964068943,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A06",
+    "true_type": "journal",
+    "notes": "complete metadata with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.516285Z"
+  }
+}

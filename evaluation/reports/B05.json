@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L. and Stoyanov, V. (2019) 'RoBERTa: A robustly optimized BERT pretraining approach', arXiv preprint, pp.1-13. doi:10.48550/arXiv.1907.11692",
+  "reference_type": "book",
+  "type_confidence": 0.381504543529548,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B05",
+    "true_type": "journal",
+    "notes": "missing volume preprint with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.644679Z"
+  }
+}

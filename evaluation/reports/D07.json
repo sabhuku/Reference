@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Marcus, G. and Davis, E. (2019) 'Rebooting AI: Building artificial intelligence we can trust'. MIT Press Working Paper Series, pp.1-45.",
+  "reference_type": "journal",
+  "type_confidence": 0.6076506240235802,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D07",
+    "true_type": "preprint",
+    "notes": "institutional working paper",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.932001Z"
+  }
+}

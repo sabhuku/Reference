@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Bengio, Y., Simard, P. and Frasconi, P. (1994) 'Learning long-term dependencies with gradient descent is difficult', in IEEE Transactions on Neural Networks, pp.157-166.",
+  "reference_type": "journal",
+  "type_confidence": 0.5339273019827404,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "C08",
+    "true_type": "conference",
+    "notes": "conference proceedings",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.835033Z"
+  }
+}

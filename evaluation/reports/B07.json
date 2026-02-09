@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.A., Lacroix, T., Rozi\u00e8re, B., Goyal, N., Hambro, E., Azhar, F. and Rodriguez, A. (2023) 'LLaMA: Open and efficient foundation language models', arXiv preprint. doi:10.48550/arXiv.2302.13971",
+  "reference_type": "book",
+  "type_confidence": 0.4911571789229856,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B07",
+    "true_type": "journal",
+    "notes": "missing volume recent preprint",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.674943Z"
+  }
+}

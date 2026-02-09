@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Chen, T., Kornblith, S., Norouzi, M. and Hinton, G. (2020) 'A simple framework for contrastive learning of visual representations'. arXiv preprint arXiv:2002.05709.",
+  "reference_type": "journal",
+  "type_confidence": 0.5169119355145204,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D03",
+    "true_type": "preprint",
+    "notes": "arXiv preprint",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.876897Z"
+  }
+}

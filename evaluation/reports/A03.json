@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, \u0141. and Polosukhin, I. (2017) 'Attention is all you need', Advances in Neural Information Processing Systems, 30, pp.5998-6008.",
+  "reference_type": "journal",
+  "type_confidence": 0.6203281939479374,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A03",
+    "true_type": "journal",
+    "notes": "complete metadata conference proceedings",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.469720Z"
+  }
+}

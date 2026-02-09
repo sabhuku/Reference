@@ -1,0 +1,7 @@
+true_label,book,book_chapter,conference,journal,preprint,website
+book,4,0,0,0,0,0
+book_chapter,0,0,0,3,0,0
+conference,0,0,0,1,0,0
+journal,3,0,0,15,0,0
+preprint,2,0,0,6,0,0
+website,0,0,0,0,0,8

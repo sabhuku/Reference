@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Russell, S. and Norvig, P. (2020) Artificial Intelligence: A Modern Approach. 4th edn. Harlow: Pearson.",
+  "reference_type": "book",
+  "type_confidence": 0.6640327672968176,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "C01",
+    "true_type": "book",
+    "notes": "complete book metadata",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.702993Z"
+  }
+}

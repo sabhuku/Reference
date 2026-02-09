@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S. and Uszkoreit, J. (2021) 'An image is worth 16x16 words: Transformers for image recognition at scale', International Conference on Learning Representations. doi:10.48550/arXiv.2010.11929",
+  "reference_type": "book",
+  "type_confidence": 0.30558692063821435,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B04",
+    "true_type": "journal",
+    "notes": "missing volume with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.630216Z"
+  }
+}

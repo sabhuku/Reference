@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Smith, J. and Jones, A. (2020) 'Article title here', Journal of Machine Learning Research, pp.123-145.",
+  "reference_type": "journal",
+  "type_confidence": 0.6520293603472326,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B01",
+    "true_type": "journal",
+    "notes": "missing volume",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.584781Z"
+  }
+}

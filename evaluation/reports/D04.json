@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Ramesh, A., Pavlov, M., Goh, G., Gray, S., Voss, C., Radford, A., Chen, M. and Sutskever, I. (2021) 'Zero-shot text-to-image generation'. arXiv preprint arXiv:2102.12092.",
+  "reference_type": "book",
+  "type_confidence": 0.40907030257051236,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D04",
+    "true_type": "preprint",
+    "notes": "arXiv recent",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.889607Z"
+  }
+}

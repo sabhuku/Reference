@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Krizhevsky, A., Sutskever, I. and Hinton, G.E. (2012) 'ImageNet classification with deep convolutional neural networks', Communications of the ACM, 60(6), pp.84-90.",
+  "reference_type": "journal",
+  "type_confidence": 0.7494123499440628,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A05",
+    "true_type": "journal",
+    "notes": "complete metadata no DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.499026Z"
+  }
+}

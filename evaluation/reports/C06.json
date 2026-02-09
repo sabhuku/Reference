@@ -1,0 +1,15 @@
+{
+  "raw_reference": "LeCun, Y., Bottou, L., Bengio, Y. and Haffner, P. (1998) 'Gradient-based learning applied to document recognition', in Proceedings of the IEEE, pp.2278-2324.",
+  "reference_type": "journal",
+  "type_confidence": 0.2952758960276761,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "C06",
+    "true_type": "book_chapter",
+    "notes": "book chapter in proceedings",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.802510Z"
+  }
+}

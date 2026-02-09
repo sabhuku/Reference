@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Chollet, F. (2019) 'On the measure of intelligence'. arXiv preprint arXiv:1911.01547.",
+  "reference_type": "journal",
+  "type_confidence": 0.29532338057954666,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D08",
+    "true_type": "preprint",
+    "notes": "arXiv intelligence measure",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.943808Z"
+  }
+}

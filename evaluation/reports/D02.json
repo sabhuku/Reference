@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Williams, R. (2020) 'Working paper on optimization methods'. SSRN Electronic Journal. doi:10.2139/ssrn.3652847",
+  "reference_type": "journal",
+  "type_confidence": 0.4386919594512982,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D02",
+    "true_type": "preprint",
+    "notes": "SSRN working paper",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.863888Z"
+  }
+}

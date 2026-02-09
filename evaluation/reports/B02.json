@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J.D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A. and Agarwal, S. (2020) 'Language models are few-shot learners', Advances in Neural Information Processing Systems, pp.1877-1901.",
+  "reference_type": "journal",
+  "type_confidence": 0.5335806928743365,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B02",
+    "true_type": "journal",
+    "notes": "missing volume",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.598830Z"
+  }
+}

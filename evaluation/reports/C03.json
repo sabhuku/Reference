@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Bishop, C.M. (2006) Pattern Recognition and Machine Learning. New York: Springer.",
+  "reference_type": "book",
+  "type_confidence": 0.7443428755139012,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "C03",
+    "true_type": "book",
+    "notes": "complete book with location",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.751161Z"
+  }
+}

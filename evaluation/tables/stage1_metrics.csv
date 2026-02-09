@@ -1,0 +1,7 @@
+class,precision,recall,f1,support
+book,0.444,1.000,0.615,4
+book_chapter,0.000,0.000,0.000,3
+conference,0.000,0.000,0.000,1
+journal,0.600,0.833,0.698,18
+preprint,0.000,0.000,0.000,8
+website,1.000,1.000,1.000,8

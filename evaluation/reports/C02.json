@@ -1,0 +1,76 @@
+{
+  "raw_reference": "Goodfellow, I., Bengio, Y. and Courville, A. (2016) Deep Learning. Cambridge: MIT Press.",
+  "reference_type": "book",
+  "type_confidence": 0.7895572223862641,
+  "stage2": {
+    "raw_reference": "Goodfellow, I., Bengio, Y. and Courville, A. (2016) Deep Learning. Cambridge: MIT Press.",
+    "reference_type": "book",
+    "type_confidence": 0.7895572223862641,
+    "extraction_status": "partial",
+    "fields": {
+      "authors": {
+        "value": [
+          "Goodfellow, I.",
+          "Bengio, Y.",
+          "Courville, A."
+        ],
+        "confidence": 0.85,
+        "source": "heuristic"
+      },
+      "editors": {
+        "value": [],
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "year": {
+        "value": 2016,
+        "confidence": 0.95,
+        "source": "regex"
+      },
+      "title": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "publisher": {
+        "value": "MIT Press",
+        "confidence": 0.85,
+        "source": "heuristic"
+      },
+      "place": {
+        "value": "Deep Learning. Cambridge",
+        "confidence": 0.7,
+        "source": "heuristic"
+      },
+      "edition": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "isbn": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      }
+    },
+    "metadata": {
+      "extractor_version": "stage2_v1",
+      "notes": [],
+      "routing_notes": [
+        "Routed to book extractor"
+      ]
+    }
+  },
+  "stage3": {
+    "status": "skipped_analysis_mode",
+    "message": "Stage 3 disabled in analysis mode (passive reporting)"
+  },
+  "pipeline_status": "success",
+  "evaluation_metadata": {
+    "id": "C02",
+    "true_type": "book",
+    "notes": "complete book no edition",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.733056Z"
+  }
+}

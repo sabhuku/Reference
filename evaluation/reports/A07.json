@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A. and Bengio, Y. (2014) 'Generative adversarial nets', Advances in Neural Information Processing Systems, 27, pp.2672-2680.",
+  "reference_type": "journal",
+  "type_confidence": 0.4183220226556229,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A07",
+    "true_type": "journal",
+    "notes": "complete metadata no DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.530807Z"
+  }
+}

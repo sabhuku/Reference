@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Schrittwieser, J., Antonoglou, I., Hubert, T., Simonyan, K., Sifre, L., Schmitt, S., Guez, A., Lockhart, E., Hassabis, D., Graepel, T. and Lillicrap, T. (2020) 'Mastering Atari, Go, chess and shogi by planning with a learned model'. PsyArXiv. doi:10.31234/osf.io/d9s7e",
+  "reference_type": "book",
+  "type_confidence": 0.449736960926686,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "D05",
+    "true_type": "preprint",
+    "notes": "PsyArXiv preprint",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.903036Z"
+  }
+}

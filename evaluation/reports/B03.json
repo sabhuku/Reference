@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Radford, A., Wu, J., Child, R., Luan, D., Amodei, D. and Sutskever, I. (2019) 'Language models are unsupervised multitask learners', OpenAI Blog, pp.1-24.",
+  "reference_type": "journal",
+  "type_confidence": 0.4437467045108738,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B03",
+    "true_type": "journal",
+    "notes": "missing volume ambiguous",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.615397Z"
+  }
+}

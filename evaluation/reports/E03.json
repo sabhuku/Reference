@@ -1,0 +1,15 @@
+{
+  "raw_reference": "TensorFlow (2021) Machine Learning Framework. Available at: https://tensorflow.org (Accessed: 1 January 2026).",
+  "reference_type": "website",
+  "type_confidence": 0.7163360265861939,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "E03",
+    "true_type": "website",
+    "notes": "minimal metadata framework",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.983197Z"
+  }
+}

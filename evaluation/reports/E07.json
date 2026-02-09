@@ -1,0 +1,62 @@
+{
+  "raw_reference": "PyTorch Documentation. Available at: https://pytorch.org/docs (Accessed: 25 June 2026).",
+  "reference_type": "website",
+  "type_confidence": 0.7564534159097966,
+  "stage2": {
+    "raw_reference": "PyTorch Documentation. Available at: https://pytorch.org/docs (Accessed: 25 June 2026).",
+    "reference_type": "website",
+    "type_confidence": 0.7564534159097966,
+    "extraction_status": "partial",
+    "fields": {
+      "author": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "organisation": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "year": {
+        "value": 2026,
+        "confidence": 0.6,
+        "source": "inferred"
+      },
+      "title": {
+        "value": "PyTorch Documentation",
+        "confidence": 0.7,
+        "source": "heuristic"
+      },
+      "url": {
+        "value": "https://pytorch.org/docs",
+        "confidence": 0.95,
+        "source": "regex"
+      },
+      "access_date": {
+        "value": "2026-06-25",
+        "confidence": 0.9,
+        "source": "regex"
+      }
+    },
+    "metadata": {
+      "extractor_version": "stage2_v1",
+      "notes": [],
+      "routing_notes": [
+        "Routed to website extractor"
+      ]
+    }
+  },
+  "stage3": {
+    "status": "skipped_analysis_mode",
+    "message": "Stage 3 disabled in analysis mode (passive reporting)"
+  },
+  "pipeline_status": "success",
+  "evaluation_metadata": {
+    "id": "E07",
+    "true_type": "website",
+    "notes": "missing author and date",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:59.040167Z"
+  }
+}

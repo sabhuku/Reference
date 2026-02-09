@@ -1,0 +1,15 @@
+{
+  "raw_reference": "(n.d.) 'Machine learning glossary'. Available at: https://ml-glossary.com (Accessed: 30 July 2026).",
+  "reference_type": "website",
+  "type_confidence": 0.7316616624186789,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "E08",
+    "true_type": "website",
+    "notes": "missing author and date",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:59.053798Z"
+  }
+}

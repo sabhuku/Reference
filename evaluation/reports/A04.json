@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Devlin, J., Chang, M.W., Lee, K. and Toutanova, K. (2019) 'BERT: Pre-training of deep bidirectional transformers for language understanding', Proceedings of NAACL-HLT, pp.4171-4186. doi:10.18653/v1/N19-1423",
+  "reference_type": "journal",
+  "type_confidence": 0.3806856834509976,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A04",
+    "true_type": "journal",
+    "notes": "complete metadata with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.485622Z"
+  }
+}

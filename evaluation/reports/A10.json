@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Sutton, R.S. and Barto, A.G. (2018) 'Reinforcement learning: An introduction', IEEE Transactions on Neural Networks, 9(5), pp.1054-1054. doi:10.1109/TNN.1998.712192",
+  "reference_type": "journal",
+  "type_confidence": 0.3430024537389647,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "A10",
+    "true_type": "journal",
+    "notes": "complete metadata with DOI",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.571928Z"
+  }
+}

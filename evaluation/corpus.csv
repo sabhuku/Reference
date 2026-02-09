@@ -1,0 +1,43 @@
+id,reference_text,true_type,notes
+A01,"Hochreiter, S. and Schmidhuber, J. (1997) 'Long short-term memory', Neural Computation, 9(8), pp.1735-1780. doi:10.1162/neco.1997.9.8.1735",journal,complete metadata with DOI
+A02,"LeCun, Y., Bengio, Y. and Hinton, G. (2015) 'Deep learning', Nature, 521(7553), pp.436-444.",journal,complete metadata no DOI
+A03,"Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser, Ł. and Polosukhin, I. (2017) 'Attention is all you need', Advances in Neural Information Processing Systems, 30, pp.5998-6008.",journal,complete metadata conference proceedings
+A04,"Devlin, J., Chang, M.W., Lee, K. and Toutanova, K. (2019) 'BERT: Pre-training of deep bidirectional transformers for language understanding', Proceedings of NAACL-HLT, pp.4171-4186. doi:10.18653/v1/N19-1423",journal,complete metadata with DOI
+A05,"Krizhevsky, A., Sutskever, I. and Hinton, G.E. (2012) 'ImageNet classification with deep convolutional neural networks', Communications of the ACM, 60(6), pp.84-90.",journal,complete metadata no DOI
+A06,"Silver, D., Huang, A., Maddison, C.J., Guez, A., Sifre, L., Van Den Driessche, G., Schrittwieser, J., Antonoglou, I., Panneershelvam, V., Lanctot, M. and Dieleman, S. (2016) 'Mastering the game of Go with deep neural networks and tree search', Nature, 529(7587), pp.484-489. doi:10.1038/nature16961",journal,complete metadata with DOI
+A07,"Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A. and Bengio, Y. (2014) 'Generative adversarial nets', Advances in Neural Information Processing Systems, 27, pp.2672-2680.",journal,complete metadata no DOI
+A08,"He, K., Zhang, X., Ren, S. and Sun, J. (2016) 'Deep residual learning for image recognition', Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp.770-778.",journal,complete metadata conference
+A09,"Kingma, D.P. and Ba, J. (2015) 'Adam: A method for stochastic optimization', International Conference on Learning Representations, 3, pp.1-15.",journal,complete metadata ICLR
+A10,"Sutton, R.S. and Barto, A.G. (2018) 'Reinforcement learning: An introduction', IEEE Transactions on Neural Networks, 9(5), pp.1054-1054. doi:10.1109/TNN.1998.712192",journal,complete metadata with DOI
+B01,"Smith, J. and Jones, A. (2020) 'Article title here', Journal of Machine Learning Research, pp.123-145.",journal,missing volume
+B02,"Brown, T., Mann, B., Ryder, N., Subbiah, M., Kaplan, J.D., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A. and Agarwal, S. (2020) 'Language models are few-shot learners', Advances in Neural Information Processing Systems, pp.1877-1901.",journal,missing volume
+B03,"Radford, A., Wu, J., Child, R., Luan, D., Amodei, D. and Sutskever, I. (2019) 'Language models are unsupervised multitask learners', OpenAI Blog, pp.1-24.",journal,missing volume ambiguous
+B04,"Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S. and Uszkoreit, J. (2021) 'An image is worth 16x16 words: Transformers for image recognition at scale', International Conference on Learning Representations. doi:10.48550/arXiv.2010.11929",journal,missing volume with DOI
+B05,"Liu, Y., Ott, M., Goyal, N., Du, J., Joshi, M., Chen, D., Levy, O., Lewis, M., Zettlemoyer, L. and Stoyanov, V. (2019) 'RoBERTa: A robustly optimized BERT pretraining approach', arXiv preprint, pp.1-13. doi:10.48550/arXiv.1907.11692",journal,missing volume preprint with DOI
+B06,"Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W. and Liu, P.J. (2020) 'Exploring the limits of transfer learning with a unified text-to-text transformer', Journal of Machine Learning Research, pp.1-67.",journal,missing volume JMLR
+B07,"Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.A., Lacroix, T., Rozière, B., Goyal, N., Hambro, E., Azhar, F. and Rodriguez, A. (2023) 'LLaMA: Open and efficient foundation language models', arXiv preprint. doi:10.48550/arXiv.2302.13971",journal,missing volume recent preprint
+B08,"Chowdhery, A., Narang, S., Devlin, J., Bosma, M., Mishra, G., Roberts, A., Barham, P., Chung, H.W., Sutton, C., Gehrmann, S. and Schuh, P. (2022) 'PaLM: Scaling language modeling with pathways', arXiv preprint, pp.1-108.",journal,missing volume numeric ambiguity
+C01,"Russell, S. and Norvig, P. (2020) Artificial Intelligence: A Modern Approach. 4th edn. Harlow: Pearson.",book,complete book metadata
+C02,"Goodfellow, I., Bengio, Y. and Courville, A. (2016) Deep Learning. Cambridge: MIT Press.",book,complete book no edition
+C03,"Bishop, C.M. (2006) Pattern Recognition and Machine Learning. New York: Springer.",book,complete book with location
+C04,"Murphy, K.P. (2012) Machine Learning: A Probabilistic Perspective. Cambridge: MIT Press.",book,complete book
+C05,"Hastie, T., Tibshirani, R. and Friedman, J. (2009) 'Statistical learning and sparse modeling', in The Elements of Statistical Learning. 2nd edn. New York: Springer, pp.1-18.",book_chapter,book chapter with page range
+C06,"LeCun, Y., Bottou, L., Bengio, Y. and Haffner, P. (1998) 'Gradient-based learning applied to document recognition', in Proceedings of the IEEE, pp.2278-2324.",book_chapter,book chapter in proceedings
+C07,"Schmidhuber, J. (2015) 'Deep learning in neural networks: An overview', in Neural Networks, pp.85-117. doi:10.1016/j.neunet.2014.09.003",book_chapter,book chapter with DOI
+C08,"Bengio, Y., Simard, P. and Frasconi, P. (1994) 'Learning long-term dependencies with gradient descent is difficult', in IEEE Transactions on Neural Networks, pp.157-166.",conference,conference proceedings
+D01,"Jones, A. (2021) 'Preprint title on neural architectures'. SSRN. doi:10.2139/ssrn.3847291",preprint,SSRN with DOI
+D02,"Williams, R. (2020) 'Working paper on optimization methods'. SSRN Electronic Journal. doi:10.2139/ssrn.3652847",preprint,SSRN working paper
+D03,"Chen, T., Kornblith, S., Norouzi, M. and Hinton, G. (2020) 'A simple framework for contrastive learning of visual representations'. arXiv preprint arXiv:2002.05709.",preprint,arXiv preprint
+D04,"Ramesh, A., Pavlov, M., Goh, G., Gray, S., Voss, C., Radford, A., Chen, M. and Sutskever, I. (2021) 'Zero-shot text-to-image generation'. arXiv preprint arXiv:2102.12092.",preprint,arXiv recent
+D05,"Schrittwieser, J., Antonoglou, I., Hubert, T., Simonyan, K., Sifre, L., Schmitt, S., Guez, A., Lockhart, E., Hassabis, D., Graepel, T. and Lillicrap, T. (2020) 'Mastering Atari, Go, chess and shogi by planning with a learned model'. PsyArXiv. doi:10.31234/osf.io/d9s7e",preprint,PsyArXiv preprint
+D06,"Lake, B.M., Ullman, T.D., Tenenbaum, J.B. and Gershman, S.J. (2017) 'Building machines that learn and think like people'. SocArXiv. doi:10.31235/osf.io/ckm8n",preprint,SocArXiv preprint
+D07,"Marcus, G. and Davis, E. (2019) 'Rebooting AI: Building artificial intelligence we can trust'. MIT Press Working Paper Series, pp.1-45.",preprint,institutional working paper
+D08,"Chollet, F. (2019) 'On the measure of intelligence'. arXiv preprint arXiv:1911.01547.",preprint,arXiv intelligence measure
+E01,"Google (2020) Search Engine. Available at: https://google.com (Accessed: 5 February 2026).",website,minimal metadata website
+E02,"OpenAI (2023) ChatGPT. Available at: https://chat.openai.com (Accessed: 9 February 2026).",website,minimal metadata AI tool
+E03,"TensorFlow (2021) Machine Learning Framework. Available at: https://tensorflow.org (Accessed: 1 January 2026).",website,minimal metadata framework
+E04,"(2020) 'Deep learning tutorial'. Available at: https://deeplearning.ai/tutorial (Accessed: 15 March 2026).",website,missing author
+E05,"Anonymous (2019) 'Neural network basics'. Available at: https://example.com/nn (Accessed: 20 April 2026).",website,anonymous author
+E06,"Smith, J. 'Introduction to AI'. Available at: https://example.com/ai (Accessed: 10 May 2026).",website,missing date
+E07,"PyTorch Documentation. Available at: https://pytorch.org/docs (Accessed: 25 June 2026).",website,missing author and date
+E08,"(n.d.) 'Machine learning glossary'. Available at: https://ml-glossary.com (Accessed: 30 July 2026).",website,missing author and date

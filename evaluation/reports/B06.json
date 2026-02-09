@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W. and Liu, P.J. (2020) 'Exploring the limits of transfer learning with a unified text-to-text transformer', Journal of Machine Learning Research, pp.1-67.",
+  "reference_type": "journal",
+  "type_confidence": 0.5665076457809131,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "B06",
+    "true_type": "journal",
+    "notes": "missing volume JMLR",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.660014Z"
+  }
+}

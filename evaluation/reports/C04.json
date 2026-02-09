@@ -1,0 +1,71 @@
+{
+  "raw_reference": "Murphy, K.P. (2012) Machine Learning: A Probabilistic Perspective. Cambridge: MIT Press.",
+  "reference_type": "book",
+  "type_confidence": 0.7902009638137375,
+  "stage2": {
+    "raw_reference": "Murphy, K.P. (2012) Machine Learning: A Probabilistic Perspective. Cambridge: MIT Press.",
+    "reference_type": "book",
+    "type_confidence": 0.7902009638137375,
+    "extraction_status": "complete",
+    "fields": {
+      "authors": {
+        "value": [
+          "Murphy, K.P."
+        ],
+        "confidence": 0.85,
+        "source": "heuristic"
+      },
+      "editors": {
+        "value": [],
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "year": {
+        "value": 2012,
+        "confidence": 0.95,
+        "source": "regex"
+      },
+      "title": {
+        "value": "Machine Learning:",
+        "confidence": 0.8,
+        "source": "heuristic"
+      },
+      "publisher": {
+        "value": "MIT Press",
+        "confidence": 0.85,
+        "source": "heuristic"
+      },
+      "place": {
+        "value": "A Probabilistic Perspective. Cambridge",
+        "confidence": 0.7,
+        "source": "heuristic"
+      },
+      "edition": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      },
+      "isbn": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "missing"
+      }
+    },
+    "metadata": {
+      "extractor_version": "stage2_v1",
+      "notes": [],
+      "routing_notes": [
+        "Routed to book extractor"
+      ]
+    }
+  },
+  "stage3": null,
+  "pipeline_status": "success",
+  "evaluation_metadata": {
+    "id": "C04",
+    "true_type": "book",
+    "notes": "complete book",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.767769Z"
+  }
+}

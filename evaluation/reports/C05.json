@@ -1,0 +1,15 @@
+{
+  "raw_reference": "Hastie, T., Tibshirani, R. and Friedman, J. (2009) 'Statistical learning and sparse modeling', in The Elements of Statistical Learning. 2nd edn. New York: Springer, pp.1-18.",
+  "reference_type": "journal",
+  "type_confidence": 0.5903128804470628,
+  "stage2": null,
+  "stage3": null,
+  "pipeline_status": "rejected_stage1",
+  "evaluation_metadata": {
+    "id": "C05",
+    "true_type": "book_chapter",
+    "notes": "book chapter with page range",
+    "analysis_mode": true,
+    "timestamp": "2026-02-09T14:57:58.785261Z"
+  }
+}
