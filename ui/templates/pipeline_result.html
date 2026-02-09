@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Pipeline Analysis - ZiReference Assistant</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    integrity="sha384-" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    .stage-section {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #dee2e6;
+      border-radius: 0.25rem;
+    }
+
+    .stage-header {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #dee2e6;
+    }
+
+    .confidence-high {
+      color: #198754;
+      font-weight: 600;
+    }
+
+    .confidence-medium {
+      color: #fd7e14;
+      font-weight: 600;
+    }
+
+    .confidence-low {
+      color: #dc3545;
+      font-weight: 600;
+    }
+
+    .stage3-suggestion {
+      background-color: #fff3cd;
+      border: 2px dashed #ffc107;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    .field-row {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .field-row:last-child {
+      border-bottom: none;
+    }
+
+    .field-label {
+      font-weight: 600;
+      color: #6c757d;
+      min-width: 120px;
+      display: inline-block;
+    }
+
+    .timestamp {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top Taskbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <span class="navbar-brand">ZiReference Assistant</span>
+      <div class="navbar-nav ms-auto flex-row align-items-center">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
+          <i class="bi bi-person-circle"></i> Welcome {{ current_user.username }}
+        </a>
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+        {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm me-2">Login</a>
+        <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <div class="container py-4">
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+      role="alert">
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Pipeline Analysis</li>
+      </ol>
+    </nav>
+
+    <h1 class="mb-3">Pipeline Analysis Report</h1>
+    <p class="timestamp mb-4">
+      <i class="bi bi-clock"></i> Analysis run: {{ timestamp }}
+    </p>
+
+    {% if result %}
+    <!-- Raw Reference -->
+    <div class="card mb-4">
+      <div class="card-header bg-light">
+        <h5 class="mb-0">Input Reference</h5>
+      </div>
+      <div class="card-body">
+        <pre class="mb-0" style="white-space: pre-wrap; word-wrap: break-word;">{{ result.raw_reference }}</pre>
+      </div>
+    </div>
+
+    <!-- Stage 1: Classification -->
+    <div class="stage-section">
+      <div class="stage-header">
+        <i class="bi bi-1-circle"></i> Stage 1: Reference Type Classification
+      </div>
+      {% if result.pipeline_status == 'rejected_stage1' %}
+      <div class="alert alert-warning mb-0">
+        <strong>Classification Rejected</strong><br>
+        Type: <code>{{ result.reference_type }}</code><br>
+        Confidence: <span class="confidence-low">{{ "%.1f"|format(result.type_confidence * 100) }}%</span><br>
+        <em>Pipeline halted due to low confidence (&lt; 75%).</em>
+      </div>
+      {% else %}
+      <div class="field-row">
+        <span class="field-label">Predicted Type:</span>
+        <span class="badge bg-primary">{{ result.reference_type }}</span>
+      </div>
+      <div class="field-row">
+        <span class="field-label">Confidence:</span>
+        {% set conf_pct = result.type_confidence * 100 %}
+        {% if conf_pct >= 85 %}
+        <span class="confidence-high">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% elif conf_pct >= 75 %}
+        <span class="confidence-medium">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% else %}
+        <span class="confidence-low">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Stage 2: Field Extraction -->
+    {% if result.stage2 %}
+    <div class="stage-section">
+      <div class="stage-header">
+        <i class="bi bi-2-circle"></i> Stage 2: Deterministic Field Extraction
+      </div>
+      <div class="field-row">
+        <span class="field-label">Extraction Status:</span>
+        {% if result.stage2.extraction_status == 'complete' %}
+        <span class="badge bg-success">Complete</span>
+        {% elif result.stage2.extraction_status == 'partial' %}
+        <span class="badge bg-warning">Partial</span>
+        {% else %}
+        <span class="badge bg-danger">Failed</span>
+        {% endif %}
+      </div>
+
+      {% if result.stage2.extracted_fields %}
+      <h6 class="mt-3 mb-2">Extracted Fields:</h6>
+      {% for field, value in result.stage2.extracted_fields.items() %}
+      {% if value %}
+      <div class="field-row">
+        <span class="field-label">{{ field|capitalize }}:</span>
+        <span>{{ value }}</span>
+      </div>
+      {% endif %}
+      {% endfor %}
+      {% endif %}
+
+      {% if result.stage2.field_confidence %}
+      <h6 class="mt-3 mb-2">Field Confidence Scores:</h6>
+      {% for field, conf in result.stage2.field_confidence.items() %}
+      <div class="field-row">
+        <span class="field-label">{{ field|capitalize }}:</span>
+        {% set conf_pct = conf * 100 %}
+        {% if conf_pct >= 80 %}
+        <span class="confidence-high">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% elif conf_pct >= 50 %}
+        <span class="confidence-medium">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% else %}
+        <span class="confidence-low">{{ "%.1f"|format(conf_pct) }}%</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+    {% elif result.pipeline_status != 'rejected_stage1' %}
+    <div class="stage-section">
+      <div class="stage-header">
+        <i class="bi bi-2-circle"></i> Stage 2: Deterministic Field Extraction
+      </div>
+      <div class="alert alert-secondary mb-0">
+        <em>Not executed (Stage 1 rejection)</em>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Stage 3: Remediation -->
+    <div class="stage-section">
+      <div class="stage-header">
+        <i class="bi bi-3-circle"></i> Stage 3: Generative Remediation
+      </div>
+      {% if result.stage3 %}
+        {% if result.stage3.status == 'skipped_analysis_mode' %}
+        <div class="alert alert-info mb-0">
+          <i class="bi bi-info-circle"></i> <strong>{{ result.stage3.message }}</strong><br>
+          <small>This is a read-only analysis view. Stage 3 execution is disabled to prevent external API calls and ensure deterministic behavior.</small>
+        </div>
+        {% elif result.stage3.suggestions %}
+        <div class="alert alert-warning mb-2">
+          <i class="bi bi-exclamation-triangle"></i> <strong>Requires Review:</strong> Stage 3 suggestions are AI-generated and must be manually verified.
+        </div>
+        {% for field, suggestion in result.stage3.suggestions.items() %}
+        <div class="stage3-suggestion">
+          <div class="field-row">
+            <span class="field-label">Field:</span>
+            <strong>{{ field|capitalize }}</strong>
+          </div>
+          <div class="field-row">
+            <span class="field-label">Suggestion:</span>
+            <span>{{ suggestion.value }}</span>
+          </div>
+          <div class="field-row">
+            <span class="field-label">Confidence:</span>
+            <span class="confidence-medium">{{ "%.1f"|format(suggestion.confidence * 100) }}%</span>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="alert alert-secondary mb-0">
+          <em>No suggestions generated</em>
+        </div>
+        {% endif %}
+      {% else %}
+      <div class="alert alert-secondary mb-0">
+        <em>Skipped (Stage 2 extraction was complete)</em>
+      </div>
+      {% endif %}
+    </div>
+
+    {% else %}
+    <div class="alert alert-danger">
+      <h4 class="alert-heading">Analysis Failed</h4>
+      <p>Unable to process the reference. Please check the input and try again.</p>
+    </div>
+    {% endif %}
+
+    <div class="mt-4 text-center">
+      <a href="{{ url_for('pipeline_analyze') }}" class="btn btn-primary">
+        <i class="bi bi-arrow-repeat"></i> New Analysis
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+        <i class="bi bi-house-door"></i> Back to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script>
+    // Auto-dismiss alert messages after 5 seconds
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(function () {
+        let alerts = document.querySelectorAll('.alert-dismissible');
+        alerts.forEach(function (alert) {
+          let bootstrapAlert = new bootstrap.Alert(alert);
+          bootstrapAlert.close();
+        });
+      }, 5000);
+    });
+  </script>
+</body>
+
+</html>

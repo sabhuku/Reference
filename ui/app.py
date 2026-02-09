@@ -2021,6 +2021,56 @@ def analytics_dashboard():
         flash("Error loading analytics data.", "error")
         return redirect(url_for('index'))
 
+# ============================================================================
+# PIPELINE ANALYSIS ROUTE (ML Pipeline Results View)
+# ============================================================================
+
+@app.route('/pipeline/analyze', methods=['GET', 'POST'])
+@login_required
+@limiter.limit("5 per minute")
+def pipeline_analyze():
+    """
+    Pipeline analysis route - displays ML pipeline results in read-only view.
+    
+    SAFETY: Runs pipeline in analysis_mode=True to prevent Stage 3 execution.
+    """
+    from datetime import datetime
+    
+    if request.method == 'GET':
+        # Display input form
+        return render_template('pipeline_analyze_form.html')
+    
+    # POST: Process reference
+    reference_text = request.form.get('reference_text', '').strip()
+    
+    if not reference_text:
+        flash('Please enter a reference to analyze.', 'warning')
+        return redirect(url_for('pipeline_analyze'))
+    
+    try:
+        # Import pipeline
+        from modelling.pipeline import run_pipeline
+        
+        # Run pipeline in ANALYSIS MODE (Stage 3 disabled)
+        result = run_pipeline(reference_text, analysis_mode=True)
+        
+        # Add timestamp for immutability
+        timestamp = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
+        
+        # Log analytics (backend-only)
+        from src.analytics import AnalyticsLogger
+        current_project_id = session.get('current_project_id')
+        AnalyticsLogger.log_pipeline_analysis(result, project_id=current_project_id)
+        
+        return render_template('pipeline_result.html', 
+                             result=result, 
+                             timestamp=timestamp)
+    
+    except Exception as e:
+        app.logger.error(f"Pipeline analysis error: {e}")
+        flash(f'Pipeline analysis failed: {str(e)}', 'danger')
+        return redirect(url_for('pipeline_analyze'))
+
 # Simple health route
 @app.route("/health", methods=["GET"])
 def health():

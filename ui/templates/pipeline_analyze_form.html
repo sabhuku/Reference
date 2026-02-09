@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pipeline Analysis - ZiReference Assistant</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <!-- Top Taskbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <span class="navbar-brand">ZiReference Assistant</span>
+            <div class="navbar-nav ms-auto flex-row align-items-center">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('profile') }}" class="navbar-text me-3 text-white text-decoration-none">
+                    <i class="bi bi-person-circle"></i> Welcome {{ current_user.username }}
+                </a>
+                <a href="{{ url_for('logout') }}" class="btn btn-outline-light btn-sm">Logout</a>
+                {% else %}
+                <a href="{{ url_for('login') }}" class="btn btn-outline-light btn-sm me-2">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-light btn-sm">Sign Up</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show"
+            role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pipeline Analysis</li>
+            </ol>
+        </nav>
+
+        <h1 class="mb-3">ML Pipeline Analysis</h1>
+        <p class="text-muted mb-4">
+            Analyze a reference using the ML pipeline (Stage 1: Classification, Stage 2: Extraction, Stage 3:
+            Remediation).
+        </p>
+
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle"></i> <strong>Read-Only Analysis Mode:</strong> This tool runs the pipeline in
+            passive mode for demonstration and analysis purposes. Stage 3 (generative remediation) is disabled to ensure
+            deterministic behavior.
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('pipeline_analyze') }}">
+                    <div class="mb-3">
+                        <label for="reference_text" class="form-label">Reference Text</label>
+                        <textarea class="form-control" id="reference_text" name="reference_text" rows="6"
+                            placeholder="Paste a reference here, e.g.:&#10;&#10;Hochreiter, S. and Schmidhuber, J. (1997) 'Long short-term memory', Neural Computation, 9(8), pp.1735-1780."
+                            required></textarea>
+                        <div class="form-text">Enter a single reference in any format (Harvard, APA, etc.)</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-play-circle"></i> Analyze Reference
+                    </button>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle"></i> Cancel
+                    </a>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <h5>Example References to Try:</h5>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <strong>Journal Article:</strong><br>
+                    <code>Hochreiter, S. and Schmidhuber, J. (1997) 'Long short-term memory', Neural Computation, 9(8), pp.1735-1780.</code>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <strong>Book:</strong><br>
+                    <code>Smith, J. (2020) Introduction to Machine Learning. Cambridge: MIT Press.</code>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <div class="card-body">
+                    <strong>Website:</strong><br>
+                    <code>Google (2020) Search Engine. Available at: https://google.com (Accessed: 5 February 2026).</code>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        // Auto-dismiss alert messages after 5 seconds
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                let alerts = document.querySelectorAll('.alert-dismissible');
+                alerts.forEach(function (alert) {
+                    let bootstrapAlert = new bootstrap.Alert(alert);
+                    bootstrapAlert.close();
+                });
+            }, 5000);
+        });
+    </script>
+</body>
+
+</html>

@@ -63,6 +63,28 @@ class AnalyticsLogger:
             logger.error(f"Failed to extract compliance stats: {e}")
 
     @staticmethod
+    def log_pipeline_analysis(pipeline_result: Dict[str, Any], project_id: str = None):
+        """
+        Log pipeline analysis event (backend-only, no UI dashboard).
+        
+        Args:
+            pipeline_result: Full pipeline envelope from run_pipeline()
+            project_id: Optional project ID
+        """
+        try:
+            data = {
+                "reference_type": pipeline_result.get("reference_type"),
+                "type_confidence": pipeline_result.get("type_confidence"),
+                "stage2_status": pipeline_result.get("stage2", {}).get("extraction_status") if pipeline_result.get("stage2") else None,
+                "stage3_invoked": pipeline_result.get("stage3") is not None,
+                "stage3_status": pipeline_result.get("stage3", {}).get("status") if pipeline_result.get("stage3") else None,
+                "pipeline_status": pipeline_result.get("pipeline_status")
+            }
+            AnalyticsLogger.log_event("pipeline_analysis", data, project_id=project_id)
+        except Exception as e:
+            logger.error(f"Failed to log pipeline analysis: {e}")
+
+    @staticmethod
     def log_edit_event(ref_id: str, changes: Dict[str, Any], project_id: str = None):
         """Log manual edits."""
         AnalyticsLogger.log_event("reference_edited", {

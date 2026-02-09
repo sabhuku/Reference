@@ -132,7 +132,7 @@ def predict_stage1(raw_reference: str) -> Dict[str, Any]:
         # Mock/Fallback if model file missing
         return {"predicted_type": "unknown", "type_confidence": 0.0}
 
-def run_pipeline(raw_reference: str, _mock_stage1_output: Optional[Dict] = None) -> Dict[str, Any]:
+def run_pipeline(raw_reference: str, _mock_stage1_output: Optional[Dict] = None, analysis_mode: bool = False) -> Dict[str, Any]:
     """
     Phase 4 Orchestration Pipeline.
     Integrates Stage 1 (Classify), Stage 2 (Extract), and Stage 3 (Remediate).
@@ -140,6 +140,8 @@ def run_pipeline(raw_reference: str, _mock_stage1_output: Optional[Dict] = None)
     Args:
         raw_reference: The reference string.
         _mock_stage1_output: For testing only. Overrides Stage 1 prediction.
+        analysis_mode: If True, Stage 3 is NEVER executed (passive reporting only).
+                      Prevents external API calls and generative remediation.
         
     Returns:
         Full pipeline envelope.
@@ -178,6 +180,13 @@ def run_pipeline(raw_reference: str, _mock_stage1_output: Optional[Dict] = None)
     if s2_status == "complete":
         # SKIP Stage 3 describes intent: Deterministic layer was sufficient
         pass
+    elif analysis_mode:
+        # ANALYSIS MODE: Stage 3 is DISABLED for passive reporting
+        # No external API calls or generative remediation
+        stage3_result = {
+            "status": "skipped_analysis_mode",
+            "message": "Stage 3 disabled in analysis mode (passive reporting)"
+        }
     else:
         # CALL Stage 3
         # Construct input envelope for Stage 3
